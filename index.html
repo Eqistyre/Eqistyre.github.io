@@ -157,10 +157,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-动态的属性与传递参数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/11/my-new-post/" class="article-date">
+      <a href="/2015/09/11/动态的属性与传递参数/" class="article-date">
   	<time datetime="2015-09-11T01:38:35.000Z" itemprop="datePublished">2015-09-11</time>
 </a>
     </div>
@@ -174,7 +174,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/11/my-new-post/">动态的属性与传递参数</a>
+      <a class="article-title" href="/2015/09/11/动态的属性与传递参数/">动态的属性与传递参数</a>
     </h1>
   
 
@@ -183,14 +183,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###随手写的一些小东西</p>
-<p>#####动态的属性<br>    var person = new Object();<br>    person.name = “nico”;<br>    alert(person.name);//“nico”</p>
-<pre><code><span class="variable"><span class="keyword">var</span> perosn</span> = <span class="string">"nico"</span>;
+        <h3 id="随手写的一些小东西">随手写的一些小东西</h3><hr>
+<h5 id="动态的属性">动态的属性</h5><pre><code><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();
+person.name = <span class="string">"nico"</span>;
+alert(person.name);<span class="comment">//"nico"</span>
+
+<span class="keyword">var</span> perosn = <span class="string">"nico"</span>;
 person.age = <span class="string">"17"</span>;
 alert(person.age);<span class="comment">//warning undefined;</span>
 </code></pre><p>我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。</p>
-<p>#####传递参数<br>    function add(num) {<br>        num += 10;<br>        return num;<br>    }</p>
-<pre><code><span class="keyword">var</span> count = <span class="number">20</span>;
+<h5 id="传递参数">传递参数</h5><pre><code>function add(num) {
+    num += <span class="number">10</span>;
+    <span class="keyword">return</span> num;
+}
+
+<span class="keyword">var</span> count = <span class="number">20</span>;
 <span class="keyword">var</span> <span class="literal">result</span> = add(count);
 alert(count);//<span class="number">20</span>
 alert(<span class="literal">result</span>);//<span class="number">30</span>
