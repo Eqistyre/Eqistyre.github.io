@@ -85,6 +85,8 @@
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="/tags/技术">技术</a></li>
+				        
 							<li><a href="/tags/随笔">随笔</a></li>
 				        
 						</ul>
@@ -93,6 +95,8 @@
 						<div class="social">
 							
 								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/stillalive@aliyun.com" title="mail">mail</a>
 					        
 						</div>
 					</nav>
@@ -144,6 +148,8 @@
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="/tags/技术">技术</a></li>
+		        
 					<li><a href="/tags/随笔">随笔</a></li>
 		        
 		        <div class="clearfix"></div>
@@ -154,6 +160,8 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
 			        
+						<a class="mail" target="_blank" href="/stillalive@aliyun.com" title="mail">mail</a>
+			        
 				</div>
 			</nav>
 		</header>				
@@ -161,11 +169,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-9.21日小结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-随手写的一些小东西" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/17/9.21日小结/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
+      <a href="/2015/10/17/随手写的一些小东西/" class="article-date">
+  	<time datetime="2015-10-17T01:27:44.000Z" itemprop="datePublished">2015-10-17</time>
 </a>
     </div>
   
@@ -176,22 +184,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##9.21日小结</p>
+        <p>随手写的一些小东西</p>
 <hr>
-<p>####函数声明与函数表达式</p>
-<p><li>函数声明<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数声明中会发生函数声明提升的情况。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><li>函数表达式<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="function"><span class="keyword">function</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//函数体</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<p>这种形式看起来很像是常规的变量赋值语句，即创建一个函数并将其付给变量functionName，这种情况下创建的函数是匿名函数，又被称作拉姆达函数。<br>函数表达式不涉及函数提升</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="keyword">var</span> sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>函数提升呃关键就是理解函数声明与函数表达式之间的区别。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	function sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	functin sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>会报错，且大多数浏览器会返回第二个声明,所以我们可以这样做。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	sayHi ＝ <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####闭包</p>
+<p>动态的属性<br>    var person = new Object();<br>    person.name = “nico”;<br>    alert(person.name);//“nico”</p>
+<pre><code><span class="variable"><span class="keyword">var</span> perosn</span> = <span class="string">"nico"</span>;
+person.age = <span class="string">"17"</span>;
+alert(person.age);<span class="comment">//warning undefined;</span>
+</code></pre><p>我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。</p>
+<p>传递参数<br>    function add(num) {<br>        num += 10;<br>        return num;<br>    }</p>
+<pre><code><span class="keyword">var</span> count = <span class="number">20</span>;
+<span class="keyword">var</span> <span class="literal">result</span> = add(count);
+alert(count);//<span class="number">20</span>
+alert(<span class="literal">result</span>);//<span class="number">30</span>
+</code></pre><p>我们可以看出来这里只是按值传递即不传递count，而仅仅将count的值20赋给了num，并不是引用传递。</p>
+<hr>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
+    obj.name = <span class="string">"nico"</span>;
+}
+
+<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
+setName(person);
+alert(person.name); <span class="comment">//nico</span>
+</code></pre><p>上述代码创建了一个对象，并将其保存在了变量person中。然后这个对象被传递到setName（）函数中之后就被复制给了obj。<em>在这个函数内部，obj与person引用的是同一个对象。换句话说，即使这个对象是按值传递的，obj也会引用一个相同的对象。于是，当在函数内部为obj添加name属性后，函数外部的person也将有所反映；因为person指向的对象在堆内存中只有一个。</em></p>
+<hr>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
+    obj.name = <span class="string">"nico"</span>;
+    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();
+    obj.name = <span class="string">"Greg"</span>;
+}
+
+<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
+setName(person);
+alert(person.name); <span class="comment">//nico</span>
+</code></pre><p>如果是按引用传递的话那么应该显示为Greg，毕竟在被初始化后仍然还应该被继续引用。但是并不是，因为只是按值传递，在初始化后，值改变了，于是使用obj.name便是引用一个局部对象了，而且这个对象会在函数执行完毕之后立即销毁。</p>
 
       
     </div>
@@ -216,454 +241,6 @@
 
 
   
-    <article id="post-10.10" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/10.10/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##10.10</p>
-<hr>
-<p>###cocos-js</p>
-<p>####<li>Menu类<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var startItem = <span class="keyword">new</span> cc.MenuItemImage(</span><br><span class="line">           res.Start_N_png,</span><br><span class="line">           res.Start_S_png,</span><br><span class="line">           function () &#123;</span><br><span class="line">               cc.<span class="built_in">log</span>(<span class="string">"Menu is clicked!"</span>);</span><br><span class="line">           &#125;, <span class="keyword">this</span>);</span><br><span class="line">       startItem.attr(&#123;</span><br><span class="line">           x: size.width / <span class="number">2</span>,</span><br><span class="line">           y: size.height / <span class="number">2</span> - <span class="number">60</span>,</span><br><span class="line">           anchorX: <span class="number">0.5</span>,</span><br><span class="line">           anchorY: <span class="number">0.5</span></span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">       var _startmenu = <span class="keyword">new</span> cc.Menu(startItem);</span><br><span class="line">       _startmenu.x = <span class="number">0</span>;</span><br><span class="line">       _startmenu.y = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">this</span>.addChild(_startmenu, <span class="number">2</span>);</span><br></pre></td></tr></table></figure></li></p>
-<p>我们可以知道先创建了一个新实例startItem，然后第一个参数是未点击时的图片，第二个时点击了的时候的图片，以及一个匿名函数表示他的时间，这里我们使用的是log日志。然后我们控制它的属性，并且把他的属性设置为size的一般，也就是使它有居中的效果，最后我们把这个menu放入这个层中。</p>
-<p>####<li>触摸的一些设定</li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setTouchEnabled(<span class="literal">true</span>);  <span class="comment">// 设置触摸模式为：可用</span></span><br><span class="line"><span class="keyword">this</span>.setKeyboardEnabled(<span class="literal">true</span>);  <span class="comment">// 设置键盘为：可用</span></span><br><span class="line"><span class="keyword">this</span>.setMouseEnabled(<span class="literal">true</span>);  <span class="comment">// 设置鼠标为：可用</span></span><br></pre></td></tr></table></figure>
-<p>如代码所示，这样我们就可以把这些启用了，这个时候我们想如果我们要将我们所做的这个人物进行移动应该怎么办呢？</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">onMouseDragged:<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> </span>&#123; <span class="comment">// 方法：鼠标拖动事件记录</span></span><br><span class="line">  <span class="keyword">this</span>.processEvent(event);  <span class="comment">// 调用方法</span></span><br><span class="line">  processEvent</span><br><span class="line">&#125;,</span><br><span class="line">processEvent:<span class="function"><span class="keyword">function</span><span class="params">(event)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> delta = event.getDelta(); <span class="comment">// 获得触摸位移</span></span><br><span class="line">  <span class="keyword">var</span> curPos = <span class="keyword">this</span>._jetSprite.getPosition(); <span class="comment">// 获得位置</span></span><br><span class="line">  curPos= cc.pAdd(curPos, delta); <span class="comment">// 触摸位移+ 原本位置= 新的位置</span></span><br><span class="line">  curPos= cc.pClamp(curPos, cc.POINT_ZERO, cc.p(<span class="keyword">this</span>._size.width, <span class="keyword">this</span>._size.height)); <span class="comment">// 触摸范围（超出屏幕无效）</span></span><br><span class="line">  <span class="keyword">this</span>._jetSprite.setPosition(curPos);<span class="comment">// 设定新位置&#125;</span></span><br></pre></td></tr></table></figure>
-<p>解决方法如上所示，即通过当鼠标拖动的时候会响应一个onMouseDragged事件，然后调用processEvent()这个方法，我们获取触摸的位移，再获取位置参数curPos,我们使curPos不断刷新，最后完成更新。</p>
-<p>####<li>碰撞</li></p>
-<p>主要是些物理引擎啦，明天再写吧</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-vim那些事" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/vim那些事/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##VIM那些事</p>
-<hr>
-<p>#####用vim写c＋＋总有一些不一样的感觉呀。<br>先记录下今天看到的内容<br></p>
-<p><li>三种模式：这三种模式分别叫做command模式，Insert模式，Visual模式。 i键进入Insert模式，esc进入command，在command下上下左右是hjkl四个键（左h右l上k下j)。</li></p>
-<p><li>命令模式中可以使用dd这种方式进行删除的操作，20dd删除光标向下20行内容。</li></p>
-<p><li>命令行中输入东西之后可以直接进行查询功能，比如说/the 然后就可以搜索所有文档中含有the的内容。</li></p>
-<p><li>查找并手动替换： ％s/content/copy/g copy 替换content 好厉害的替代法。</li></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-canvas绘图的一些简单知识" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/canvas绘图的一些简单知识/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Canvas绘图的一些简单知识</p>
-<hr>
-<p>canvas是一块画布。</p>
-<p>######<li>导入方式<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">canvas</span> id = <span class="string">"canvas"</span>&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure></li></p>
-<p>######<li>不使用css控制大小<br>css控制的是canvas实际显示的大小，而canvas的大小还包括其分辨率。</li></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">canvas</span> id = <span class="string">"canvas"</span> <span class="attribute">width</span> = <span class="string">"1024"</span> <span class="attribute">height</span> = <span class="string">"768"</span>&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure>
-<p>注意不加单位px，这是符合w3标准的</p>
-<p>######<li>javascript上的初始化</li></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> canvas</span> = document.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="variable"><span class="keyword">var</span> context</span> = canvas.geTContext(<span class="string">"2d"</span>);</span><br></pre></td></tr></table></figure>
-<p>同时在javasxcript层面我们也能决定canvas的大小，代码如下：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> canvas</span> = document.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line">canvas.width = <span class="number">1024</span>;</span><br><span class="line">canvas.height = <span class="number">768</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> context</span> = can'tanvas.geTContext(<span class="string">"2d"</span>);</span><br></pre></td></tr></table></figure>
-<p>######<li>一些基本的语法<br>｀</li></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9月3日日记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9月3日日记/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###久违的Github</p>
-<hr>
-<p>####自己也已经好久没有写Github了，今天是15年的9月5日，也该开始新学期的新生活了。</p>
-<p>#####这里将纪录下自己的学习生活历程。</p>
-<hr>
-<p>#####自己这个暑假读了这些书<br></p>
-<p><li>JavaScript DOM编程艺术</li></p>
-<p><li>JQuery实战<br><br>好像也就这两本了。。<br></li></p>
-<p>#####慕客网的公开课倒是看了不少</p>
-<p><li>版本控制—搬进GitHub<br></li></p>
-<p><li>DOM事件探秘<br></li></p>
-<p><li>HTML＋CSS基础课程<br></li></p>
-<p><li>JS+CSS3实现带预览图幻灯片效果<br></li></p>
-<p><li>JavaScript入门篇<br></li></p>
-<p><li>在Ubuntu Server下搭建LAMP环境<br></li></p>
-<p>#####服务器端也尝试了一下</p>
-<p><li>搭建了一个LAMP环境<br></li></p>
-<p><li>尝试了一些基本的Linux操作<br></li></p>
-<hr>
-<p>#####关于新的学期还是有许多憧憬与愿望的<br>九十月份想看的书</p>
-<p><li>node.js开发指南</li></p>
-<p><li>php与MysqlWeb开发</li></p>
-<p>希望自己能够做到吧</p>
-<p>#####自己的个人博客还在搭建中希望十月份前能够出来一个大致的内容吧。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9月13日的午间随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9月13日的午间随笔/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####9月13日的午间随笔</p>
-<hr>
-<p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
-<hr>
-<p>顺便熟悉一下Linux下的一些命令<br><br>cat:该命令是Concatenate的缩写（串联，联系），具有三大功能<br></p>
-<p><li>一次显示整个文件，$cat filename</li></p>
-<p><li>从键盘创建一个文件。$ cat &gt; filename。<br><br>cat是输出文件内容的命令，&gt;filename表示把内容送到文件filename里而不是默认的屏幕<br>但是这里cat后面没有参数，意味着cat将从键盘读取数据输入到filename中，以CTRL+D结束。</li></p>
-<p><li>将几个文件合并为一个文件：$cat file1 file2 &gt; file</li></p>
-<hr>
-<p>相关参数<br><br>-n 或 –number 由 1 开始对所有输出的行数编号<br><br>-b 或 –number-nonblank 和 -n 相似，只不过对于空白行不编号<br><br>-s 或 –squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行<br><br>-v 或 –show-nonprinting<br><br>例：把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里<br><br>cat -n textfile1 &gt; textfile2<br></p>
-<p>把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。<br><br>cat -b textfile1 textfile2 &gt;&gt; textfile3</p>
-<p>把test.txt文件扔进垃圾箱，赋空值<br><br>test.txt<br>cat /dev/null &gt; /etc/test.txt  </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9月13日的一些随感" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9月13日的一些随感/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#####9月13日的一些随感</p>
-<hr>
-<p>完成了人生中第一个后台数据接收系统虽然整个项目加起来也就120多行，但是我还是很happy。在做这个东西的时候也遇到了不少的问题。</p>
-<p><li>1.关于权限问题，我们知道我们从接收的信息是要储存到一个文件里面收集起来，这样的话我们以后才可以调用，但是同时我们也要有相应的权限去打开去读取这个数据，所以我们可以采用chmod的方法改变相应权限。代码如下：</li></p>
-<hr>
-<pre><code>mkdir ~/orders    <span class="comment">//我们创建一个订单目录</span>
-chmod <span class="number">777</span> ~/orders    <span class="comment">//给这个订单目录777（八进制7，换为二进制111，说明它具有读写执行的权限）</span>
-</code></pre><hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9月12日的一些感想" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9月12日的一些感想/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####9月12日的一些感想</p>
-<hr>
-<p>######今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。</p>
-<p>######<li>mkdir<br>    mkdir[-p]rName<br>建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。</li></p>
-<p>######<li>chmod<br>改变一个或多个文件的存取模式(mod)<br><br>chmod [options] mode files.<br><br>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</li></p>
-<hr>
-<p>下面来谈谈关于权限的事情<br><br>我们常用三位八位制数字来表示权限，比图说777，666，111。<br><br>4(100)为读，2(010)为写，1(001)执行,6=4+2即有读与写的权限。<br><br><br>$ chmod u+x file                　　　   给file的属主增加执行权限<br><br><br>$ chmod 751 file                　　　   给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限<br><br><br>$ chmod u=rwx,g=rx,o=x file      上例的另一种形式<br><br><br>$ chmod =r file                 　　　　为所有用户分配读权限<br><br><br>$ chmod 444 file              　　　　 同上例<br><br><br>$ chmod a-wx,a+r   file   　　 　   同上例<br><br><br>$ chmod -R u+r directory       　   递归地给directory目录下所有文件和子目录的属主分配读的权限<br><br><br>$ chmod 4755                          　　设置用ID，给属主分配读、写和执行权限，给组和其他用户分配读、执行的权限。<br><br></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9.26" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9.26/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##9.26</p>
-<hr>
-<p>#####<li>结构体<br>结构体感觉就和被阉割的类的感觉一样</li></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> player &#123;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">float</span> height;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    player liyuehua = &#123;			<span class="comment">//要使用 “＝”</span></span><br><span class="line">        <span class="string">"liyuehua"</span>,</span><br><span class="line">        <span class="number">1.84</span>,</span><br><span class="line">        <span class="number">19</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; liyuehua.name &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; liyuehua.height &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; liyuehua.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#####<li>共用体<br>共用体是一种数据格式，它能够储存不同的数据类型，但职能储存其中一种类型。</li></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">union</span> one4all &#123;</span><br><span class="line">        <span class="keyword">int</span> int_val;</span><br><span class="line">        <span class="keyword">long</span> long_val;</span><br><span class="line">        <span class="keyword">double</span> double_val;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    one4all pail;</span><br><span class="line">    pail.int_val = <span class="number">15</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pail.int_val &lt;&lt; endl;</span><br><span class="line">    pail.double_val = <span class="number">1.38</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pail.double_val &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9.23" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/9.23/" class="article-date">
-  	<time datetime="2015-10-16T20:45:53.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###9.23<br>内联函数：内联函数是一种小型的函数，牺牲空间来节省函数调用的开销，一般用作小型的宏函数，即函数内部没有循环、开关语句等。<br></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAX(a, b) (a)&gt;(b) ? (a):(b)</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>, b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max = MAX(++a, b); <span class="comment">// a自增了两次</span></span><br><span class="line"><span class="keyword">int</span> max = MAX(++a, b+<span class="number">10</span>); <span class="comment">// a自增了一次</span></span><br></pre></td></tr></table></figure>
-<p>这样子便会出现一些问题，就是在</p>
-<hr>
-<p>###构造函数<br>枚举类型</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 </div>
       <footer id="footer">
