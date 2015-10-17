@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript心得（二） | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="9.19日小结
+splice()这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容
+删除splice(0,2)从第一项开始删除两项，即删除头两项。
+插入splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”
+替换splice(2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript心得（二）">
+<meta property="og:url" content="http://sakuraneko.me/2015/09/19/JavaScript心得（二）/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="9.19日小结
+splice()这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容
+删除splice(0,2)从第一项开始删除两项，即删除头两项。
+插入splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”
+替换splice(2">
+<meta property="og:updated_time" content="2015-10-17T06:00:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript心得（二）">
+<meta name="twitter:description" content="9.19日小结
+splice()这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容
+删除splice(0,2)从第一项开始删除两项，即删除头两项。
+插入splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”
+替换splice(2">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/15/1445045469x1822614103.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">雨时煮酒</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">人间二十年</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/15/1445045469x1822614103.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">雨时煮酒</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript心得（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/19/JavaScript心得（二）/" class="article-date">
+  	<time datetime="2015-09-19T02:38:35.000Z" itemprop="datePublished">2015-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript心得（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="9-19日小结">9.19日小结</h2><hr>
+<h4 id="splice()"><li>splice()</li></h4><p>这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。<br><br>原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容</p>
+<p><li>删除<br><br>splice(0,2)从第一项开始删除两项，即删除头两项。<br><br></li></p>
+<p><li>插入<br><br>splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”<br><br></li></p>
+<p><li>替换<br><br>splice(2,2,”red,”green”) 从第二项开始删除两项之后再添加两项即完成了替换功能。<br><br></li></p>
+<h4 id="RegExp类型（正则表达式）"><li>RegExp类型（正则表达式）</li></h4><p>这是个大坑，以后会写一个专题的。</p>
+<h4 id="没有重载"><li>没有重载</li></h4><p>将函数名想象为指针，有助于理解为什么ECMAScript中没有函数重载的概念。<br></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">200</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="literal">result</span> = addSomeNumber(<span class="number">100</span>);//<span class="number">300</span></span><br></pre></td></tr></table></figure>
+<p>后面的函数覆盖了前面的函数，这个例子与下面的例子并没有什么区别</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addSomeNumber = <span class="function"><span class="keyword">function</span><span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">100</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">addSomeNumber = <span class="function"><span class="keyword">function</span><span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看出来当创建第二个函数时，实际上覆盖了引用第一个函数的addSomeNumber函数。</p>
+<h4 id="特殊的解藕技巧"><li>特殊的解藕技巧</li></h4><p>函数内部有两个特殊的对象：arguments和this。其中，arguments包含着传入函数中的所有参数。虽然arguments的主要用途是保存函数参数，但这个对象还有一个叫做callee的属性，这是一个指针，指向拥有这个argument的函数。所以用这个我们可以进行特殊的解藕技巧。<br></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function factorial (<span class="built_in">num</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">num</span> &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">num</span> * factorial(<span class="built_in">num</span>-<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">factorial</span> <span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> num * arguments.callee(num-<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仔细观察我们会发现第一个例子中耦合性太强，所以我们通过指针的方式进行解藕。</p>
+<h4 id="基本包装类型">基本包装类型</h4><p>我想我们还要谈谈引用类型与基本包装类型之间的区别。<br><br>区别主要体现在传送参数的时候。<br></p>
+<p>基本数据类型由于在内存中的一个地址存放的是这些变量的值 所以 调用函数 函数里的形参 就是复制这些变量的值 以后对形参值的变化 不会影响到原来变量的值。</p>
+<p>而引用数据类型由于在内存中是引用他的一个内存地址而不是具体的值 所以 所以 调用函数 函数里的形参 就是复制这些变量的值的地址 当对形参的值 进行修改的时候 就等于是对 这些变量的值 进行修改~ 所以会影响到原来变量的值。</p>
+<p>举个例子</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> s1</span> = <span class="string">"some text"</span>;</span><br><span class="line">s1.color = <span class="string">"red"</span>;</span><br><span class="line">alert(s1.color);<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>你知道这里为什么会出现这种情况呢，因为第二行代码试图为字符串s1添加一个color属性。但是，当第三行代码再次访问s1的时候它的color属性又不见了。问题的原因就是第二行创建的String对象在执行第三行代码的时候已经被销毁了。第三行代码又创建了自己的string对象，但是这个对象是没有相应的属性的。</p>
+<h5 id="常见的基本类型如下">常见的基本类型如下</h5><p><li>Boolean类型<br><br>var booleanObject = new Boolean(true） //true or false</li></p>
+<p><li>Number类型<br><br>var numberObject = new Number(10);</li></p>
+<p><li>String类型<br><br>var stringObject = new String(“Hello world”);</li></p>
+<h4 id="Global对象">Global对象</h4><p><li>eval()方法 <br><br>Eval方法是javascript中最强大的一种方法，这种方法相当于一个javascript解析器，只接受一个参数，即要执行的ECMAscript字符串。<br><br>eval(“alert(‘hi’)”);  等价于 alert(‘hi’);<br><br>所以这种方法十分危险，当它执行用户输入操作时或许会存在代码注入的情况。</li></p>
+<hr>
+<h4 id="总结">总结</h4><p>在所有代码执行之前，作用域中就已经存在了两个内置对象： Global 和 Math。在大多数ECMAScript实现中都不能直接访问GLobal对象；不过，Web浏览器实现了承担该角色的Window对象。全局变量和函数都是Global对象的属性。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/20/JavaScript面向对象的程序设计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript面向对象的程序设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/18/JavaScript心得（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript心得（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

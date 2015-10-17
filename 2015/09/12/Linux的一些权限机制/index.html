@@ -3,42 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>动态的属性与传递参数 | SakuraNeko</title>
+  <title>Linux的一些权限机制 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动态的属性var person = new Object();
-person.name = &quot;nico&quot;;
-alert(person.name);//&quot;nico&quot;
-
-var perosn = &quot;nico&quot;;
-person.age = &quot;17&quot;;
-alert(person.age);//warning undefined;
-我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。
-传递参数fu">
+  <meta name="description" content="9月12日的一些感想
+今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。mkdirmkdir[-p]rName
+建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。
+chmod改变一个或多个文件的存取模式(mod)chmod [options] mode files.只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态的属性与传递参数">
-<meta property="og:url" content="http://sakuraneko.me/2015/09/11/动态的属性与传递参数/index.html">
+<meta property="og:title" content="Linux的一些权限机制">
+<meta property="og:url" content="http://sakuraneko.me/2015/09/12/Linux的一些权限机制/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="动态的属性var person = new Object();
-person.name = &quot;nico&quot;;
-alert(person.name);//&quot;nico&quot;
-
-var perosn = &quot;nico&quot;;
-person.age = &quot;17&quot;;
-alert(person.age);//warning undefined;
-我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。
-传递参数fu">
-<meta property="og:updated_time" content="2015-10-17T05:59:26.000Z">
+<meta property="og:description" content="9月12日的一些感想
+今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。mkdirmkdir[-p]rName
+建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。
+chmod改变一个或多个文件的存取模式(mod)chmod [options] mode files.只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以">
+<meta property="og:updated_time" content="2015-10-17T06:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态的属性与传递参数">
-<meta name="twitter:description" content="动态的属性var person = new Object();
-person.name = &quot;nico&quot;;
-alert(person.name);//&quot;nico&quot;
-
-var perosn = &quot;nico&quot;;
-person.age = &quot;17&quot;;
-alert(person.age);//warning undefined;
-我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。
-传递参数fu">
+<meta name="twitter:title" content="Linux的一些权限机制">
+<meta name="twitter:description" content="9月12日的一些感想
+今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。mkdirmkdir[-p]rName
+建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。
+chmod改变一个或多个文件的存取模式(mod)chmod [options] mode files.只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以">
   
   
     <link rel="icon" href="/favicon.png">
@@ -180,11 +165,11 @@ alert(person.age);//warning undefined;
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-动态的属性与传递参数" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linux的一些权限机制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/11/动态的属性与传递参数/" class="article-date">
-  	<time datetime="2015-09-11T01:38:35.000Z" itemprop="datePublished">2015-09-11</time>
+      <a href="/2015/09/12/Linux的一些权限机制/" class="article-date">
+  	<time datetime="2015-09-12T02:38:35.000Z" itemprop="datePublished">2015-09-12</time>
 </a>
     </div>
   
@@ -197,7 +182,7 @@ alert(person.age);//warning undefined;
         
   
     <h1 class="article-title" itemprop="name">
-      动态的属性与传递参数
+      Linux的一些权限机制
     </h1>
   
 
@@ -213,44 +198,12 @@ alert(person.age);//warning undefined;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="动态的属性">动态的属性</h5><pre><code><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();
-person.name = <span class="string">"nico"</span>;
-alert(person.name);<span class="comment">//"nico"</span>
-
-<span class="keyword">var</span> perosn = <span class="string">"nico"</span>;
-person.age = <span class="string">"17"</span>;
-alert(person.age);<span class="comment">//warning undefined;</span>
-</code></pre><p>我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。</p>
-<h5 id="传递参数">传递参数</h5><pre><code>function add(num) {
-    num += <span class="number">10</span>;
-    <span class="keyword">return</span> num;
-}
-
-<span class="keyword">var</span> count = <span class="number">20</span>;
-<span class="keyword">var</span> <span class="literal">result</span> = add(count);
-alert(count);//<span class="number">20</span>
-alert(<span class="literal">result</span>);//<span class="number">30</span>
-</code></pre><p>我们可以看出来这里只是按值传递即不传递count，而仅仅将count的值20赋给了num，并不是引用传递。</p>
+        <h4 id="9月12日的一些感想">9月12日的一些感想</h4><hr>
+<h6 id="今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。">今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。</h6><h6 id="mkdir"><li>mkdir</li></h6><pre><code>mkdir<span class="string">[-p]</span>rName
+</code></pre><p>建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。</p>
+<h6 id="chmod"><li>chmod</li></h6><p>改变一个或多个文件的存取模式(mod)<br><br>chmod [options] mode files.<br><br>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</p>
 <hr>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
-    obj.name = <span class="string">"nico"</span>;
-}
-
-<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
-setName(person);
-alert(person.name); <span class="comment">//nico</span>
-</code></pre><p>上述代码创建了一个对象，并将其保存在了变量person中。然后这个对象被传递到setName（）函数中之后就被复制给了obj。<em>在这个函数内部，obj与person引用的是同一个对象。换句话说，即使这个对象是按值传递的，obj也会引用一个相同的对象。于是，当在函数内部为obj添加name属性后，函数外部的person也将有所反映；因为person指向的对象在堆内存中只有一个。</em></p>
-<hr>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
-    obj.name = <span class="string">"nico"</span>;
-    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();
-    obj.name = <span class="string">"Greg"</span>;
-}
-
-<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
-setName(person);
-alert(person.name); <span class="comment">//nico</span>
-</code></pre><p>如果是按引用传递的话那么应该显示为Greg，毕竟在被初始化后仍然还应该被继续引用。但是并不是，因为只是按值传递，在初始化后，值改变了，于是使用obj.name便是引用一个局部对象了，而且这个对象会在函数执行完毕之后立即销毁。</p>
+<p>下面来谈谈关于权限的事情<br><br>我们常用三位八位制数字来表示权限，比图说777，666，111。<br><br>4(100)为读，2(010)为写，1(001)执行,6=4+2即有读与写的权限。<br><br><br>$ chmod u+x file                　　　   给file的属主增加执行权限<br><br><br>$ chmod 751 file                　　　   给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限<br><br><br>$ chmod u=rwx,g=rx,o=x file      上例的另一种形式<br><br><br>$ chmod =r file                 　　　　为所有用户分配读权限<br><br><br>$ chmod 444 file              　　　　 同上例<br><br><br>$ chmod a-wx,a+r   file   　　 　   同上例<br><br><br>$ chmod -R u+r directory       　   递归地给directory目录下所有文件和子目录的属主分配读的权限<br><br><br>$ chmod 4755                          　　设置用ID，给属主分配读、写和执行权限，给组和其他用户分配读、执行的权限。<br><br></p>
 
       
     </div>
@@ -260,15 +213,20 @@ alert(person.name); <span class="comment">//nico</span>
     
 <nav id="article-nav">
   
-    <a href="/2015/09/12/Linux的一些权限机制/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/13/一些Linux的命令/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Linux的一些权限机制
+          一些Linux的命令
         
       </div>
     </a>
   
+  
+    <a href="/2015/09/11/动态的属性与传递参数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态的属性与传递参数</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
