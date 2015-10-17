@@ -5,25 +5,22 @@
   
   <title>JavaScript面向对象的程序设计 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.20日小结
-面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
+  <meta name="description" content="9.20日小结面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
 12345678var person = new Object();person.name = &quot;sakura&quot;;person.age = 18;person.job = &quot;Weber&quot;;person.sayName = function() &amp;#123;	alert(this.name);&amp;#125;
-这种方法创建了">
+这种方法创建了一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript面向对象的程序设计">
 <meta property="og:url" content="http://sakuraneko.me/2015/09/20/JavaScript面向对象的程序设计/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="9.20日小结
-面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
+<meta property="og:description" content="9.20日小结面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
 12345678var person = new Object();person.name = &quot;sakura&quot;;person.age = 18;person.job = &quot;Weber&quot;;person.sayName = function() &amp;#123;	alert(this.name);&amp;#125;
-这种方法创建了">
-<meta property="og:updated_time" content="2015-10-17T05:59:50.000Z">
+这种方法创建了一">
+<meta property="og:updated_time" content="2015-10-17T06:01:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript面向对象的程序设计">
-<meta name="twitter:description" content="9.20日小结
-面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
+<meta name="twitter:description" content="9.20日小结面向对象的程序设计序两种创建实例并且为它添加属性和方法的方法。
 12345678var person = new Object();person.name = &quot;sakura&quot;;person.age = 18;person.job = &quot;Weber&quot;;person.sayName = function() &amp;#123;	alert(this.name);&amp;#125;
-这种方法创建了">
+这种方法创建了一">
   
   
     <link rel="icon" href="/favicon.png">
@@ -198,8 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-20日小结">9.20日小结</h2><hr>
-<h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</li></h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
+        <h2 id="9-20日小结">9.20日小结</h2><h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</li></h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line">person.job = <span class="string">"Weber"</span>;</span><br><span class="line"></span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种方法创建了一个实例然后为其一一赋值，几年后，对象字量成为了这种创建对象的首选模式。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name:<span class="string">"Sakura"</span>,</span><br><span class="line">	age:<span class="number">18</span>,</span><br><span class="line">	job:<span class="string">"Weber"</span>,</span><br><span class="line">	</span><br><span class="line">	sayName: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

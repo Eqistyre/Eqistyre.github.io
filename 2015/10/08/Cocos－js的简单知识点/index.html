@@ -5,25 +5,22 @@
   
   <title>Cocos－js的简单知识点 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="10.8
-国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
+  <meta name="description" content="10.8国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
 安装步骤：1.首先我们要把SDK,NDK环境目录配置好。2.然后我们需要把那些奇怪的东西搞好。
-基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos">
+基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cocos－js的简单知识点">
 <meta property="og:url" content="http://sakuraneko.me/2015/10/08/Cocos－js的简单知识点/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="10.8
-国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
+<meta property="og:description" content="10.8国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
 安装步骤：1.首先我们要把SDK,NDK环境目录配置好。2.然后我们需要把那些奇怪的东西搞好。
-基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos">
-<meta property="og:updated_time" content="2015-10-17T05:59:42.000Z">
+基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-">
+<meta property="og:updated_time" content="2015-10-17T06:01:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocos－js的简单知识点">
-<meta name="twitter:description" content="10.8
-国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
+<meta name="twitter:description" content="10.8国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。
 安装步骤：1.首先我们要把SDK,NDK环境目录配置好。2.然后我们需要把那些奇怪的东西搞好。
-基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos">
+基本名词的解释:1.Scene使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-">
   
   
     <link rel="icon" href="/favicon.png">
@@ -198,8 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="10-8">10.8</h2><hr>
-<p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
+        <h2 id="10-8">10.8</h2><p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
 <p><li>安装步骤：<br><br>1.首先我们要把SDK,NDK环境目录配置好。<br><br>2.然后我们需要把那些奇怪的东西搞好。</li></p>
 <p><li>基本名词的解释:<br><br>1.Scene<br><br>使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-JS框架会将前者销毁，该场景中包含的所有图片，文本资源都会被清除<br></li></p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloworldScene = cc.Scene.extend(&#123;</span><br><span class="line">	onEnter:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>._super();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">var</span> layer = <span class="keyword">new</span> HelloWorldLayer();</span><br><span class="line">		<span class="keyword">this</span>.addChild(layer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>

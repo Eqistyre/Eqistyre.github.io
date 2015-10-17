@@ -245,8 +245,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="10-8">10.8</h2><hr>
-<p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
+        <h2 id="10-8">10.8</h2><p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
 <p><li>安装步骤：<br><br>1.首先我们要把SDK,NDK环境目录配置好。<br><br>2.然后我们需要把那些奇怪的东西搞好。</li></p>
 <p><li>基本名词的解释:<br><br>1.Scene<br><br>使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-JS框架会将前者销毁，该场景中包含的所有图片，文本资源都会被清除<br></li></p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloworldScene = cc.Scene.extend(&#123;</span><br><span class="line">	onEnter:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>._super();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">var</span> layer = <span class="keyword">new</span> HelloWorldLayer();</span><br><span class="line">		<span class="keyword">this</span>.addChild(layer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -307,8 +306,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-21日小结">9.21日小结</h2><hr>
-<h4 id="函数声明与函数表达式">函数声明与函数表达式</h4><p><li>函数声明<br></li></p>
+        <h2 id="9-21日小结">9.21日小结</h2><h4 id="函数声明与函数表达式">函数声明与函数表达式</h4><p><li>函数声明<br></li></p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>函数声明中会发生函数声明提升的情况。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -369,8 +367,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-20日小结">9.20日小结</h2><hr>
-<h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</li></h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
+        <h2 id="9-20日小结">9.20日小结</h2><h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</li></h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line">person.job = <span class="string">"Weber"</span>;</span><br><span class="line"></span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种方法创建了一个实例然后为其一一赋值，几年后，对象字量成为了这种创建对象的首选模式。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name:<span class="string">"Sakura"</span>,</span><br><span class="line">	age:<span class="number">18</span>,</span><br><span class="line">	job:<span class="string">"Weber"</span>,</span><br><span class="line">	</span><br><span class="line">	sayName: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -447,8 +444,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-19日小结">9.19日小结</h2><hr>
-<h4 id="splice()"><li>splice()</li></h4><p>这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。<br><br>原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容</p>
+        <h2 id="9-19日小结">9.19日小结</h2><h4 id="splice()"><li>splice()</li></h4><p>这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。<br><br>原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容</p>
 <p><li>删除<br><br>splice(0,2)从第一项开始删除两项，即删除头两项。<br><br></li></p>
 <p><li>插入<br><br>splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”<br><br></li></p>
 <p><li>替换<br><br>splice(2,2,”red,”green”) 从第二项开始删除两项之后再添加两项即完成了替换功能。<br><br></li></p>
@@ -524,8 +520,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-18">9.18</h2><hr>
-<h5 id="javaScript没有块级作用域"><li>javaScript没有块级作用域<br></li></h5><pre><code><span class="keyword">for</span>(var i = <span class="number">0.</span>i &lt; <span class="number">10</span>; i++) {
+        <h2 id="9-18">9.18</h2><h5 id="javaScript没有块级作用域"><li>javaScript没有块级作用域<br></li></h5><pre><code><span class="keyword">for</span>(var i = <span class="number">0.</span>i &lt; <span class="number">10</span>; i++) {
     doSomething[i]
 }
 
@@ -619,8 +614,7 @@ alert(values);  <span class="comment">//0,1,10,15,5</span>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="9月13日的午间随笔">9月13日的午间随笔</h4><hr>
-<p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
+        <h4 id="9月13日的午间随笔">9月13日的午间随笔</h4><p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
 <hr>
 <p>顺便熟悉一下Linux下的一些命令<br><br>cat:该命令是Concatenate的缩写（串联，联系），具有三大功能<br></p>
 <p><li>一次显示整个文件，$cat filename</li></p>
@@ -680,8 +674,7 @@ alert(values);  <span class="comment">//0,1,10,15,5</span>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="9月12日的一些感想">9月12日的一些感想</h4><hr>
-<h6 id="今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。">今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。</h6><h6 id="mkdir"><li>mkdir</li></h6><pre><code>mkdir<span class="string">[-p]</span>rName
+        <h4 id="9月12日的一些感想">9月12日的一些感想</h4><h6 id="今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。">今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。</h6><h6 id="mkdir"><li>mkdir</li></h6><pre><code>mkdir<span class="string">[-p]</span>rName
 </code></pre><p>建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。</p>
 <h6 id="chmod"><li>chmod</li></h6><p>改变一个或多个文件的存取模式(mod)<br><br>chmod [options] mode files.<br><br>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</p>
 <hr>
