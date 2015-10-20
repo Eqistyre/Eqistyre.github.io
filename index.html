@@ -185,10 +185,19 @@
       
         <h3 id="《CSS高效开发实战》读后感">《CSS高效开发实战》读后感</h3><h4 id="第1章"><li>第1章</li></h4><p>使用Modernizr检测支持CSS 3。Modernizr是一个检测浏览器对HTML 5和CSS 3特性是否支持的Javascript库，它是一个开源项目。<li><br>Modernizr的功能其实很简单，就是用Javascript检测浏览器对HTML/CSS 3的特性支持情况。比如说支持某个功能就在页面的<html>标签上添加一个相应的class,不支持某个属性就添加一个带no-前缀的class。比如，如果被检测的浏览器支持video标签，Modernizr就会在<html>标签上添加video类，否则添加no-video类。</html></html></li></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.canvas) &#123;</span><br><span class="line">		<span class="comment">//这里添加Canvas代码</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.localstorage) &#123;</span><br><span class="line">		<span class="comment">//这里添加本地储存代码</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="第2章"><li>第2章</li></h4><p>这一章都是一些复习内容啦,首先复习盒子模型。<br><img src="https://github.com/Eqistyre/diary/blob/master/imgs/BoxModel.png?raw=true" alt="BoxModle"><br><br>首先我们可以看出来盒子模型的具体样式是这样的。<br></p>
+<h4 id="第2章"><li>第2章</li></h4><p>这一章都是一些复习内容啦,首先复习盒子模型。<br><img src="https://github.com/Eqistyre/diary/blob/master/imgs/BoxModel.png?raw=true" alt="BoxModle"><br><br><br>首先我们可以看出来盒子模型的具体样式是这样的。<br></p>
 <p><li>内容<br><br>元素框的最内部分是实际的内容，直接包围内容的是内边距(padding),它呈现了元素的背景。内边距的边缘是边框，边框以外是外边距(margin),外边距默认是透明，因此不会遮挡其后面的任何元素。<br></li></p>
 <p><li>内边框和边框<br><br>内边距和边框的主要作用是装饰。在那边距和内容区域，我们可以显示漂亮的背景，还可以控制边框样式来装点内容。<br><br></li></p>
 <p><li>外边距<br><br>外边距主要用于布局，目的是控制元素之间的距离。<br></li></p>
+<p>常用的属性前缀</p>
+<p><li>-webkit: webkit的核心浏览器，包括Chrome,Safari等。</li></p>
+<p><li>-moz: 火狐浏览器。</li></p>
+<p><li>-ms: IE浏览器。</li></p>
+<p><li>-o: Opera浏览器。<br><br><br>揭开浮动布局的秘密<br><br>float:(none, left, right, inherit)其中none为默认值，即inherit表示继承父元素的float值（但这个很少用，因为IE不支持这个选项）。<br><br>(1)对于块级元素来说，在不设置宽度的情况下，默认的宽度是100%，一旦设置了浮动，它的宽度就会根据内容进行自动调整。<br>(2)设置了浮动的元素会脱离正常的文档流，我们可以这样理解：设置浮动后，元素不仅在y轴上浮了起来，在z轴上，也浮了起来。<strong>譬如：默认情况下，父元素的高度会根据子元素的内容进行调整，而如果我们讲子元素设置为浮动，父元素的高度就会变为0</strong>。</li></p>
+<p>绝对定位技术与实践<br><br>1,绝对定位技术与实战<br>绝对定位的元素有以下几个特点:</p>
+<p><li>块级元素的宽度在未定义时不再为100%，而是根据内容自动调整。</li></p>
+<p><li>在不定义z-index的情况下，absolute元素会覆盖在其它元素之上。</li></p>
+<p><li>它会脱离正常的文档流，不再占用空间，类似于浮动后的效果。</li></p>
 
       
     </div>
