@@ -416,6 +416,69 @@
 
 
   
+    <article id="post-函数原型与函数调用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/08/函数原型与函数调用/" class="article-date">
+  	<time datetime="2015-10-08T02:38:35.000Z" itemprop="datePublished">2015-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/08/函数原型与函数调用/">c++学习知识点纪录（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##初步认识函数<br><br></p>
+<p>####函数与数组<br>函数如何使用指针来处理数组？<br><br>在大多数情况下，C++和C语言一样，也将数组名视为指针。c++酱数组名解释为第一个元素的地址</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookies == &amp;cookies<span class="string">[0]</span></span><br></pre></td></tr></table></figure>
+<p>####函数原型与函数调用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function">diuble <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	cheers(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Cherrs!"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么需要函数原型?<br><br>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量高数编译器。例如，请看原型将如何下述函数调用：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double volume = cube<span class="list">(<span class="keyword">side</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>首先，原型告诉编译器，cube()有一饿double参数。如果程序没有提供这样的函数，原型将让编译器能捕获这种错误。</p>
+<p>####函数和结构<br>现在将注意力从数组转移到结构。为结构编写函数比为数组便携函数要简单得多。虽然结构变量和数组一样，都可以储存多个数据想，但在涉及到函数时，结构变量的行为更接近于基本的单值变量。也就是说与数组不同，结构变量的行为更接近于基本的单值变量。也就是说，与数组不同，结构将其数据组合成单个实体或者数据对象，则更应该被视为一个整体。</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">travel_time</span></span>&#123;</span><br><span class="line">	int hours;</span><br><span class="line">	int mins;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回值的类型为travel_time,两个参数应该也为这种类型。这个东西的函数原型应该如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travel_time <span class="function"><span class="title">sum</span><span class="params">(travel_time t1,travel_time t2)</span></span></span><br></pre></td></tr></table></figure>
+<p>所以有一下程序：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="keyword">struct</span> travel_time &#123;</span><br><span class="line">	<span class="keyword">int</span> hours;</span><br><span class="line">	<span class="keyword">int</span> mins;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Mins_per_hr = <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	travel_time day1 = &#123;<span class="number">5</span>, <span class="number">45</span>&#125;;</span><br><span class="line">	travel_time day2 = &#123;<span class="number">4</span>, <span class="number">45</span>&#125;;	</span><br><span class="line">	</span><br><span class="line">	travel_time trip = sum(day1, day2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Two-day total: "</span>;</span><br><span class="line">	show_time(trip);</span><br><span class="line">	</span><br><span class="line">	travel_time day3 = &#123;<span class="number">4</span>, <span class="number">32</span>&#125;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Three day total: "</span>;</span><br><span class="line">	show_time(sum(trip, day3));</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	travel_time total;</span><br><span class="line">	</span><br><span class="line">	total.mins = (t1.mins + t2.mins) % Mins_per_hr;</span><br><span class="line">	total.hours = t1.hours + t2.hours +(t1.mins + t2.mins) / Mins_per_hr;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; t.hours &lt;&lt; <span class="string">" hours, "</span></span><br><span class="line">		 &lt;&lt; t.mins &lt;&lt;  <span class="string">" minutes\n"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Cocos－js的简单知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -761,66 +824,6 @@ alert(values);  <span class="comment">//0,1,10,15,5</span>
 <p><br><br><br><br><br></p>
 <p>然后还有这个排序这进行两两比较.<br><br>比如你这个数组按升序排列var arrA = [6,2,4,3,5,1];<br><br>第一次比较6,2<br><br>6比2大得到2,6<br><br>原数组变成[2,6,4,3,5,1]<br></p>
 <p><br><br>通过值检测，不断更新数组，最后完成数组排列。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-一些Linux的命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/13/一些Linux的命令/" class="article-date">
-  	<time datetime="2015-09-13T02:38:35.000Z" itemprop="datePublished">2015-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/13/一些Linux的命令/">一些Linux的命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="9月13日的午间随笔">9月13日的午间随笔</h4><p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
-<hr>
-<p>顺便熟悉一下Linux下的一些命令<br><br>cat:该命令是Concatenate的缩写（串联，联系），具有三大功能<br></p>
-<p><li>一次显示整个文件，$cat filename</li></p>
-<p><li>从键盘创建一个文件。$ cat &gt; filename。<br><br>cat是输出文件内容的命令，&gt;filename表示把内容送到文件filename里而不是默认的屏幕<br>但是这里cat后面没有参数，意味着cat将从键盘读取数据输入到filename中，以CTRL+D结束。</li></p>
-<p><li>将几个文件合并为一个文件：$cat file1 file2 &gt; file</li></p>
-<hr>
-<p>相关参数<br><br>-n 或 –number 由 1 开始对所有输出的行数编号<br><br>-b 或 –number-nonblank 和 -n 相似，只不过对于空白行不编号<br><br>-s 或 –squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行<br><br>-v 或 –show-nonprinting<br><br>例：把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里<br><br>cat -n textfile1 &gt; textfile2<br></p>
-<p>把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。<br><br>cat -b textfile1 textfile2 &gt;&gt; textfile3</p>
-<p>把test.txt文件扔进垃圾箱，赋空值<br><br>test.txt<br>cat /dev/null &gt; /etc/test.txt  </p>
 
       
     </div>
