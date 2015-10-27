@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>c++学习知识点纪录（二） | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;函数探幽&amp;gt;c++内联函数内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++学习知识点纪录（二）">
+<meta property="og:url" content="http://sakuraneko.me/2015/10/08/函数探幽/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="&amp;lt;函数探幽&amp;gt;c++内联函数内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函">
+<meta property="og:updated_time" content="2015-10-27T05:47:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++学习知识点纪录（二）">
+<meta name="twitter:description" content="&amp;lt;函数探幽&amp;gt;c++内联函数内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/15/1445045469x1822614103.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">雨时煮酒</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">人间二十年</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/15/1445045469x1822614103.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">雨时煮酒</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-函数探幽" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/08/函数探幽/" class="article-date">
+  	<time datetime="2015-10-08T02:38:35.000Z" itemprop="datePublished">2015-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      c++学习知识点纪录（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="&lt;函数探幽&gt;">&lt;函数探幽&gt;</h4><h3 id="c++内联函数">c++内联函数<br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。<br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line">	</span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。<br></p>
+<p>#####内联与宏<br>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。<br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong><br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rats;</span><br><span class="line"><span class="keyword">int</span> &amp; rodents = rats;<span class="comment">//int &amp; rodents之间加一个空格会更好的说明标志符的性质</span></span><br></pre></td></tr></table></figure>
+<p>其中,&amp;不是地址运算符，而是类型标志符的一部分，就像声明中的char*指的是指向char的指针一样，int&amp;指的是指向int的引用。上述引用声明允许将rats与rodents互换——他们指向相同的值和内存单元。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line">	<span class="keyword">int</span> &amp; rodents = rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	rodents++;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//地址部分</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats address ="</span> &lt;&lt; &amp;rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/11/Cocos-js的打包与触摸事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Cocos-js的打包与触摸事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/08/Cocos－js的简单知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocos－js的简单知识点</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
