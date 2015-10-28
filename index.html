@@ -157,10 +157,63 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-函数探幽" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-函数探幽(中)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/27/函数探幽/" class="article-date">
+      <a href="/2015/10/28/函数探幽(中)/" class="article-date">
+  	<time datetime="2015-10-28T01:38:35.000Z" itemprop="datePublished">2015-10-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/28/函数探幽(中)/">c++学习知识点纪录（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="&lt;函数探幽(中)&gt;">&lt;函数探幽(中)&gt;</h4><p>#####按值传递与按引用传递的区别<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">refcube</span><span class="params">(<span class="keyword">double</span> &amp;ra)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> x = <span class="number">3.0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cube(x);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">" = cube of "</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; refcube(x);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">" = cube of "</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cube</span><span class="params">(<span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">	a *= a * a;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">refcube</span><span class="params">(<span class="keyword">double</span> &amp;ra)</span> </span>&#123;</span><br><span class="line">	ra *= ra * ra;</span><br><span class="line">	<span class="keyword">return</span> ra;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为：<br><br>27 = cube of 3<br><br>27 = cube of 27</p>
+<p>这告诉了我们 refcube函数修改了main( )中的x值，而cube( )没有，这提醒了我们为何通常按值传递。变量a位于cube( )中，<strong>它被初始化为x的值</strong>，但修改a并不会影响x。但由于refcube（ ）使用了引用参数，因此修改ra实际上就是修改x。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-函数探幽(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/函数探幽(上)/" class="article-date">
   	<time datetime="2015-10-27T08:38:35.000Z" itemprop="datePublished">2015-10-27</time>
 </a>
     </div>
@@ -174,7 +227,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/27/函数探幽/">c++学习知识点纪录（二）</a>
+      <a class="article-title" href="/2015/10/27/函数探幽(上)/">c++学习知识点纪录（二）</a>
     </h1>
   
 
@@ -183,7 +236,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="&lt;函数探幽&gt;">&lt;函数探幽&gt;</h4><h3 id="c++内联函数">c++内联函数<br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。<br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
+        <h4 id="&lt;函数探幽(上)&gt;">&lt;函数探幽(上)&gt;</h4><h3 id="c++内联函数">c++内联函数<br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。<br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line">	</span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。<br></p>
 <p>#####内联与宏<br>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。<br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong><br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：</p>
@@ -727,82 +780,6 @@
 <h4 id="原型模式"><li>原型模式</li></h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.prototype.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.prototype.age = <span class="number">17</span>;</span><br><span class="line">person.prototype.job = <span class="string">"student"</span>;</span><br><span class="line">person.prototype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">//"sakura"</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> person();</span><br><span class="line">person2.sayName(); <span class="comment">//"sakura"</span></span><br><span class="line">alert(person1.sayName = person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>我们仍可以通过调用构造函数去创造新的对象，而且新对象还会具有相同的属性与方法。但与构造函数模式不同的是，新对象的这些属性和方法是由所有的实例共享的。换句话说person1与person2调用的都是同一组属性和一个sayName()函数。</p>
 <h6 id="原型对象">原型对象</h6><p>无论什么时候，只要创建了一个新函数，就会根据一组特定。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript心得（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/19/JavaScript心得（二）/" class="article-date">
-  	<time datetime="2015-09-19T02:38:35.000Z" itemprop="datePublished">2015-09-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/19/JavaScript心得（二）/">JavaScript心得（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-19日小结">9.19日小结</h2><h4 id="splice()"><li>splice()</li></h4><p>这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。<br><br>原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容</p>
-<p><li>删除<br><br>splice(0,2)从第一项开始删除两项，即删除头两项。<br><br></li></p>
-<p><li>插入<br><br>splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”<br><br></li></p>
-<p><li>替换<br><br>splice(2,2,”red,”green”) 从第二项开始删除两项之后再添加两项即完成了替换功能。<br><br></li></p>
-<h4 id="RegExp类型（正则表达式）"><li>RegExp类型（正则表达式）</li></h4><p>这是个大坑，以后会写一个专题的。</p>
-<h4 id="没有重载"><li>没有重载</li></h4><p>将函数名想象为指针，有助于理解为什么ECMAScript中没有函数重载的概念。<br></p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">200</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="literal">result</span> = addSomeNumber(<span class="number">100</span>);//<span class="number">300</span></span><br></pre></td></tr></table></figure>
-<p>后面的函数覆盖了前面的函数，这个例子与下面的例子并没有什么区别</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addSomeNumber = <span class="function"><span class="keyword">function</span><span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">100</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">addSomeNumber = <span class="function"><span class="keyword">function</span><span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以看出来当创建第二个函数时，实际上覆盖了引用第一个函数的addSomeNumber函数。</p>
-<h4 id="特殊的解藕技巧"><li>特殊的解藕技巧</li></h4><p>函数内部有两个特殊的对象：arguments和this。其中，arguments包含着传入函数中的所有参数。虽然arguments的主要用途是保存函数参数，但这个对象还有一个叫做callee的属性，这是一个指针，指向拥有这个argument的函数。所以用这个我们可以进行特殊的解藕技巧。<br></p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function factorial (<span class="built_in">num</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">num</span> &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">num</span> * factorial(<span class="built_in">num</span>-<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">factorial</span> <span class="params">(num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> num * arguments.callee(num-<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>仔细观察我们会发现第一个例子中耦合性太强，所以我们通过指针的方式进行解藕。</p>
-<h4 id="基本包装类型">基本包装类型</h4><p>我想我们还要谈谈引用类型与基本包装类型之间的区别。<br><br>区别主要体现在传送参数的时候。<br></p>
-<p>基本数据类型由于在内存中的一个地址存放的是这些变量的值 所以 调用函数 函数里的形参 就是复制这些变量的值 以后对形参值的变化 不会影响到原来变量的值。</p>
-<p>而引用数据类型由于在内存中是引用他的一个内存地址而不是具体的值 所以 所以 调用函数 函数里的形参 就是复制这些变量的值的地址 当对形参的值 进行修改的时候 就等于是对 这些变量的值 进行修改~ 所以会影响到原来变量的值。</p>
-<p>举个例子</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> s1</span> = <span class="string">"some text"</span>;</span><br><span class="line">s1.color = <span class="string">"red"</span>;</span><br><span class="line">alert(s1.color);<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>你知道这里为什么会出现这种情况呢，因为第二行代码试图为字符串s1添加一个color属性。但是，当第三行代码再次访问s1的时候它的color属性又不见了。问题的原因就是第二行创建的String对象在执行第三行代码的时候已经被销毁了。第三行代码又创建了自己的string对象，但是这个对象是没有相应的属性的。</p>
-<h5 id="常见的基本类型如下">常见的基本类型如下</h5><p><li>Boolean类型<br><br>var booleanObject = new Boolean(true） //true or false</li></p>
-<p><li>Number类型<br><br>var numberObject = new Number(10);</li></p>
-<p><li>String类型<br><br>var stringObject = new String(“Hello world”);</li></p>
-<h4 id="Global对象">Global对象</h4><p><li>eval()方法 <br><br>Eval方法是javascript中最强大的一种方法，这种方法相当于一个javascript解析器，只接受一个参数，即要执行的ECMAscript字符串。<br><br>eval(“alert(‘hi’)”);  等价于 alert(‘hi’);<br><br>所以这种方法十分危险，当它执行用户输入操作时或许会存在代码注入的情况。</li></p>
-<hr>
-<h4 id="总结">总结</h4><p>在所有代码执行之前，作用域中就已经存在了两个内置对象： Global 和 Math。在大多数ECMAScript实现中都不能直接访问GLobal对象；不过，Web浏览器实现了承担该角色的Window对象。全局变量和函数都是Global对象的属性。</p>
 
       
     </div>
