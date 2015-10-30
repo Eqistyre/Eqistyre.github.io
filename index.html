@@ -157,6 +157,115 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/二十年/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###二十年<br>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
+<p>###花鸟风月<br>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-内存模型和名称空间" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/内存模型和名称空间/" class="article-date">
+  	<time datetime="2015-10-29T13:38:35.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/内存模型和名称空间/">c++学习知识点纪录（四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单独编译">单独编译</h4><p>请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。<br></p>
+<p><li>函数原型。</li></p>
+<p><li>使用#define或const定义的符号常量。</li></p>
+<p><li>结构声明。</li></p>
+<p><li>类声明。</li></p>
+<p><li>模版声明。</li></p>
+<p><li>内联函数。</li></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-函数探幽(下)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -655,144 +764,6 @@
 <p>4.Sprite<br><br>精灵,精灵也是由节点Node扩展而来，原来的目的是用于游戏中人物或NPC等，但在实际中没有雨精灵封装了图片加载等常用功能，我们还可以用精灵来加载背景图，障碍物等非人物内容。</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ball =  <span class="keyword">new</span> cc.Sprite(<span class="string">"res/item_2.png"</span>);</span><br><span class="line"><span class="keyword">this</span>.addChild(ball, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">var <span class="built_in">size</span> = cc.director.getWinSize();</span><br><span class="line">ball.x = <span class="built_in">size</span>.<span class="variable">width</span>/<span class="number">2</span>;</span><br><span class="line">ball.x = <span class="built_in">size</span>.<span class="variable">width</span>/<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 <p>5.Director<br></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript函数声明与表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/21/JavaScript函数声明与表达式/" class="article-date">
-  	<time datetime="2015-09-21T02:38:35.000Z" itemprop="datePublished">2015-09-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/21/JavaScript函数声明与表达式/">JavaScript函数声明与表达式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-21日小结">9.21日小结</h2><h4 id="函数声明与函数表达式">函数声明与函数表达式</h4><p><li>函数声明<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数声明中会发生函数声明提升的情况。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><li>函数表达式<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="function"><span class="keyword">function</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//函数体</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<p>这种形式看起来很像是常规的变量赋值语句，即创建一个函数并将其付给变量functionName，这种情况下创建的函数是匿名函数，又被称作拉姆达函数。<br>函数表达式不涉及函数提升</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="keyword">var</span> sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>函数提升呃关键就是理解函数声明与函数表达式之间的区别。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	function sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	functin sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>会报错，且大多数浏览器会返回第二个声明,所以我们可以这样做。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	sayHi ＝ <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript面向对象的程序设计" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/JavaScript面向对象的程序设计/" class="article-date">
-  	<time datetime="2015-09-20T02:38:35.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/JavaScript面向对象的程序设计/">JavaScript面向对象的程序设计</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-20日小结">9.20日小结</h2><h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</li></h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line">person.job = <span class="string">"Weber"</span>;</span><br><span class="line"></span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方法创建了一个实例然后为其一一赋值，几年后，对象字量成为了这种创建对象的首选模式。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name:<span class="string">"Sakura"</span>,</span><br><span class="line">	age:<span class="number">18</span>,</span><br><span class="line">	job:<span class="string">"Weber"</span>,</span><br><span class="line">	</span><br><span class="line">	sayName: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="属性类型"><li>属性类型</li></h4><p>object.defineProperty()<br><br><li>[[Configurabale]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。默认true。<br><br></li><li>[[Enumerable]]:表示能否通过for-in循环返回属性。默认true。<br><br></li><li>[[Writable]]:表示能否修改属性的值。默认true。<br><br></li><li>[[Value]]:包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。特性的默认值为undefined。</li></p>
-<h5 id="访问器属性">访问器属性<br></h5><p>访问器属性不包含数据值；它们包含一对儿getter和setter(并不是必需的)。在读取访问器属性的时候，会调用getter函数，这个函数负责返回有效的值。在写入访问属性的时候会调用setter函数传入新值。<br><br><li>[[Configurabale]]<br><br></li><li>[[Enumerable]]<br><br></li><li>[[Get]]在读取属性时调用的函数。默认值为undefined<br><br></li><li>[[Set]]在写入属性时调用的函数。默认值为undefined</li></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> person</span> = &#123;</span><br><span class="line">	name = <span class="string">"Nicolas"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>修改默认属性需要使用Object.defineProperty方法举个例子。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person =&#123;&#125;;</span><br><span class="line">Object.defineProperty(person, <span class="string">"name"</span>, &#123;</span><br><span class="line">	writable: <span class="keyword">false</span>,</span><br><span class="line">	<span class="keyword">value</span>: <span class="string">"Nicolas"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(person.name); <span class="comment">//"Nicolas"</span></span><br><span class="line">person.name = <span class="string">"Greg"</span>;</span><br><span class="line">alert(person.name); <span class="comment">//"Nicolas"</span></span><br></pre></td></tr></table></figure>
-<p>我们可以看出我们创建了一个名为name的属性，它的值“Nicolas”是只读的，尝试指定新的值是不可以的。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">	_year: <span class="number">2004</span>,</span><br><span class="line">	edition: <span class="number">1</span></span><br><span class="line">&#125; ;</span><br><span class="line"></span><br><span class="line">Object.defineProperty(book, <span class="string">"year"</span>, &#123;</span><br><span class="line">	<span class="keyword">get</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="keyword">set</span>: <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>._year = newValue;</span><br><span class="line">			<span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">｝);</span><br><span class="line"></span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-<p>以上代码会创建一个book对象，并给它定义两个默认的属性： _year和edition。 _year 前面的下划线是一种常用的记号，用于表示只能通过对象方法访问的属性。而访问器属性year则包含一个getter函数和一个setter函数。getter函数返回_year的值。这个例子告诉我们，这是使用访问器的常见方法，即设置一个属性的值会导致其它值的属性发生变化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> book1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> book2 = <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="comment">///这三个都没有区别，第一种是字面量的写法，可简单理解为一种简写形式。第三种是没有参数时，后面的括号可以省略。如同：</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [];</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure>
-<h5 id="定义多个属性">定义多个属性<br></h5><p>方法：Object.defineProperties()。。还是举个例子吧。。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Object.defineProperties(book, &#123;</span><br><span class="line">	_year: &#123;</span><br><span class="line">		value: <span class="number">2004</span></span><br><span class="line">	&#125;,</span><br><span class="line">	</span><br><span class="line">	edition: &#123;</span><br><span class="line">		value: <span class="number">1</span></span><br><span class="line">	&#125;,</span><br><span class="line">	</span><br><span class="line">	year: &#123;</span><br><span class="line">		<span class="keyword">get</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">		&#125;,</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">set</span>: funtion(newValue) &#123;</span><br><span class="line">			<span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">				<span class="keyword">this</span>._year = newValue</span><br><span class="line">				<span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="构造函数模式"><li>构造函数模式</li></h4><p>首先说下工厂模式。<br></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	o.job = job;			   <span class="comment">//这些定义的是属性</span></span><br><span class="line">	o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name)      <span class="comment">//这个是方法</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"sakura"</span>, <span class="number">18</span>, <span class="string">"student"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Perdon(<span class="string">"neko"</span>, <span class="number">17</span>, <span class="string">"students"</span>);</span><br></pre></td></tr></table></figure>
-<p>ECMAScript中的构造函数可以用来创建特定类型的对象。像Object 和 Array这样的原生构造函数，在运行的时候会自动出现在执行环境中。此外，也可以自定义构造函数，从而定义对象类型的属性和方法。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age, job)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">	<span class="keyword">this</span>,job = job;</span><br><span class="line">	<span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"sakura"</span>, <span class="number">18</span>, <span class="string">"student"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Perdon(<span class="string">"neko"</span>, <span class="number">17</span>, <span class="string">"students"</span>);</span><br></pre></td></tr></table></figure>
-<p>比较两种方法我们会发现有以下不同：</p>
-<p><li>没有显式地创建对象；</li></p>
-<p><li>直接将属性和方法赋给了this对象；</li></p>
-<p><li>没有return语句。</li></p>
-<h4 id="原型模式"><li>原型模式</li></h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">person.prototype.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.prototype.age = <span class="number">17</span>;</span><br><span class="line">person.prototype.job = <span class="string">"student"</span>;</span><br><span class="line">person.prototype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">//"sakura"</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> person();</span><br><span class="line">person2.sayName(); <span class="comment">//"sakura"</span></span><br><span class="line">alert(person1.sayName = person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>我们仍可以通过调用构造函数去创造新的对象，而且新对象还会具有相同的属性与方法。但与构造函数模式不同的是，新对象的这些属性和方法是由所有的实例共享的。换句话说person1与person2调用的都是同一组属性和一个sayName()函数。</p>
-<h6 id="原型对象">原型对象</h6><p>无论什么时候，只要创建了一个新函数，就会根据一组特定。</p>
 
       
     </div>
