@@ -157,6 +157,57 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/声明与变量/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####声明与变量<br>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。<br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -242,7 +293,13 @@
 <p><li>类声明。</li></p>
 <p><li>模版声明。</li></p>
 <p><li>内联函数。</li></p>
-
+<h4 id="储存持续性，作用域和链接性">储存持续性，作用域和链接性</h4><p><li>自动储存持续性：在函数定义中声明的变量（包括函数参数）的持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。</li></p>
+<p><li>静态函数储存持续性：在函数定义外定义的变量和使用关键字static定义的变量的储存持续性都为静态。它们在程序整个允许过程中都存在</li></p>
+<p><li>线程储存持续性：多和处理器中有这个东西。</li></p>
+<p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</li></p>
+<h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。<br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。</p>
+<h5 id="自动变量和栈">自动变量和栈</h5>
       
     </div>
     
@@ -703,67 +760,6 @@
 <p>其中，每一个监听函数的参数touches是一个数组，每个数组元素就是一个touch对象，跟单点触摸的touch参数是一样。另外，onTouchesBegan也不同于单点触控的onToucheBegan，onTouchesBegan不需要反悔true/false，无法控制是否接受本次触摸过程。<br></p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> TouchAllAtOnce = cc.Layer.extend(&#123;</span><br><span class="line">	ctor:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>._super();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>( <span class="string">'touches in cc.sys.capabilities'</span>) &#123;</span><br><span class="line">			cc.eventManager.addListener(&#123;</span><br><span class="line">				event: cc.EventListener.TOUCH_ALL_AT_ONCE,</span><br><span class="line">				onTouchesBegan: <span class="keyword">this</span>.onTouchesBegan,</span><br><span class="line">				onTouchesMoved: <span class="keyword">this</span>.onTouchesMoved,</span><br><span class="line">				onTouchesEnded: <span class="keyword">this</span>.onTouchesEnded,</span><br><span class="line">				onTouchedCancelled: <span class="keyword">this</span>.onTouchesCancelled</span><br><span class="line">			&#125;,<span class="keyword">this</span>;)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">trace</span>(<span class="string">"TOUCHES not supported"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>getLocationX:获取当前坐标X<br><br>getLocationY:获取当前坐标Y<br><br>getLocation: 获取在OpenGl中的坐标<br></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos－js的简单知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/08/Cocos－js的简单知识点/" class="article-date">
-  	<time datetime="2015-10-08T02:38:35.000Z" itemprop="datePublished">2015-10-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/08/Cocos－js的简单知识点/">Cocos－js的简单知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="10-8">10.8</h2><p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
-<p><li>安装步骤：<br><br>1.首先我们要把SDK,NDK环境目录配置好。<br><br>2.然后我们需要把那些奇怪的东西搞好。</li></p>
-<p><li>基本名词的解释:<br><br>1.Scene<br><br>使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-JS框架会将前者销毁，该场景中包含的所有图片，文本资源都会被清除<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloworldScene = cc.Scene.extend(&#123;</span><br><span class="line">	onEnter:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>._super();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">var</span> layer = <span class="keyword">new</span> HelloWorldLayer();</span><br><span class="line">		<span class="keyword">this</span>.addChild(layer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这段代码就定义了一个场景，其重点是extend函数。<br><br>2.Node<br><br>父节点位置的变化，它所包含的子节点也会跟泽变化，以整体的形式移动：如visible,opaque,rotation,skew X,skew Y。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cc</span>.Node = <span class="keyword">cc</span>.<span class="keyword">Class</span>.extend(&#123;</span><br><span class="line">	_localZOrder:0,</span><br><span class="line">	_globalZOrder:0,</span><br><span class="line">	-children:null,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><br><br>3.Layer<br>“层”跟符合我们对世界的认识，一层一层的，背景层，人物层，道具层。背景层是固定的图片或地图，人物层中主角和各种小怪可以不断移动，两层之间互不干扰，各自管理层内的子节点。层继承纪诶俺的特点，可以在层中继续嵌套子层<br></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> layer = <span class="keyword">new</span> cc.layer();<span class="comment">//创建新的一个层</span></span><br><span class="line">scene.addChild(layer);<span class="comment">//把层添加到舞台上</span></span><br><span class="line">layer.addChild(child);<span class="comment">//再把子节点添加到这个层上</span></span><br></pre></td></tr></table></figure>
-<p>4.Sprite<br><br>精灵,精灵也是由节点Node扩展而来，原来的目的是用于游戏中人物或NPC等，但在实际中没有雨精灵封装了图片加载等常用功能，我们还可以用精灵来加载背景图，障碍物等非人物内容。</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ball =  <span class="keyword">new</span> cc.Sprite(<span class="string">"res/item_2.png"</span>);</span><br><span class="line"><span class="keyword">this</span>.addChild(ball, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">var <span class="built_in">size</span> = cc.director.getWinSize();</span><br><span class="line">ball.x = <span class="built_in">size</span>.<span class="variable">width</span>/<span class="number">2</span>;</span><br><span class="line">ball.x = <span class="built_in">size</span>.<span class="variable">width</span>/<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<p>5.Director<br></p>
 
       
     </div>

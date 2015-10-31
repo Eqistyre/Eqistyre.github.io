@@ -23,7 +23,7 @@
 类声明。
 模版声明。
 内联函数">
-<meta property="og:updated_time" content="2015-10-30T14:15:03.000Z">
+<meta property="og:updated_time" content="2015-10-31T09:39:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习知识点纪录（四）">
 <meta name="twitter:description" content="单独编译请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。
@@ -214,7 +214,13 @@
 <p><li>类声明。</li></p>
 <p><li>模版声明。</li></p>
 <p><li>内联函数。</li></p>
-
+<h4 id="储存持续性，作用域和链接性">储存持续性，作用域和链接性</h4><p><li>自动储存持续性：在函数定义中声明的变量（包括函数参数）的持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。</li></p>
+<p><li>静态函数储存持续性：在函数定义外定义的变量和使用关键字static定义的变量的储存持续性都为静态。它们在程序整个允许过程中都存在</li></p>
+<p><li>线程储存持续性：多和处理器中有这个东西。</li></p>
+<p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</li></p>
+<h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。<br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。</p>
+<h5 id="自动变量和栈">自动变量和栈</h5>
       
     </div>
     
