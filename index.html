@@ -157,6 +157,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-数据结构基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/02/数据结构基础（一）/" class="article-date">
+  	<time datetime="2015-11-02T04:38:35.000Z" itemprop="datePublished">2015-11-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/02/数据结构基础（一）/">数据结构学习笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用typedef为现有类型创建同义字，定义易于记忆的类型名：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> size;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">measure</span><span class="params">(size * psz)</span></span>;</span><br><span class="line">size <span class="built_in">array</span>[<span class="number">4</span>];</span><br><span class="line">size len=file.getlength();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;size&gt;vs;</span><br></pre></td></tr></table></figure>
+<p>typedef 还可以掩饰复合类型，如指针和数组：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="value">char</span>　<span class="value">line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">char</span>　<span class="value">text</span><span class="attr_selector">[81]</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只需这样定义，Line类型即代表了具有81个元素的字符数组，使用方法如下：</span></span><br><span class="line">typedef <span class="value">char</span> <span class="value">Line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">Line</span>　<span class="value">text</span>,<span class="value">line</span>;</span><br><span class="line"><span class="function">getline</span>(<span class="value">text</span>);</span><br></pre></td></tr></table></figure>
+<p>同样，可以像下面这样隐藏指针语法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>　<span class="keyword">char</span>*　pstr;</span><br><span class="line"><span class="function"><span class="keyword">int</span>　<span class="title">mystrcmp</span><span class="params">(<span class="keyword">const</span>　pstr　p1,<span class="keyword">const</span>　pstr　p3)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名;<span class="comment">//结构体指针</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = &amp;一个结构体的名字;<span class="comment">//结构体指针并赋初值</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = <span class="keyword">new</span> <span class="keyword">struct</span> 结构体类型名;<span class="comment">//结构体指针并用new申请内存</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 =(<span class="keyword">struct</span> 结构体类型名 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> 结构体类型名))<span class="comment">//结构体指针并用malloc申请内存 使用应包含头文件stdlib.h</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//对象指针的定义方法略同。</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">class</span> C</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    C obj;</span><br><span class="line">    C *p = obj;</span><br><span class="line">    p-&gt;num = <span class="number">5</span>;</span><br><span class="line">    p-&gt;name = <span class="string">"Tony"</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;num &lt;&lt; p-&gt;name &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序输出：5Tony</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -686,71 +743,6 @@
 <p>小结</p>
 <p>在这篇文章中我介绍了RequireJS库,它是我创建每个Javascript项目都会用到的库函数之一。它不仅仅用于加载模块依赖和相关的命令，RequireJS帮助我们写出模块化的JavaScript代码，这非常有利于代码的可扩展性和重用性。</p>
 <p>本文地址：<a href="http://www.oschina.net/translate/getting-started-with-the-requirejs-library" target="_blank" rel="external">http://www.oschina.net/translate/getting-started-with-the-requirejs-library</a><br><br>原文地址：<a href="http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library" target="_blank" rel="external">http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library</a><br><br>本文中的所有译文仅用于学习和交流目的，转载请务必注明文章译者、出处、和本文链接<br>我们的翻译工作遵照 CC 协议，如果我们的工作有侵犯到您的权益，请及时联系我们</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-《css高效开发实战》读后感" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/《css高效开发实战》读后感/" class="article-date">
-  	<time datetime="2015-10-20T07:38:35.000Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/《css高效开发实战》读后感/">《CSS高效开发实战》读后感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="《CSS高效开发实战》读后感（一）">《CSS高效开发实战》读后感（一）</h3><h4 id="第1章"><li>第1章</li></h4><p>使用Modernizr检测支持CSS 3。Modernizr是一个检测浏览器对HTML 5和CSS 3特性是否支持的Javascript库，它是一个开源项目。<li><br>Modernizr的功能其实很简单，就是用Javascript检测浏览器对HTML/CSS 3的特性支持情况。比如说支持某个功能就在页面的<html>标签上添加一个相应的class,不支持某个属性就添加一个带no-前缀的class。比如，如果被检测的浏览器支持video标签，Modernizr就会在<html>标签上添加video类，否则添加no-video类。</html></html></li></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.canvas) &#123;</span><br><span class="line">		<span class="comment">//这里添加Canvas代码</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.localstorage) &#123;</span><br><span class="line">		<span class="comment">//这里添加本地储存代码</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="第2章"><li>第2章</li></h4><p>这一章都是一些复习内容啦,首先复习盒子模型。<br><img src="https://github.com/Eqistyre/diary/blob/master/imgs/BoxModel.png?raw=true" alt="BoxModle"><br><br><br>首先我们可以看出来盒子模型的具体样式是这样的。<br></p>
-<p><li>内容<br><br>元素框的最内部分是实际的内容，直接包围内容的是内边距(padding),它呈现了元素的背景。内边距的边缘是边框，边框以外是外边距(margin),外边距默认是透明，因此不会遮挡其后面的任何元素。<br></li></p>
-<p><li>内边框和边框<br><br>内边距和边框的主要作用是装饰。在那边距和内容区域，我们可以显示漂亮的背景，还可以控制边框样式来装点内容。<br><br></li></p>
-<p><li>外边距<br><br>外边距主要用于布局，目的是控制元素之间的距离。<br></li></p>
-<p>常用的属性前缀</p>
-<p><li>-webkit: webkit的核心浏览器，包括Chrome,Safari等。</li></p>
-<p><li>-moz: 火狐浏览器。</li></p>
-<p><li>-ms: IE浏览器。</li></p>
-<p><li>-o: Opera浏览器。<br><br><br>揭开浮动布局的秘密<br><br>float:(none, left, right, inherit)其中none为默认值，即inherit表示继承父元素的float值（但这个很少用，因为IE不支持这个选项）。<br><br>(1)对于块级元素来说，在不设置宽度的情况下，默认的宽度是100%，一旦设置了浮动，它的宽度就会根据内容进行自动调整。<br>(2)设置了浮动的元素会脱离正常的文档流，我们可以这样理解：设置浮动后，元素不仅在y轴上浮了起来，在z轴上，也浮了起来。<strong>譬如：默认情况下，父元素的高度会根据子元素的内容进行调整，而如果我们讲子元素设置为浮动，父元素的高度就会变为0</strong>。</li></p>
-<p>绝对定位技术与实践<br><br>1,绝对定位技术与实战<br>绝对定位的元素有以下几个特点:</p>
-<p><li>块级元素的宽度在未定义时不再为100%，而是根据内容自动调整。</li></p>
-<p><li>在不定义z-index的情况下，absolute元素会覆盖在其它元素之上。</li></p>
-<p><li>它会脱离正常的文档流，不再占用空间，类似于浮动后的效果。</li></p>
 
       
     </div>
