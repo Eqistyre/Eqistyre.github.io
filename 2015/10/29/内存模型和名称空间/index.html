@@ -23,7 +23,7 @@
 类声明。
 模版声明。
 内联函数">
-<meta property="og:updated_time" content="2015-11-04T01:48:36.000Z">
+<meta property="og:updated_time" content="2015-11-04T04:27:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习知识点纪录（四）">
 <meta name="twitter:description" content="单独编译请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。
@@ -220,6 +220,19 @@
 <p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</li></p>
 <h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。<br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。</p>
+<h5 id="函数的调用形式">函数的调用形式</h5><p>在c++中，除了main( )函数意外，任何一个函数都在main( )函数中直接或间接地被调用。调用一个函数就是执行该函数的函数体的过程。<br><br>函数调用的执行过程：<br><br>函数调用过程就是调用语句执行的过程，步骤如下:<br></p>
+<p>第1步：函数调用</p>
+<p><li>将函数调用语句下一条语句的地址保存在一种被称为“栈”的内存空间中，以便函数调用完后返回，将数据放到栈空间中的过程被称为压栈。</li></p>
+<p><li>对实参表从后向前，依次计算出实参表达式的值，并将值压栈。</li></p>
+<p><li>跳转到函数体处。<br><br></li></p>
+<p>第2步：函数体执行</p>
+<p><li>如果函数中还定义了变量，将变量压栈。</li></p>
+<p><li>将每一个形参以栈中对应的实参取代，执行函数的功能体。</li></p>
+<p><li>将函数体中的变量，保存在栈中的实参值，依次从栈中取出，以释放栈空间。从栈中取出的数据称为出栈。</li></p>
+<p>第2步：函数体执行</p>
+<p><li>返回过程执行的是函数体中的return语句。</li></p>
+<p><li>从栈中取出调用时压入的地址，跳转到函数调用语句的下一条语句。</li></p>
+<p><li>当return语句不带有表达式时，按保存的地址返回；当return语句带有表达式时，将计算return表达式的值保存起来，然后再返回。</li></p>
 <h5 id="自动变量和栈">自动变量和栈</h5><p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须在运行时堆自动变量进行管理。常用的方法是留出一段内存，并将其视为栈。以管理变量的增减。之所以被称为栈，是由于新数据被象征性的放在原有数据的上面（也就是说，在相邻的内存单元中，而不是在同一个内存单元中），当程序使用完后，将其从栈中删除。栈的默认长度取决于实现，但编译器通常提供改变长度的选项。程序使用两个指针来跟踪栈，一个指向栈底——栈开始的位置，另一个指向栈顶——下一个可用的内存单元。当函数被调用的时候，其自动变量将被加入到栈中，栈顶指针变量指向变量后面一个可用的内存单元。</p>
 <h5 id="静态持续变量">静态持续变量</h5><p>三种链接性：</p>
 <p><li>外部链接性（可在其他文件中访问）</li></p>
