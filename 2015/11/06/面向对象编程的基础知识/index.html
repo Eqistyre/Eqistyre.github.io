@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Objective-C基础教程 | SakuraNeko</title>
+  <title>Objective-C基础教程&lt;一&gt; | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###面向对象编程的基础知识
-先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+  <meta name="description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C基础教程">
+<meta property="og:title" content="Objective-C基础教程<一>">
 <meta property="og:url" content="http://sakuraneko.me/2015/11/06/面向对象编程的基础知识/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="###面向对象编程的基础知识
-先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
-<meta property="og:updated_time" content="2015-11-06T11:21:45.000Z">
+<meta property="og:description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
+<meta property="og:updated_time" content="2015-11-06T13:26:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C基础教程">
-<meta name="twitter:description" content="###面向对象编程的基础知识
-先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+<meta name="twitter:title" content="Objective-C基础教程<一>">
+<meta name="twitter:description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
   
   
     <link rel="icon" href="/favicon.png">
@@ -179,7 +176,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Objective-C基础教程
+      Objective-C基础教程&lt;一&gt;
     </h1>
   
 
@@ -195,21 +192,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###面向对象编程的基础知识</p>
-<p>先来说一个今天写代码的时候碰到的问题吧。</p>
+        <h3 id="面向对象编程的基础知识">面向对象编程的基础知识</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中我一开始是没有看懂<figure class="highlight"><figcaption><span>char *words[4]```这条语句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
-<p>#include <iostream></iostream></p>
-<p>int main () {<br>    using namespace std;<br>    char words[4] = {“one”};<br>    printf(“%c\n”,words[1]);<br>}</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出结果：<span class="keyword">n</span>&lt;/<span class="keyword">br</span>&gt;</span><br><span class="line"></span><br><span class="line">然后我们可以看出来它只是会输出一个字母<span class="keyword">n</span>。那么如果我想输出一堆字符串我该怎么办呢？于是我写了下面这个程序。</span><br></pre></td></tr></table></figure>
-<p>include <iostream></iostream></p>
-<p>int main () {<br>    using namespace std;<br>    char *words[4] = {“one”,”two”,”three”,”four”};<br>    printf(“%s\n”,words[1]);<br>}<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出结果：warning: conversion <span class="keyword">from</span> <span class="type">string</span> literal <span class="keyword">to</span> 'char *' <span class="keyword">is</span></span><br><span class="line">      deprecated [-Wc++<span class="number">11</span>-compat-deprecated-writable-strings]</span><br><span class="line">    char * <span class="property">words</span>[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">&lt;/br&gt;以及一堆类似的错误，于是我把代码改了一遍。</span><br></pre></td></tr></table></figure></p>
-<p>include <iostream></iostream></p>
-<p>int main () {<br>    using namespace std;<br>    const char *words[4] = {“one”,”two”,”three”,”four”};<br>    printf(“%s\n”,words[1]);<br>}<br>```<br>输出结果：two<br><br><br>于是我们发现造成这样的结果就是因为一个小小的const变量！下面我们来详细的谈论下const变量。</p>
+<p>在这个例子中我一开始是没有看懂<strong><em>const char </em>words[4]*</strong>这句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：n<br></p>
+<p>然后我们可以看出来它只是会输出一个字母n。那么如果我想输出一堆字符串我该怎么办呢？于是我写了下面这个程序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：warning: conversion from string literal to ‘char <em>‘ is<br>      deprecated [-Wc++11-compat-deprecated-writable-strings]<br>    char </em> words[4] = {“one”,”two”,”three”,”four”};<br><br>以及一堆类似的错误，于是我把代码改了一遍。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：two<br><br><br>于是我们发现造成这样的结果就是因为一个小小的const变量！下面我们来详细的谈论下const变量。原因就是words[4]</p>
 <hr>
 <p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。<br></p>
-<p>######主要作用<br>（1）可以定义const常量，具有不可变性。<br><br>例如：const int Max=100; Max++会产生错误; <br><br>（2）便于进行类型检查，使编译器对处理内容有更多了解，消除了一些隐患。<br><br>例如： void f(const int i) { ………} 编译器就会知道i是一个常量，不允许修改； <br><br>（3）可以避免意义模糊的数字出现，同样可以很方便地进行参数的调整和修改。 同宏定义一样，可以做到不变则已，一变都变！<br><br>（4）可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。 还是上面的例子，如果在函数体内修改了i，编译器就会报错； <br><br>例如： void f(const int i) { i=10;//error! }<br><br>（5） 可以节省空间，避免不必要的内存分配。 例如： </p>
-<p>#define PI 3.14159 //常量宏<br>const double Pi=3.14159; //此时并未将Pi放入RAM中 ……<br><br>double i=Pi; //此时为Pi分配内存，以后不再分配！ <br><br>double I=PI; //编译期间进行宏替换，分配内存 <br><br>double j=Pi; //没有内存分配 <br><br>double J=PI; //再进行宏替换，又一次分配内存！<br><br>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干份拷贝。 <br></p>
+<h6 id="主要作用">主要作用</h6><p>（1）可以定义const常量，具有不可变性。<br><br>例如：const int Max=100; Max++会产生错误; <br><br>（2）便于进行类型检查，使编译器对处理内容有更多了解，消 除了一些隐患。<br><br>例如： void f(const int i) { ………} 编译器就会知道i是一个常量，不允许修改； <br><br>（3）可以避免意义模糊的数字出现，同样可以很方便地进行参数的调整和修改。 同宏定义一样，可以做到不变则已，一变都变！<br><br>（4）可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。 还是上面的例子，如果在函数体内修改了i，编译器就会报错； <br><br>例如： void f(const int i) { i=10;//error! }<br><br>（5） 可以节省空间，避免不必要的内存分配。 例如： <br><br>#define PI 3.14159 //常量宏<br>const double Pi=3.14159; //此时并未将Pi放入RAM中 ……<br><br>double i=Pi; //此时为Pi分配内存，以后不再分配！ <br><br>double I=PI; //编译期间进行宏替换，分配内存 <br><br>double j=Pi; //没有内存分配 <br><br>double J=PI; //再进行宏替换，又一次分配内存！<br><br>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干份拷贝。 <br><br>（6）提高了效率。 <br><br>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高。<br></p>
+<h6 id="限定内容">限定内容</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> * pStr;</span><br><span class="line"><span class="keyword">char</span> <span class="built_in">string</span>[<span class="number">4</span>] = <span class="string">"bbc"</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *p1 =<span class="string">" string"</span>; <span class="comment">//1式</span></span><br><span class="line"><span class="keyword">const</span> pStr p2 =<span class="string">" string"</span>; <span class="comment">//2式</span></span><br><span class="line">p1++;</span><br><span class="line">p2++;</span><br></pre></td></tr></table></figure>
+<p>const使用的基本形式： const type m;限定m不可变。替换基本形式中的m为1式中的*p1，替换后const char *p1;限定*p1不可变，当然p1是可变的，因此问题中p1++是对的。替换基本形式中的type为2式中的pStr，替换后const pStr m;限定m不可变，题中的pStr就是一种新类型，因此问题中p2不可[1]  变，p2++是错误的。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pContent; <span class="comment">//*pContent是const, pContent可变</span></span><br></pre></td></tr></table></figure>
+<p>我们可以推导出：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这个里面*pContent是const, words[4]可变。<br><br>突然发现自己写到这里好累！好吧，那么自己就可以休息咯，接下来一章让我们正式进入Object-C的世界！</p>
 
       
     </div>
@@ -218,6 +219,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/11/06/Untitled/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Objective-C基础教程&lt;一&gt;
+        
+      </div>
+    </a>
   
   
     <a href="/2015/11/02/数据结构基础（一）/" id="article-nav-older" class="article-nav-link-wrap">
