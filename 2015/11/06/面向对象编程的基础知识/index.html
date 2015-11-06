@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Objective-C基础教程 | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###面向对象编程的基础知识
+先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C基础教程">
+<meta property="og:url" content="http://sakuraneko.me/2015/11/06/面向对象编程的基础知识/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="###面向对象编程的基础知识
+先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+<meta property="og:updated_time" content="2015-11-06T11:21:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C基础教程">
+<meta name="twitter:description" content="###面向对象编程的基础知识
+先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://github.com/Eqistyre/diary/blob/master/imgs/blog_img1.jpg?raw=true" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">雨时煮酒</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">人间二十年,花鸟风月</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://github.com/Eqistyre/diary/blob/master/imgs/blog_img1.jpg?raw=true" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">雨时煮酒</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-面向对象编程的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/06/面向对象编程的基础知识/" class="article-date">
+  	<time datetime="2015-11-06T14:38:35.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C基础教程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###面向对象编程的基础知识</p>
+<p>先来说一个今天写代码的时候碰到的问题吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中我一开始是没有看懂<figure class="highlight"><figcaption><span>char *words[4]```这条语句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
+<p>#include <iostream></iostream></p>
+<p>int main () {<br>    using namespace std;<br>    char words[4] = {“one”};<br>    printf(“%c\n”,words[1]);<br>}</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出结果：<span class="keyword">n</span>&lt;/<span class="keyword">br</span>&gt;</span><br><span class="line"></span><br><span class="line">然后我们可以看出来它只是会输出一个字母<span class="keyword">n</span>。那么如果我想输出一堆字符串我该怎么办呢？于是我写了下面这个程序。</span><br></pre></td></tr></table></figure>
+<p>include <iostream></iostream></p>
+<p>int main () {<br>    using namespace std;<br>    char *words[4] = {“one”,”two”,”three”,”four”};<br>    printf(“%s\n”,words[1]);<br>}<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出结果：warning: conversion <span class="keyword">from</span> <span class="type">string</span> literal <span class="keyword">to</span> 'char *' <span class="keyword">is</span></span><br><span class="line">      deprecated [-Wc++<span class="number">11</span>-compat-deprecated-writable-strings]</span><br><span class="line">    char * <span class="property">words</span>[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">&lt;/br&gt;以及一堆类似的错误，于是我把代码改了一遍。</span><br></pre></td></tr></table></figure></p>
+<p>include <iostream></iostream></p>
+<p>int main () {<br>    using namespace std;<br>    const char *words[4] = {“one”,”two”,”three”,”four”};<br>    printf(“%s\n”,words[1]);<br>}<br>```<br>输出结果：two<br><br><br>于是我们发现造成这样的结果就是因为一个小小的const变量！下面我们来详细的谈论下const变量。</p>
+<hr>
+<p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。<br></p>
+<p>######主要作用<br>（1）可以定义const常量，具有不可变性。<br><br>例如：const int Max=100; Max++会产生错误; <br><br>（2）便于进行类型检查，使编译器对处理内容有更多了解，消除了一些隐患。<br><br>例如： void f(const int i) { ………} 编译器就会知道i是一个常量，不允许修改； <br><br>（3）可以避免意义模糊的数字出现，同样可以很方便地进行参数的调整和修改。 同宏定义一样，可以做到不变则已，一变都变！<br><br>（4）可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。 还是上面的例子，如果在函数体内修改了i，编译器就会报错； <br><br>例如： void f(const int i) { i=10;//error! }<br><br>（5） 可以节省空间，避免不必要的内存分配。 例如： </p>
+<p>#define PI 3.14159 //常量宏<br>const double Pi=3.14159; //此时并未将Pi放入RAM中 ……<br><br>double i=Pi; //此时为Pi分配内存，以后不再分配！ <br><br>double I=PI; //编译期间进行宏替换，分配内存 <br><br>double j=Pi; //没有内存分配 <br><br>double J=PI; //再进行宏替换，又一次分配内存！<br><br>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干份拷贝。 <br></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/02/数据结构基础（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构学习笔记（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
