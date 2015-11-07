@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Objective-C基础教程&lt;二&gt; | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象编程的基础知识（下）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C基础教程<二>">
+<meta property="og:url" content="http://sakuraneko.me/2015/11/07/面向对象编程的基础知识（下）/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="面向对象编程的基础知识（下）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
+<meta property="og:updated_time" content="2015-11-07T13:19:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C基础教程<二>">
+<meta name="twitter:description" content="面向对象编程的基础知识（下）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">雨时煮酒</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">人间二十年,花鸟风月</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">雨时煮酒</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-面向对象编程的基础知识（下）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/07/面向对象编程的基础知识（下）/" class="article-date">
+  	<time datetime="2015-11-07T06:38:35.000Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C基础教程&lt;二&gt;
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象编程的基础知识（下）">面向对象编程的基础知识（下）</h3><h5 id="@interface部分">@interface部分</h5><p>创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。<br><br>以下是Circle类的接口。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">interface</span> Circle : NSObject </span>&#123;</span><br><span class="line">	<span class="tag">ShapeColor</span> <span class="tag">fillColor</span>;</span><br><span class="line">	<span class="tag">ShapeRect</span> <span class="tag">bounds</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setFillColor</span>:<span class="value"> (ShapeColor) fillColor</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setBounds</span>:<span class="value"> (ShapeRect) bounds</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="tag">draw</span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">end</span> //Circle</span></span><br></pre></td></tr></table></figure>
+<p>下面我们来介绍一些我们没有使用过的语法。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">Circle :</span> NSObject</span><br></pre></td></tr></table></figure>
+<p>在Objective-C中只要看到@符号，就可以把它看成对C语言的扩展。@interface Circle告诉编辑器：“这是新类Circle的接口。”<br></p>
+<p>声明完新类之后，我们将告诉编译器Circle对象需要的各种数据成员。</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	ShapeColor fillColor<span class="comment">;</span></span><br><span class="line">	ShapeRect bounds<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>花括号中的内容是用于大量创建新的Circle对象的模版。它表示创建的新对象由两个元素构成，第一个元素是fillColor，属于ShapeColor类型，是所绘制圆形的颜色。第二个元素是bounds,是圆形所在的矩形区域，属于 ShapeRect类型。该元素用于确定在屏幕上绘制图形的位置。<br><br>在类声明中指定fillColor和bounds后，每次创建Circle对象，对象中都将包括这两个元素。因此，每个Circle类对象都将拥有自己的fllColor和bounds。fillColor和bounds的值称为Circle类的实例变量。<br>结尾处的花括号告诉编译器，我们为Circle类指定了实例变量。<br><br>接下来几行代码看起来有点像C语言中的函数原型。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setFillColor</span>:<span class="value"> (ShapeColor) fillColor</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setBounds</span>:<span class="value"> (ShapeRect) bounds</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="tag">draw</span>;</span><br></pre></td></tr></table></figure>
+<p>在Objective-C中，它们被称为方法声明。它们看起来很像是旧式的C语言函数原型，用于说明“这是我支持的功能”。方法声明列出了每个方法的名称，方法返回值的类型和某些参数。</p>
+<h5 id="@implementation部分">@implementation部分</h5><p>真正能使对象能够运行的代码位于@implementation部分中。<br><br>以下是完整的Circle类的实现：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@implementation</span> Circle</span><br><span class="line"></span><br><span class="line">- (<span class="typename">void</span>) <span class="string">setFillColor:</span> (ShapeColor) c &#123;</span><br><span class="line">	fillColor = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="typename">void</span>) <span class="string">setBounds:</span> (ShapeRect) b &#123;</span><br><span class="line">	bounds = b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面我们来解释一下这些代码。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Circle</span></span></span><br></pre></td></tr></table></figure>
+<p>@implementation是一个编译器指令,表明你将为某个类提供代码。类名出现在@implementation之后。该行的的结尾处没有分号，因为在Objective-C编译器指令后不必使用分号。<br><br>你甚至可以在@implementation中定义那些在@interface中没有声明过的方法。<strong><em>你可以把它们看作是仅能在当前类中实现的私有方法</em></strong></p>
+<h5 id="实例化对象">实例化对象</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">	id shapes[<span class="number">3</span>];</span><br><span class="line">	</span><br><span class="line">	ShapeRect rect0 = &#123; <span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">0</span>] = [Circle <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">0</span>] setBounds: rect0];</span><br><span class="line">	[shapes[<span class="number">0</span>] setFillColor: kRedColor];</span><br><span class="line">	</span><br><span class="line">	ShapeRect rect1 = &#123; <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">1</span>] = [Rectangle <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">1</span>] setBounds: rect1];</span><br><span class="line">	[shapes[<span class="number">1</span>] setFillColor: kGreenColor];</span><br><span class="line"></span><br><span class="line">	ShapeRect rect2 = &#123; <span class="number">15</span>, <span class="number">19</span>, <span class="number">37</span>, <span class="number">29</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">2</span>] = [Egg <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">2</span>] setBounds: rect2];</span><br><span class="line">	[shapes[<span class="number">2</span>] setFillColor: kBlueColor];</span><br><span class="line">	</span><br><span class="line">	drawShapes (shapes, <span class="number">3</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">&#125; <span class="comment">//main</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/06/面向对象编程的基础知识（上）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Objective-C基础教程&lt;一&gt;</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
