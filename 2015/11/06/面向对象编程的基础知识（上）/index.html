@@ -5,19 +5,19 @@
   
   <title>Objective-C基础教程&lt;一&gt; | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
+  <meta name="description" content="面向对象编程的基础知识（上）先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C基础教程<一>">
-<meta property="og:url" content="http://sakuraneko.me/2015/11/06/面向对象编程的基础知识/index.html">
+<meta property="og:url" content="http://sakuraneko.me/2015/11/06/面向对象编程的基础知识（上）/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
-<meta property="og:updated_time" content="2015-11-06T13:29:34.000Z">
+<meta property="og:description" content="面向对象编程的基础知识（上）先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
+<meta property="og:updated_time" content="2015-11-07T07:33:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C基础教程<一>">
-<meta name="twitter:description" content="面向对象编程的基础知识先来说一个今天写代码的时候碰到的问题吧。
-123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;, &quot;zy">
+<meta name="twitter:description" content="面向对象编程的基础知识（上）先来说一个今天写代码的时候碰到的问题吧。
+123456789101112#import &amp;lt;Foundation/Foundation.h&amp;gt;int main(int argc, const char * argv[]) &amp;#123;    const char *words[4] = &amp;#123;&quot;aardvark&quot;, &quot;abacus&quot;, &quot;allude&quot;,">
   
   
     <link rel="icon" href="/favicon.png">
@@ -159,10 +159,10 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-面向对象编程的基础知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-面向对象编程的基础知识（上）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/06/面向对象编程的基础知识/" class="article-date">
+      <a href="/2015/11/06/面向对象编程的基础知识（上）/" class="article-date">
   	<time datetime="2015-11-06T14:38:35.000Z" itemprop="datePublished">2015-11-06</time>
 </a>
     </div>
@@ -192,7 +192,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="面向对象编程的基础知识">面向对象编程的基础知识</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
+        <h3 id="面向对象编程的基础知识（上）">面向对象编程的基础知识（上）</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在这个例子中我一开始是没有看懂<strong><em>const char </em>words[4]*</strong>这句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -220,7 +220,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/07/Untitled/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/07/面向对象编程的基础知识（中）/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         

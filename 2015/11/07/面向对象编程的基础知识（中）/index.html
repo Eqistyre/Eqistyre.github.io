@@ -5,16 +5,19 @@
   
   <title>Objective-C基础教程&lt;二&gt; | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客">
+  <meta name="description" content="面向对象编程的基础知识（中）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C基础教程<二>">
-<meta property="og:url" content="http://sakuraneko.me/2015/11/07/Untitled/index.html">
+<meta property="og:url" content="http://sakuraneko.me/2015/11/07/面向对象编程的基础知识（中）/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="个人博客">
-<meta property="og:updated_time" content="2015-11-07T06:56:42.000Z">
+<meta property="og:description" content="面向对象编程的基础知识（中）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
+<meta property="og:updated_time" content="2015-11-07T07:34:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C基础教程<二>">
-<meta name="twitter:description" content="个人博客">
+<meta name="twitter:description" content="面向对象编程的基础知识（中）@interface部分创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。以下是Circle类的接口。
+123456789101112@interface Circle : NSObject &amp;#123;	Sha">
   
   
     <link rel="icon" href="/favicon.png">
@@ -156,10 +159,10 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Untitled" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-面向对象编程的基础知识（中）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/07/Untitled/" class="article-date">
+      <a href="/2015/11/07/面向对象编程的基础知识（中）/" class="article-date">
   	<time datetime="2015-11-07T06:38:35.000Z" itemprop="datePublished">2015-11-07</time>
 </a>
     </div>
@@ -189,7 +192,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="面向对象编程的基础知识（中）">面向对象编程的基础知识（中）</h3><h5 id="@interface部分">@interface部分</h5><p>创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。<br><br>以下是Circle类的接口。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">interface</span> Circle : NSObject </span>&#123;</span><br><span class="line">	<span class="tag">ShapeColor</span> <span class="tag">fillColor</span>;</span><br><span class="line">	<span class="tag">ShapeRect</span> <span class="tag">bounds</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setFillColor</span>:<span class="value"> (ShapeColor) fillColor</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setBounds</span>:<span class="value"> (ShapeRect) bounds</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="tag">draw</span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">end</span> //Circle</span></span><br></pre></td></tr></table></figure>
+<p>下面我们来介绍一些我们没有使用过的语法。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">Circle :</span> NSObject</span><br></pre></td></tr></table></figure>
+<p>在Objective-C中只要看到@符号，就可以把它看成对C语言的扩展。@interface Circle告诉编辑器：“这是新类Circle的接口。”<br></p>
+<p>声明完新类之后，我们将告诉编译器Circle对象需要的各种数据成员。</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	ShapeColor fillColor<span class="comment">;</span></span><br><span class="line">	ShapeRect bounds<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>花括号中的内容是用于大量创建新的Circle对象的模版。它表示创建的新对象由两个元素构成，第一个元素是fillColor，属于ShapeColor类型，是所绘制圆形的颜色。第二个元素是bounds,是圆形所在的矩形区域，属于 ShapeRect类型。该元素用于确定在屏幕上绘制图形的位置。</p>
+
       
     </div>
     
@@ -199,7 +210,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2015/11/06/面向对象编程的基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/11/06/面向对象编程的基础知识（上）/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Objective-C基础教程&lt;一&gt;</div>
       <strong class="article-nav-caption">></strong>
     </a>
