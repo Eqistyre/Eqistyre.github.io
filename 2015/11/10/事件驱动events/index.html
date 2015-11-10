@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="事件驱动eventsevents是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了唯一的接口，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。
 事件发射器events模块只提供了一个对象：evnts.EventEmitter。EventEMitter的核心是事件发射器">
-<meta property="og:updated_time" content="2015-11-10T11:40:44.000Z">
+<meta property="og:updated_time" content="2015-11-10T12:44:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js事件驱动events">
 <meta name="twitter:description" content="事件驱动eventsevents是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了唯一的接口，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。
@@ -204,6 +204,8 @@
 <p><li>EventEmitter.once(event, listener) 为指定事件注册一个<strong><em>单次</em></strong>监听器，即监听器最多只会触发一次，出发后立刻解除该监听器。</li></p>
 <p><li>EventEmitter.removeListener(event, Listener)移除指定事件的某个监听器，listener必须是该事件已经注册过的监听器。</li></p>
 <p><li>EventEmitter.removeAllListeners([event])移除所有的事件监听器。</li></p>
+<h5 id="继承_EventEmitter">继承 EventEmitter</h5><p>大多数时候我们不会直接使用 EventEmitter,而是在对象中继承它。包括 fs、net、 http 在内的,只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
+<p>为什么要这样做呢?原因有两点。首先,具有某个实体功能的对象实现事件符合语义, 事件的监听和发射应该是一个对象的方法。其次 JavaScript 的对象机制是基于原型的,支持 部分多重继承,继承 EventEmitter 不会打乱对象原有的继承关系。</p>
 
       
     </div>
