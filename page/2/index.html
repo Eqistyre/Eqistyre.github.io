@@ -780,11 +780,11 @@
 
 
   
-    <article id="post-JavaScript函数声明与表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Cocos2d-x的简单知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/21/JavaScript函数声明与表达式/" class="article-date">
-  	<time datetime="2015-09-21T02:38:35.000Z" itemprop="datePublished">2015-09-21</time>
+      <a href="/2015/10/08/Cocos2d-x的简单知识点/" class="article-date">
+  	<time datetime="2015-10-08T02:38:35.000Z" itemprop="datePublished">2015-10-08</time>
 </a>
     </div>
   
@@ -797,7 +797,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/21/JavaScript函数声明与表达式/">JavaScript函数声明与表达式</a>
+      <a class="article-title" href="/2015/10/08/Cocos2d-x的简单知识点/">Cocos2d-x的简单知识点</a>
     </h1>
   
 
@@ -806,18 +806,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="9-21日小结">9.21日小结</h2><h4 id="函数声明与函数表达式">函数声明与函数表达式</h4><p><li>函数声明<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数声明中会发生函数声明提升的情况。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><li>函数表达式<br></li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="function"><span class="keyword">function</span><span class="params">(arg0, arg1, arg2)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//函数体</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-<p>这种形式看起来很像是常规的变量赋值语句，即创建一个函数并将其付给变量functionName，这种情况下创建的函数是匿名函数，又被称作拉姆达函数。<br>函数表达式不涉及函数提升</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sayHi();</span><br><span class="line"><span class="keyword">var</span> sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	alert(<span class="string">"Hi"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>函数提升呃关键就是理解函数声明与函数表达式之间的区别。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	function sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	functin sayHi() &#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>会报错，且大多数浏览器会返回第二个声明,所以我们可以这样做。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHi;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(condition) &#123;</span><br><span class="line">	sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		alert(<span class="string">"Hi"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	sayHi ＝ <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="string">"HiIII"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>###先补充一些c++的知识点吧</p>
+<p>#####<li>c++继承<br>通过继承机制，可以利用已有的数据类型来定义新的数据类型。所定义的新的数据类型不仅拥有新定义的成员，而且还同时拥有旧的成员。我们称已存在的用来派生新类的类为基类，又称为父类。由已存在的类派生出的新类称为派生类，又称为子类。</li></p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span><span class="inheritance">&lt;</span>派生类名&gt;:<span class="inheritance">&lt;</span>继承方式&gt;<span class="inheritance">&lt;</span>基类名&gt;</span></span><br><span class="line">&#123;</span><br><span class="line">&lt;派生类新定义成员&gt;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>exp:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MyHelloWorldScene : <span class="keyword">public</span> Layer &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">/*通过静态的scene函数，创建一个场景对象*/</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*MyHelloWorldScene的初始化工作都在init里执行*/</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*调用宏CREATE_FUNC定义create函数*/</span></span><br><span class="line">	CREATE_FUNC(MyHelloWorldScene);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
