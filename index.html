@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/19/Cocos2d-x的简单知识点/">Cocos2d-x的简单知识点</a>
+      <a class="article-title" href="/2015/11/19/Cocos2d-x的简单知识点/">Cocos2d-x的简单知识点&lt;一&gt;</a>
     </h1>
   
 
@@ -220,6 +220,9 @@
 <p>以C++语言为例：[1]  析构函数名也应与类名相同，只是在函数名前面加一个位取反符~，例如~stud( )，以区别于构造函数。它不能带任何参数，也没有返回值（包括void类型）。只能有一个析构函数，不能重载。如果用户没有编写析构函数，编译系统会自动生成一个缺省的析构函数（即使自定义了析构函数，编译器也总是会为我们合成一个析构函数，并且如果自定义了析构函数，编译器在执行时会先调用自定义的析构函数再调用合成的析构函数），它也不进行任何操作。所以许多简单的类中没有用显示的析构函数。</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> &lt;类名&gt; </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	~&lt;类名&gt;();</span><br><span class="line">&#125;;</span><br><span class="line">&lt;类名&gt; :: ~x&lt;类名&gt;() &#123;</span><br><span class="line">	<span class="comment">//函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>当程序中没有析构函数时，系统会自动生成以下析构函数：<br>&lt;类名&gt; :: ~&lt;类名&gt;(){}，即不执行任何操作。</p>
+<h5 id="不知道该起什么名字的什么鬼"><li>不知道该起什么名字的什么鬼</li></h5><p>刚刚犯了一个很低级的错误，让我们先看看代码吧＝＝。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Scene *Scene<span class="tag">::create</span>() &#123;</span><br><span class="line">	Scene *pRet = <span class="literal">new</span> Scene();</span><br><span class="line">	<span class="keyword">if</span> (pRet <span class="subst">&amp;&amp;</span> pRet <span class="subst">-&gt; </span>init()); &#123;</span><br><span class="line">		pRet <span class="subst">-&gt; </span>autorelease()</span><br><span class="line">		<span class="keyword">return</span> pRet;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	CC_SAFE_DELETE(pRet);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一开始我在想<code>Scene \*Scene::create() {}</code>这句话是什么意思。我理解了半天都理解成了*Scene::create()这个类的create()方法。后来发现并不是这样！这句话明明这样写才比较好吧！<code>Scene \* Scene::create() {}</code>也就是说这个和<code>int * foo() {}</code>即函数返回一个指针。</p>
 
       
     </div>
