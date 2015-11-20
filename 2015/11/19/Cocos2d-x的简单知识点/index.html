@@ -15,7 +15,7 @@
 <meta property="og:description" content="先补充一些c++的知识点吧c++继承通过继承机制，可以利用已有的数据类型来定义新的数据类型。所定义的新的数据类型不仅拥有新定义的成员，而且还同时拥有旧的成员。我们称已存在的用来派生新类的类为基类，又称为父类。由已存在的类派生出的新类称为派生类，又称为子类。
 单继承的定义格式如下
 1234class &amp;lt;派生类名&amp;gt; : &amp;lt;继承方式&amp;gt; &amp;lt;基类名&amp;gt;&amp;#123;&amp;lt;派">
-<meta property="og:updated_time" content="2015-11-20T08:06:23.000Z">
+<meta property="og:updated_time" content="2015-11-20T12:56:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocos2d-x的简单知识点<一>">
 <meta name="twitter:description" content="先补充一些c++的知识点吧c++继承通过继承机制，可以利用已有的数据类型来定义新的数据类型。所定义的新的数据类型不仅拥有新定义的成员，而且还同时拥有旧的成员。我们称已存在的用来派生新类的类为基类，又称为父类。由已存在的类派生出的新类称为派生类，又称为子类。
@@ -243,9 +243,9 @@
 <p><li>利用for(auto lab : vec)可以遍历Vector队列中的每一个对象，然后获取到所有的Label对象，并添加到场景里<br></li></p>
 <h5 id="Map"><li>Map</li></h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> HelloWorld::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!Layer::init()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建Map对象</span></span><br><span class="line">    Map&lt;<span class="keyword">int</span>, Label*&gt; SakuraMap;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建一百个Sakura,并保存到Map中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//组合名字</span></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> name = <span class="string">"SakuraNo."</span> + Value(i).asString();</span><br><span class="line">        <span class="comment">//创建Label对象,代表Sakura</span></span><br><span class="line">        Label* lab = Label::create(name.c_str(), <span class="string">"Arial"</span>, <span class="number">30</span>);</span><br><span class="line">        <span class="comment">//保存到Map中，用i作为key,用lab作为value</span></span><br><span class="line">        SakuraMap.insert(i, lab);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Label* sakuraLab = SakuraMap.at(<span class="number">26</span>);</span><br><span class="line">    sakuraLab -&gt; setPosition(Point(<span class="number">200</span>, <span class="number">200</span>));</span><br><span class="line">    <span class="keyword">this</span> -&gt; addChild(sakuraLab);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><li>创建一个Map对象，Map<int, label*="">的意思是，这个Map使用int类型作为key值，使用Label类型作为value值，以后通过key值可以快速取出value值。<br></int,></li></p>
-<p><li><br></li></p>
-<p><li><br></li></p>
-<p><li><br></li></p>
+<p><li>创建100个Label对象，代表sakura，保存到Map中，Map的insert函数就是做这个工作的。第一个参数是key的值，以后使用这个key值来获取对象；第二个餐素是我们要保存的对象。<br></li></p>
+<p><li>选定一个key值，/<strong>使用at函数就能Map中取出这个key值对应的Label对象</strong>/<br></li></p>
+<p><li>将取出的Label对象添加到场景中<br></li></p>
 
       
     </div>
