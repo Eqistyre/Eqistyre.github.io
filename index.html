@@ -211,6 +211,11 @@
 <p>九宫格是一种能够使本来拉伸后会变形的图片，经过一定的处理后，拉伸后不变形的技术。 九宫格放大时四个角的四个切片向四个方向延伸，到达新的位置，然后上下两边的切片水平拉伸，左右两侧的切片垂直拉伸，中间的位图放大铺满剩余区域。</p>
 <p><li>回调特性的使用<br>我觉的这个使用方法特别有毛病，其代码的繁琐已经很难让人接受了，但是还是写出来吧。</li></p>
 <p>1.首先我们在编辑器中为根节点添加类名（高级属性-&gt;回调特性-&gt;自定义类）如MyClass。<br><br>2.我们选中自己想要设置回调特性的控件，在其回调方法中，选择接受的回调类型以及输入回调方法的名称：如Touch方法，名称为onTouch:</p>
+<p>然后就轮到我们在xcode中进行了：<br><br>1.我们在C++中,创建一个自己的自定义类：<br><br>这个类必须遵循如下要求：<br><br>a.继承WidgetCallBackHandlerProtocol和Node（或者其他继承自Node的类）<br><br>b.重写如下接口：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">onLocateTouchCallback</span></span><br><span class="line"><span class="built_in">on</span>LocateClickCallback</span><br><span class="line"><span class="built_in">on</span>LocateEventCallback</span><br></pre></td></tr></table></figure>
+<p>返回对Touch,Click,Event三种时间的处理函数。（只需要写自己用到的回调类型就行）。<br><br><br>eg:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.<br>3.</p>
 
       
     </div>
