@@ -168,6 +168,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-雾草！又尼玛是一个难题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/01/雾草！又尼玛是一个难题/" class="article-date">
+  	<time datetime="2015-12-01T06:38:35.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/01/雾草！又尼玛是一个难题/">Cocos-2dx杂感</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="雾草！又尼玛是一个难题">雾草！又尼玛是一个难题</h3><p>首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。</p>
+<p>好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> GameRunning::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//////////////////////////////</span></span><br><span class="line">    <span class="comment">// 1. super init first</span></span><br><span class="line">    <span class="keyword">if</span> ( !Layer::init() )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> RootNode = CSLoader::createNode(<span class="string">"GameRunning.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningScene = Scene::create();</span><br><span class="line">    GameRunningScene-&gt;addChild(RootNode);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayerNode = CSLoader::createNode(<span class="string">"GameRunningLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayer = Layer::create();</span><br><span class="line">    GameRunningLayer-&gt;addChild(GameRunningLayerNode);;</span><br><span class="line">    GameRunningScene-&gt;addChild(GameRunningLayer);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(GameRunningScene);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//    CharacterLayer *CharacterLayer = CharacterLayer::create();</span></span><br><span class="line"><span class="comment">//    this-&gt;addChild(CharacterLayer);</span></span><br><span class="line">    <span class="keyword">auto</span> CharacterNode = cocos2d::CSLoader::createNode(<span class="string">"CharacterLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> CharacterLayer = Layer::create();</span><br><span class="line">    CharacterLayer-&gt;addChild(CharacterNode);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(CharacterLayer);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是自己写的一个程序哈，其中通过<code>this-&gt;addChilde(Character)</code>我们添加了一个CharacterLayer。但是这里的this到底指的是什么呢，我在这里推测这里的this指的应该是layer这样的东西。然后我找到了头文件中的一段。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GameRunning : <span class="keyword">public</span> cocos2d::Layer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// there's no 'id' in cpp, so we recommend returning the class instance pointer</span></span><br><span class="line">    <span class="keyword">static</span> cocos2d::<span class="function">Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//implement the "static create()" method manually</span></span><br><span class="line">    CREATE_FUNC(GameRunning);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/* defined(____GameRunning__) */</span></span></span><br></pre></td></tr></table></figure>
+<p>我们发现在这里面有一个<code>CREATE_FUNC(GameRunning)</code>然后我把它注释了，之后发现游戏画面中通过this添加的图层场景什么鬼的都没有了，于是我推测CREATE_FUNC就是关键。于是我就去查询了CREATE_FUNC()的源码。CREATE_FUNC()是一个宏定义，其定义如下：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @def CREATE_FUNC(__TYPE__)</span><br><span class="line"> * Define a create function for a specific type, such as Layer.</span><br><span class="line"> *</span><br><span class="line"> * @param __TYPE__  class type to add create(), such as Layer.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">#define CREATE_FUNC(__TYPE__) \</span></span><br><span class="line">static __TYPE__* create() <span class="string">\</span></span><br><span class="line">&#123; <span class="string">\</span></span><br><span class="line">    __TYPE__ *pRet = <span class="keyword">new</span>(<span class="attribute">std</span>::nothrow) __TYPE__(); <span class="string">\</span></span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        pRet-&gt;autorelease(); <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> pRet; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        <span class="keyword">delete</span> pRet; <span class="string">\</span></span><br><span class="line">        pRet = NULL; <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> NULL; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看见这是一个创建一个函数给一个详细类，如层。我先闲着无聊，替换下吧好理解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> GameRunning* <span class="title">create</span><span class="params">()</span> </span><br><span class="line"></span>&#123; </span><br><span class="line">    GameRunning *pRet = <span class="keyword">new</span>(<span class="built_in">std</span>::nothrow) GameRunning(); </span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) </span><br><span class="line">    &#123; </span><br><span class="line">        pRet-&gt;autorelease(); </span><br><span class="line">        <span class="keyword">return</span> pRet; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">delete</span> pRet; </span><br><span class="line">        pRet = <span class="literal">NULL</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -770,66 +828,9 @@
 
 
   
-    <article id="post-数据结构基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/02/数据结构基础（一）/" class="article-date">
-  	<time datetime="2015-11-02T04:38:35.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/数据结构基础（一）/">数据结构学习笔记（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用typedef为现有类型创建同义字，定义易于记忆的类型名：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> size;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">measure</span><span class="params">(size * psz)</span></span>;</span><br><span class="line">size <span class="built_in">array</span>[<span class="number">4</span>];</span><br><span class="line">size len=file.getlength();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;size&gt;vs;</span><br></pre></td></tr></table></figure>
-<p>typedef 还可以掩饰复合类型，如指针和数组：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="value">char</span>　<span class="value">line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">char</span>　<span class="value">text</span><span class="attr_selector">[81]</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只需这样定义，Line类型即代表了具有81个元素的字符数组，使用方法如下：</span></span><br><span class="line">typedef <span class="value">char</span> <span class="value">Line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">Line</span>　<span class="value">text</span>,<span class="value">line</span>;</span><br><span class="line"><span class="function">getline</span>(<span class="value">text</span>);</span><br></pre></td></tr></table></figure>
-<p>同样，可以像下面这样隐藏指针语法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>　<span class="keyword">char</span>*　pstr;</span><br><span class="line"><span class="function"><span class="keyword">int</span>　<span class="title">mystrcmp</span><span class="params">(<span class="keyword">const</span>　pstr　p1,<span class="keyword">const</span>　pstr　p3)</span></span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名;<span class="comment">//结构体指针</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = &amp;一个结构体的名字;<span class="comment">//结构体指针并赋初值</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = <span class="keyword">new</span> <span class="keyword">struct</span> 结构体类型名;<span class="comment">//结构体指针并用new申请内存</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 =(<span class="keyword">struct</span> 结构体类型名 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> 结构体类型名))<span class="comment">//结构体指针并用malloc申请内存 使用应包含头文件stdlib.h</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//对象指针的定义方法略同。</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">class</span> C</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    C obj;</span><br><span class="line">    C *p = obj;</span><br><span class="line">    p-&gt;num = <span class="number">5</span>;</span><br><span class="line">    p-&gt;name = <span class="string">"Tony"</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;num &lt;&lt; p-&gt;name &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序输出：5Tony</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

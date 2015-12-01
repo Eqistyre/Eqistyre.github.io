@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Cocos-2dx杂感 | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="雾草！又尼玛是一个难题首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。
+好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。
+12345678910111213141516171819202122232425262728bool GameRunning::init()&amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cocos-2dx杂感">
+<meta property="og:url" content="http://eqistyre.github.io/2015/12/01/雾草！又尼玛是一个难题/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="雾草！又尼玛是一个难题首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。
+好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。
+12345678910111213141516171819202122232425262728bool GameRunning::init()&amp;#123">
+<meta property="og:updated_time" content="2015-12-01T13:11:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cocos-2dx杂感">
+<meta name="twitter:description" content="雾草！又尼玛是一个难题首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。
+好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。
+12345678910111213141516171819202122232425262728bool GameRunning::init()&amp;#123">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.talisk.cn">talisk斯温</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">人间二十年,花鸟风月</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-雾草！又尼玛是一个难题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/01/雾草！又尼玛是一个难题/" class="article-date">
+  	<time datetime="2015-12-01T06:38:35.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cocos-2dx杂感
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="雾草！又尼玛是一个难题">雾草！又尼玛是一个难题</h3><p>首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。</p>
+<p>好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> GameRunning::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//////////////////////////////</span></span><br><span class="line">    <span class="comment">// 1. super init first</span></span><br><span class="line">    <span class="keyword">if</span> ( !Layer::init() )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> RootNode = CSLoader::createNode(<span class="string">"GameRunning.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningScene = Scene::create();</span><br><span class="line">    GameRunningScene-&gt;addChild(RootNode);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayerNode = CSLoader::createNode(<span class="string">"GameRunningLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayer = Layer::create();</span><br><span class="line">    GameRunningLayer-&gt;addChild(GameRunningLayerNode);;</span><br><span class="line">    GameRunningScene-&gt;addChild(GameRunningLayer);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(GameRunningScene);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//    CharacterLayer *CharacterLayer = CharacterLayer::create();</span></span><br><span class="line"><span class="comment">//    this-&gt;addChild(CharacterLayer);</span></span><br><span class="line">    <span class="keyword">auto</span> CharacterNode = cocos2d::CSLoader::createNode(<span class="string">"CharacterLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> CharacterLayer = Layer::create();</span><br><span class="line">    CharacterLayer-&gt;addChild(CharacterNode);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(CharacterLayer);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是自己写的一个程序哈，其中通过<code>this-&gt;addChilde(Character)</code>我们添加了一个CharacterLayer。但是这里的this到底指的是什么呢，我在这里推测这里的this指的应该是layer这样的东西。然后我找到了头文件中的一段。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GameRunning : <span class="keyword">public</span> cocos2d::Layer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// there's no 'id' in cpp, so we recommend returning the class instance pointer</span></span><br><span class="line">    <span class="keyword">static</span> cocos2d::<span class="function">Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//implement the "static create()" method manually</span></span><br><span class="line">    CREATE_FUNC(GameRunning);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/* defined(____GameRunning__) */</span></span></span><br></pre></td></tr></table></figure>
+<p>我们发现在这里面有一个<code>CREATE_FUNC(GameRunning)</code>然后我把它注释了，之后发现游戏画面中通过this添加的图层场景什么鬼的都没有了，于是我推测CREATE_FUNC就是关键。于是我就去查询了CREATE_FUNC()的源码。CREATE_FUNC()是一个宏定义，其定义如下：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @def CREATE_FUNC(__TYPE__)</span><br><span class="line"> * Define a create function for a specific type, such as Layer.</span><br><span class="line"> *</span><br><span class="line"> * @param __TYPE__  class type to add create(), such as Layer.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">#define CREATE_FUNC(__TYPE__) \</span></span><br><span class="line">static __TYPE__* create() <span class="string">\</span></span><br><span class="line">&#123; <span class="string">\</span></span><br><span class="line">    __TYPE__ *pRet = <span class="keyword">new</span>(<span class="attribute">std</span>::nothrow) __TYPE__(); <span class="string">\</span></span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        pRet-&gt;autorelease(); <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> pRet; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        <span class="keyword">delete</span> pRet; <span class="string">\</span></span><br><span class="line">        pRet = NULL; <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> NULL; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看见这是一个创建一个函数给一个详细类，如层。我先闲着无聊，替换下吧好理解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> GameRunning* <span class="title">create</span><span class="params">()</span> </span><br><span class="line"></span>&#123; </span><br><span class="line">    GameRunning *pRet = <span class="keyword">new</span>(<span class="built_in">std</span>::nothrow) GameRunning(); </span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) </span><br><span class="line">    &#123; </span><br><span class="line">        pRet-&gt;autorelease(); </span><br><span class="line">        <span class="keyword">return</span> pRet; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">delete</span> pRet; </span><br><span class="line">        pRet = <span class="literal">NULL</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/29/今天就说说今天的一些小收获吧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocos-2dx杂感</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

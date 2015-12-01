@@ -168,6 +168,87 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-requirejs_入门指南" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/requirejs_入门指南/" class="article-date">
+  	<time datetime="2015-10-21T01:38:35.000Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/requirejs_入门指南/">RequireJS 入门指南</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="RequireJS_入门指南">RequireJS 入门指南</h2><h3 id="简介">简介</h3><p>如今最常用的JavaScript库之一是RequireJS。最近我参与的每个项目，都用到了RequireJS，或者是我向它们推荐了增加RequireJS。在这篇文章中，我将描述RequireJS是什么，以及它的一些基础场景。</p>
+<p>异步模块定义(AMD)<br>谈起RequireJS，你无法绕过提及JavaScript模块是什么，以及AMD是什么。</p>
+<p>JavaScript模块只是遵循SRP(Single Responsibility Principle单一职责原则)的代码段，它暴露了一个公开的API。在现今JavaScript开发中，你可以在模块中封装许多功能，而且在大多数项目中，每个模块都有其自己的文件。这使得JavaScript开发者日子有点难过，因为它们需要持续不断的关注模块之间的依赖性，按照一个特定的顺序加载这些模块，否则运行时将会放生错误。</p>
+<p>当你要加载JavaScript模块时，就会使用script标签。为了加载依赖的模块，你就要先加载被依赖的，之后再加载依赖的。使用script标签时，你需要按照此特定顺序安排它们的加载，而且脚本的加载是同步的。可以使用async和defer关键字使得加载异步，但可能因此在加载过程中丢失加载的顺序。另一个选择是将所有的脚本捆绑打包在一起，但在捆绑的时候你仍然需要把它们按照正确的顺序排序。</p>
+<p>AMD就是这样一种对模块的定义，使模块和它的依赖可以被异步的加载，但又按照正确的顺序。</p>
+<p>Getting Started with RequireJS Library</p>
+<p>CommonJS, 是对通用的JavaScript模式的标准化尝试，它包含有 AMD 定义 ，我建议你在继续本文之前先读一下。在ECMAScript 6这个下一版本JavaScript 规范中，有关于输出，输入以及模块的规范定义，这些将成为JavaScript语言的一部分，而且这不会太久。这也是关于RequireJS我们想说的东西。</p>
+<p>RequireJS?</p>
+<p>RequireJS是一个Javascript 文件和模块框架，可以从 <a href="http://requirejs.org/下载，如果你使用Visual" target="_blank" rel="external">http://requirejs.org/下载，如果你使用Visual</a> Studio也可以通过Nuget获取。它支持浏览器和像node.js之类的服务器环境。使用RequireJS,你可以顺序读取仅需要相关依赖模块。</p>
+<p>RequireJS所做的是，在你使用script标签加载你所定义的依赖时，将这些依赖通过head.appendChild()函数来加载他们。当依赖加载以后，RequireJS计算出模块定义的顺序，并按正确的顺序进行调用。这意味着你需要做的仅仅是使用一个“根”来读取你需要的所有功能，然后剩下的事情只需要交给RequireJS就行了。为了正确的使用这些功能，你定义的所有模块都需要使用RequireJS的API，否者它不会像期望的那样工作。</p>
+<p>RequireJS API 存在于RequireJS载入时创建的命名空间requirejs下。其主要API主要是下面三个函数:</p>
+<p>define– 该函数用户创建模块。每个模块拥有一个唯一的模块ID，它被用于RequireJS的运行时函数，define函数是一个全局函数，不需要使用requirejs命名空间.<br>require– 该函数用于读取依赖。同样它是一个全局函数，不需要使用requirejs命名空间.<br>config– 该函数用于配置RequireJS.<br>在后面，我们将教你如果使用这些函数，但首先让我们先了解下RequireJS的加载流程。</p>
+<p>data-main属性</p>
+<p>当你下载RequireJS之后，你要做的第一件事情就是理解RequireJS是怎么开始工作的。当RequireJS被加载的时候，它会使用data-main属性去搜寻一个脚本文件（它应该是与使用src加载RequireJS是相同的脚本）。data-main需要给所有的脚本文件设置一个根路径。根据这个根路径，RequireJS将会去加载所有相关的模块。下面的脚本是一个使用data-main例子：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"scripts/require.js"</span> <span class="attribute">data-main</span>=<span class="value">"scripts/app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>另外一种方式定义根路劲是使用配置函数，后面我们将会看到。requireJs假设所有的依赖都是脚本，那么当你声明一个脚本依赖的时候你不需要使用.js后缀。</p>
+<p>配置函数</p>
+<p>如果你想改变RequireJS的默认配置来使用自己的配置，你可以使用require.configh函数。config函数需要传入一个可选参数对象，这个可选参数对象包括了许多的配置参数选项。下面是一些你可以使用的配置：</p>
+<p>baseUrl——用于加载模块的根路径。<br>paths——用于映射不存在根路径下面的模块路径。<br>shims——配置在脚本/模块外面并没有使用RequireJS的函数依赖并且初始化函数。假设underscore并没有使用  RequireJS定义，但是你还是想通过RequireJS来使用它，那么你就需要在配置中把它定义为一个shim。<br>deps——加载依赖关系数组<br>下面是使用配置的一个例子：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>.config(&#123;</span><br><span class="line">    <span class="regexp">//</span><span class="constant">By</span> default load any <span class="class"><span class="keyword">module</span> <span class="title">IDs</span> <span class="title">from</span> <span class="title">scripts</span>/<span class="title">app</span></span></span><br><span class="line">    <span class="symbol">baseUrl:</span> <span class="string">'scripts/app'</span>,</span><br><span class="line">    <span class="regexp">//except</span>, <span class="keyword">if</span> the <span class="class"><span class="keyword">module</span> <span class="title">ID</span> <span class="title">starts</span> <span class="title">with</span> "<span class="title">lib</span>"</span></span><br><span class="line">     <span class="symbol">paths:</span> &#123;</span><br><span class="line">        <span class="class"><span class="keyword">lib</span>: '../<span class="title">lib</span>'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="regexp">//</span> load backbone as a shim</span><br><span class="line">    <span class="symbol">shim:</span> &#123;</span><br><span class="line">        <span class="string">'backbone'</span><span class="symbol">:</span> &#123;</span><br><span class="line">            <span class="regexp">//</span><span class="constant">The</span> underscore script dependency should be loaded before loading backbone.js</span><br><span class="line">            <span class="symbol">deps:</span> [<span class="string">'underscore'</span>],</span><br><span class="line">            <span class="regexp">//</span> use the global <span class="string">'Backbone'</span> as the <span class="class"><span class="keyword">module</span> <span class="title">name</span>.</span></span><br><span class="line">            <span class="symbol">exports:</span> <span class="string">'Backbone'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在这个例子中把根路径设置为了scripts/app，由lib开始的每个模块都被配置在scripts/lib文件夹下面，backbone 加载的是一个shim依赖。</p>
+<p>用RequireJS定义模块</p>
+<p>模块是进行了内部实现封装、暴露接口和合理限制范围的对象。ReuqireJS提供了define函数用于定义模块。按章惯例每个Javascript文件只应该定义一个模块。define函数接受一个依赖数组和一个包含模块定义的函数。通常模块定义函数会把前面的数组中的依赖模块按顺序做为参数接收。例如，下面是一个简单的模块定义:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"logger"</span>], <span class="function"><span class="keyword">function</span><span class="params">(logger)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            firstName: <span class="string">"John"</span>,</span><br><span class="line">            lastName: “Black“,</span><br><span class="line">            sayHello: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; </span><br><span class="line">                logger.log(‘hello’);</span><br><span class="line">           		&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>我们看，一个包含了logger的模块依赖数组被传给了define函数,该模块后面会被调用。同样我们看所定义的模块中有一个名为logger的参数，它会被设置为logger模块。每一个模块都应该返回它的API.这个示例中我们有两个属性(firstName和lastName)和一个函数(sayHello)。然后，只要你后面定义的模块通过ID来引用这个模块，你就可以使用其暴露的API。</p>
+<p>使用require函数</p>
+<p>在RequireJS中另外一个非常有用的函数是require函数。require函数用于加载模块依赖但并不会创建一个模块。例如：下面就是使用require定义了能够使用jQuery的一个函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//jQuery was loaded and can be used now</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>小结</p>
+<p>在这篇文章中我介绍了RequireJS库,它是我创建每个Javascript项目都会用到的库函数之一。它不仅仅用于加载模块依赖和相关的命令，RequireJS帮助我们写出模块化的JavaScript代码，这非常有利于代码的可扩展性和重用性。</p>
+<p>本文地址：<a href="http://www.oschina.net/translate/getting-started-with-the-requirejs-library" target="_blank" rel="external">http://www.oschina.net/translate/getting-started-with-the-requirejs-library</a><br><br>原文地址：<a href="http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library" target="_blank" rel="external">http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library</a><br><br>本文中的所有译文仅用于学习和交流目的，转载请务必注明文章译者、出处、和本文链接<br>我们的翻译工作遵照 CC 协议，如果我们的工作有侵犯到您的权益，请及时联系我们</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-《css高效开发实战》读后感" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -779,97 +860,9 @@ alert(values);  <span class="comment">//0,1,10,15,5</span>
 
 
   
-    <article id="post-动态的属性与传递参数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/11/动态的属性与传递参数/" class="article-date">
-  	<time datetime="2015-09-11T01:38:35.000Z" itemprop="datePublished">2015-09-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/11/动态的属性与传递参数/">动态的属性与传递参数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="动态的属性">动态的属性</h5><pre><code><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();
-person.name = <span class="string">"nico"</span>;
-alert(person.name);<span class="comment">//"nico"</span>
-
-<span class="keyword">var</span> perosn = <span class="string">"nico"</span>;
-person.age = <span class="string">"17"</span>;
-alert(person.age);<span class="comment">//warning undefined;</span>
-</code></pre><p>我们可以看出可以为对象添加属性，但是却不能为基本类型添加属性。</p>
-<h5 id="传递参数">传递参数</h5><pre><code>function add(num) {
-    num += <span class="number">10</span>;
-    <span class="keyword">return</span> num;
-}
-
-<span class="keyword">var</span> count = <span class="number">20</span>;
-<span class="keyword">var</span> <span class="literal">result</span> = add(count);
-alert(count);//<span class="number">20</span>
-alert(<span class="literal">result</span>);//<span class="number">30</span>
-</code></pre><p>我们可以看出来这里只是按值传递即不传递count，而仅仅将count的值20赋给了num，并不是引用传递。</p>
-<hr>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
-    obj.name = <span class="string">"nico"</span>;
-}
-
-<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
-setName(person);
-alert(person.name); <span class="comment">//nico</span>
-</code></pre><p>上述代码创建了一个对象，并将其保存在了变量person中。然后这个对象被传递到setName（）函数中之后就被复制给了obj。<em>在这个函数内部，obj与person引用的是同一个对象。换句话说，即使这个对象是按值传递的，obj也会引用一个相同的对象。于是，当在函数内部为obj添加name属性后，函数外部的person也将有所反映；因为person指向的对象在堆内存中只有一个。</em></p>
-<hr>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>{
-    obj.name = <span class="string">"nico"</span>;
-    obj = <span class="keyword">new</span> <span class="built_in">Object</span>();
-    obj.name = <span class="string">"Greg"</span>;
-}
-
-<span class="keyword">var</span> person= <span class="keyword">new</span> <span class="built_in">Object</span>();
-setName(person);
-alert(person.name); <span class="comment">//nico</span>
-</code></pre><p>如果是按引用传递的话那么应该显示为Greg，毕竟在被初始化后仍然还应该被继续引用。但是并不是，因为只是按值传递，在初始化后，值改变了，于是使用obj.name便是引用一个局部对象了，而且这个对象会在函数执行完毕之后立即销毁。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
