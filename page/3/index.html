@@ -168,6 +168,80 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-函数探幽(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/函数探幽(上)/" class="article-date">
+  	<time datetime="2015-10-27T08:38:35.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/27/函数探幽(上)/">c++学习知识点纪录（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="&lt;函数探幽(上)&gt;">&lt;函数探幽(上)&gt;</h4><h3 id="c++内联函数">c++内联函数<br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。<br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line">	</span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。<br></p>
+<h5 id="内联与宏">内联与宏</h5><p>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。<br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong><br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rats;</span><br><span class="line"><span class="keyword">int</span> &amp; rodents = rats;<span class="comment">//int &amp; rodents之间加一个空格会更好的说明标志符的性质</span></span><br></pre></td></tr></table></figure>
+<p>其中,&amp;不是地址运算符，而是类型标志符的一部分，就像声明中的char*指的是指向char的指针一样，int&amp;指的是指向int的引用。上述引用声明允许将rats与rodents互换——他们指向相同的值和内存单元。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line">	<span class="keyword">int</span> &amp; rodents = rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	rodents++;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//地址部分</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats address = "</span> &lt;&lt; &amp;rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运算结果：<br><br>rats = 101, rodents = 101<br><br>rats = 102, rodents = 102<br><br>rats address = 0x7fff54435ae8, rodents address = 0x7fff54435ae8<br></p>
+<p>对于c语言用户而言，首次接触到引用时可能也会有些疑惑，因为这些用户会很自然地联想到指针，但它们之间还是有区别的。例如，可以创建指向rats的引用和指针：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line"><span class="keyword">int</span> &amp; rodents = rats; <span class="comment">// &amp;是个标志符</span></span><br><span class="line"><span class="keyword">int</span> * prats = &amp;rats; <span class="comment">// *是个标志符</span></span><br></pre></td></tr></table></figure>
+<p>两个地方要注意： 在程序声明变量的时候的*，只是表明“它是一个无符号整数，这个整数指向某个内存地址，一次访问sizeof(type)长度”。这点不要和(*)操作符混淆；<br><br>在C++程序声明变量的时候的&amp;，只是表明“它是一个引用，这个引用声明时不开辟新空间，它在内存分配表加入新的一行，该行内存地址等于和调用时传入的对应参数内存地址”。<br><br>这点不要和(*)声明符，(&amp;)操作符混淆。<br><br></p>
+<p>这样，表达式rodents和<em>prats都可以同rats互换，而表达式&amp;rodents和prats都可以同&amp;rats互换。从这一点来说，引用看起来很像伪装表示的指针（其中，\</em>杰出引用运算符被隐式理解）。实际上，应用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是，必须在声明引用是将其初始化，而不能像指针那样，先声明，再赋值：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rat;</span><br><span class="line"><span class="keyword">int</span> &amp; rodent;</span><br><span class="line">rodent = rat <span class="comment">//你不能这样做！</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> * <span class="built_in">ptr</span><span class="comment">;</span></span><br><span class="line"><span class="built_in">ptr</span> = &amp;value<span class="comment">; //这个是可以的</span></span><br></pre></td></tr></table></figure>
+<p>引用更接近于const指针，必须在创建时进行初始化，一旦于某个变量关联起来，就讲一只效忠于它。也就是说：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp; rodents = rats;</span><br></pre></td></tr></table></figure>
+<p>实际上是下属代码的伪装表示：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> pr = &amp;rats;</span><br></pre></td></tr></table></figure>
+<p>其中，引用rodents扮演的角色与表达式*pr相同。<br><br>下面的程序演示了将rats变量的引用改为bunnies变量的引用时，将发生的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line">	<span class="keyword">int</span> &amp; rodents = rats;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl; </span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats address = "</span> &lt;&lt; &amp;rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> bunnies = <span class="number">50</span>;</span><br><span class="line">	rodents = bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"bunnies = "</span> &lt;&lt; bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"bunnies address = "</span> &lt;&lt; &amp;bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序输出清单：<br>rats = 101, rodents = 101<br><br>rats address = 0x7fff58faaac8<br><br>, rodents address = 0x7fff58faaac8<br><br>bunnies = 50, rodents = 50<br><br>bunnies address = 0x7fff58faaabc, rodents address = 0x7fff58faaac8<br></p>
+<p>最初，rodents引用的是rats，但随后程序试图将rodents作为bunnies的引用：<br><br>rodents = bunnies;<br><br>咋一看，这种意图暂时是成功的，因为rodents的值从101变为了50。但仔细研究发现，rats也变成了50，同时rats和rodents的地址，而该地址与bunnies的地址不同。由于rodents是rats的别名，因此上述赋值语句与下面的语句等下:</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rats = bunnies<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>也就是说，这意味着“将bunnies变量的值赋值给rat变量”。简而言之，可以通过初始化声明来设置。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-函数原型与函数调用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -740,100 +814,6 @@
 <h4 id="Global对象">Global对象</h4><p><li>eval()方法 <br><br>Eval方法是javascript中最强大的一种方法，这种方法相当于一个javascript解析器，只接受一个参数，即要执行的ECMAscript字符串。<br><br>eval(“alert(‘hi’)”);  等价于 alert(‘hi’);<br><br>所以这种方法十分危险，当它执行用户输入操作时或许会存在代码注入的情况。</li></p>
 <hr>
 <h4 id="总结">总结</h4><p>在所有代码执行之前，作用域中就已经存在了两个内置对象： Global 和 Math。在大多数ECMAScript实现中都不能直接访问GLobal对象；不过，Web浏览器实现了承担该角色的Window对象。全局变量和函数都是Global对象的属性。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript心得（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/18/JavaScript心得（一）/" class="article-date">
-  	<time datetime="2015-09-18T02:38:35.000Z" itemprop="datePublished">2015-09-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/18/JavaScript心得（一）/">JavaScript心得（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-18">9.18</h2><h5 id="javaScript没有块级作用域"><li>javaScript没有块级作用域<br></li></h5><pre><code><span class="keyword">for</span>(var i = <span class="number">0.</span>i &lt; <span class="number">10</span>; i++) {
-    doSomething[i]
-}
-
-alertt(i);    <span class="comment">//10</span>
-</code></pre><p>这个栗子说明了 javascript中if语句中的变量声明会将变量添加到当前的执行环境(这里的全局环境)中。<br></p>
-<h5 id="新增项color［3］"><li>新增项color［3］<br></li></h5><p>如果一个数组的元素原来只有两个现在使用 color[2]会添加第三个元素</p>
-<h5 id="栈方法"><li>栈方法</li></h5><pre><code>var colors = <span class="keyword">new</span> Array();
-var <span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"red"</span>,<span class="string">"green"</span>);
-alert(<span class="keyword">count</span>);
-
-<span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"black"</span>);
-alert(<span class="keyword">count</span>);
-
-var item = colors.<span class="keyword">pop</span>(); <span class="comment">//"black"</span>
-alert(colors.length); <span class="comment">//2</span>
-</code></pre><p>push()方法可以接收任意数量的参数，把它们逐个添加到数组末尾，<strong>并返回修改后数组的长度</strong>。<br><br>pop()方法可以从数组末尾移除最后一项，<strong>并且返回移除的项</strong>。</p>
-<h5 id="队列方法"><li>队列方法</li></h5><pre><code><span class="comment">//例一</span>
-<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
-va <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>);
-alert(<span class="built_in">count</span>);
-
-<span class="built_in">count</span> = colors.shift(); <span class="comment">// "red"</span>
-alert(colors.length); <span class="comment">//1</span>
-
-<span class="comment">//例二</span>
-<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
-<span class="keyword">var</span> <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"xbox"</span>,<span class="string">"ps4"</span>);
-alert(<span class="built_in">count</span>); <span class="comment">//4</span>
-
-<span class="built_in">count</span> = colors.unshift(<span class="string">"black"</span>);
-alert(<span class="built_in">count</span>); <span class="comment">//5</span>
-</code></pre><p>不同于栈数据的访问方法规则LIFO（后进先出）；队列结构的访问规则是FIFO（先进先出） <br><br>shift()   它能够从数组中取得第一项，即red 。unshift ()的作用与shift相反，它向前端添加任意个项并返回新数组长度。</p>
-<h5 id="js不接受重载"><li>js不接受重载</li></h5><p>js不像java那样可以重载，不能通过不同的参数值进行函数的匹配。 </p>
-<h5 id="重排序的方法"><li>重排序的方法</li></h5><p>reverse()方法可以反转数组项的数据。</p>
-<h5 id="sort详解"><li>sort详解</li></h5><pre><code>var values = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];
-values.sort();
-alert(values);  <span class="comment">//0,1,10,15,5</span>
-</code></pre><p>sort()方法按升序排列数组项。（但是是按照字符串比较顺序的）所以当录入的时候0（0），1（1），5（5），10（1），15（1）；所以会出现0，1，10，15，5这种奇怪的顺序。<br><br>我们可以采用下面这种方法进行sort()的按升序排列。</p>
-   <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> compare(<span class="keyword">value</span><span class="number">1</span>, <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">value</span><span class="number">1</span> &lt; <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">value</span><span class="number">1</span> &gt; <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
-<p>   var values = [1, 5, 10, 15];<br>   values.sort(compare);<br>   alert(values);    //0,1,5,10,15<br>   ```<br>这是因为<br><br>如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：<br><br>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。<br><br>若 a 等于 b，则返回 0。<br><br>若 a 大于 b，则返回一个大于 0 的值。<br></p>
-<p><br><br><br><br><br></p>
-<p>然后还有这个排序这进行两两比较.<br><br>比如你这个数组按升序排列var arrA = [6,2,4,3,5,1];<br><br>第一次比较6,2<br><br>6比2大得到2,6<br><br>原数组变成[2,6,4,3,5,1]<br></p>
-<p><br><br>通过值检测，不断更新数组，最后完成数组排列。</p>
 
       
     </div>

@@ -168,6 +168,58 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DataStructure(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/16/DataStructure(1)/" class="article-date">
+  	<time datetime="2015-12-16T02:38:35.000Z" itemprop="datePublished">2015-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/16/DataStructure(1)/">DataStructure(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Preface">Preface</h3><p>From today,I will try to use English record my blog.</p>
+<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more<br>particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete<br>implementation of the contract provided by an ADT.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-杂感12.15" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -727,70 +779,6 @@
 <p>双十一到了，这也就说明很快就要步入一六年了。自己算了下，自己很快就要大三了，压力开始变得越来越大。自己多累点吧。这个世界上最美的色彩是0和1组成的。那里是我喜欢的世界。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">人在世</span><br><span class="line">责在身</span><br><span class="line">谁也不能共一生</span><br></pre></td></tr></table></figure>
 <p>每个人在这个世界上都是有着自己的责任的，自己去努力的完成自己的责任吧。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-事件驱动events" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/10/事件驱动events/" class="article-date">
-  	<time datetime="2015-11-10T06:38:35.000Z" itemprop="datePublished">2015-11-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/10/事件驱动events/">Node.js事件驱动events</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="事件驱动events">事件驱动events</h3><p>events是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了<strong><em>唯一的接口</em></strong>，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。</p>
-<h5 id="事件发射器">事件发射器</h5><p>events模块只提供了一个对象：evnts.EventEmitter。EventEMitter的核心是事件发射器与实践监听器功能的封装。EventEmitter的每一个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件EventEmitter支持若干个事件监听器。当事件发射的时候，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener1'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener2'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.emit(<span class="string">'someEvent'</span>, <span class="string">'byvoid'</span>, <span class="number">1999</span>);</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">listener1</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br><span class="line"><span class="label">listener2</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br></pre></td></tr></table></figure>
-<p>以上例子中，emitter为事件someEvent注册了两个事件监听器，然后发射了someEvent事件。运行结果中可以看到两个事件监听器回调函数被先后调用。</p>
-<p>这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
-<p><li>EventEmitter.on(event, listener)为指定    事件注册一个监听器，接受一个字符串event和一个回调函数listener。</li></p>
-<p><li>EventEmitter.emit(event, [arg1], [arg2], […])发射event事件，传递若干可选参数到事件监听器的参数表。</li></p>
-<p><li>EventEmitter.once(event, listener) 为指定事件注册一个<strong><em>单次</em></strong>监听器，即监听器最多只会触发一次，出发后立刻解除该监听器。</li></p>
-<p><li>EventEmitter.removeListener(event, Listener)移除指定事件的某个监听器，listener必须是该事件已经注册过的监听器。</li></p>
-<p><li>EventEmitter.removeAllListeners([event])移除所有的事件监听器。</li></p>
-<h5 id="继承_EventEmitter">继承 EventEmitter</h5><p>大多数时候我们不会直接使用 EventEmitter,而是在对象中继承它。包括 fs、net、 http 在内的,只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
-<p>为什么要这样做呢?原因有两点。首先,具有某个实体功能的对象实现事件符合语义, 事件的监听和发射应该是一个对象的方法。其次 JavaScript 的对象机制是基于原型的,支持 部分多重继承,继承 EventEmitter 不会打乱对象原有的继承关系。</p>
 
       
     </div>
