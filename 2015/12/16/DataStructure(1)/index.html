@@ -13,7 +13,7 @@ DefinationIn computer science,a data structure is a particular way of organizing
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="PrefaceI will try to use English record my blog from today.
 DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
-<meta property="og:updated_time" content="2015-12-16T11:56:57.000Z">
+<meta property="og:updated_time" content="2015-12-16T12:00:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(1)">
 <meta name="twitter:description" content="PrefaceI will try to use English record my blog from today.
@@ -204,17 +204,17 @@ DefinationIn computer science,a data structure is a particular way of organizing
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Preface">Preface</h3><p>I will try to use English record my blog from today.</p>
-<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more<br><br>particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete<br><br>implementation of the contract provided by an ADT.</p>
+<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete implementation of the contract provided by an ADT.</p>
 <p>Different kinds of data structures are suited to different kinds of applications, examples:</p>
 <p><li>Databases use B-tree indexes for small percentages of data retrieval.<br></li></p>
 <p><li>compilers and databases use dynamic hash tables as look-up tables.<br></li></p>
 <p>Usaually, efficient data structures are key to designing efficient algorithms.</p>
-<h3 id="Overview">Overview</h3><p>Data structures are generally based on the ability of a computer fetch and store data at any place in its memory, specified by <em>pointer</em>-a bit string, representing<br>a memory address. </p>
+<h3 id="Overview">Overview</h3><p>Data structures are generally based on the ability of a computer fetch and store data at any place in its memory, specified by <em>pointer</em>-a bit string, representing a memory address. </p>
 <h3 id="Examples">Examples</h3><p>There are numerous types of data structures, gennerally built upon simpler primitive data types:(just like a tress)</p>
 <p><li>An array:a number of elements in a specific order, typically all of the same type.I think the array is one of the type we familiar with<br></li></p>
 <p><li>An associative array:a more flexible variation on an array, in which name-value pairs can be added and deleted freely. A hash table is a common implementation of an associative array.<br></li></p>
-<p><li>A record(also called tuple or struct):an aggregate data structure. A  record is a value that contains oher values, typically in fixed number and sequence and typically indexed by names. The elements<br>of records are usually called fields or members(You can find struct in C, in C++ it have an advanced name class, but it also remmained in C++)<br></li></p>
-<p><li>A union: a data structure that specifies which of a number of permitted primitive types may be stored in it’s instances,e.g. float or long integer. Contrast with a record, which could be defined to contain<br>a float and an integer; whereas in a union, ther is only one value at time. Enough space is allocated to contain the widest member datatype(I will give a instance in c)</li></p>
+<p><li>A record(also called tuple or struct):an aggregate data structure. A  record is a value that contains oher values, typically in fixed number and sequence and typically indexed by names. The elements of records are usually called fields or members(You can find struct in C, in C++ it have an advanced name class, but it also remmained in C++)<br></li></p>
+<p><li>A union: a data structure that specifies which of a number of permitted primitive types may be stored in it’s instances,e.g. float or long integer. Contrast with a record, which could be defined to contain a float and an integer; whereas in a union, ther is only one value at time. Enough space is allocated to contain the widest member datatype(I will give a instance in c)</li></p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">number</span></span></span><br><span class="line">&#123;</span><br><span class="line">int x;</span><br><span class="line">long y;</span><br><span class="line">double z;</span><br><span class="line">&#125;;</span><br><span class="line">number num = (<span class="number">4</span>,<span class="number">15</span>,<span class="number">30.7</span>);</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><li>A tagged union: a variant union contains an additional field indicating its current type, for enhanced type safety.<br></li></p>
