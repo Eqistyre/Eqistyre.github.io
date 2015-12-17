@@ -5,19 +5,19 @@
   
   <title>DataStructure(2) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linear_list###DefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
-In a slightly more complex linear li">
+  <meta name="description" content="Linear_listDefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
+In a slightly more complex linear list,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DataStructure(2)">
 <meta property="og:url" content="http://eqistyre.github.io/2015/12/17/DataStructure(2)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="Linear_list###DefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
-In a slightly more complex linear li">
-<meta property="og:updated_time" content="2015-12-17T07:18:58.000Z">
+<meta property="og:description" content="Linear_listDefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
+In a slightly more complex linear list,">
+<meta property="og:updated_time" content="2015-12-17T07:24:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(2)">
-<meta name="twitter:description" content="Linear_list###DefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
-In a slightly more complex linear li">
+<meta name="twitter:description" content="Linear_listDefinationLinar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.
+In a slightly more complex linear list,">
   
   
     <link rel="icon" href="/favicon.png">
@@ -203,11 +203,11 @@ In a slightly more complex linear li">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Linear_list">Linear_list</h2><p>###Defination<br>Linar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.</p>
+        <h2 id="Linear_list">Linear_list</h2><h3 id="Defination">Defination</h3><p>Linar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.</p>
 <p>In a slightly more complex linear list, a data elements can consist of many item. under these circumstances, we usually call the elements as record, and we call the linar list which has many records as file.</p>
 <p>In a linar list, we define the elements the linar list hava as it’s long, when n = 0 we called it as empty list.</p>
 <p>The abstract data structure type is defined as follows：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ADT <span class="keyword">List</span> &#123;</span><br><span class="line">	Data object: <span class="keyword">D</span> = &#123; ai | ai ∈ ElemeSet, i = 1, 2, ……, <span class="keyword">n</span> , <span class="keyword">n</span> ≥ 0&#125;</span><br><span class="line">	Data relationship: R1 = &#123; &lt;ai-1, ai&gt; | ai-1, ai ∈ <span class="keyword">D</span>, i =2, ……, <span class="keyword">n</span>&#125;</span><br><span class="line">	basic operation:</span><br><span class="line">		Init <span class="keyword">List</span>(&amp;)</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ADT <span class="keyword">List</span> &#123;</span><br><span class="line">	Data Object: <span class="keyword">D</span> = &#123; ai | ai ∈ ElemeSet, i = 1, 2, ……, <span class="keyword">n</span> , <span class="keyword">n</span> ≥ 0&#125;</span><br><span class="line">	Data Relationship: R1 = &#123; &lt;ai-1, ai&gt; | ai-1, ai ∈ <span class="keyword">D</span>, i =2, ……, <span class="keyword">n</span>&#125;</span><br><span class="line">	Basic Operation:</span><br><span class="line">		Init <span class="keyword">List</span>(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Operation Result: construct a empty linar <span class="keyword">list</span> <span class="keyword">L</span>.</span><br><span class="line">		DestoryList(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: The linar <span class="keyword">list</span> <span class="keyword">L</span> is existed.</span><br><span class="line">			Operation Result: destory linar <span class="keyword">list</span> <span class="keyword">L</span>.</span><br><span class="line">		ClearList(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
