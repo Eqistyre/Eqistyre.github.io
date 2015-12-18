@@ -168,6 +168,58 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-HTTP 服务器与客户端" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/11/HTTP 服务器与客户端/" class="article-date">
+  	<time datetime="2015-11-11T10:38:35.000Z" itemprop="datePublished">2015-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/11/HTTP 服务器与客户端/">Node.js HTTP 服务器与客户端</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP服务器与客户端">HTTP服务器与客户端</h3><p>Node.js标准库提供了http模块，其中封装了一个高效的HTTP服务器和一个简易的HTTP客户端。http.Server是一个基于事件的HTTP服务器，它的核心由Node.js下层部分实现，而接口由JavaScript封装，兼顾了高性能与建议性。</p>
+<h4 id="HTTP服务器">HTTP服务器</h4><p>http.Server是http模块中的HTTP服务器对象。用Node.js做的所有基于HTTP服务器协议的系统，如网站，社交应用甚至代理服务器，都是基于http.Server实现的。它提供了一套封装级别很低的API，仅仅是流控制和简单的消息解析，所有的高层功能都是通过它的接口来实现。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-杂感（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -478,64 +530,6 @@
 
 
   
-    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/使用类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
-<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
-<p>实例如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -577,6 +571,64 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stock00.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::acquire(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; co, <span class="keyword">long</span> n, <span class="keyword">double</span> pr) &#123;</span><br><span class="line">	company = co;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares can't be negative"</span></span><br><span class="line">				  &lt;&lt; company &lt;&lt; <span class="string">" shares set to 0.\n"</span>;</span><br><span class="line">		shares = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares = n;</span><br><span class="line">	&#125;</span><br><span class="line">	share_val = pr;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::buy(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares purchased can't be negative."</span></span><br><span class="line">				  &lt;&lt; <span class="string">"Transaction is aborted.\n"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares += num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::sell(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares sold can't be negative."</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; shares) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"You can't sell more than you have!c "</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares -= num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price) &#123;</span><br><span class="line">	share_val = price;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::show() &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">			  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; <span class="string">'\n'</span></span><br><span class="line">			  &lt;&lt; <span class="string">" Share Price: $"</span> &lt;&lt; share_val</span><br><span class="line">			  &lt;&lt; <span class="string">" Total Worth: $"</span> &lt;&lt; total_val &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><li>成员函数说明<br><br>acquire()</li></p>
 
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/使用类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
+<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
+<p>实例如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -680,96 +732,6 @@
       
         <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。<br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-内存模型和名称空间" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/29/内存模型和名称空间/" class="article-date">
-  	<time datetime="2015-10-29T13:38:35.000Z" itemprop="datePublished">2015-10-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/内存模型和名称空间/">c++学习知识点纪录（四）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单独编译">单独编译</h4><p>请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。<br></p>
-<p><li>函数原型。</li></p>
-<p><li>使用#define或const定义的符号常量。</li></p>
-<p><li>结构声明。</li></p>
-<p><li>类声明。</li></p>
-<p><li>模版声明。</li></p>
-<p><li>内联函数。</li></p>
-<h4 id="储存持续性，作用域和链接性">储存持续性，作用域和链接性</h4><p><li>自动储存持续性：在函数定义中声明的变量（包括函数参数）的持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。</li></p>
-<p><li>静态函数储存持续性：在函数定义外定义的变量和使用关键字static定义的变量的储存持续性都为静态。它们在程序整个允许过程中都存在</li></p>
-<p><li>线程储存持续性：多和处理器中有这个东西。</li></p>
-<p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</li></p>
-<h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。<br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。</p>
-<h5 id="函数的调用形式">函数的调用形式</h5><p>在c++中，除了main( )函数意外，任何一个函数都在main( )函数中直接或间接地被调用。调用一个函数就是执行该函数的函数体的过程。<br><br>函数调用的执行过程：<br><br>函数调用过程就是调用语句执行的过程，步骤如下:<br></p>
-<p>第1步：函数调用</p>
-<p><li>将函数调用语句下一条语句的地址保存在一种被称为“栈”的内存空间中，以便函数调用完后返回，将数据放到栈空间中的过程被称为压栈。</li></p>
-<p><li>对实参表从后向前，依次计算出实参表达式的值，并将值压栈。</li></p>
-<p><li>跳转到函数体处。<br><br></li></p>
-<p>第2步：函数体执行</p>
-<p><li>如果函数中还定义了变量，将变量压栈。</li></p>
-<p><li>将每一个形参以栈中对应的实参取代，执行函数的功能体。</li></p>
-<p><li>将函数体中的变量，保存在栈中的实参值，依次从栈中取出，以释放栈空间。从栈中取出的数据称为出栈。</li></p>
-<p>第3步：返回过程</p>
-<p><li>返回过程执行的是函数体中的return语句。</li></p>
-<p><li>从栈中取出调用时压入的地址，跳转到函数调用语句的下一条语句。</li></p>
-<p><li>当return语句不带有表达式时，按保存的地址返回；当return语句带有表达式时，将计算return表达式的值保存起来，然后再返回。</li></p>
-<h5 id="自动变量和栈">自动变量和栈</h5><p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须在运行时堆自动变量进行管理。常用的方法是留出一段内存，并将其视为栈。以管理变量的增减。之所以被称为栈，是由于新数据被象征性的放在原有数据的上面（也就是说，在相邻的内存单元中，而不是在同一个内存单元中），当程序使用完后，将其从栈中删除。栈的默认长度取决于实现，但编译器通常提供改变长度的选项。程序使用两个指针来跟踪栈，一个指向栈底——栈开始的位置，另一个指向栈顶——下一个可用的内存单元。当函数被调用的时候，其自动变量将被加入到栈中，栈顶指针变量指向变量后面一个可用的内存单元。</p>
-<h5 id="静态持续变量">静态持续变量</h5><p>自动变量，只在定义它们的时候才创建，在定义它们的函数返回时系统回收变量所占存储空间。对这些变量存储空间的分配和回收是由系统自动完成的。一般情况下，不作专门说明的局部变量，均是自动变量。<br><br>三种链接性：</p>
-<p><li>外部链接性（可在其他文件中访问）</li></p>
-<p><li>内部链接性（只能在当前文件中访问）</li></p>
-<p><li>无链接性（只能在当前函数或代码块中访问）<br><br><br>这三种链接性都在整个执行期间存在，与自动变量相比，他们的寿命更长。由于静态变量的数目在程序运行期间是不变的，因此程序不需要使用特殊的装置（如栈）来管理它们。编译器将分配固定的内存块来储存所有的静态变量，这些变量在整个程序执行期间一直存在。另外，如果没有显示地初始化静态变量，编译器将把它们设置为0.在默认情况下，静态数组和结构将每个原属或成员的所有位都设置为0。</li></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> global = <span class="number">1000</span>;	<span class="comment">//static duration, external linkage</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> one_file = <span class="number">50</span>;	<span class="comment">//static duration, internal linkage</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">～！@＃¥％……&amp;＊（☆彡ˊ_&gt;ˋ</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funct1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>;	<span class="comment">//static duration, no linkage</span></span><br><span class="line">	<span class="keyword">int</span> llama = <span class="number">0</span>;</span><br><span class="line">～！@＃¥％……&amp;＊（☆彡ˊ_&gt;ˋ</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funct2</span><span class="params">(<span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">～！@＃¥％……&amp;＊（☆彡ˊ_&gt;ˋ</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所有静态持续变量（上述示例中的global，one_file,和count）在整个程序执行期间都存在，在func1( )<br> 中声明的变量count的作用域为局部，没有链接性，这意味着只能在funct1( )函数中使用它，就像自动变量llama一样。然而，与llama不同的是，即使在funct1( )函数没有被执行时，count也留在内存中。global和one_file的作用域都为整个文件，即在从声明位置到文件结尾的范围内都可以被使用。具体来说，可以在main( ),funct1( )和funct2( )中使用它们。由于one_file的链接性为内部，因此只能在上述的代码中使用它：由于global的链接性为外部，因此可以在程序的其他文件中使用它。<br></p>
-<h5 id="静态变量的初始化">静态变量的初始化</h5><p>链接性为外部的变量通常简称为外部变量，它们的储存持续性为静态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函数而言都是外部的。例如，可以在main( )前面或头文件中定义它们，可以在文件中位于外部变量定义后面的任何函数中使用它，因此外部变量也称全局变量（相对于局部的自动变量）。<br></p>
-<p><li>单定义规则<br>一方面，在每个使用外部变量的文件中，都必须声明它；另一方面，c++有“单定义规则”，该规则指出，变量只能有一次定义。为满足这种需求，c++提供了两种变量声明。一种是定义声明（defining declaration）或简称为定义(definition)，它给变量分配储存空间：另一种是引用声明（referencing declaration）或简称为声明（declaration），它不给变量储存空间，因为它引用已有的变量。<br><br>引用声明使用关键字extern，且不进行初始化：否则，声明为定义，导致分配储存空间：</li></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> up;	<span class="comment">//definition, up is 0</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> blem;	<span class="comment">//blem defined elsewhere</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">char</span> gr = <span class="string">'z'</span>;	<span class="comment">//definition because initialized</span></span><br></pre></td></tr></table></figure>
-<p>如果要在多个文件中使用外部变量，只需要在一个文件中包含该变量的定义（单定义规则），但在使用该变量的其他所有文件中，都必须使用关键字 extern声明它：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//file01.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> cats = <span class="number">20</span>;	<span class="comment">//definition because of initialization</span></span><br><span class="line"><span class="keyword">int</span> dogs= <span class="number">22</span>;	<span class="comment">//also a definition</span></span><br><span class="line"><span class="keyword">int</span> fleas;	<span class="comment">//also a definition</span></span><br><span class="line">～！@＃¥％……&amp;＊（☆彡ˊ_&gt;ˋ</span><br><span class="line"></span><br><span class="line"><span class="comment">//file02.cpp</span></span><br><span class="line"><span class="comment">//use cats and dogs from file01.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> cats;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> dogs;</span><br><span class="line">～！@＃¥％……&amp;＊（☆彡ˊ_&gt;ˋ</span><br><span class="line"></span><br><span class="line"><span class="comment">//file98.cpp</span></span><br><span class="line"><span class="comment">//use cats, dogs and fleas from file01.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> cats;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> dogs;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> fleas;</span><br></pre></td></tr></table></figure>
-<p>在这里，所有文件都使用了在file01.cpp中定义的变量cats和dogs，但file02.cpp没有重新声明变量fleas，因此无法访问它，在文件file01.cpp中，关键字extern并非不可少，因此即使省略它，效果也相同。<br>请注意，单定义规则并非意味着不能有多个变量名称相同。例如，在不同函数中声明的同名变量是彼此独立的，它们都有自己的地址。另外，正如后面的示例将表明的，局部变量可能隐藏同名的全局变量。然而，虽然程序中可能含有多个同名的变量，但每个变量都只有一个定义。</p>
-<h5 id="静态储存持续性，无链接性">静态储存持续性，无链接性</h5><p>至此，介绍了链接性分别为内部和外部，作用域为整个文件的变量。接下来介绍静态家族中的第三个成员。接下来介绍静态持续家族中的第三个成员——无链接性的局部变量。这种变量是这样创建的，将static限定符用于在代码块中可用，但它在该代码块中使用static时，将导致局部变量的储存持续性为静态的。这意味着虽然该变量只在该代码块中可用，但它在该代码块中不处于活动状态时仍然存在。因此在两次函数调用之间，静态局部变量的值将保持不变。另外，如果初始化了静态局部变量，则程序只在启动时进行一次初始化。以后再调用函数的时候，将不会像自动变量那样再次被初始化。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//static.cpp -- using a static local varialbe</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// constants</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ArSize = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//function prototype</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">strcount</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * str)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="function"><span class="keyword">char</span> <span class="title">input</span><span class="params">(ArSize)</span></span>;</span><br><span class="line">	<span class="keyword">char</span> next;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter a line:\n"</span>;</span><br><span class="line">	<span class="built_in">cin</span>.get(input, ArSize);</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span>) &#123;</span><br><span class="line">		<span class="built_in">cin</span>.get(next);</span><br><span class="line">		<span class="keyword">while</span> (next != <span class="string">'\n'</span>) &#123;</span><br><span class="line">			<span class="built_in">cin</span>.get(next);</span><br><span class="line">		&#125;</span><br><span class="line">		strcount(input);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter next line (enpty line to quit):\n"</span>;</span><br><span class="line">		<span class="built_in">cin</span>.get(input, ArSize);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Bye\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">strcount</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"\""</span> &lt;&lt; str &lt;&lt; <span class="string">"\" contains "</span>;</span><br><span class="line">	<span class="keyword">while</span> (*str++) &#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	total += count;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="string">" characters\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; total &lt;&lt; <span class="string">" characters total\n"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
