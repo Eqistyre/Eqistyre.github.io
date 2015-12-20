@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DataStructure(2) | SakuraNeko</title>
+  <title>DataStructure(3) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="StackDefinationStack is a kind of linear list which can be operated and constrained.
 It only can insert and delete in the top.
@@ -12,7 +12,7 @@ Delete data: Pop.
 LIFO: Last In First Out(LIFO). 
 De">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataStructure(2)">
+<meta property="og:title" content="DataStructure(3)">
 <meta property="og:url" content="http://eqistyre.github.io/2015/12/18/DataStructure(3)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="StackDefinationStack is a kind of linear list which can be operated and constrained.
@@ -21,9 +21,9 @@ Insert data: Push.
 Delete data: Pop. 
 LIFO: Last In First Out(LIFO). 
 De">
-<meta property="og:updated_time" content="2015-12-18T10:26:21.000Z">
+<meta property="og:updated_time" content="2015-12-20T11:46:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataStructure(2)">
+<meta name="twitter:title" content="DataStructure(3)">
 <meta name="twitter:description" content="StackDefinationStack is a kind of linear list which can be operated and constrained.
 It only can insert and delete in the top.
 Insert data: Push. 
@@ -199,7 +199,7 @@ De">
         
   
     <h1 class="article-title" itemprop="name">
-      DataStructure(2)
+      DataStructure(3)
     </h1>
   
 
@@ -221,11 +221,15 @@ De">
 <p><li>Delete data: Pop. <br></li></p>
 <p><li>LIFO: Last In First Out(LIFO). <br></li></p>
 <h3 id="Description_of_abstract_data_types_for_the_stack">Description of abstract data types for the stack</h3><p>Type Name: Stack<br><br>Data object set: a linear list which have more than zero elements.<br><br>Operation set: Stack S’s long is MaxSize, S ∈ Stack, The Stack elements item ∈ ElementType.<br></p>
-<p><li>1.Stack CreateStack(int MaxSize): make a empty stack, it’s maximum length is MaxSize<br></li></p>
-<p><li>2.int IsFull(Stack S, int MaxSize): judge weather the stack S is full<br></li></p>
+<p><li>1.Stack CreateStack(int MaxSize): make a empty stack, maxSize is the maximum length<br></li></p>
+<p><li>2.int IsFull(Stack S, int MaxSize): judge weather the stack S is filled<br></li></p>
 <p><li>3.void push(Stack S, ElementType item): Press element item into the top of the stack<br></li></p>
 <p><li>4.int IsEmpty (Stack S): judge weather the stack S is empty.<br></li></p>
 <p><li>5.ElementType Pop(Stack S): delete and return the element in the stack top.<br></li></p>
+<h3 id="Sequential_storage_implementation_of_stack">Sequential storage implementation of stack</h3><p>The Sequential storage implementation of stack always consisted of a one-dimensional array and a variable recorded the position of the stack top element.</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define MaxSize &lt;The maxium number of stores data elements&gt;</span></span><br><span class="line">typedef <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ElementType <span class="built_in">Data</span>[MaxSize];</span><br><span class="line">	int Top;	</span><br><span class="line">&#125;Stack;</span><br></pre></td></tr></table></figure>
+<h3 id="Operation_examples">Operation examples</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(Stack *PtrS, ElementType item)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (Ptrs-&gt;Top == MaxSize -<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"The Stack is filled"</span>);</span><br><span class="line">		<span class="keyword">return</span>;	</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		PtrS -&gt; Data[++(Ptr-&gt;Top)] = item;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack *PtrS)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//PtrS point next element!</span></span><br><span class="line">	<span class="keyword">if</span> (PtrS-&gt;Top == -<span class="number">1</span>) &#123;</span><br><span class="line">	 <span class="built_in">printf</span>(<span class="string">"The stack is empty"</span>);</span><br><span class="line">	 <span class="keyword">return</span> ERROR; <span class="comment">/*ERROR is a special value of ElementType, Represents the error*/</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span>(PtrS-&gt;Data[(PtrS-&gt;Top)--]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Question: Please use an array realized two stacks, the requirement is maximize the use of array space.<br><br>a smart way to solve the question:<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DStack &#123;</span></span><br><span class="line">	ElementType Data[MaxSize];</span><br><span class="line">	<span class="keyword">int</span> Top1;</span><br><span class="line">	<span class="keyword">int</span> Top2;	</span><br><span class="line">&#125; S;</span><br><span class="line">S.Top1 = -<span class="number">1</span>;</span><br><span class="line">S.Top2 = MaxSize;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(<span class="keyword">struct</span> Dstack *Ptrs, ElementType item, <span class="keyword">int</span> Tag)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (Ptrs-&gt;Top2 - PtrS-&gt;Top1 == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"The Stack is filled"</span>)	</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -234,6 +238,15 @@ De">
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/12/20/STL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++ learning notes (7)
+        
+      </div>
+    </a>
   
   
     <a href="/2015/12/17/DataStructure(2)/" id="article-nav-older" class="article-nav-link-wrap">

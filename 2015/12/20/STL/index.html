@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ learning notes (7) | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PrefaceSTL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.
+String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ learning notes (7)">
+<meta property="og:url" content="http://eqistyre.github.io/2015/12/20/STL/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="PrefaceSTL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.
+String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i">
+<meta property="og:updated_time" content="2015-12-20T13:22:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ learning notes (7)">
+<meta name="twitter:description" content="PrefaceSTL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.
+String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.talisk.cn">talisk斯温</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">人间二十年,花鸟风月</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-STL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/20/STL/" class="article-date">
+  	<time datetime="2015-12-20T13:38:35.000Z" itemprop="datePublished">2015-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ learning notes (7)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Preface">Preface</h3><p>STL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.</p>
+<h3 id="String_Class">String Class</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//str1.cpp -- introducing the string class </span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="comment">//using string constructors</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">one</span><span class="params">(<span class="string">"Lottery Winner!"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; one &lt;&lt; endl;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">two</span><span class="params">(<span class="number">20</span>, <span class="string">'$'</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; two &lt;&lt; endl;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">three</span> <span class="params">(one)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; three &lt;&lt; endl;</span><br><span class="line">	one += <span class="string">" Oops!"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; one &lt;&lt; endl;</span><br><span class="line">	two  = <span class="string">"Sorry! That was "</span>;</span><br><span class="line">	three[<span class="number">0</span>] = <span class="string">'P'</span>;</span><br><span class="line">	<span class="built_in">string</span> four;</span><br><span class="line">	four = two + three;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; four &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">char</span> alls[] = <span class="string">"All's Well that ends well"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">five</span><span class="params">(alls, <span class="number">20</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; five &lt;&lt; <span class="string">"!\n"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">six</span><span class="params">(alls + <span class="number">6</span>, alls + <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; six &lt;&lt; <span class="string">", "</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">seven</span><span class="params">(&amp;five[<span class="number">6</span>], &amp;five[<span class="number">10</span>])</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; seven &lt;&lt; <span class="string">"...\n"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">eight</span><span class="params">(four, <span class="number">7</span>, <span class="number">16</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; eight &lt;&lt; <span class="string">" in motion!"</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>we can know from str1.cpp there’re many overload in the STL.</p>
+<h3 id="Smart_pointer_template_class">Smart pointer template class</h3><p>The smart pointer is class object similar with point, but this object have another function. Examples are as follows.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remodel</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> &amp; str)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> * ps = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>(str);</span><br><span class="line">	……</span><br><span class="line">	str = ps;</span><br><span class="line">	<span class="keyword">return</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>You may find the defect in this. when the function is called, the function will distribute the internal memory in the stack, but it won’t take back it, it may cause internal memory leaks. You may know how to resolve it, you can use <em>delete</em> to delete the memory. but there also have other problem, if you code as follws.</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">remodel</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> &amp; str)</span> </span>{
+    <span class="built_in">std</span>::<span class="built_in">string</span> * ps = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>(str);
+    ……
+    <span class="keyword">if</span> (weir_thing()) {
+        <span class="keyword">throw</span> expection();    
+    }
+    str = *ps;
+    <span class="keyword">delete</span> ps;
+    <span class="keyword">return</span>;
+}
+</code></pre><p>When there is an exception， delete won’t executed, it may cause internal memory leaks, so we have better way to solve the problem.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/18/DataStructure(3)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DataStructure(3)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
