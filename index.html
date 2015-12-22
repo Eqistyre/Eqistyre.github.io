@@ -168,6 +168,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+<p><li>Static search</li></p>
+<p>Method one: sequential search</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
+<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(<span class="keyword">Static</span> Table *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
+<p><li>Dynamic search</li></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-STL" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -209,7 +268,8 @@
 <p>void demo2() {<br>    auto_ptr<double> ap(new double): //#1<br>    *ap = 25.5;<br>    return;<br>}</double></p>
 <p>#1.为ap和一个double值分配储存空间，保存地址</p>
 <p>#2.将值复制到动态内存中</p>
-<p>#3.删除ap，ap的析构函数释放动态内存<br>```<br>承浩找我还书了！！接下来的部分用中文写了！！</p>
+<p>#3.删除ap，ap的析构函数释放动态内存<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">承浩找我还书了！！接下来的部分用中文写了！！</span><br><span class="line"></span><br><span class="line">要创建智能指针对象，必须包含有头文件memory，该文件模版定义。然后使用通常的模版语法来实例化所需要类型的指针。例如，模版<span class="built_in">auto_ptr</span>包含如下构造函数:</span><br></pre></td></tr></table></figure></p>
+<p>template<class x=""> class auto_ptr {<br>public:<br>    explict auto_ptr(X* p = 0) throw();<br>    …<br>}<br>```<br>本书前面说过，throw()意味着构造函数不会引发异常：与auto_ptr一样，throw()也被摒弃。</class></p>
 
       
     </div>
@@ -696,94 +756,6 @@
 <p>T::ForEach(<a href="T *what">&amp;</a> {<br>I’d also recommend that you should send func by const reference.</p>
 <p>static void ComputeGenericDropCount(const function<void(npc *,="" int)="">&amp; func)</void(npc></p>
 <p>也就是说在这里[] 表示不传递。[&amp;]表示按引用传递，[=]表示按值传递。于是吼吼吼我的这个bug就修好了！～～</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos2d-x的简单知识点1126" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/24/Cocos2d-x的简单知识点1126/" class="article-date">
-  	<time datetime="2015-11-24T08:38:35.000Z" itemprop="datePublished">2015-11-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/24/Cocos2d-x的简单知识点1126/">Cocos2d-x的简单知识点&lt;二&gt;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="吐槽">吐槽</h3><p>先来吐槽一下。。Cocos的版本更新实在是太快，导致书上的很多东西都找不到了，这让我感到很忧伤。还有这两天的天气也的确是冻成狗哈，自己仍旧作死的穿着很少的两件衣服。</p>
-<h3 id="正片">正片</h3><p>这次的正片基本上是自己边读文档边写的，支持的版本为v2.3.3.0。</p>
-<p><li>首先说下UI的布局与多分辨率适配吧。<br><br>我们打开了Cocos编辑器后会发现有四个钉和中间的两个拉伸条（话说我当时就没有看到这个拉伸条呢）一共六个属性。<br><br>1.当打开其中一个任意图钉时，当前节点与父节点的对应边的距离即被固定。当父节点的大小被修改时，当前节点与父节点对应边的距离总是不变。<br><br>2.当打开其中的任意两个相对的图钉，当前节点与父节点对应的两边距离成固定比例。即当修改父节点的大小时，当前节点到父节点对应两条边的距离之比总是不变的。<br><br>3.当开启中间任意一条拉伸条，如横向拉伸条，节点的宽度与父节点的宽度之比固定不变。<br></li></p>
-<p>还有我们要明白：在Cocos2d-x中有两种分辨率：设备分辨率，屏幕分辨率。设备分辨率即当前游戏所运行平台的实际分辨率；设计分辨率就是我们设计游戏的分辨率。</p>
-<p>设计分辨率一般在启动时进行设置：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">APPDelegate::</span>applicationDidFinishLauching</span><br></pre></td></tr></table></figure>
-<p>中进行，代码如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">director -&gt; <span class="function"><span class="title">getOpenGlView</span><span class="params">()</span></span> -&gt;<span class="function"><span class="title">setDesignResolutionSize</span><span class="params">(<span class="number">960</span>, <span class="number">640</span>, ResolutionPolicy::FIXED_HEIGHT)</span></span></span><br></pre></td></tr></table></figure>
-<p>我们可以看出来这里的策略和cocos2d-js是一样的，不过我现在却记不得cocos2d-js里的策略了。</p>
-<p>下面来说说cocos2d-x中的解决方案吧</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.计算游戏界面在缩放至充满屏幕的情况下X、Y轴的缩放率:</span></span><br><span class="line">_scaleX= (<span class="built_in">float</span>)_screenSize.<span class="variable">width</span>/ _designResolutionSize.<span class="variable">width</span>;</span><br><span class="line">_scaleY= (<span class="built_in">float</span>)_screenSize.<span class="variable">height</span>/ _designResolutionSize.<span class="variable">height</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.根据设配策略，调整缩放率和设计分辨率:</span></span><br><span class="line"><span class="keyword">if</span>(_resolutionPolicy== ResolutionPolicy::NO_BORDER)</span><br><span class="line">&#123;<span class="comment">//将X、Y轴缩放值设置为其中的最大者</span></span><br><span class="line">    _scaleX = _scaleY = MAX(_scaleX,_scaleY);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(_resolutionPolicy== ResolutionPolicy::SHOW_ALL)</span><br><span class="line">&#123;<span class="comment">//将X、Y轴缩放值设置为其中的最小者</span></span><br><span class="line">    _scaleX = _scaleY = MIN(_scaleX,_scaleY);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>( _resolutionPolicy == ResolutionPolicy::FIXED_HEIGHT) &#123;</span><br><span class="line">    _scaleX = _scaleY;<span class="comment">//将X、Y轴缩放值固定为Y轴缩放值，调整设计分辨率的宽度，使设计分辨率的宽度在缩放后依然能够充满屏幕。</span></span><br><span class="line">    _designResolutionSize.<span class="variable">width</span>= ceilf(_screenSize.<span class="variable">width</span>/_scaleX);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>( _resolutionPolicy == ResolutionPolicy::FIXED_WIDTH) &#123;</span><br><span class="line">    _scaleY= _scaleX;<span class="comment">//将X、Y轴缩放值固定为X轴缩放值，调整设计分辨率的高度，使设计分辨率的高度在缩放后依然能够充满屏幕。</span></span><br><span class="line">    _designResolutionSize.<span class="variable">height</span>= ceilf(_screenSize.<span class="variable">height</span>/_scaleY);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//其他缩放策略：EXACT_FIT不作调整</span></span><br></pre></td></tr></table></figure>
-<p>下面来说说加载界面吧！<br><br>加载界面在HelloWorld::init中进行：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">auto rootNode= CSLoader<span class="number">::c</span>reateNode("MainScene.csb")<span class="comment">;</span></span><br><span class="line">auto size= Director<span class="number">::</span>getInstance()-&gt;getVisibleSize()<span class="comment">;</span></span><br><span class="line">//设置加载出来的洁面的ContentSize</span><br><span class="line">rootNode-&gt;setContentSize(size)<span class="comment">;</span></span><br><span class="line">//调用对rootNode调用ui<span class="number">::</span>Helper<span class="number">::d</span>oLayout对加载出来的界面进行处理</span><br><span class="line">ui<span class="number">::</span>Helper<span class="number">::d</span>oLayout(rootNode)<span class="comment">;</span></span><br><span class="line">addChild(rootNode)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p><li>再来说下九宫格使用吧</li></p>
-<p>九宫格使用可以节省大量资源空间。原理如下：</p>
-<p>九宫格是一种能够使本来拉伸后会变形的图片，经过一定的处理后，拉伸后不变形的技术。 九宫格放大时四个角的四个切片向四个方向延伸，到达新的位置，然后上下两边的切片水平拉伸，左右两侧的切片垂直拉伸，中间的位图放大铺满剩余区域。</p>
-<p><li>回调特性的使用<br>我觉的这个使用方法特别有毛病，其代码的繁琐已经很难让人接受了，但是还是写出来吧。</li></p>
-<p>1.首先我们在编辑器中为根节点添加类名（高级属性-&gt;回调特性-&gt;自定义类）如MyClass。<br><br>2.我们选中自己想要设置回调特性的控件，在其回调方法中，选择接受的回调类型以及输入回调方法的名称：如Touch方法，名称为onTouch:</p>
-<p>然后就轮到我们在xcode中进行了：<br><br>1.我们在C++中,创建一个自己的自定义类：<br><br>这个类必须遵循如下要求：<br><br>a.继承WidgetCallBackHandlerProtocol和Node（或者其他继承自Node的类）<br><br>b.重写如下接口：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">onLocateTouchCallback</span></span><br><span class="line"><span class="built_in">on</span>LocateClickCallback</span><br><span class="line"><span class="built_in">on</span>LocateEventCallback</span><br></pre></td></tr></table></figure>
-<p>返回对Touch,Click,Event三种时间的处理函数。（只需要写自己用到的回调类型就行）。<br><br><br>eg:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.h file</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> __TestCpp__MyClass__</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> __TestCpp__MyClass__</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"cocos2d.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"Cocos Studio/Cocos Studio.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"Cocos Studio/WidgetCallBackHandlerProtocol.h"</span></span></span><br><span class="line"><span class="keyword">class</span> MyClass : <span class="keyword">public</span> cocos2d::Node, <span class="keyword">public</span> Cocos Studio::WidgetCallBackHandlerProtocol &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CREATE_FUNC(MyClass)</span><br><span class="line">	MyClass();</span><br><span class="line">	<span class="keyword">virtual</span> cocos2d::ui::Widget::<span class="function">ccWidgetTouchCallback <span class="title">onLocateTouchCallback</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;callBackName)</span></span>;</span><br><span class="line">	<span class="keyword">virtual</span> cocos2d::ui::Widget::<span class="function">ccWidgetClickCallback <span class="title">onLocateClickCallback</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;callBackName)</span></span>;</span><br><span class="line">	<span class="keyword">virtual</span> cocos2d::ui::widget::<span class="function">ccWidgetClickCallback <span class="title">onLocateEventCallback</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;callBackName)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onTouch</span><span class="params">(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(cocos2d::Ref* sender)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(cocos2d::Ref* sender, <span class="keyword">int</span> eventType)</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; _touchTypes;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> _click;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; _eventTypes</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.cpp file</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"MyClass.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"ui/UIText.h"</span></span></span><br><span class="line"></span><br><span class="line">USING_NS_CC;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cocos2d::ui;</span><br><span class="line"></span><br><span class="line">MyClass::Myclass() &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::ccWidgetTouchCallback Myclass::onLocateTouchCallback(<span class="keyword">const</span> <span class="built_in">string</span> &amp;callBackName) &#123;</span><br><span class="line">	<span class="comment">//判断事件名，返回响应的函数</span></span><br><span class="line">	<span class="keyword">if</span> (callBackName == <span class="string">"onTouch"</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> CC_CALLBACK_2(MyClass::onTouch, <span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::ccWidgetClickCallback MyClass::onLocateClickCallback(<span class="keyword">const</span> <span class="built_in">string</span> &amp;callBackName) &#123;</span><br><span class="line">	<span class="keyword">if</span> (callBackName == <span class="string">"onClick"</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> CC_CALLBACK_1(MyClass::onCLic, <span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::ccWidgetEventCallback MyClass::onLocateEventCallback(<span class="keyword">const</span> <span class="built_in">string</span> &amp;callBackName) &#123;</span><br><span class="line">	<span class="keyword">if</span> (callBackName == <span class="string">"onEvent"</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> CC_CALLBACK_2(MyClass::onEvent, <span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MyClass::onTouch(cocos2d::Ref* object, cocs2d::ui::Widget::TouchEventType type) &#123;</span><br><span class="line">	CCLOG(<span class="string">"onTouch"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MyClass::onClick(cocos2d::Ref* sender) &#123;</span><br><span class="line">	CCLOG(<span class="string">"onClick"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MyClass::onEvent(cocos2d::Ref* sender, <span class="keyword">int</span> eventType) &#123;</span><br><span class="line">	CCLOG(<span class="string">"onEvent"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.为刚刚创建好的类创建工厂类：</p>
-<p>这个类必须继承Cocos Studio::NodeReader,并且重写如下三个接口<br><br>getInstance —— 返回工厂类的单例<br><br>purge —— 销毁工厂类<br>createNodeWithFlatBuffers —— 创建第3步编写的类，并调用setPropsWithFlatBuffers</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.h file</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> __cocos2d_libs__MyClassReader__</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> __cocos2d_libs__MyClassReader__</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"cocos2d.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"Cocos Studio/CocosStudioExport.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"Cocos Studio/WidgetReader/NodeReader/NodeReader.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> MyClassReader : <span class="keyword">public</span> Cocos Studio::NodeReader &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MyClassReader() &#123;</span><br><span class="line">	&#125;;</span><br><span class="line">	~MyclassReader() &#123;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> MyClassReader* <span class="title">getInstance</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">purge</span><span class="params">()</span></span>;</span><br><span class="line">	cocos2d::<span class="function">Node* <span class="title">createNodeWithFlatBuffers</span><span class="params">(<span class="keyword">const</span> flatbuffers::Table* nodeOptions)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/*defined(_cocos2d_libs__MyClassReader__)*/</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//.cpp file</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"MyClassReader.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"MyClass.h"</span></span></span><br><span class="line"></span><br><span class="line">USING_NS_CC</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> MyClassReader* _instanceMyClassReader = <span class="literal">nullptr</span>;</span><br><span class="line">MyClassReader* MyClassReader::getInstance() &#123;</span><br><span class="line">	<span class="keyword">if</span> (!_instanceMyClassReader) &#123;</span><br><span class="line">		_instanceMyClassReader = <span class="keyword">new</span> MyClassReader();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> _instanceMyClassReader;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MyClassReader::purge() &#123;	CC_SAFE_DELETE(_instanceMyClassReader);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Node* MyClassReader::createNodeWithFlatBuffers(<span class="keyword">const</span> flatbuffers::Table *nodeOptions) &#123;</span><br><span class="line">	MyClass* node = MyClass::create();</span><br><span class="line">	setPropsWithFlatBuffers(node, nodeOptions);</span><br><span class="line">	<span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.在加载节点之前注册这个接口CSLoader中</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CSLoader*<span class="instruction"> instance </span>=<span class="function"> CSLoader::getInstance(</span><span class="function">)</span>;</span><br><span class="line">//注意第一个参数必须是第一步填写的自定义类名加“Reader ”如上述的<span class="string">"MyClassReader"</span> </span><br><span class="line">instance<span class="function">-&gt;registReaderObject(</span><span class="string">"MyClassReader"</span>,(ObjectFactory::Instance<span class="function">)</span>MyClassReader::getInstance<span class="function">)</span>;</span><br></pre></td></tr></table></figure>
-<p>4.使用CreateNode加载你的节点，因为你的自定义类的create已经委托给工厂类，只要你注册工厂类的时候没写错，工厂类会在createNode里边create你的自定义类并调用onLocateTouchCallback，onLocateClickCallback，onLocateEventCallback实现代码回调与编辑器的绑定。</p>
-<h3 id="New_Way">New Way</h3><p>是不是感觉刚刚这个方法实在是太过于麻烦了呢，现在我们找到一种新的方法，新版本的cocos2d中提供了一种新的资源加载方法</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Node* CSLoader::createNode(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;filename, <span class="keyword">const</span> ccNodeLoadCallback &amp;callback)</span><br></pre></td></tr></table></figure>
-<p>相比较于之前的版本里，我们发现这里多了一个回调函数的参数<code>const ccNodeLoadcallback &amp;callback</code>阅读完源码之后我们会知道在加载完一个节点后，框架会将节点简单地回调给这个函数(除根节点外)。这样，利用这个参数，我们可以在加载资源的过程中对正在加载的节点做一些修饰处理。</p>
-<p>CSloader中原有回调特性的实现如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Widget* widget = <span class="keyword">dynamic_cast</span>(node);</span><br><span class="line"><span class="keyword">if</span> (widget) &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> callbackName = widget-&gt;getCallbackName();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> callbackType = widget-&gt;getCallbackType();</span><br><span class="line">    bindCallback(callbackName, callbackType, widget, _rootNode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上边的两个函数：getCallbackName，getCallbackType，取出来的就是我们在Cocos中所填写的回调参数信息。然后我们尝试着去绑定它们。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//node既是当前加载出来的节点</span></span><br><span class="line">CSLoader::createNode(root_path,[<span class="keyword">this</span>](Node *node) &#123;</span><br><span class="line">	Widget* widget = <span class="keyword">dynamic_cast</span>(node);<span class="comment">//尝试将节点转化为widget类型</span></span><br><span class="line">	<span class="keyword">if</span> (widget)&#123;</span><br><span class="line">		<span class="comment">//获取回调特性相关属性的信息。</span></span><br><span class="line">    	<span class="built_in">std</span>::<span class="built_in">string</span> callbackName = widget-&gt;getCallbackName();</span><br><span class="line">    	<span class="built_in">std</span>::<span class="built_in">string</span> callbackType = widget-&gt;getCallbackType();</span><br><span class="line">		<span class="comment">//根据上述信息进行绑定。</span></span><br><span class="line">		<span class="keyword">this</span>.bindCallback(callbackName, callbackType, widget);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>然后在当前类实现一个bindCallback函数，用callbackName和callbackType进行一些字符串比对操作，找到一个合适的函数，丢给widget做监听，比如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> MyScene::bindCallback(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;callbackName,<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;callbackType,widget) &#123;</span><br><span class="line">	<span class="keyword">if</span>(callbackName == <span class="string">"animal1"</span> &amp;&amp; callbackType == <span class="string">"Click"</span>)&#123;</span><br><span class="line">		<span class="comment">//假定有一个playAnimal1的接口</span></span><br><span class="line">		widget-&gt;addClickEventListener(CC_CALLBACK_2(MyScene::playAnimal1,<span class="keyword">this</span>));	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(callbackName == <span class="string">"animal2"</span> &amp;&amp; callbackType == <span class="string">"Click"</span>) &#123;</span><br><span class="line">		<span class="comment">//假定有一个playAnimal2的接口</span></span><br><span class="line">	widget-&gt;addClickEventListener(CC_CALLBACK_2(MyScene::playAnimal2,<span class="keyword">this</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="实例">实例</h6><p>下面我们使用这种新的方法进行绑定按钮的回调事件操作。</p>
 
       
     </div>

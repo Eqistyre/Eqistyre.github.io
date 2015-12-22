@@ -13,7 +13,7 @@ String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="PrefaceSTL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.
 String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i">
-<meta property="og:updated_time" content="2015-12-22T10:42:04.000Z">
+<meta property="og:updated_time" content="2015-12-22T14:09:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ learning notes (7)">
 <meta name="twitter:description" content="PrefaceSTL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.
@@ -218,7 +218,8 @@ String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i
 <p>void demo2() {<br>    auto_ptr<double> ap(new double): //#1<br>    *ap = 25.5;<br>    return;<br>}</double></p>
 <p>#1.为ap和一个double值分配储存空间，保存地址</p>
 <p>#2.将值复制到动态内存中</p>
-<p>#3.删除ap，ap的析构函数释放动态内存<br>```<br>承浩找我还书了！！接下来的部分用中文写了！！</p>
+<p>#3.删除ap，ap的析构函数释放动态内存<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">承浩找我还书了！！接下来的部分用中文写了！！</span><br><span class="line"></span><br><span class="line">要创建智能指针对象，必须包含有头文件memory，该文件模版定义。然后使用通常的模版语法来实例化所需要类型的指针。例如，模版<span class="built_in">auto_ptr</span>包含如下构造函数:</span><br></pre></td></tr></table></figure></p>
+<p>template<class x=""> class auto_ptr {<br>public:<br>    explict auto_ptr(X* p = 0) throw();<br>    …<br>}<br>```<br>本书前面说过，throw()意味着构造函数不会引发异常：与auto_ptr一样，throw()也被摒弃。</class></p>
 
       
     </div>
@@ -227,6 +228,15 @@ String Class12345678910111213141516171819202122232425262728293031//str1.cpp -- i
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/12/22/DataStructure(4)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          DataStructure(4)
+        
+      </div>
+    </a>
   
   
     <a href="/2015/12/18/DataStructure(3)/" id="article-nav-older" class="article-nav-link-wrap">
