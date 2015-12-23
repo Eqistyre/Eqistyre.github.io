@@ -17,7 +17,7 @@ Method one: sequential search
 Static search
 Method one: sequential search
 123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
-<meta property="og:updated_time" content="2015-12-23T10:40:19.000Z">
+<meta property="og:updated_time" content="2015-12-23T10:43:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(4)">
 <meta name="twitter:description" content="Treebasic operationSearching
@@ -222,7 +222,7 @@ Method one: sequential search
 <p>//说真的我真心觉得这种方式好奇怪呀。就是说我们创建了一个结构体TreeNode 然后我们让 <em>BinTree 指向它，这里的Typedef的意思不再是起别名而是说后面的</em>BinTree = TreeNode 也就是说BinTree指向TreeNode<br>typedef struct TreeNode *BinTree;<br>typedef Bintree Position;<br>struct TreeNode {<br>    ElementType Data;<br>    BinTree Left;<br>    BinTree Right;<br>}<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#### 二叉树的遍历</span></span><br><span class="line">&lt;<span class="number">1</span>&gt;先序遍历</span><br></pre></td></tr></table></figure></p>
 <p>void PreOrderTraversal( BinTree BT) {<br>    if (BT) {<br>        printf(“%d”, BT-&gt;Data);<br>        preOrderTraversal(BT-&gt;Left);<br>        preOrderTraversal(BT-&gt;Right);<br>    }<br>}<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">2</span>&gt;</span>中序遍历</span><br></pre></td></tr></table></figure></p>
 <p>void InOrderTraversal( BinTree BT) {<br>    if (BT) {<br>        InOrderTraversal(BT-&gt;left);<br>        printf(“%d”, BT-&gt;Data);<br>        InOrderTraversal(BT-&gt;Right);<br>    }<br>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们可以看到在中序遍历中会把左结点优先，也就是说根结点后来读，先读左边的左边（如果有左边的话）。</span><br></pre></td></tr></table></figure></p>
-<p>void PostOrderTraversal( BinTree BT) {<br>    if (BT) {<br>        PostOrderTraversal(BT-&gt;left);<br>        PostOrderTraversal(BT-&gt;right);<br>        printf(“%d”, BT-&gt;Data);<br>    }<br>}<br>```<br><em>先序、中序和后序遍历过程：遍历过程中经过的路线一样，知识访问各个结点的时机不同！</em></p>
+<p>void PostOrderTraversal( BinTree BT) {<br>    if (BT) {<br>        PostOrderTraversal(BT-&gt;left);<br>        PostOrderTraversal(BT-&gt;right);<br>        printf(“%d”, BT-&gt;Data);<br>    }<br>}<br>```<br><em>先序、中序和后序遍历过程：遍历过程中经过的路线一样，知识访问各个结点的时机不同!</em></p>
 
       
     </div>
