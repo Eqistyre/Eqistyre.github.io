@@ -5,25 +5,25 @@
   
   <title>DataStructure(4) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Treebasic operationSearching
+  <meta name="description" content="Tree（上）basic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DataStructure(4)">
 <meta property="og:url" content="http://eqistyre.github.io/2015/12/22/DataStructure(4)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="Treebasic operationSearching
+<meta property="og:description" content="Tree（上）basic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
-<meta property="og:updated_time" content="2015-12-23T10:44:57.000Z">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
+<meta property="og:updated_time" content="2015-12-23T12:13:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(4)">
-<meta name="twitter:description" content="Treebasic operationSearching
+<meta name="twitter:description" content="Tree（上）basic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
   
   
     <link rel="icon" href="/favicon.png">
@@ -209,7 +209,7 @@ Method one: sequential search
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+        <h3 id="Tree（上）">Tree（上）</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
 <p><li>Static search</li></p>
 <p>Method one: sequential search</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -243,13 +243,22 @@ Method one: sequential search
 <h4 id="二叉树的储存结构">二叉树的储存结构</h4><p>1.顺序储存结构（在计算机中用一组地址连续的储存单元依次储存呢线性表的各个数据元素，称作线性表的顺序储存结构）</p>
 <p>完全二叉树：特别适合数组储存！因为不缺结点，对于一般二叉树我们可以补全结点，不过会有一堆堆的空间浪费！对了，这里还是会有规律的～<br><br>2.链表储存（儿子－－兄弟储存法）</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//说真的我真心觉得这种方式好奇怪呀。就是说我们创建了一个结构体TreeNode 然后我们让 *<span class="keyword">BinTree </span>指向它，这里的Typedef的意思不再是起别名而是说后面的*<span class="keyword">BinTree </span>= TreeNode 也就是说<span class="keyword">BinTree指向TreeNode</span><br><span class="line"></span><span class="label">typedef</span> <span class="keyword">struct </span>TreeNode *<span class="keyword">BinTree;</span><br><span class="line"></span><span class="label">typedef</span> <span class="keyword">Bintree </span>Position<span class="comment">;</span></span><br><span class="line"><span class="keyword">struct </span>TreeNode &#123;</span><br><span class="line">	ElementType <span class="preprocessor">Data</span><span class="comment">;</span></span><br><span class="line">	<span class="keyword">BinTree </span>Left<span class="comment">;</span></span><br><span class="line">	<span class="keyword">BinTree </span>Right<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉树的遍历">二叉树的遍历</h4><p><1>先序遍历</1></p>
+<h4 id="二叉树的递归遍历">二叉树的递归遍历</h4><p><1>先序遍历</1></p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> PreOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>		preOrderTraversal(<span class="keyword">BT-&gt;Left);</span><br><span class="line"></span>		preOrderTraversal(<span class="keyword">BT-&gt;Right);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><2>中序遍历</2></p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> InOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		InOrderTraversal(<span class="keyword">BT-&gt;left);</span><br><span class="line"></span>		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>		InOrderTraversal(<span class="keyword">BT-&gt;Right);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们可以看到在中序遍历中会把左结点优先，也就是说根结点后来读，先读左边的左边（如果有左边的话）。</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> PostOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		PostOrderTraversal(<span class="keyword">BT-&gt;left);</span><br><span class="line"></span>		PostOrderTraversal(<span class="keyword">BT-&gt;right);</span><br><span class="line"></span>		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><em>先序、中序和后序遍历过程：遍历过程中经过的路线一样，知识访问各个结点的时机不同!</em></p>
+<h4 id="二叉树的非递归遍历">二叉树的非递归遍历</h4><p>非递归算法实现的基本思路：使用堆栈。</p>
+<p>中序遍历非递归遍历算法<br></p>
+<p><li>遇到一个结点，就把它压栈，并去遍历它的左子树；</li></p>
+<p><li>党左子树遍历结束后，从栈顶弹出这个结点并访问它；</li></p>
+<p><li>然后按其右指针再去遍历该结点的右子树；</li></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void InOrderTraversal( BinTree BT ) &#123;</span><br><span class="line">	BinTree <span class="literal">T</span> = BT;</span><br><span class="line">	Stack S = CreatStack(MaxSize);</span><br><span class="line">	//判定条件树不空，堆栈不空</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">T</span> || !IsEmpty(S)) &#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="literal">T</span>) &#123;</span><br><span class="line">			push(S, <span class="literal">T</span>);</span><br><span class="line">			<span class="literal">T</span> = <span class="literal">T</span>-&gt;Left;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!IsEmpty(S)) &#123;</span><br><span class="line">			<span class="literal">T</span> = Pop(S);</span><br><span class="line">			printf(<span class="string">"%5d"</span>, <span class="literal">T</span>-&gt;Data);</span><br><span class="line">			<span class="literal">T</span> = <span class="literal">T</span>-&gt;Right;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="层序遍历">层序遍历</h4><p>二叉树遍历的核心问题：二维结构的线性话（把二维化为一维）<br></p>
+<p><li>从结点访问其左、右儿子结点</li></p>
+<p><li>访问左儿子后，右儿子结点怎么办？<br>需要一个储存结构保存暂时不访问的结点，我们应该选用：堆栈、队列。</li></p>
 
       
     </div>
