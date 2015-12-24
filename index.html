@@ -168,6 +168,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/SICP(1)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/SICP(1)/">SICP读书笔记(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
+<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
+<p><li>基本表达形式：用于表示语言所关心的</li></p>
+<p><li>组合的方法：</li></p>
+<p><li>抽象的方法：</li></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -731,72 +786,6 @@
         <h3 id="今天就说说今天的一些小收获吧">今天就说说今天的一些小收获吧</h3><p>首先关于界面切换的问题。我们创建一个SceneManager类，然后在这个类里面写如下代码。下面我会去解释这些代码的意思的。（算了我还是直接去注释这些代码吧，如果不去注释这些代码的话，写起来会比较麻烦的）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先我们在宏中要将我们需要包含的代码放进去，只有这样在后续的使用中，使用场景类的话才可以成功</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"SceneManager.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"GameRunning.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"OsmanthusBeginner.h"</span></span></span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::mSceneManager = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::sharedSceneManager()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mSceneManager == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mSceneManager = <span class="keyword">new</span> SceneManager();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mSceneManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, isTrans, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans, <span class="keyword">float</span> time )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enScenType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TextureCache::sharedTextureCache()-&gt;removeUnusedTextures();</span><br><span class="line">    Director* pDirector = Director::getInstance();</span><br><span class="line">    Scene* curScene = pDirector-&gt;getRunningScene();</span><br><span class="line">    <span class="keyword">if</span>(curScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pDirector-&gt;runWithScene(pScene);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isTrans)</span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(TransitionFade::create(time, pScene));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(pScene);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::pushScene( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enSceneType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Director::getInstance()-&gt;pushScene(pScene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::popScene()</span><br><span class="line">&#123;</span><br><span class="line">    Director::getInstance()-&gt;popScene();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Scene* SceneManager::getSceneByType( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = Scene::create();</span><br><span class="line">    Layer *pLayer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">switch</span> (enSceneType)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> en_OsmanthusBeginner:</span><br><span class="line">            pLayer = OsmanthusBeginner::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> en_GameRunning:</span><br><span class="line">            pLayer = GameRunning::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pScene-&gt;addChild(pLayer);</span><br><span class="line">    <span class="keyword">return</span> pScene;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>还有就是在相应的IOS中把相应的plist中的lanchImage进行替换，活着你可以在plist中重写</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-今天的我是非常开心的我" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/29/今天的我是非常开心的我/" class="article-date">
-  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/今天的我是非常开心的我/">Cocos-2dx中踩的又一个坑，关于lambda函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="今天的我是非常开心的我">今天的我是非常开心的我</h3><p>解决了一个bug啦啦啦，今天在写Cocos-2dx时候遇到了非常非常多的问题，今天我终于发现了解决这些问题的方法了。首先是关于那些坑爹的回调函数，那些回调函数真的是非常非常的坑人啊！！！雾草，如果按照它官方教材上的解决方法估计会是一种说不出的酸爽。最后我觉得还是使用监听函数会比较方便了。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">BeginnerContinueBtn-&gt;addTouchEventListener([=](Ref* pSender,<span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:TouchEventType type) &#123;</span><br><span class="line">	<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">BEGAN:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">MOVED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">ENDED:</span></span><br><span class="line">                <span class="comment">//Director::getInstance()-&gt;replaceScene(BeginnerScene);</span></span><br><span class="line">                removeChild(BeginnerScene);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">CANCELED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"><span class="label">                </span><br><span class="line">            default:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>我们来看看这个事件监听器吧！<br><br>在这个事件监听器中，我们可以知道我们向BeginnerContinueBtn上添加了一个事件监听器，这里的实现，我们是使用lambda函数来进行，其实我在以前写JS的时候也是写过lambda函数的哦如下：</p>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">double</span> = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span>* x; &#125;</span><br></pre></td></tr></table></figure>
-<p>这就是一个典型的lambda函数咯，在这个函数中函数是没有函数的名字啦！那么在C++中lambda函数的实现如下所示：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T::ForEach([<span class="link_label">&amp;</span>](<span class="link_url">T *what</span>) &#123;</span><br></pre></td></tr></table></figure>
-<p>不过当我使用了lambda函数之后出现了一个奇怪的错误！编译错误警告如下：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'func'</span> cannot <span class="keyword">be</span> implicitly captured because <span class="keyword">no</span> default capture <span class="built_in">mode</span> <span class="built_in">has</span> been specified</span><br></pre></td></tr></table></figure>
-<p>经过在stackoverflow上的查找我发现了事实的真相！！回答如下</p>
-<p>You need to specify how to capture func into the lambda.</p>
-<p>[] don’t capture anything</p>
-<p>[&amp;] capture-by-reference</p>
-<p>[=] capture-by-value (copy)</p>
-<p>T::ForEach(<a href="T *what">&amp;</a> {<br>I’d also recommend that you should send func by const reference.</p>
-<p>static void ComputeGenericDropCount(const function<void(npc *,="" int)="">&amp; func)</void(npc></p>
-<p>也就是说在这里[] 表示不传递。[&amp;]表示按引用传递，[=]表示按值传递。于是吼吼吼我的这个bug就修好了！～～</p>
 
       
     </div>

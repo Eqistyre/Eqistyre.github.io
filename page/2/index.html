@@ -168,6 +168,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-今天的我是非常开心的我" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/今天的我是非常开心的我/" class="article-date">
+  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/29/今天的我是非常开心的我/">Cocos-2dx中踩的又一个坑，关于lambda函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="今天的我是非常开心的我">今天的我是非常开心的我</h3><p>解决了一个bug啦啦啦，今天在写Cocos-2dx时候遇到了非常非常多的问题，今天我终于发现了解决这些问题的方法了。首先是关于那些坑爹的回调函数，那些回调函数真的是非常非常的坑人啊！！！雾草，如果按照它官方教材上的解决方法估计会是一种说不出的酸爽。最后我觉得还是使用监听函数会比较方便了。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">BeginnerContinueBtn-&gt;addTouchEventListener([=](Ref* pSender,<span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:TouchEventType type) &#123;</span><br><span class="line">	<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">BEGAN:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">MOVED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">ENDED:</span></span><br><span class="line">                <span class="comment">//Director::getInstance()-&gt;replaceScene(BeginnerScene);</span></span><br><span class="line">                removeChild(BeginnerScene);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">CANCELED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"><span class="label">                </span><br><span class="line">            default:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们来看看这个事件监听器吧！<br><br>在这个事件监听器中，我们可以知道我们向BeginnerContinueBtn上添加了一个事件监听器，这里的实现，我们是使用lambda函数来进行，其实我在以前写JS的时候也是写过lambda函数的哦如下：</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">double</span> = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span>* x; &#125;</span><br></pre></td></tr></table></figure>
+<p>这就是一个典型的lambda函数咯，在这个函数中函数是没有函数的名字啦！那么在C++中lambda函数的实现如下所示：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T::ForEach([<span class="link_label">&amp;</span>](<span class="link_url">T *what</span>) &#123;</span><br></pre></td></tr></table></figure>
+<p>不过当我使用了lambda函数之后出现了一个奇怪的错误！编译错误警告如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'func'</span> cannot <span class="keyword">be</span> implicitly captured because <span class="keyword">no</span> default capture <span class="built_in">mode</span> <span class="built_in">has</span> been specified</span><br></pre></td></tr></table></figure>
+<p>经过在stackoverflow上的查找我发现了事实的真相！！回答如下</p>
+<p>You need to specify how to capture func into the lambda.</p>
+<p>[] don’t capture anything</p>
+<p>[&amp;] capture-by-reference</p>
+<p>[=] capture-by-value (copy)</p>
+<p>T::ForEach(<a href="T *what">&amp;</a> {<br>I’d also recommend that you should send func by const reference.</p>
+<p>static void ComputeGenericDropCount(const function<void(npc *,="" int)="">&amp; func)</void(npc></p>
+<p>也就是说在这里[] 表示不传递。[&amp;]表示按引用传递，[=]表示按值传递。于是吼吼吼我的这个bug就修好了！～～</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Cocos2d-x的简单知识点1126" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -743,70 +809,6 @@
 <p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
 <p>实例如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/对象与类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/对象与类/">c++学习知识点纪录（五）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="对象与类">对象与类</h3><h5 id="访问控制">访问控制</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Stock &#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">char</span> company[<span class="number">30</span>];</span><br><span class="line">		<span class="keyword">int</span> shares;</span><br><span class="line">		<span class="keyword">double</span> share_val;</span><br><span class="line">		<span class="keyword">double</span> total_val;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">set_tot</span><span class="params">()</span> </span>&#123; total_val = shares * share_val;&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * co, <span class="keyword">int</span> n, <span class="keyword">double</span> pr)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">buy</span><span class="params">(<span class="keyword">int</span> num, hhhh</span><br><span class="line">		ouble price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏（将数据放在类的私有部分中）是一种封装，将实现的细节隐藏在私有部分中，就像Stock_tot( )中所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。<br><br>数据隐藏不仅可以防止直接访问数据，还让开发者（类的用户）无需了解数据是如何表示的。例如，show( )成员将显示某支股票的总价格（还有其它内容），这个值可以储存在对象中（上述代码正是这样做的），也可以在需要时通过计算得到。从使用类的角度来看，使用哪种方法没有什么区别。所需要知道的只是各种成员函数的功能；也就是说，需要知道成员函数接受什么样的参数以及返回什么类型的值。原则是将实现细节从接口设计中分离出来。如果以后找到了更好的，实现数据表示或成员函数细节的方法，可以对这些细节进行修改，则无需修改程序接口，这使程序维护起来更容易。</p>
-<h5 id="控制成员的访问：公有还是私有">控制成员的访问：公有还是私有</h5><p>无论类成员时数据成员还是成员函数，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是oop主要的目标之一，因此数据项通常放在私有部分，组成类的接口的成员函数放在公有部分：否则，就无法从程序中调用这种函数。<br><br>还需要创建类描述的第二部分：为那些由类声明中的原型表示的成员函数提供代码。成员函数定义与常规函数定义非常相似，他们都有函数头和函数体，也可以有返回类型和参数。但是他们还有两个特殊的特征。</p>
-<p><li>定义成员函数时，使用作用域解析运算符（::）来标志函数所属的类；</li></p>
-<p><li>类方法可以访问类的private组件。<br>首先，成员韩式的函数头使用作用域运算符解析（::）来指出函数所属的类。例如，update( )成员的函数头如下：</li></p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price)</span><br></pre></td></tr></table></figure>
-<p>这种表示法意味着我们定义的update( )函数是Stock类的成员。这不仅将update( )标识为成员函数，还意味着我们可以将另一个类的成员函数命名为update( )。例如，Buffoon( )类的update( )函数的函数头如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Buffoon::<span class="function"><span class="title">update</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<p>因此，作用域解析运算符确定了方法定义对应的类的身份。我们说，标识符update( )具有类作用域（class scope）。Stock类的其他成员函数不必使用作用域解析符，就可以使用update( )方法，这事因为他们属于同一个类，因此update( )是可见的。然而在类声明和方法定义之外使用update( )时，需要采用特殊的措施。<br><br>类方法的完整名中包含类名，我们说，Stock::update( )是函数的限定名(qualified name)：而简单的update( )是全名的缩写（非限定名，unqualified name）它只能在类作用域中使用。<br><br>方法的第二个特点是，方法可以访问类的私有成员。例如show( )方法可以使用这样的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>:: &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">	  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; endl</span><br><span class="line">	  &lt;&lt; <span class="string">" Share Prices: $"</span> &lt;&lt; share_val</span><br><span class="line">	  &lt;&lt; <span class="string">" Total Worth: $"</span></span><br></pre></td></tr></table></figure>
-<p>其中company,shares等都是Stock类的私有数据成员。如果试图使用非成员函数访问这些数据成员，编译器禁止这样做（友元函数除外）。<br></p>
-<p>程序清单:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stock00.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::acquire(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; co, <span class="keyword">long</span> n, <span class="keyword">double</span> pr) &#123;</span><br><span class="line">	company = co;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares can't be negative"</span></span><br><span class="line">				  &lt;&lt; company &lt;&lt; <span class="string">" shares set to 0.\n"</span>;</span><br><span class="line">		shares = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares = n;</span><br><span class="line">	&#125;</span><br><span class="line">	share_val = pr;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::buy(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares purchased can't be negative."</span></span><br><span class="line">				  &lt;&lt; <span class="string">"Transaction is aborted.\n"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares += num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::sell(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares sold can't be negative."</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; shares) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"You can't sell more than you have!c "</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares -= num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price) &#123;</span><br><span class="line">	share_val = price;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::show() &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">			  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; <span class="string">'\n'</span></span><br><span class="line">			  &lt;&lt; <span class="string">" Share Price: $"</span> &lt;&lt; share_val</span><br><span class="line">			  &lt;&lt; <span class="string">" Total Worth: $"</span> &lt;&lt; total_val &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><li>成员函数说明<br><br>acquire()</li></p>
-
       
     </div>
     
