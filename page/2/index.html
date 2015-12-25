@@ -168,6 +168,59 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/今天就说说今天的一些小收获吧/" class="article-date">
+  	<time datetime="2015-11-29T14:38:35.000Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/29/今天就说说今天的一些小收获吧/">Cocos-2dx杂感</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="今天就说说今天的一些小收获吧">今天就说说今天的一些小收获吧</h3><p>首先关于界面切换的问题。我们创建一个SceneManager类，然后在这个类里面写如下代码。下面我会去解释这些代码的意思的。（算了我还是直接去注释这些代码吧，如果不去注释这些代码的话，写起来会比较麻烦的）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先我们在宏中要将我们需要包含的代码放进去，只有这样在后续的使用中，使用场景类的话才可以成功</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"SceneManager.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"GameRunning.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"OsmanthusBeginner.h"</span></span></span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::mSceneManager = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::sharedSceneManager()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mSceneManager == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mSceneManager = <span class="keyword">new</span> SceneManager();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mSceneManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, isTrans, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans, <span class="keyword">float</span> time )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enScenType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TextureCache::sharedTextureCache()-&gt;removeUnusedTextures();</span><br><span class="line">    Director* pDirector = Director::getInstance();</span><br><span class="line">    Scene* curScene = pDirector-&gt;getRunningScene();</span><br><span class="line">    <span class="keyword">if</span>(curScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pDirector-&gt;runWithScene(pScene);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isTrans)</span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(TransitionFade::create(time, pScene));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(pScene);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::pushScene( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enSceneType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Director::getInstance()-&gt;pushScene(pScene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::popScene()</span><br><span class="line">&#123;</span><br><span class="line">    Director::getInstance()-&gt;popScene();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Scene* SceneManager::getSceneByType( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = Scene::create();</span><br><span class="line">    Layer *pLayer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">switch</span> (enSceneType)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> en_OsmanthusBeginner:</span><br><span class="line">            pLayer = OsmanthusBeginner::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> en_GameRunning:</span><br><span class="line">            pLayer = GameRunning::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pScene-&gt;addChild(pLayer);</span><br><span class="line">    <span class="keyword">return</span> pScene;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有就是在相应的IOS中把相应的plist中的lanchImage进行替换，活着你可以在plist中重写</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-今天的我是非常开心的我" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -751,64 +804,6 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>　<span class="keyword">char</span>*　pstr;</span><br><span class="line"><span class="function"><span class="keyword">int</span>　<span class="title">mystrcmp</span><span class="params">(<span class="keyword">const</span>　pstr　p1,<span class="keyword">const</span>　pstr　p3)</span></span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名;<span class="comment">//结构体指针</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = &amp;一个结构体的名字;<span class="comment">//结构体指针并赋初值</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = <span class="keyword">new</span> <span class="keyword">struct</span> 结构体类型名;<span class="comment">//结构体指针并用new申请内存</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 =(<span class="keyword">struct</span> 结构体类型名 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> 结构体类型名))<span class="comment">//结构体指针并用malloc申请内存 使用应包含头文件stdlib.h</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//对象指针的定义方法略同。</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">class</span> C</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    C obj;</span><br><span class="line">    C *p = obj;</span><br><span class="line">    p-&gt;num = <span class="number">5</span>;</span><br><span class="line">    p-&gt;name = <span class="string">"Tony"</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;num &lt;&lt; p-&gt;name &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序输出：5Tony</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/使用类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
-<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
-<p>实例如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     

@@ -17,7 +17,7 @@ Method one: sequential search
 Static search
 Method one: sequential search
 123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
-<meta property="og:updated_time" content="2015-12-25T10:42:01.000Z">
+<meta property="og:updated_time" content="2015-12-25T11:59:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(4)">
 <meta name="twitter:description" content="Tree（上）basic operationSearching
@@ -279,7 +279,11 @@ Method one: sequential search
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Position</span> FindMax(<span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(<span class="keyword">BST) </span>｛</span><br><span class="line">		<span class="preprocessor">while</span>( <span class="keyword">BST-&gt;Right) </span>&#123;</span><br><span class="line">			<span class="keyword">BST </span>= <span class="keyword">BST-&gt;Right</span><br><span class="line"></span>		&#125;</span><br><span class="line">	｝</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="二叉搜索树的插入">二叉搜索树的插入</h4><p>[分析]我们要找到插入的位置，可以使用Find方法。</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BinTree </span>Insert( ElementType X, <span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(!<span class="keyword">BST) </span>&#123;</span><br><span class="line">		//若原树为空，生成并返回一个结点的二叉搜索树</span><br><span class="line">		<span class="keyword">BST </span>= malloc(sizeof(<span class="keyword">struct </span>TreeNode))<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Data </span>= X<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Left </span>= <span class="keyword">BST-&gt;Right </span>= NULL</span><br><span class="line">	&#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">		<span class="preprocessor">if</span>(X &lt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Left </span>= Insert(X, <span class="keyword">BST-&gt;Left);</span><br><span class="line"></span>			&#125;</span><br><span class="line">		<span class="preprocessor">else</span> <span class="preprocessor">if</span>(X &gt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Right </span>= Insert(X, <span class="keyword">BST-&gt;Right);</span><br><span class="line"></span>		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉搜索树的删除">二叉搜索树的删除</h4>
+<h4 id="二叉搜索树的删除">二叉搜索树的删除</h4><p>考虑三种情况：<br></p>
+<p><li>要删除的是叶结点：直接删除，并再修改其父节点指针为NULL。<br></li></p>
+<p><li>要删除的结点只有一个孩子结点：将其父节点的指针指向要删除的孩子结点。<br></li></p>
+<p><li>要删除的结点有左、右两颗子树：用另一结点替代被删除结点：<em>右子树的最小元素</em>或者<em>左子树的最大元素</em>。<br></li></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">BinTree Delete(ElementType X, BinTree BST) &#123;</span><br><span class="line">	Position Tmp;</span><br><span class="line">	<span class="keyword">if</span>(<span class="subst">!</span>BST) &#123;</span><br><span class="line">		printf(<span class="string">"要删除的元素未找到"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &lt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Left = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//左子树递归删除</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &gt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//右子树递归删除</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(BST<span class="subst">-&gt;</span>Left <span class="subst">&amp;&amp;</span> BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">		Tmp = FindMin(BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		BST<span class="subst">-&gt;</span><span class="built_in">Data</span> = Tmp<span class="subst">-&gt;</span><span class="built_in">Data</span>;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(BST<span class="subst">-&gt;</span><span class="built_in">Data</span>, BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Tmp = BST;</span><br><span class="line">			<span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Left) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Right;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Left;</span><br><span class="line">			&#125;</span><br><span class="line">			free(Tmp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -288,18 +292,18 @@ Method one: sequential search
     
 <nav id="article-nav">
   
-    <a href="/2015/12/22/SICP(1)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/25/DataStructure(5)/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          SICP读书笔记(1)
+          DataStructure(5)
         
       </div>
     </a>
   
   
-    <a href="/2015/12/20/STL/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++ learning notes (7)</div>
+    <a href="/2015/12/22/SICP(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SICP读书笔记(1)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

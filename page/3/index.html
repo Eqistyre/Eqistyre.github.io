@@ -168,6 +168,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/使用类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
+<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
+<p>实例如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -232,6 +290,57 @@
 
 
   
+    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/声明与变量/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。<br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -260,57 +369,6 @@
       
         <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
 <h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/声明与变量/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。<br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
 
       
     </div>
@@ -735,71 +793,6 @@
 <p>小结</p>
 <p>在这篇文章中我介绍了RequireJS库,它是我创建每个Javascript项目都会用到的库函数之一。它不仅仅用于加载模块依赖和相关的命令，RequireJS帮助我们写出模块化的JavaScript代码，这非常有利于代码的可扩展性和重用性。</p>
 <p>本文地址：<a href="http://www.oschina.net/translate/getting-started-with-the-requirejs-library" target="_blank" rel="external">http://www.oschina.net/translate/getting-started-with-the-requirejs-library</a><br><br>原文地址：<a href="http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library" target="_blank" rel="external">http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library</a><br><br>本文中的所有译文仅用于学习和交流目的，转载请务必注明文章译者、出处、和本文链接<br>我们的翻译工作遵照 CC 协议，如果我们的工作有侵犯到您的权益，请及时联系我们</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-《css高效开发实战》读后感" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/《css高效开发实战》读后感/" class="article-date">
-  	<time datetime="2015-10-20T07:38:35.000Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/《css高效开发实战》读后感/">《CSS高效开发实战》读后感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="《CSS高效开发实战》读后感（一）">《CSS高效开发实战》读后感（一）</h3><h4 id="第1章"><li>第1章</li></h4><p>使用Modernizr检测支持CSS 3。Modernizr是一个检测浏览器对HTML 5和CSS 3特性是否支持的Javascript库，它是一个开源项目。<li><br>Modernizr的功能其实很简单，就是用Javascript检测浏览器对HTML/CSS 3的特性支持情况。比如说支持某个功能就在页面的<html>标签上添加一个相应的class,不支持某个属性就添加一个带no-前缀的class。比如，如果被检测的浏览器支持video标签，Modernizr就会在<html>标签上添加video类，否则添加no-video类。</html></html></li></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.canvas) &#123;</span><br><span class="line">		<span class="comment">//这里添加Canvas代码</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">if</span>(Modernizr.localstorage) &#123;</span><br><span class="line">		<span class="comment">//这里添加本地储存代码</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="第2章"><li>第2章</li></h4><p>这一章都是一些复习内容啦,首先复习盒子模型。<br><img src="https://github.com/Eqistyre/diary/blob/master/imgs/BoxModel.png?raw=true" alt="BoxModle"><br><br><br>首先我们可以看出来盒子模型的具体样式是这样的。<br></p>
-<p><li>内容<br><br>元素框的最内部分是实际的内容，直接包围内容的是内边距(padding),它呈现了元素的背景。内边距的边缘是边框，边框以外是外边距(margin),外边距默认是透明，因此不会遮挡其后面的任何元素。<br></li></p>
-<p><li>内边框和边框<br><br>内边距和边框的主要作用是装饰。在那边距和内容区域，我们可以显示漂亮的背景，还可以控制边框样式来装点内容。<br><br></li></p>
-<p><li>外边距<br><br>外边距主要用于布局，目的是控制元素之间的距离。<br></li></p>
-<p>常用的属性前缀</p>
-<p><li>-webkit: webkit的核心浏览器，包括Chrome,Safari等。</li></p>
-<p><li>-moz: 火狐浏览器。</li></p>
-<p><li>-ms: IE浏览器。</li></p>
-<p><li>-o: Opera浏览器。<br><br><br>揭开浮动布局的秘密<br><br>float:(none, left, right, inherit)其中none为默认值，即inherit表示继承父元素的float值（但这个很少用，因为IE不支持这个选项）。<br><br>(1)对于块级元素来说，在不设置宽度的情况下，默认的宽度是100%，一旦设置了浮动，它的宽度就会根据内容进行自动调整。<br>(2)设置了浮动的元素会脱离正常的文档流，我们可以这样理解：设置浮动后，元素不仅在y轴上浮了起来，在z轴上，也浮了起来。<strong>譬如：默认情况下，父元素的高度会根据子元素的内容进行调整，而如果我们讲子元素设置为浮动，父元素的高度就会变为0</strong>。</li></p>
-<p>绝对定位技术与实践<br><br>1,绝对定位技术与实战<br>绝对定位的元素有以下几个特点:</p>
-<p><li>块级元素的宽度在未定义时不再为100%，而是根据内容自动调整。</li></p>
-<p><li>在不定义z-index的情况下，absolute元素会覆盖在其它元素之上。</li></p>
-<p><li>它会脱离正常的文档流，不再占用空间，类似于浮动后的效果。</li></p>
 
       
     </div>

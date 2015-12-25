@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SICP读书笔记(1) | SakuraNeko</title>
+  <title>DataStructure(5) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言(Preface)我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。
-第一章 构造过程抽象程序设计的基本元素一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提">
+  <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SICP读书笔记(1)">
-<meta property="og:url" content="http://eqistyre.github.io/2015/12/22/SICP(1)/index.html">
+<meta property="og:title" content="DataStructure(5)">
+<meta property="og:url" content="http://eqistyre.github.io/2015/12/25/DataStructure(5)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="前言(Preface)我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。
-第一章 构造过程抽象程序设计的基本元素一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提">
-<meta property="og:updated_time" content="2015-12-24T11:51:41.000Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2015-12-25T12:01:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SICP读书笔记(1)">
-<meta name="twitter:description" content="前言(Preface)我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。
-第一章 构造过程抽象程序设计的基本元素一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提">
+<meta name="twitter:title" content="DataStructure(5)">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="/favicon.png">
@@ -170,11 +167,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/SICP(1)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/25/DataStructure(5)/" class="article-date">
+  	<time datetime="2015-12-25T14:40:35.000Z" itemprop="datePublished">2015-12-25</time>
 </a>
     </div>
   
@@ -187,7 +184,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SICP读书笔记(1)
+      DataStructure(5)
     </h1>
   
 
@@ -203,12 +200,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
-<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
-<p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
-<p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
-<p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
-
+        
       
     </div>
     
@@ -217,18 +209,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/22/DataStructure(4)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          DataStructure(4)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/20/STL/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++ learning notes (7)</div>
+    <a href="/2015/12/22/DataStructure(4)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DataStructure(4)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

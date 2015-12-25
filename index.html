@@ -168,11 +168,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/SICP(1)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/25/DataStructure(5)/" class="article-date">
+  	<time datetime="2015-12-25T14:40:35.000Z" itemprop="datePublished">2015-12-25</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/SICP(1)/">SICP读书笔记(1)</a>
+      <a class="article-title" href="/2015/12/25/DataStructure(5)/">DataStructure(5)</a>
     </h1>
   
 
@@ -194,12 +194,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
-<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
-<p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
-<p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
-<p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
-
+        
       
     </div>
     
@@ -319,7 +314,66 @@
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Position</span> FindMax(<span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(<span class="keyword">BST) </span>｛</span><br><span class="line">		<span class="preprocessor">while</span>( <span class="keyword">BST-&gt;Right) </span>&#123;</span><br><span class="line">			<span class="keyword">BST </span>= <span class="keyword">BST-&gt;Right</span><br><span class="line"></span>		&#125;</span><br><span class="line">	｝</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="二叉搜索树的插入">二叉搜索树的插入</h4><p>[分析]我们要找到插入的位置，可以使用Find方法。</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BinTree </span>Insert( ElementType X, <span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(!<span class="keyword">BST) </span>&#123;</span><br><span class="line">		//若原树为空，生成并返回一个结点的二叉搜索树</span><br><span class="line">		<span class="keyword">BST </span>= malloc(sizeof(<span class="keyword">struct </span>TreeNode))<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Data </span>= X<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Left </span>= <span class="keyword">BST-&gt;Right </span>= NULL</span><br><span class="line">	&#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">		<span class="preprocessor">if</span>(X &lt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Left </span>= Insert(X, <span class="keyword">BST-&gt;Left);</span><br><span class="line"></span>			&#125;</span><br><span class="line">		<span class="preprocessor">else</span> <span class="preprocessor">if</span>(X &gt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Right </span>= Insert(X, <span class="keyword">BST-&gt;Right);</span><br><span class="line"></span>		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉搜索树的删除">二叉搜索树的删除</h4>
+<h4 id="二叉搜索树的删除">二叉搜索树的删除</h4><p>考虑三种情况：<br></p>
+<p><li>要删除的是叶结点：直接删除，并再修改其父节点指针为NULL。<br></li></p>
+<p><li>要删除的结点只有一个孩子结点：将其父节点的指针指向要删除的孩子结点。<br></li></p>
+<p><li>要删除的结点有左、右两颗子树：用另一结点替代被删除结点：<em>右子树的最小元素</em>或者<em>左子树的最大元素</em>。<br></li></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">BinTree Delete(ElementType X, BinTree BST) &#123;</span><br><span class="line">	Position Tmp;</span><br><span class="line">	<span class="keyword">if</span>(<span class="subst">!</span>BST) &#123;</span><br><span class="line">		printf(<span class="string">"要删除的元素未找到"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &lt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Left = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//左子树递归删除</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &gt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//右子树递归删除</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(BST<span class="subst">-&gt;</span>Left <span class="subst">&amp;&amp;</span> BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">		Tmp = FindMin(BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		BST<span class="subst">-&gt;</span><span class="built_in">Data</span> = Tmp<span class="subst">-&gt;</span><span class="built_in">Data</span>;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(BST<span class="subst">-&gt;</span><span class="built_in">Data</span>, BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Tmp = BST;</span><br><span class="line">			<span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Left) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Right;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Left;</span><br><span class="line">			&#125;</span><br><span class="line">			free(Tmp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/SICP(1)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/SICP(1)/">SICP读书笔记(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
+<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
+<p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
+<p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
+<p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
+
       
     </div>
     
@@ -753,59 +807,6 @@
 <p><li>4.类的构造函数不能够有返回值。</li></p>
 <p><li>5.对象指针什么鬼的：</li></p>
 <p>定义：指向类的成员的指针。在C++中，可以说明指向类的数据成员和成员函数的指针。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/29/今天就说说今天的一些小收获吧/" class="article-date">
-  	<time datetime="2015-11-29T14:38:35.000Z" itemprop="datePublished">2015-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/今天就说说今天的一些小收获吧/">Cocos-2dx杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="今天就说说今天的一些小收获吧">今天就说说今天的一些小收获吧</h3><p>首先关于界面切换的问题。我们创建一个SceneManager类，然后在这个类里面写如下代码。下面我会去解释这些代码的意思的。（算了我还是直接去注释这些代码吧，如果不去注释这些代码的话，写起来会比较麻烦的）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先我们在宏中要将我们需要包含的代码放进去，只有这样在后续的使用中，使用场景类的话才可以成功</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"SceneManager.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"GameRunning.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"OsmanthusBeginner.h"</span></span></span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::mSceneManager = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::sharedSceneManager()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mSceneManager == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mSceneManager = <span class="keyword">new</span> SceneManager();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mSceneManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, isTrans, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans, <span class="keyword">float</span> time )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enScenType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TextureCache::sharedTextureCache()-&gt;removeUnusedTextures();</span><br><span class="line">    Director* pDirector = Director::getInstance();</span><br><span class="line">    Scene* curScene = pDirector-&gt;getRunningScene();</span><br><span class="line">    <span class="keyword">if</span>(curScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pDirector-&gt;runWithScene(pScene);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isTrans)</span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(TransitionFade::create(time, pScene));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(pScene);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::pushScene( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enSceneType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Director::getInstance()-&gt;pushScene(pScene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::popScene()</span><br><span class="line">&#123;</span><br><span class="line">    Director::getInstance()-&gt;popScene();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Scene* SceneManager::getSceneByType( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = Scene::create();</span><br><span class="line">    Layer *pLayer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">switch</span> (enSceneType)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> en_OsmanthusBeginner:</span><br><span class="line">            pLayer = OsmanthusBeginner::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> en_GameRunning:</span><br><span class="line">            pLayer = GameRunning::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pScene-&gt;addChild(pLayer);</span><br><span class="line">    <span class="keyword">return</span> pScene;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还有就是在相应的IOS中把相应的plist中的lanchImage进行替换，活着你可以在plist中重写</p>
 
       
     </div>
