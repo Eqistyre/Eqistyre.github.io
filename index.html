@@ -194,7 +194,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="平衡二叉树">平衡二叉树</h3><p>“平衡因子（Balance Factor, 简BF）”：BF(T) = h<sub>L</sub> - h<sub>R</sub>。<br><br>平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。</p>
+<p>平衡二叉树的高度能达到log<sub>2</sub>n</p>
+
       
     </div>
     
@@ -373,6 +375,13 @@
 <p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
 <p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
 <p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
+<h3 id="过程与它们所产生的计算">过程与它们所产生的计算</h3><p>首先考虑由下面表达式定义的阶乘函数：</p>
+<p>n! = n <em> (n-1) </em> (n-2) <em> … </em> 3 <em> 2 </em> 1</p>
+<p>计算阶乘的方式有许多种，其中有一种是利用一下的认识：对于一个正整数n, n!就等于n * (n - 1)!, 然后我们就可以直接翻译成下面过程：</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">factorial</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">if</span></span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">1</span>)</span></span><br><span class="line">			<span class="number">1</span></span><br><span class="line">			<span class="list">( * <span class="list">(<span class="keyword">factorial</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">1</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>现在让我们采用另一种不同的观点来计算阶乘。我们可以将阶乘n!的规则描述为：先乘起1和2，而后将得到的结果乘以4，这样下去直到n。更形式的说，我们要维持一个变动中的乘积product，以及一个从1到n的计数器，这一计算过程描述为counter和product的如下变化，从第一步到下一步，它们都按照下面规则改变：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">product</span> &lt;- counter * product</span><br><span class="line"><span class="title">couter</span> &lt;- counter + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，n!也就是计数器counter超过乘积product的值。</p>
 
       
     </div>
