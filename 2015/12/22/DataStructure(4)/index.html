@@ -5,25 +5,25 @@
   
   <title>DataStructure(4) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tree（上）basic operationSearching
+  <meta name="description" content="Treebasic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DataStructure(4)">
 <meta property="og:url" content="http://eqistyre.github.io/2015/12/22/DataStructure(4)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="Tree（上）basic operationSearching
+<meta property="og:description" content="Treebasic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
-<meta property="og:updated_time" content="2015-12-25T11:59:38.000Z">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
+<meta property="og:updated_time" content="2015-12-26T09:20:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataStructure(4)">
-<meta name="twitter:description" content="Tree（上）basic operationSearching
+<meta name="twitter:description" content="Treebasic operationSearching
 Static search
 Method one: sequential search
-123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = T">
+123456int SequentialSearch (staticTable *Tb1, ElementType K) &amp;#123;	int i;	Tb1-&amp;gt;Element[0] = K; //Set up sentry	for(i = Tb1-">
   
   
     <link rel="icon" href="/favicon.png">
@@ -209,7 +209,7 @@ Method one: sequential search
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Tree（上）">Tree（上）</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
 <p><li>Static search</li></p>
 <p>Method one: sequential search</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
