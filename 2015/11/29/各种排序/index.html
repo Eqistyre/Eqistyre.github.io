@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DataStructure(1) | SakuraNeko</title>
+  <title>考试之前看的各种排序 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
+  <meta name="description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
+12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataStructure(1)">
-<meta property="og:url" content="http://eqistyre.github.io/2015/12/16/DataStructure(1)/index.html">
+<meta property="og:title" content="考试之前看的各种排序">
+<meta property="og:url" content="http://eqistyre.github.io/2015/11/29/各种排序/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
-<meta property="og:updated_time" content="2015-12-16T12:00:07.000Z">
+<meta property="og:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
+12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
+<meta property="og:updated_time" content="2016-01-06T04:22:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataStructure(1)">
-<meta name="twitter:description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
+<meta name="twitter:title" content="考试之前看的各种排序">
+<meta name="twitter:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
+12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
   
   
     <link rel="icon" href="/favicon.png">
@@ -170,11 +170,11 @@ DefinationIn computer science,a data structure is a particular way of organizing
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-DataStructure(1)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-各种排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/16/DataStructure(1)/" class="article-date">
-  	<time datetime="2015-12-16T02:38:35.000Z" itemprop="datePublished">2015-12-16</time>
+      <a href="/2015/11/29/各种排序/" class="article-date">
+  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
 </a>
     </div>
   
@@ -187,7 +187,7 @@ DefinationIn computer science,a data structure is a particular way of organizing
         
   
     <h1 class="article-title" itemprop="name">
-      DataStructure(1)
+      考试之前看的各种排序
     </h1>
   
 
@@ -203,25 +203,10 @@ DefinationIn computer science,a data structure is a particular way of organizing
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Preface">Preface</h3><p>I will try to use English record my blog from today.</p>
-<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete implementation of the contract provided by an ADT.</p>
-<p>Different kinds of data structures are suited to different kinds of applications, examples:</p>
-<p><li>Databases use B-tree indexes for small percentages of data retrieval.<br></li></p>
-<p><li>compilers and databases use dynamic hash tables as look-up tables.<br></li></p>
-<p>Usaually, efficient data structures are key to designing efficient algorithms.</p>
-<h3 id="Overview">Overview</h3><p>Data structures are generally based on the ability of a computer fetch and store data at any place in its memory, specified by <em>pointer</em>-a bit string, representing a memory address. </p>
-<h3 id="Examples">Examples</h3><p>There are numerous types of data structures, gennerally built upon simpler primitive data types:(just like a tress)</p>
-<p><li>An array:a number of elements in a specific order, typically all of the same type.I think the array is one of the type we familiar with<br></li></p>
-<p><li>An associative array:a more flexible variation on an array, in which name-value pairs can be added and deleted freely. A hash table is a common implementation of an associative array.<br></li></p>
-<p><li>A record(also called tuple or struct):an aggregate data structure. A  record is a value that contains oher values, typically in fixed number and sequence and typically indexed by names. The elements of records are usually called fields or members(You can find struct in C, in C++ it have an advanced name class, but it also remmained in C++)<br></li></p>
-<p><li>A union: a data structure that specifies which of a number of permitted primitive types may be stored in it’s instances,e.g. float or long integer. Contrast with a record, which could be defined to contain a float and an integer; whereas in a union, ther is only one value at time. Enough space is allocated to contain the widest member datatype(I will give a instance in c)</li></p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">number</span></span></span><br><span class="line">&#123;</span><br><span class="line">int x;</span><br><span class="line">long y;</span><br><span class="line">double z;</span><br><span class="line">&#125;;</span><br><span class="line">number num = (<span class="number">4</span>,<span class="number">15</span>,<span class="number">30.7</span>);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p><li>A tagged union: a variant union contains an additional field indicating its current type, for enhanced type safety.<br></li></p>
-<p><li>A set: an abstract data structure that can store specific values, in no particular order and with no duplicate values.<br></li></p>
-<p><li>A graph and a tree:linked abstract data structures composed of nodes. Each node contains a value and one or more pointers to other nodes arranged in a hierarchy. Graphs can be used to represent networks, while variants of trees can be used for sorting and searching, having their nodes arranged in some relative order based on their values.<br></li></p>
-<p><li>A class: a data structure that contains data fields, like a record, as well as various methods which operate on the contents of the record. In the context of object-oriented programming, records are known as plain old data structures to distinguish them from classes.<br><br></li></p>
-
+        <h3 id="&lt;一&gt;插入排序">&lt;一&gt;插入排序</h3><p>有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">voidinsertion_sort(intarray[],intfirst,intlast)</span><br><span class="line">&#123;</span><br><span class="line">inti,j;</span><br><span class="line"><span class="keyword">int</span> temp;</span><br><span class="line"><span class="keyword">for</span>(i = first+<span class="number">1</span>; i &lt; last ; i++)</span><br><span class="line">&#123;</span><br><span class="line">temp=<span class="built_in">array</span>[i];</span><br><span class="line">j=i-<span class="number">1</span>;</span><br><span class="line"><span class="comment">//与已排序的数逐一比较，大于temp时，该数移后</span></span><br><span class="line"><span class="keyword">while</span> ((j&gt;=<span class="number">0</span>) &amp;&amp; (<span class="built_in">array</span>[j]&gt;temp))</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">array</span>[j+<span class="number">1</span>]=<span class="built_in">array</span>[j];</span><br><span class="line">j--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存在大于temp的数</span></span><br><span class="line"><span class="keyword">if</span>(j!=i-<span class="number">1</span>)</span><br><span class="line">&#123;<span class="built_in">array</span>[j+<span class="number">1</span>]=temp;&#125;</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="&lt;二&gt;冒泡排序">&lt;二&gt;冒泡排序</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="&lt;三&gt;选择排序">&lt;三&gt;选择排序</h3><h3 id="&lt;四&gt;快速排序">&lt;四&gt;快速排序</h3>
       
     </div>
     
@@ -230,18 +215,18 @@ DefinationIn computer science,a data structure is a particular way of organizing
     
 <nav id="article-nav">
   
-    <a href="/2015/12/17/DataStructure(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/29/今天的我是非常开心的我/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          DataStructure(2)
+          Cocos-2dx中踩的又一个坑，关于lambda函数
         
       </div>
     </a>
   
   
-    <a href="/2015/12/15/杂感12.15/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">吐槽</div>
+    <a href="/2015/11/24/Cocos2d-x的简单知识点1126/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocos2d-x的简单知识点&lt;二&gt;</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
