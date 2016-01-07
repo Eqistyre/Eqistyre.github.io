@@ -17,7 +17,7 @@
 1234inline void Foo(int x, int y);//inline 仅与声明放在一起void Foo(int x, int y) &amp;#123;&amp;#125;
 以上代码不能成为内联函数，以下可以
 1234void Foo(int x, int y);inline void Foo(int x, int y) &amp;#123;//函数与定义放在了">
-<meta property="og:updated_time" content="2016-01-07T13:22:45.000Z">
+<meta property="og:updated_time" content="2016-01-07T17:07:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="考试之前看的各种c++知识点">
 <meta name="twitter:description" content="内联函数1.使用inline的一些注意事项
@@ -229,7 +229,12 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MAX_INCLUDED</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAX_INCLUDED</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T t1, T t2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (t1 &gt; t2) ? t1:t2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 <p>定义T作为模版参数，或者是占位符，当实例化max()时，它将替代具体的数据类型。max是函数名，t1和t2是其参数，返回值的类型为T。你可以像使用普通的函数那样使用这个max()。编译器按照所使用的数据类型自动产生相应的模版转化，或者说是实例：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">10</span>, m = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">int</span> highest = max(n, m);<span class="comment">//产生int版本</span></span><br><span class="line"><span class="built_in">std</span>::<span class="keyword">complex</span> c1,c2;</span><br><span class="line"><span class="comment">//..给c1, c2赋值</span></span><br><span class="line"><span class="built_in">std</span>::<span class="keyword">complex</span> higher = max(c1,c2);<span class="comment">//complex 版本</span></span><br></pre></td></tr></table></figure>
-<h3 id="抽象类">抽象类</h3>
+<p>第二步：改进设计<br><br>上述的max()的实现还有些土气——参数t1和t2是用值来传递的。对于像int,float这样的内建数据类型来说不是什么问题。但是，对于像std::complex 和 std::string 这样的用户定义的数据类型来说，通过引用传递参数会更有效。此外，因为max()会认为其参数是不会被改变的，我们应该将t1和t2声明为变量const(常量)。下面是max()的改进版本：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(<span class="keyword">const</span> T&amp; t1, <span class="keyword">const</span> T&amp; t2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span>(t1 &gt; t2) ? t1 : t1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="抽象类">抽象类</h3><h3 id="类模版与_STL_编程">类模版与 STL 编程</h3><p><li>类模版的概念:<br><br>类模版定义的语法为</li></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template &lt;模版参数表&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">	成员名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中模版参数表中的类型为参数化类型，也称可变类型，类型名为class(或typename);</p>
+
       
     </div>
     
