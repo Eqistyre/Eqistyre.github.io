@@ -3,17 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | SakuraNeko</title>
+  <title>考试之前看的各种c++知识点 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SakuraNeko">
-<meta property="og:url" content="http://eqistyre.github.io/archives/page/5/index.html">
+  <meta name="description" content="###内联函数1.使用inline的一些注意事项
+1234inline void Foo(int x, int y);//inline 仅与声明放在一起void Foo(int x, int y) &amp;#123;&amp;#125;
+以上代码不能成为内联函数，以下可以
+1234void Foo(int x, int y);inline void Foo(int x, int y) &amp;#123;//函数与定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考试之前看的各种c++知识点">
+<meta property="og:url" content="http://eqistyre.github.io/2015/11/29/C++知识点maybe/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description">
+<meta property="og:description" content="###内联函数1.使用inline的一些注意事项
+1234inline void Foo(int x, int y);//inline 仅与声明放在一起void Foo(int x, int y) &amp;#123;&amp;#125;
+以上代码不能成为内联函数，以下可以
+1234void Foo(int x, int y);inline void Foo(int x, int y) &amp;#123;//函数与定义">
+<meta property="og:updated_time" content="2016-01-07T10:07:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SakuraNeko">
-<meta name="twitter:description">
+<meta name="twitter:title" content="考试之前看的各种c++知识点">
+<meta name="twitter:description" content="###内联函数1.使用inline的一些注意事项
+1234inline void Foo(int x, int y);//inline 仅与声明放在一起void Foo(int x, int y) &amp;#123;&amp;#125;
+以上代码不能成为内联函数，以下可以
+1234void Foo(int x, int y);inline void Foo(int x, int y) &amp;#123;//函数与定义">
   
   
     <link rel="icon" href="/favicon.png">
@@ -166,80 +176,77 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/12/Linux的一些权限机制/" class="archive-article-date">
-  	<time datetime="2015-09-12T02:38:35.000Z" itemprop="datePublished">Sep 12</time>
+    <div class="article-meta">
+      <a href="/2015/11/29/C++知识点maybe/" class="article-date">
+  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/12/Linux的一些权限机制/">Linux的一些权限机制</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      考试之前看的各种c++知识点
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###内联函数<br>1.使用inline的一些注意事项</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;<span class="comment">//inline 仅与声明放在一起</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码不能成为内联函数，以下可以</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"><span class="comment">//函数与定义放在了一起</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以说，inline是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。比较好的风格就是只在定义前面加上inline,而不是在声明和定义前面都加。这样才能体现出c++/c的一种良好设计风格声明与定义不可混为一谈。</p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/29/今天就说说今天的一些小收获吧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Cocos-2dx杂感
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/29/各种排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">考试之前看的各种排序</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/11/动态的属性与传递参数/" class="archive-article-date">
-  	<time datetime="2015-09-11T01:38:35.000Z" itemprop="datePublished">Sep 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/11/动态的属性与传递参数/">动态的属性与传递参数</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-    </nav>
-  
+
+
 
 </div>
       <footer id="footer">
@@ -265,8 +272,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

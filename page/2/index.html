@@ -221,10 +221,10 @@
 
 
   
-    <article id="post-今天的我是非常开心的我" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/29/今天的我是非常开心的我/" class="article-date">
+      <a href="/2015/11/29/C++知识点maybe/" class="article-date">
   	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
 </a>
     </div>
@@ -238,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/今天的我是非常开心的我/">Cocos-2dx中踩的又一个坑，关于lambda函数</a>
+      <a class="article-title" href="/2015/11/29/C++知识点maybe/">考试之前看的各种c++知识点</a>
     </h1>
   
 
@@ -247,22 +247,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="今天的我是非常开心的我">今天的我是非常开心的我</h3><p>解决了一个bug啦啦啦，今天在写Cocos-2dx时候遇到了非常非常多的问题，今天我终于发现了解决这些问题的方法了。首先是关于那些坑爹的回调函数，那些回调函数真的是非常非常的坑人啊！！！雾草，如果按照它官方教材上的解决方法估计会是一种说不出的酸爽。最后我觉得还是使用监听函数会比较方便了。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">BeginnerContinueBtn-&gt;addTouchEventListener([=](Ref* pSender,<span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:TouchEventType type) &#123;</span><br><span class="line">	<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">BEGAN:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">MOVED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">ENDED:</span></span><br><span class="line">                <span class="comment">//Director::getInstance()-&gt;replaceScene(BeginnerScene);</span></span><br><span class="line">                removeChild(BeginnerScene);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">CANCELED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"><span class="label">                </span><br><span class="line">            default:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>我们来看看这个事件监听器吧！<br><br>在这个事件监听器中，我们可以知道我们向BeginnerContinueBtn上添加了一个事件监听器，这里的实现，我们是使用lambda函数来进行，其实我在以前写JS的时候也是写过lambda函数的哦如下：</p>
-<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">double</span> = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span>* x; &#125;</span><br></pre></td></tr></table></figure>
-<p>这就是一个典型的lambda函数咯，在这个函数中函数是没有函数的名字啦！那么在C++中lambda函数的实现如下所示：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T::ForEach([<span class="link_label">&amp;</span>](<span class="link_url">T *what</span>) &#123;</span><br></pre></td></tr></table></figure>
-<p>不过当我使用了lambda函数之后出现了一个奇怪的错误！编译错误警告如下：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'func'</span> cannot <span class="keyword">be</span> implicitly captured because <span class="keyword">no</span> default capture <span class="built_in">mode</span> <span class="built_in">has</span> been specified</span><br></pre></td></tr></table></figure>
-<p>经过在stackoverflow上的查找我发现了事实的真相！！回答如下</p>
-<p>You need to specify how to capture func into the lambda.</p>
-<p>[] don’t capture anything</p>
-<p>[&amp;] capture-by-reference</p>
-<p>[=] capture-by-value (copy)</p>
-<p>T::ForEach(<a href="T *what">&amp;</a> {<br>I’d also recommend that you should send func by const reference.</p>
-<p>static void ComputeGenericDropCount(const function<void(npc *,="" int)="">&amp; func)</void(npc></p>
-<p>也就是说在这里[] 表示不传递。[&amp;]表示按引用传递，[=]表示按值传递。于是吼吼吼我的这个bug就修好了！～～</p>
+        <p>###内联函数<br>1.使用inline的一些注意事项</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;<span class="comment">//inline 仅与声明放在一起</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码不能成为内联函数，以下可以</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"><span class="comment">//函数与定义放在了一起</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以说，inline是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。比较好的风格就是只在定义前面加上inline,而不是在声明和定义前面都加。这样才能体现出c++/c的一种良好设计风格声明与定义不可混为一谈。</p>
 
       
     </div>
@@ -317,6 +306,72 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">voidinsertion_sort(intarray[],intfirst,intlast)</span><br><span class="line">&#123;</span><br><span class="line">inti,j;</span><br><span class="line"><span class="keyword">int</span> temp;</span><br><span class="line"><span class="keyword">for</span>(i = first+<span class="number">1</span>; i &lt; last ; i++)</span><br><span class="line">&#123;</span><br><span class="line">temp=<span class="built_in">array</span>[i];</span><br><span class="line">j=i-<span class="number">1</span>;</span><br><span class="line"><span class="comment">//与已排序的数逐一比较，大于temp时，该数移后</span></span><br><span class="line"><span class="keyword">while</span> ((j&gt;=<span class="number">0</span>) &amp;&amp; (<span class="built_in">array</span>[j]&gt;temp))</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">array</span>[j+<span class="number">1</span>]=<span class="built_in">array</span>[j];</span><br><span class="line">j--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存在大于temp的数</span></span><br><span class="line"><span class="keyword">if</span>(j!=i-<span class="number">1</span>)</span><br><span class="line">&#123;<span class="built_in">array</span>[j+<span class="number">1</span>]=temp;&#125;</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="&lt;二&gt;冒泡排序">&lt;二&gt;冒泡排序</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="&lt;三&gt;选择排序">&lt;三&gt;选择排序</h3><h3 id="&lt;四&gt;快速排序">&lt;四&gt;快速排序</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-今天的我是非常开心的我" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/今天的我是非常开心的我/" class="article-date">
+  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/29/今天的我是非常开心的我/">Cocos-2dx中踩的又一个坑，关于lambda函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="今天的我是非常开心的我">今天的我是非常开心的我</h3><p>解决了一个bug啦啦啦，今天在写Cocos-2dx时候遇到了非常非常多的问题，今天我终于发现了解决这些问题的方法了。首先是关于那些坑爹的回调函数，那些回调函数真的是非常非常的坑人啊！！！雾草，如果按照它官方教材上的解决方法估计会是一种说不出的酸爽。最后我觉得还是使用监听函数会比较方便了。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">BeginnerContinueBtn-&gt;addTouchEventListener([=](Ref* pSender,<span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:TouchEventType type) &#123;</span><br><span class="line">	<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">BEGAN:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">MOVED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">ENDED:</span></span><br><span class="line">                <span class="comment">//Director::getInstance()-&gt;replaceScene(BeginnerScene);</span></span><br><span class="line">                removeChild(BeginnerScene);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> <span class="string">cocos2d:</span>:<span class="string">ui:</span>:<span class="string">Widget:</span>:<span class="string">TouchEventType:</span>:<span class="string">CANCELED:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"><span class="label">                </span><br><span class="line">            default:</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们来看看这个事件监听器吧！<br><br>在这个事件监听器中，我们可以知道我们向BeginnerContinueBtn上添加了一个事件监听器，这里的实现，我们是使用lambda函数来进行，其实我在以前写JS的时候也是写过lambda函数的哦如下：</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">double</span> = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span>* x; &#125;</span><br></pre></td></tr></table></figure>
+<p>这就是一个典型的lambda函数咯，在这个函数中函数是没有函数的名字啦！那么在C++中lambda函数的实现如下所示：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T::ForEach([<span class="link_label">&amp;</span>](<span class="link_url">T *what</span>) &#123;</span><br></pre></td></tr></table></figure>
+<p>不过当我使用了lambda函数之后出现了一个奇怪的错误！编译错误警告如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'func'</span> cannot <span class="keyword">be</span> implicitly captured because <span class="keyword">no</span> default capture <span class="built_in">mode</span> <span class="built_in">has</span> been specified</span><br></pre></td></tr></table></figure>
+<p>经过在stackoverflow上的查找我发现了事实的真相！！回答如下</p>
+<p>You need to specify how to capture func into the lambda.</p>
+<p>[] don’t capture anything</p>
+<p>[&amp;] capture-by-reference</p>
+<p>[=] capture-by-value (copy)</p>
+<p>T::ForEach(<a href="T *what">&amp;</a> {<br>I’d also recommend that you should send func by const reference.</p>
+<p>static void ComputeGenericDropCount(const function<void(npc *,="" int)="">&amp; func)</void(npc></p>
+<p>也就是说在这里[] 表示不传递。[&amp;]表示按引用传递，[=]表示按值传递。于是吼吼吼我的这个bug就修好了！～～</p>
+
       
     </div>
     
@@ -730,75 +785,6 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Circle</span></span></span><br></pre></td></tr></table></figure>
 <p>@implementation是一个编译器指令,表明你将为某个类提供代码。类名出现在@implementation之后。该行的的结尾处没有分号，因为在Objective-C编译器指令后不必使用分号。<br><br>你甚至可以在@implementation中定义那些在@interface中没有声明过的方法。<strong><em>你可以把它们看作是仅能在当前类中实现的私有方法</em></strong></p>
 <h5 id="实例化对象">实例化对象</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">	id shapes[<span class="number">3</span>];</span><br><span class="line">	</span><br><span class="line">	ShapeRect rect0 = &#123; <span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">0</span>] = [Circle <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">0</span>] setBounds: rect0];</span><br><span class="line">	[shapes[<span class="number">0</span>] setFillColor: kRedColor];</span><br><span class="line">	</span><br><span class="line">	ShapeRect rect1 = &#123; <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">1</span>] = [Rectangle <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">1</span>] setBounds: rect1];</span><br><span class="line">	[shapes[<span class="number">1</span>] setFillColor: kGreenColor];</span><br><span class="line"></span><br><span class="line">	ShapeRect rect2 = &#123; <span class="number">15</span>, <span class="number">19</span>, <span class="number">37</span>, <span class="number">29</span>&#125;;</span><br><span class="line">	Shapes[<span class="number">2</span>] = [Egg <span class="keyword">new</span>];</span><br><span class="line">	[shapes[<span class="number">2</span>] setBounds: rect2];</span><br><span class="line">	[shapes[<span class="number">2</span>] setFillColor: kBlueColor];</span><br><span class="line">	</span><br><span class="line">	drawShapes (shapes, <span class="number">3</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">0</span>);</span><br><span class="line">&#125; <span class="comment">//main</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-面向对象编程的基础知识（上）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/06/面向对象编程的基础知识（上）/" class="article-date">
-  	<time datetime="2015-11-06T14:38:35.000Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/面向对象编程的基础知识（上）/">Objective-C基础教程&lt;一&gt;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="面向对象编程的基础知识（上）">面向对象编程的基础知识（上）</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中我一开始是没有看懂<strong><em>const char </em>words[4]*</strong>这句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：n<br></p>
-<p>然后我们可以看出来它只是会输出一个字母n。那么如果我想输出一堆字符串我该怎么办呢？于是我写了下面这个程序。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：warning: conversion from string literal to ‘char <em>‘ is<br>      deprecated [-Wc++11-compat-deprecated-writable-strings]<br>    char </em> words[4] = {“one”,”two”,”three”,”four”};<br><br>以及一堆类似的错误，于是我把代码改了一遍。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果：two<br><br><br>于是我们发现造成这样的结果就是因为一个小小的const变量！下面我们来详细的谈论下const变量。原因就是words[4]</p>
-<hr>
-<p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。<br></p>
-<h6 id="主要作用">主要作用</h6><p>（1）可以定义const常量，具有不可变性。<br><br>例如：const int Max=100; Max++会产生错误; <br><br>（2）便于进行类型检查，使编译器对处理内容有更多了解，消 除了一些隐患。<br><br>例如： void f(const int i) { ………} 编译器就会知道i是一个常量，不允许修改； <br><br>（3）可以避免意义模糊的数字出现，同样可以很方便地进行参数的调整和修改。 同宏定义一样，可以做到不变则已，一变都变！<br><br>（4）可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。 还是上面的例子，如果在函数体内修改了i，编译器就会报错； <br><br>例如： void f(const int i) { i=10;//error! }<br><br>（5） 可以节省空间，避免不必要的内存分配。 例如： <br><br>#define PI 3.14159 //常量宏<br>const double Pi=3.14159; //此时并未将Pi放入RAM中 ……<br><br>double i=Pi; //此时为Pi分配内存，以后不再分配！ <br><br>double I=PI; //编译期间进行宏替换，分配内存 <br><br>double j=Pi; //没有内存分配 <br><br>double J=PI; //再进行宏替换，又一次分配内存！<br><br>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干份拷贝。 <br><br>（6）提高了效率。 <br><br>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高。<br></p>
-<h6 id="限定内容">限定内容</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> * pStr;</span><br><span class="line"><span class="keyword">char</span> <span class="built_in">string</span>[<span class="number">4</span>] = <span class="string">"bbc"</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *p1 =<span class="string">" string"</span>; <span class="comment">//1式</span></span><br><span class="line"><span class="keyword">const</span> pStr p2 =<span class="string">" string"</span>; <span class="comment">//2式</span></span><br><span class="line">p1++;</span><br><span class="line">p2++;</span><br></pre></td></tr></table></figure>
-<p>const使用的基本形式： const type m;限定m不可变。替换基本形式中的m为1式中的*p1，替换后const char *p1;限定*p1不可变，当然p1是可变的，因此问题中p1++是对的。替换基本形式中的type为2式中的pStr，替换后const pStr m;限定m不可变，题中的pStr就是一种新类型，因此问题中p2不可[1]  变，p2++是错误的。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pContent; <span class="comment">//*pContent是const, pContent可变</span></span><br></pre></td></tr></table></figure>
-<p>我们可以推导出：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br></pre></td></tr></table></figure>
-<p>在这个里面*pContent是const, words[4]可变。<br><br>突然发现自己写到这里好累！好吧，那么自己就可以休息咯，接下来一章让我们正式进入Object-C的世界！</p>
 
       
     </div>
