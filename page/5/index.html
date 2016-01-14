@@ -168,6 +168,121 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-一些Linux的命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/13/一些Linux的命令/" class="article-date">
+  	<time datetime="2015-09-13T02:38:35.000Z" itemprop="datePublished">2015-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/13/一些Linux的命令/">一些Linux的命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="9月13日的午间随笔">9月13日的午间随笔</h4><p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
+<hr>
+<p>顺便熟悉一下Linux下的一些命令<br><br>cat:该命令是Concatenate的缩写（串联，联系），具有三大功能<br></p>
+<p><li>一次显示整个文件，$cat filename</li></p>
+<p><li>从键盘创建一个文件。$ cat &gt; filename。<br><br>cat是输出文件内容的命令，&gt;filename表示把内容送到文件filename里而不是默认的屏幕<br>但是这里cat后面没有参数，意味着cat将从键盘读取数据输入到filename中，以CTRL+D结束。</li></p>
+<p><li>将几个文件合并为一个文件：$cat file1 file2 &gt; file</li></p>
+<hr>
+<p>相关参数<br><br>-n 或 –number 由 1 开始对所有输出的行数编号<br><br>-b 或 –number-nonblank 和 -n 相似，只不过对于空白行不编号<br><br>-s 或 –squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行<br><br>-v 或 –show-nonprinting<br><br>例：把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里<br><br>cat -n textfile1 &gt; textfile2<br></p>
+<p>把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。<br><br>cat -b textfile1 textfile2 &gt;&gt; textfile3</p>
+<p>把test.txt文件扔进垃圾箱，赋空值<br><br>test.txt<br>cat /dev/null &gt; /etc/test.txt  </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Linux的一些权限机制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/12/Linux的一些权限机制/" class="article-date">
+  	<time datetime="2015-09-12T02:38:35.000Z" itemprop="datePublished">2015-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/12/Linux的一些权限机制/">Linux的一些权限机制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="9月12日的一些感想">9月12日的一些感想</h4><h6 id="今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。">今天在进行php的一些相关操作时用到了一些linux方面的知识，现在就把这些知识点罗列起来。</h6><h6 id="mkdir"><li>mkdir</li></h6><pre><code>mkdir<span class="string">[-p]</span>rName
+</code></pre><p>建立名称为dirName的子目录。[-p]目录若是不存在，则会新创建一个。</p>
+<h6 id="chmod"><li>chmod</li></h6><p>改变一个或多个文件的存取模式(mod)<br><br>chmod [options] mode files.<br><br>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</p>
+<hr>
+<p>下面来谈谈关于权限的事情<br><br>我们常用三位八位制数字来表示权限，比图说777，666，111。<br><br>4(100)为读，2(010)为写，1(001)执行,6=4+2即有读与写的权限。<br><br><br>$ chmod u+x file                　　　   给file的属主增加执行权限<br><br><br>$ chmod 751 file                　　　   给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限<br><br><br>$ chmod u=rwx,g=rx,o=x file      上例的另一种形式<br><br><br>$ chmod =r file                 　　　　为所有用户分配读权限<br><br><br>$ chmod 444 file              　　　　 同上例<br><br><br>$ chmod a-wx,a+r   file   　　 　   同上例<br><br><br>$ chmod -R u+r directory       　   递归地给directory目录下所有文件和子目录的属主分配读的权限<br><br><br>$ chmod 4755                          　　设置用ID，给属主分配读、写和执行权限，给组和其他用户分配读、执行的权限。<br><br></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-动态的属性与传递参数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

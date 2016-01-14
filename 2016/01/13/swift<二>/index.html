@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift学记笔记（二） | SakuraNeko</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="空合运算符(Nil Coalescing Operator)空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：
+表达式a必须式Optional类型
+默认值b的类型必须要和a储存值的类型保持一致
+1a != nil ? a ! : b
+上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift学记笔记（二）">
+<meta property="og:url" content="http://eqistyre.github.io/2016/01/13/swift<二>/index.html">
+<meta property="og:site_name" content="SakuraNeko">
+<meta property="og:description" content="空合运算符(Nil Coalescing Operator)空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：
+表达式a必须式Optional类型
+默认值b的类型必须要和a储存值的类型保持一致
+1a != nil ? a ! : b
+上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当">
+<meta property="og:updated_time" content="2016-01-14T08:05:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift学记笔记（二）">
+<meta name="twitter:description" content="空合运算符(Nil Coalescing Operator)空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：
+表达式a必须式Optional类型
+默认值b的类型必须要和a储存值的类型保持一致
+1a != nil ? a ! : b
+上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">张仲昊</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.talisk.cn">talisk斯温</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">人间二十年,花鸟风月</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">张仲昊</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t2/18/1446819674x1822611272.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">张仲昊</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-swift&lt;二&gt;" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/swift<二>/" class="article-date">
+  	<time datetime="2016-01-12T17:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift学记笔记（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="空合运算符(Nil_Coalescing_Operator)">空合运算符(Nil Coalescing Operator)</h3><p>空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：</p>
+<p><li>表达式a必须式Optional类型</li></p>
+<p><li>默认值b的类型必须要和a储存值的类型保持一致</li></p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">a</span> <span class="exclamation_mark">!</span>= <span class="function_or_atom">nil</span> ? <span class="function_or_atom">a</span> <span class="exclamation_mark">!</span> : <span class="function_or_atom">b</span></span><br></pre></td></tr></table></figure>
+<p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当a中的值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具有可读性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="built_in">String</span>? <span class="comment">//默认为nil</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName ?? defaultColorName</span><br></pre></td></tr></table></figure>
+<p>userDefinedColorName变量被定义为一个可选的String类型，默认值为nil。由于userDefinedColorName是一个可选类型，我们可以使用空合运算符去判断其值。在上一个例子中，通过空合运算符为一个名为colorNameToUse的变量赋予一个字符串类型初始值。由于userDefinedColorName值为空，因此表达式userDefinedColorName ?? defaultColorName返回defaultColorName的值，即red。</p>
+<p>另一种情况，分配一个非空值（non-nil）给userDefinedColorName,再次执行空合运算，运算结果为封包在userDefaultColorName中的值，而非默认值。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">user</span>DefaultColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = <span class="keyword">user</span>DefinedColorName ?? <span class="keyword">default</span>ColorName</span><br></pre></td></tr></table></figure>
+<h3 id="区间运算符">区间运算符</h3><p>Swift提供了两个方便表达一个区间的运算符。</p>
+<h3 id="闭区间运算符">闭区间运算符</h3><p>闭区间运算符（a…b）定义一个包含从a到b（包括a和b）的所有值的区间，b必须大于等于a。闭区间运算符在迭代一个区间的所有值时是非常有用的（Ps：这个与python的语法好像啊）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
+<p>半开区间运算符<br>(a..&lt;b)从a到b不包括b的区间。</p>
+<h3 id="集合（Sets）">集合（Sets）</h3><p>Swift语言中的Arrarys,Sets或Dictionaries中储存的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时也说明我们完全可以对取回值的类型非常自信。</p>
+<blockquote>
+<p>注意：<br>Swift的Arrays,Sets和Dictionaries类型被实现为泛型集合。</p>
+</blockquote>
+<h3 id="集合的可变性">集合的可变性</h3><p>如果创建一个Arrays,Sets或Dictonaries并且把它们分配成一个变量，这个集合将会是可变的。这意味着我们可以在创建之后添加更多或移除已存在的数据项，或者改变集合中的数据项。如果我们把Arrarys,Sets或Dictionaries分配成常量，那么它就是不可变的，它的大小与内容都不能被改变。</p>
+<h3 id="数组">数组</h3><p>数组的简单语法</p>
+<p>写Swift数组应该遵循像Array<element>这样的形式，其中Element是这个数组中唯一允许存在的数据类型。我们也可以使用像[Element]这样的简单语法。尽管两种形式在功能上是一样的，但是推荐较短的那种。</element></p>
+<p>创建一个空数组</p>
+<p>我们可以使用构造函数语法来创建一个由特定数据类型构成的空数组：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var someInts = [<span class="link_label">Int</span>](<span class="link_url"></span>)</span><br><span class="line">print("someInts is of type [Int] with \(someInts.count) items.")</span><br><span class="line">//打印“someInts is of type [Int] with 0 items.”</span><br></pre></td></tr></table></figure>
+<p>注意，通过构造函数的类型，someInts的值类型被推断为[Int]。</p>
+<p>或者，如果代码上下文中已经提供了类型信息，例如体格函数参数或者一个已经定义好了的常量或者变量，我们可以使用空数组语句创建一个空数组，它的写法很简单：[]（一对方括号）：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">someInts.<span class="function"><span class="title">append</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="comment">// someInts 现在包含一个Int值</span></span><br><span class="line">someInts = []</span><br><span class="line"><span class="comment">// 现在是空数组了，但仍然是[Int]类型。</span></span><br></pre></td></tr></table></figure>
+<p>创建一个带有默认值的数组</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var threeDoubles = [<span class="link_label">Double</span>](<span class="link_url">count: 3, repeatValue:0.0</span>)</span><br><span class="line">//threeDoubles是一种[Double]数组，等价于[0.0, 0.0, 0.0]</span><br></pre></td></tr></table></figure>
+<p>通过两个数组相加创建一个数组</p>
+<p>我们可以使用加法操作符(+)来进行拼接操作：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> anotherThreeDoubles = <span class="function"><span class="title">Array</span><span class="params">(count: <span class="number">3</span>, repeatedValue: <span class="number">2.5</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">var</span> sixDoubles = threeDoubles + anotherThreeDoubles</span><br><span class="line"><span class="comment">//[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问和修改数组">访问和修改数组</h3><blockquote>
+<p>count 可以用于获取数组中的数据项数量：        eg: shoppingList.count<br>isEmpty 作为检查 count属性的值是否为0的捷径：         shoppingList.isEmpty</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> shoppingList.isEmpty &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is empty."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is not empty."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>append(<em>:) 可以在数组后面添加新的数据项：<br>insert(</em>:atIndex:)</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/13/Vue_js概述/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Vue.js概述以及一些吐槽
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/25/DataStructure(5)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DataStructure(5)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 张仲昊
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

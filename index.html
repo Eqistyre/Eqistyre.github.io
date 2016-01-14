@@ -168,6 +168,153 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Vue_js概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/Vue_js概述/" class="article-date">
+  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/Vue_js概述/">Vue.js概述以及一些吐槽</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是vue">什么是vue</h3><p>自我感觉，读完文档后感觉Vue是一种MVVM模式的图形界面框架拥有着低耦合的优点。自己不是太精通Javascript，就谈谈一些感想吧。Vue中可以对元素进行快速饿选取操作，以及动态命名。实现无需后台数据传入直接计算的功能。例如我们可以：</p>
+<p>HTML</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id = <span class="string">"examples"</span>&gt;</span><br><span class="line">  <span class="expansion">&#123;&#123;message&#125;&#125;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Javascript</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">var</span> vm = new vue(&#123;</span><br><span class="line">  el: <span class="string">"#examples"</span></span><br><span class="line">  <span class="typedef"><span class="keyword">data</span>: <span class="container">&#123;</span><br><span class="line">    <span class="title">message</span>: "<span class="type">Sakura</span>"</span><br><span class="line">  &#125;</span></span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样之后就会发生动态变换了。</p>
+<h3 id="优点">优点</h3><p><li>Vue 是一种视图层的开发框架，这也决定了它不必像Angular那样构造一个单面应用，可以很好的镶入已有的页面中，并且很好的配合其它框架使用。</li></p>
+<p><li>默认单向绑定，同时也支持双向绑定，可以有效防止数据逆流。</li></p>
+<h3 id="吐槽">吐槽</h3><p>没想到竟然趴在桌子上就睡着了呢，放假的学校总是冷冷清清的。下午要得好好写代码呢。准备用vue写一个小的追番应用</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-swift&lt;二&gt;" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/swift<二>/" class="article-date">
+  	<time datetime="2016-01-12T17:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/swift<二>/">Swift学记笔记（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="空合运算符(Nil_Coalescing_Operator)">空合运算符(Nil Coalescing Operator)</h3><p>空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：</p>
+<p><li>表达式a必须式Optional类型</li></p>
+<p><li>默认值b的类型必须要和a储存值的类型保持一致</li></p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">a</span> <span class="exclamation_mark">!</span>= <span class="function_or_atom">nil</span> ? <span class="function_or_atom">a</span> <span class="exclamation_mark">!</span> : <span class="function_or_atom">b</span></span><br></pre></td></tr></table></figure>
+<p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当a中的值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具有可读性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="built_in">String</span>? <span class="comment">//默认为nil</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName ?? defaultColorName</span><br></pre></td></tr></table></figure>
+<p>userDefinedColorName变量被定义为一个可选的String类型，默认值为nil。由于userDefinedColorName是一个可选类型，我们可以使用空合运算符去判断其值。在上一个例子中，通过空合运算符为一个名为colorNameToUse的变量赋予一个字符串类型初始值。由于userDefinedColorName值为空，因此表达式userDefinedColorName ?? defaultColorName返回defaultColorName的值，即red。</p>
+<p>另一种情况，分配一个非空值（non-nil）给userDefinedColorName,再次执行空合运算，运算结果为封包在userDefaultColorName中的值，而非默认值。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">user</span>DefaultColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = <span class="keyword">user</span>DefinedColorName ?? <span class="keyword">default</span>ColorName</span><br></pre></td></tr></table></figure>
+<h3 id="区间运算符">区间运算符</h3><p>Swift提供了两个方便表达一个区间的运算符。</p>
+<h3 id="闭区间运算符">闭区间运算符</h3><p>闭区间运算符（a…b）定义一个包含从a到b（包括a和b）的所有值的区间，b必须大于等于a。闭区间运算符在迭代一个区间的所有值时是非常有用的（Ps：这个与python的语法好像啊）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
+<p>半开区间运算符<br>(a..&lt;b)从a到b不包括b的区间。</p>
+<h3 id="集合（Sets）">集合（Sets）</h3><p>Swift语言中的Arrarys,Sets或Dictionaries中储存的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时也说明我们完全可以对取回值的类型非常自信。</p>
+<blockquote>
+<p>注意：<br>Swift的Arrays,Sets和Dictionaries类型被实现为泛型集合。</p>
+</blockquote>
+<h3 id="集合的可变性">集合的可变性</h3><p>如果创建一个Arrays,Sets或Dictonaries并且把它们分配成一个变量，这个集合将会是可变的。这意味着我们可以在创建之后添加更多或移除已存在的数据项，或者改变集合中的数据项。如果我们把Arrarys,Sets或Dictionaries分配成常量，那么它就是不可变的，它的大小与内容都不能被改变。</p>
+<h3 id="数组">数组</h3><p>数组的简单语法</p>
+<p>写Swift数组应该遵循像Array<element>这样的形式，其中Element是这个数组中唯一允许存在的数据类型。我们也可以使用像[Element]这样的简单语法。尽管两种形式在功能上是一样的，但是推荐较短的那种。</element></p>
+<p>创建一个空数组</p>
+<p>我们可以使用构造函数语法来创建一个由特定数据类型构成的空数组：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var someInts = [<span class="link_label">Int</span>](<span class="link_url"></span>)</span><br><span class="line">print("someInts is of type [Int] with \(someInts.count) items.")</span><br><span class="line">//打印“someInts is of type [Int] with 0 items.”</span><br></pre></td></tr></table></figure>
+<p>注意，通过构造函数的类型，someInts的值类型被推断为[Int]。</p>
+<p>或者，如果代码上下文中已经提供了类型信息，例如体格函数参数或者一个已经定义好了的常量或者变量，我们可以使用空数组语句创建一个空数组，它的写法很简单：[]（一对方括号）：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">someInts.<span class="function"><span class="title">append</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="comment">// someInts 现在包含一个Int值</span></span><br><span class="line">someInts = []</span><br><span class="line"><span class="comment">// 现在是空数组了，但仍然是[Int]类型。</span></span><br></pre></td></tr></table></figure>
+<p>创建一个带有默认值的数组</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var threeDoubles = [<span class="link_label">Double</span>](<span class="link_url">count: 3, repeatValue:0.0</span>)</span><br><span class="line">//threeDoubles是一种[Double]数组，等价于[0.0, 0.0, 0.0]</span><br></pre></td></tr></table></figure>
+<p>通过两个数组相加创建一个数组</p>
+<p>我们可以使用加法操作符(+)来进行拼接操作：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> anotherThreeDoubles = <span class="function"><span class="title">Array</span><span class="params">(count: <span class="number">3</span>, repeatedValue: <span class="number">2.5</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">var</span> sixDoubles = threeDoubles + anotherThreeDoubles</span><br><span class="line"><span class="comment">//[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问和修改数组">访问和修改数组</h3><blockquote>
+<p>count 可以用于获取数组中的数据项数量：        eg: shoppingList.count<br>isEmpty 作为检查 count属性的值是否为0的捷径：         shoppingList.isEmpty</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> shoppingList.isEmpty &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is empty."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is not empty."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>append(<em>:) 可以在数组后面添加新的数据项：<br>insert(</em>:atIndex:)</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -226,90 +373,6 @@
 </blockquote>
 <p>Question：对于有N个顶点的无向图，怎样存储可以省一半空间？<br><br>Answer:用一个长度为N(N+1)/2的1维数组</p>
 <p><li>2.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/SICP(1)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/SICP(1)/">SICP读书笔记(1)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
-<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
-<p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
-<p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
-<p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
-<h3 id="过程与它们所产生的计算">过程与它们所产生的计算</h3><h4 id="线性的递归和迭代">线性的递归和迭代</h4><p>首先考虑由下面表达式定义的阶乘函数：</p>
-<p>n! = n <em> (n-1) </em> (n-2) <em> … </em> 3 <em> 2 </em> 1</p>
-<p>计算阶乘的方式有许多种，其中有一种是利用一下的认识：对于一个正整数n, n!就等于n * (n - 1)!, 然后我们就可以直接翻译成下面过程：</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">factorial</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">if</span></span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">1</span>)</span></span><br><span class="line">			<span class="number">1</span></span><br><span class="line">			<span class="list">( * <span class="list">(<span class="keyword">factorial</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">1</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
-<p>现在让我们采用另一种不同的观点来计算阶乘。我们可以将阶乘n!的规则描述为：先乘起1和2，而后将得到的结果乘以4，这样下去直到n。更形式的说，我们要维持一个变动中的乘积product，以及一个从1到n的计数器，这一计算过程描述为counter和product的如下变化，从第一步到下一步，它们都按照下面规则改变：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">product</span> &lt;- counter * product</span><br><span class="line"><span class="title">couter</span> &lt;- counter + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>可以看到，n!也就是计数器counter超过乘积product的值。</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(define (factorial n))</span><br><span class="line">	(fact-iter <span class="number">1</span> <span class="number">1</span> n)</span><br><span class="line"></span><br><span class="line">(define (factorial-iter <span class="built_in">product</span> counter <span class="built_in">max</span>-<span class="built_in">count</span>))</span><br><span class="line">	(<span class="keyword">if</span> (&gt; counter <span class="built_in">max</span>-<span class="built_in">count</span>))</span><br><span class="line">		<span class="built_in">product</span></span><br><span class="line">		(fact-iter (* counter <span class="built_in">product</span>))</span><br><span class="line">					(+ counter <span class="number">1</span>)</span><br><span class="line">					 <span class="built_in">max</span>-<span class="built_in">count</span>)))</span><br></pre></td></tr></table></figure>
-<p>与前面一样，我们也可以应用替换模型来查看6!的计算过程！！</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(factorial <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">1</span> <span class="number">1</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">1</span> <span class="number">2</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">2</span> <span class="number">3</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">6</span> <span class="number">4</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">24</span> <span class="number">5</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">120</span> <span class="number">6</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">720</span> <span class="number">7</span> <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<p>传统方法的计算过程如下<br>I<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">factorial</span> <span class="number">6</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">5</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">4</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">3</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span><span class="list">(<span class="keyword">factorial</span> <span class="number">2</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="list">( * <span class="number">2</span><span class="list">(<span class="keyword">factorial</span> <span class="number">1</span>)</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="list">( * <span class="number">2</span> <span class="number">1</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="number">2</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span>  <span class="number">6</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="number">24</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="number">120</span>)</span></span><br><span class="line"><span class="number">720</span></span><br></pre></td></tr></table></figure></p>
-<p>我门可以看出传统方法这种代换模型揭示出一种先逐步展开后收缩的形状。在这一计算过程中构造起一个推迟进行的操作所形成的链条，收缩阶段表现为这些匀速拿的实际执行。这种类型的计算过程由一个推迟执行的运算链条刻画，称为一个<em>递归计算过程</em>。要执行这种计算过程，解释器就需要维护好那些以后将要执行的操作的轨迹。在计算阶乘n!时候，推迟执行的乘法链条的长度也就是为保存其轨迹需要保存的信息量，这个长度随着n的值而线性增长（正比于n），就像计算中的步骤数目一样。这样的计算过程称为一个<em>线性递归过程</em>。</p>
-<p>而我们的，新方法中并没有任何增长或者收缩。对于任何一个n，在计算过程汇总每一步，在我们需要保存的轨迹中，所有的东西就是变量product、counter和max-count的当前值。我们称这种过程为一个<em>迭代计算过程</em>。</p>
-<p>在做迭代和递归之间的比较时，我们必须当心，不要弄混了<em>递归计算过程</em>的盖脸和<em>递归过程的概念。当我们说某个过程是递归的时候，论述的是一个语法形式上的事实，说明这个过程过程（直接或间接地）引用了该过程本身。</em>在说明一个计算过程具有某种模式时（例如，线性递归），我们说的是这一计算过程的进展方式，而不是相应的过程书写上语法形式（例如，线性递归），我们说的是这一计算过程的进展方式，而不是相应过程书写的语法形式。当我们说某个递归过程（例如fact-iter）将产生出一个迭代的计算过程时，可能会使人感到不舒服。然而这一计算过程确实是迭代的，因为它的状态能由其中的三个状态变量万全刻画，解释器在执行这一计算过程时，只需要保持这三个变量的轨迹就行了。</p>
-<h6 id="小Tip">小Tip</h6><p>递归和迭代都是循环的一种。简单地说，递归是重复调用函数自身实现循环。迭代是函数内某段代码实现循环，而迭代与普通循环的区别是：循环代码中参与运算的变量同时是保存结果的变量，当前保存的结果作为下一次循环计算的初始值。</p>
-<p>递归循环中，遇到满足终止条件的情况时逐层返回来结束。迭代则使用计数器结束循环。当然很多情况都是多种循环混合采用，这要根据具体需求。</p>
-<h4 id="树形递归">树形递归</h4><p>另一种常见的计算模式称为<em>树形递归</em>。作为例子，现在考虑斐波那契（Fibonacci）数序列的计算，这一序列中的每个数都是前面两个数之和：<br><br>0,1,1,2,3,5,8,13…..()</p>
-<p>我们可以根据斐波那契的定义写出一个递归过程:</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span><span class="list">(<span class="keyword">fib</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">cond</span></span> <span class="list">(<span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">0</span>)</span> <span class="number">0</span>)</span></span><br><span class="line">          <span class="list">(<span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">1</span>)</span> <span class="number">1</span>)</span></span><br><span class="line">          <span class="list">(<span class="keyword"><span class="built_in">else</span></span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> <span class="list">(<span class="keyword">fib</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">1</span>)</span></span><br><span class="line">                   <span class="list">(<span class="keyword">fib</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">2</span>)</span>)</span>)</span>)</span>)</span>)</span></span></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/AirOil/Test_X/b7635c266e8a65ae9232aa27507e2f841c2fc74b/imgs/树形递归.jpeg" alt="树形递归"></p>
-<p>我们可以从这个树状图中看出(fib 3)差不多是这里一半的工作，这一计算整个重复做了两次。事实上，不难证明，在这一过程中，计算(fib 1)和(fib 0)的次数（一般说，也就是上面树里的树叶的个数）正好是Fib(n+1)。我们可以证明Fib(n)值的增长相对于n是指数的。更准确地说，Fib(n)就是最接近ø<sup>2</sup> / √5的整数，其中：</p>
-<p>ø = (1 + √5) / 2 ≈ 1.6180</p>
-<p>ø<sup>2</sup> = ø + 1</p>
-<p>所以我们可以规划出一种计算斐波那契的迭代计算过程，其基本思想就是用一对整数a和b, 将它们初始化为Fib(1) = 1 和 Fib(0) = 0,而后反复地同时使用下面变换规则：</p>
-<p>a &lt;- a + b<br><br>b &lt;- a</p>
-<p>不难证明，在n次应用了这些变换后, a和b将分别等于Fib(n+1)和Fib(n)。因此，我们可以用下面过程，以迭代的方式计算斐波那契数：</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">fib</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword">fib-iter</span> <span class="number">1</span> <span class="number">0</span> b)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">fib-iter</span> a b count)</span>)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">if</span></span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> count <span class="number">0</span>)</span></span><br><span class="line">		b)</span></span><br><span class="line">		<span class="list">(<span class="keyword">fib-iter</span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> a b)</span> a <span class="list">(<span class="keyword"><span class="built_in">-</span></span> count <span class="number">1</span>)</span>)</span></span><br></pre></td></tr></table></figure>
-<p>计算Fib(n)的这种方法是一个线性迭代。这两种方法在计算中所需的步骤上差异巨大－－后一方法想对于n为线性的，前一个的增长像Fib(n)一样快。</p>
-<p><em>当我们考虑的是在层次结构性的数据操作，而不是对数操作时，将会发现树形递归计算过程是一种自然的、威力强大的工具。即使是对于数的计算，树形递归计算过程也可能帮助我们理解和设计程序，以斐波那契数程序为例，虽然第一个fib过程远比第二个低效，但它却更加直接了当。可以提供很好的思路。</em></p>
 
       
     </div>
@@ -435,6 +498,90 @@
 <p><li>要删除的结点只有一个孩子结点：将其父节点的指针指向要删除的孩子结点。<br></li></p>
 <p><li>要删除的结点有左、右两颗子树：用另一结点替代被删除结点：<em>右子树的最小元素</em>或者<em>左子树的最大元素</em>。<br></li></p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">BinTree Delete(ElementType X, BinTree BST) &#123;</span><br><span class="line">	Position Tmp;</span><br><span class="line">	<span class="keyword">if</span>(<span class="subst">!</span>BST) &#123;</span><br><span class="line">		printf(<span class="string">"要删除的元素未找到"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &lt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Left = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//左子树递归删除</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &gt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//右子树递归删除</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(BST<span class="subst">-&gt;</span>Left <span class="subst">&amp;&amp;</span> BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">		Tmp = FindMin(BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		BST<span class="subst">-&gt;</span><span class="built_in">Data</span> = Tmp<span class="subst">-&gt;</span><span class="built_in">Data</span>;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(BST<span class="subst">-&gt;</span><span class="built_in">Data</span>, BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Tmp = BST;</span><br><span class="line">			<span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Left) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Right;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Left;</span><br><span class="line">			&#125;</span><br><span class="line">			free(Tmp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/SICP(1)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/SICP(1)/">SICP读书笔记(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言(Preface)">前言(Preface)</h3><p>我又开坑了，我要成为一代坑王了，对这个坑的期望是，一天一小节，这个好像还是挺有难度的＝＝。哦对，寒假的话还要把以前的坑给填完＝＝。事情好多呀！～。</p>
+<h2 id="第一章_构造过程抽象">第一章 构造过程抽象</h2><h3 id="程序设计的基本元素">程序设计的基本元素</h3><p>一个强有力的程序设计语言，不仅是一种指挥计算机执行任务的方式，它还应该成为一种框架，使我们能够在其中组织自己的有关计算过程的思想。这样，当我们描述一个语言时，就需要将注意力特别放在这一语言所提供的，能够将简单的认识组合起来形成更复杂认识的方法方面。每一种强有力的语言都为此提供了三种机制：</p>
+<p><li>基本表达形式：用于表示语言所关心的所关心的最简单的个体。</li></p>
+<p><li>组合的方法：通过它们可以从较简单的东西出发构造出复合的元素。</li></p>
+<p><li>抽象的方法：通过它们可以为复合对象命名，并将它们当作单元去操作。</li></p>
+<h3 id="过程与它们所产生的计算">过程与它们所产生的计算</h3><h4 id="线性的递归和迭代">线性的递归和迭代</h4><p>首先考虑由下面表达式定义的阶乘函数：</p>
+<p>n! = n <em> (n-1) </em> (n-2) <em> … </em> 3 <em> 2 </em> 1</p>
+<p>计算阶乘的方式有许多种，其中有一种是利用一下的认识：对于一个正整数n, n!就等于n * (n - 1)!, 然后我们就可以直接翻译成下面过程：</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">factorial</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">if</span></span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">1</span>)</span></span><br><span class="line">			<span class="number">1</span></span><br><span class="line">			<span class="list">( * <span class="list">(<span class="keyword">factorial</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">1</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>现在让我们采用另一种不同的观点来计算阶乘。我们可以将阶乘n!的规则描述为：先乘起1和2，而后将得到的结果乘以4，这样下去直到n。更形式的说，我们要维持一个变动中的乘积product，以及一个从1到n的计数器，这一计算过程描述为counter和product的如下变化，从第一步到下一步，它们都按照下面规则改变：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">product</span> &lt;- counter * product</span><br><span class="line"><span class="title">couter</span> &lt;- counter + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，n!也就是计数器counter超过乘积product的值。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(define (factorial n))</span><br><span class="line">	(fact-iter <span class="number">1</span> <span class="number">1</span> n)</span><br><span class="line"></span><br><span class="line">(define (factorial-iter <span class="built_in">product</span> counter <span class="built_in">max</span>-<span class="built_in">count</span>))</span><br><span class="line">	(<span class="keyword">if</span> (&gt; counter <span class="built_in">max</span>-<span class="built_in">count</span>))</span><br><span class="line">		<span class="built_in">product</span></span><br><span class="line">		(fact-iter (* counter <span class="built_in">product</span>))</span><br><span class="line">					(+ counter <span class="number">1</span>)</span><br><span class="line">					 <span class="built_in">max</span>-<span class="built_in">count</span>)))</span><br></pre></td></tr></table></figure>
+<p>与前面一样，我们也可以应用替换模型来查看6!的计算过程！！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(factorial <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">1</span> <span class="number">1</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">1</span> <span class="number">2</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">2</span> <span class="number">3</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">6</span> <span class="number">4</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">24</span> <span class="number">5</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">120</span> <span class="number">6</span> <span class="number">6</span>)</span><br><span class="line">(fact-oter <span class="number">720</span> <span class="number">7</span> <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>传统方法的计算过程如下<br>I<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">factorial</span> <span class="number">6</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">5</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">4</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">(<span class="keyword">factorial</span> <span class="number">3</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span><span class="list">(<span class="keyword">factorial</span> <span class="number">2</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="list">( * <span class="number">2</span><span class="list">(<span class="keyword">factorial</span> <span class="number">1</span>)</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="list">( * <span class="number">2</span> <span class="number">1</span>)</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span> <span class="list">( * <span class="number">3</span> <span class="number">2</span>)</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="list">( * <span class="number">4</span>  <span class="number">6</span>)</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">5</span> <span class="number">24</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">*</span></span> <span class="number">6</span> <span class="number">120</span>)</span></span><br><span class="line"><span class="number">720</span></span><br></pre></td></tr></table></figure></p>
+<p>我门可以看出传统方法这种代换模型揭示出一种先逐步展开后收缩的形状。在这一计算过程中构造起一个推迟进行的操作所形成的链条，收缩阶段表现为这些匀速拿的实际执行。这种类型的计算过程由一个推迟执行的运算链条刻画，称为一个<em>递归计算过程</em>。要执行这种计算过程，解释器就需要维护好那些以后将要执行的操作的轨迹。在计算阶乘n!时候，推迟执行的乘法链条的长度也就是为保存其轨迹需要保存的信息量，这个长度随着n的值而线性增长（正比于n），就像计算中的步骤数目一样。这样的计算过程称为一个<em>线性递归过程</em>。</p>
+<p>而我们的，新方法中并没有任何增长或者收缩。对于任何一个n，在计算过程汇总每一步，在我们需要保存的轨迹中，所有的东西就是变量product、counter和max-count的当前值。我们称这种过程为一个<em>迭代计算过程</em>。</p>
+<p>在做迭代和递归之间的比较时，我们必须当心，不要弄混了<em>递归计算过程</em>的盖脸和<em>递归过程的概念。当我们说某个过程是递归的时候，论述的是一个语法形式上的事实，说明这个过程过程（直接或间接地）引用了该过程本身。</em>在说明一个计算过程具有某种模式时（例如，线性递归），我们说的是这一计算过程的进展方式，而不是相应的过程书写上语法形式（例如，线性递归），我们说的是这一计算过程的进展方式，而不是相应过程书写的语法形式。当我们说某个递归过程（例如fact-iter）将产生出一个迭代的计算过程时，可能会使人感到不舒服。然而这一计算过程确实是迭代的，因为它的状态能由其中的三个状态变量万全刻画，解释器在执行这一计算过程时，只需要保持这三个变量的轨迹就行了。</p>
+<h6 id="小Tip">小Tip</h6><p>递归和迭代都是循环的一种。简单地说，递归是重复调用函数自身实现循环。迭代是函数内某段代码实现循环，而迭代与普通循环的区别是：循环代码中参与运算的变量同时是保存结果的变量，当前保存的结果作为下一次循环计算的初始值。</p>
+<p>递归循环中，遇到满足终止条件的情况时逐层返回来结束。迭代则使用计数器结束循环。当然很多情况都是多种循环混合采用，这要根据具体需求。</p>
+<h4 id="树形递归">树形递归</h4><p>另一种常见的计算模式称为<em>树形递归</em>。作为例子，现在考虑斐波那契（Fibonacci）数序列的计算，这一序列中的每个数都是前面两个数之和：<br><br>0,1,1,2,3,5,8,13…..()</p>
+<p>我们可以根据斐波那契的定义写出一个递归过程:</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span><span class="list">(<span class="keyword">fib</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">cond</span></span> <span class="list">(<span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">0</span>)</span> <span class="number">0</span>)</span></span><br><span class="line">          <span class="list">(<span class="list">(<span class="keyword"><span class="built_in">=</span></span> n <span class="number">1</span>)</span> <span class="number">1</span>)</span></span><br><span class="line">          <span class="list">(<span class="keyword"><span class="built_in">else</span></span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> <span class="list">(<span class="keyword">fib</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">1</span>)</span></span><br><span class="line">                   <span class="list">(<span class="keyword">fib</span> <span class="list">(<span class="keyword"><span class="built_in">-</span></span> n <span class="number">2</span>)</span>)</span>)</span>)</span>)</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/AirOil/Test_X/b7635c266e8a65ae9232aa27507e2f841c2fc74b/imgs/树形递归.jpeg" alt="树形递归"></p>
+<p>我们可以从这个树状图中看出(fib 3)差不多是这里一半的工作，这一计算整个重复做了两次。事实上，不难证明，在这一过程中，计算(fib 1)和(fib 0)的次数（一般说，也就是上面树里的树叶的个数）正好是Fib(n+1)。我们可以证明Fib(n)值的增长相对于n是指数的。更准确地说，Fib(n)就是最接近ø<sup>2</sup> / √5的整数，其中：</p>
+<p>ø = (1 + √5) / 2 ≈ 1.6180</p>
+<p>ø<sup>2</sup> = ø + 1</p>
+<p>所以我们可以规划出一种计算斐波那契的迭代计算过程，其基本思想就是用一对整数a和b, 将它们初始化为Fib(1) = 1 和 Fib(0) = 0,而后反复地同时使用下面变换规则：</p>
+<p>a &lt;- a + b<br><br>b &lt;- a</p>
+<p>不难证明，在n次应用了这些变换后, a和b将分别等于Fib(n+1)和Fib(n)。因此，我们可以用下面过程，以迭代的方式计算斐波那契数：</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">fib</span> n)</span></span><br><span class="line">	<span class="list">(<span class="keyword">fib-iter</span> <span class="number">1</span> <span class="number">0</span> b)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">define</span></span> <span class="list">(<span class="keyword">fib-iter</span> a b count)</span>)</span></span><br><span class="line">	<span class="list">(<span class="keyword"><span class="built_in">if</span></span> <span class="list">(<span class="keyword"><span class="built_in">=</span></span> count <span class="number">0</span>)</span></span><br><span class="line">		b)</span></span><br><span class="line">		<span class="list">(<span class="keyword">fib-iter</span> <span class="list">(<span class="keyword"><span class="built_in">+</span></span> a b)</span> a <span class="list">(<span class="keyword"><span class="built_in">-</span></span> count <span class="number">1</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>计算Fib(n)的这种方法是一个线性迭代。这两种方法在计算中所需的步骤上差异巨大－－后一方法想对于n为线性的，前一个的增长像Fib(n)一样快。</p>
+<p><em>当我们考虑的是在层次结构性的数据操作，而不是对数操作时，将会发现树形递归计算过程是一种自然的、威力强大的工具。即使是对于数的计算，树形递归计算过程也可能帮助我们理解和设计程序，以斐波那契数程序为例，虽然第一个fib过程远比第二个低效，但它却更加直接了当。可以提供很好的思路。</em></p>
+
       
     </div>
     
@@ -743,131 +890,6 @@
 <p>这事情自己应付了就行。不需要投入太多的精力，自己还是要好好去学习。这事情能获取学校多少帮助就争取获取多少。</p>
 <p>听着周杰伦的的《阳光宅男》，自己觉得自己一个唱首《月光男孩》。自己越来越空虚了。好烦！</p>
 <p>算了还是好好写代码。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-颓废的两天" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/10/颓废的两天/" class="article-date">
-  	<time datetime="2015-12-10T07:38:35.000Z" itemprop="datePublished">2015-12-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/10/颓废的两天/">十二月中旬杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="颓废的两天（12-4）">颓废的两天（12.4）</h3><p>这两天真的很颓废，没有去做什么事情，，Github上面的进度也断了。主要原因是我不应该去看小说啊啊啊。小说真的很能让自己颓废掉。</p>
-<p>说下自己未来几天的计划吧</p>
-<p><li>1.去看看数字逻辑周六（也就是明天）要去做数字逻辑的实验了<br></li></p>
-<p><li>2.还要去复习数据结构和C++，虽然我可以考过这两门，但是太多课没有去上了<br></li></p>
-<p><li>3.Osmanthus项目先停一会吧<br></li></p>
-<p><li>4.Lua脚本扩展那本书看完，那本书挺基础的<br></li></p>
-<h3 id="活过来了（12-10）">活过来了（12.10）</h3><p>终于终于颓废的几天过去了，可以重新好好的做事了，那些奇奇怪怪的事情也都干完了。不过自己还是要注意要考四级了，好好努力咯加油少年</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-雾草！又尼玛是一个难题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/01/雾草！又尼玛是一个难题/" class="article-date">
-  	<time datetime="2015-12-01T06:38:35.000Z" itemprop="datePublished">2015-12-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/01/雾草！又尼玛是一个难题/">Cocos-2dx杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="雾草！又尼玛是一个难题">雾草！又尼玛是一个难题</h3><p>首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。</p>
-<p>好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> GameRunning::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//////////////////////////////</span></span><br><span class="line">    <span class="comment">// 1. super init first</span></span><br><span class="line">    <span class="keyword">if</span> ( !Layer::init() )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> RootNode = CSLoader::createNode(<span class="string">"GameRunning.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningScene = Scene::create();</span><br><span class="line">    GameRunningScene-&gt;addChild(RootNode);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayerNode = CSLoader::createNode(<span class="string">"GameRunningLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayer = Layer::create();</span><br><span class="line">    GameRunningLayer-&gt;addChild(GameRunningLayerNode);;</span><br><span class="line">    GameRunningScene-&gt;addChild(GameRunningLayer);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(GameRunningScene);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//    CharacterLayer *CharacterLayer = CharacterLayer::create();</span></span><br><span class="line"><span class="comment">//    this-&gt;addChild(CharacterLayer);</span></span><br><span class="line">    <span class="keyword">auto</span> CharacterNode = cocos2d::CSLoader::createNode(<span class="string">"CharacterLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> CharacterLayer = Layer::create();</span><br><span class="line">    CharacterLayer-&gt;addChild(CharacterNode);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(CharacterLayer);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是自己写的一个程序哈，其中通过<code>this-&gt;addChilde(Character)</code>我们添加了一个CharacterLayer。但是这里的this到底指的是什么呢，我在这里推测这里的this指的应该是layer这样的东西。然后我找到了头文件中的一段。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GameRunning : <span class="keyword">public</span> cocos2d::Layer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// there's no 'id' in cpp, so we recommend returning the class instance pointer</span></span><br><span class="line">    <span class="keyword">static</span> cocos2d::<span class="function">Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//implement the "static create()" method manually</span></span><br><span class="line">    CREATE_FUNC(GameRunning);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/* defined(____GameRunning__) */</span></span></span><br></pre></td></tr></table></figure>
-<p>我们发现在这里面有一个<code>CREATE_FUNC(GameRunning)</code>然后我把它注释了，之后发现游戏画面中通过this添加的图层场景什么鬼的都没有了，于是我推测CREATE_FUNC就是关键。于是我就去查询了CREATE_FUNC()的源码。CREATE_FUNC()是一个宏定义，其定义如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @def CREATE_FUNC(__TYPE__)</span><br><span class="line"> * Define a create function for a specific type, such as Layer.</span><br><span class="line"> *</span><br><span class="line"> * @param __TYPE__  class type to add create(), such as Layer.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">#define CREATE_FUNC(__TYPE__) \</span></span><br><span class="line">static __TYPE__* create() <span class="string">\</span></span><br><span class="line">&#123; <span class="string">\</span></span><br><span class="line">    __TYPE__ *pRet = <span class="keyword">new</span>(<span class="attribute">std</span>::nothrow) __TYPE__(); <span class="string">\</span></span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        pRet-&gt;autorelease(); <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> pRet; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        <span class="keyword">delete</span> pRet; <span class="string">\</span></span><br><span class="line">        pRet = NULL; <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> NULL; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以看见这是一个创建一个函数给一个详细类，如层。我先闲着无聊，替换下吧好理解。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> GameRunning* <span class="title">create</span><span class="params">()</span> </span><br><span class="line"></span>&#123; </span><br><span class="line">    GameRunning *pRet = <span class="keyword">new</span>(<span class="built_in">std</span>::nothrow) GameRunning(); </span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) </span><br><span class="line">    &#123; </span><br><span class="line">        pRet-&gt;autorelease(); </span><br><span class="line">        <span class="keyword">return</span> pRet; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">delete</span> pRet; </span><br><span class="line">        pRet = <span class="literal">NULL</span>; </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="补充一点小知识点">补充一点小知识点</h3><p><em>今天写代码的时候遇见了很多的C++知识，发现自己都已经忘记了，自己还是回顾下这些C++知识吧</em></p>
-<p><li>1.public成员可以通过“.”运算符进行调用。</li></p>
-<p><li>2.类中进行赋值会出现非静态成员初始化时的错误。</li></p>
-<p><li>3.c++中由于数据与函数封装在一起会出现。</li></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">class</span> Circle &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">double</span> radius;</span><br><span class="line">	</span><br><span class="line">	Circle() &#123;</span><br><span class="line">		radius = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Circle(<span class="keyword">double</span> newRadius) &#123;</span><br><span class="line">		radius = newRadius;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> radius * radius * <span class="number">3.14</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以直接使用getArea()方法而不去添加参数。</p>
-<p><li>4.类的构造函数不能够有返回值。</li></p>
-<p><li>5.对象指针什么鬼的：</li></p>
-<p>定义：指向类的成员的指针。在C++中，可以说明指向类的数据成员和成员函数的指针。</p>
 
       
     </div>
