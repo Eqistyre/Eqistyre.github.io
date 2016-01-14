@@ -168,6 +168,100 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaScript心得（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/18/JavaScript心得（一）/" class="article-date">
+  	<time datetime="2015-09-18T02:38:35.000Z" itemprop="datePublished">2015-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/18/JavaScript心得（一）/">JavaScript心得（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="9-18">9.18</h2><h5 id="javaScript没有块级作用域"><li>javaScript没有块级作用域<br></li></h5><pre><code><span class="keyword">for</span>(var i = <span class="number">0.</span>i &lt; <span class="number">10</span>; i++) {
+    doSomething[i]
+}
+
+alertt(i);    <span class="comment">//10</span>
+</code></pre><p>这个栗子说明了 javascript中if语句中的变量声明会将变量添加到当前的执行环境(这里的全局环境)中。<br></p>
+<h5 id="新增项color［3］"><li>新增项color［3］<br></li></h5><p>如果一个数组的元素原来只有两个现在使用 color[2]会添加第三个元素</p>
+<h5 id="栈方法"><li>栈方法</li></h5><pre><code>var colors = <span class="keyword">new</span> Array();
+var <span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"red"</span>,<span class="string">"green"</span>);
+alert(<span class="keyword">count</span>);
+
+<span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"black"</span>);
+alert(<span class="keyword">count</span>);
+
+var item = colors.<span class="keyword">pop</span>(); <span class="comment">//"black"</span>
+alert(colors.length); <span class="comment">//2</span>
+</code></pre><p>push()方法可以接收任意数量的参数，把它们逐个添加到数组末尾，<strong>并返回修改后数组的长度</strong>。<br><br>pop()方法可以从数组末尾移除最后一项，<strong>并且返回移除的项</strong>。</p>
+<h5 id="队列方法"><li>队列方法</li></h5><pre><code><span class="comment">//例一</span>
+<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
+va <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>);
+alert(<span class="built_in">count</span>);
+
+<span class="built_in">count</span> = colors.shift(); <span class="comment">// "red"</span>
+alert(colors.length); <span class="comment">//1</span>
+
+<span class="comment">//例二</span>
+<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
+<span class="keyword">var</span> <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"xbox"</span>,<span class="string">"ps4"</span>);
+alert(<span class="built_in">count</span>); <span class="comment">//4</span>
+
+<span class="built_in">count</span> = colors.unshift(<span class="string">"black"</span>);
+alert(<span class="built_in">count</span>); <span class="comment">//5</span>
+</code></pre><p>不同于栈数据的访问方法规则LIFO（后进先出）；队列结构的访问规则是FIFO（先进先出） <br><br>shift()   它能够从数组中取得第一项，即red 。unshift ()的作用与shift相反，它向前端添加任意个项并返回新数组长度。</p>
+<h5 id="js不接受重载"><li>js不接受重载</li></h5><p>js不像java那样可以重载，不能通过不同的参数值进行函数的匹配。 </p>
+<h5 id="重排序的方法"><li>重排序的方法</li></h5><p>reverse()方法可以反转数组项的数据。</p>
+<h5 id="sort详解"><li>sort详解</li></h5><pre><code>var values = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];
+values.sort();
+alert(values);  <span class="comment">//0,1,10,15,5</span>
+</code></pre><p>sort()方法按升序排列数组项。（但是是按照字符串比较顺序的）所以当录入的时候0（0），1（1），5（5），10（1），15（1）；所以会出现0，1，10，15，5这种奇怪的顺序。<br><br>我们可以采用下面这种方法进行sort()的按升序排列。</p>
+   <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> compare(<span class="keyword">value</span><span class="number">1</span>, <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">value</span><span class="number">1</span> &lt; <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">value</span><span class="number">1</span> &gt; <span class="keyword">value</span><span class="number">2</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>   var values = [1, 5, 10, 15];<br>   values.sort(compare);<br>   alert(values);    //0,1,5,10,15<br>   ```<br>这是因为<br><br>如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：<br><br>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。<br><br>若 a 等于 b，则返回 0。<br><br>若 a 大于 b，则返回一个大于 0 的值。<br></p>
+<p><br><br><br><br><br></p>
+<p>然后还有这个排序这进行两两比较.<br><br>比如你这个数组按升序排列var arrA = [6,2,4,3,5,1];<br><br>第一次比较6,2<br><br>6比2大得到2,6<br><br>原数组变成[2,6,4,3,5,1]<br></p>
+<p><br><br>通过值检测，不断更新数组，最后完成数组排列。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-一些Linux的命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -348,90 +442,6 @@ setName(person);
 alert(person.name); <span class="comment">//nico</span>
 </code></pre><p>如果是按引用传递的话那么应该显示为Greg，毕竟在被初始化后仍然还应该被继续引用。但是并不是，因为只是按值传递，在初始化后，值改变了，于是使用obj.name便是引用一个局部对象了，而且这个对象会在函数执行完毕之后立即销毁。</p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/02/C++知识点maybe/" class="article-date">
-  	<time datetime="2015-01-01T16:38:35.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/C++知识点maybe/">考试之前看的各种c++知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="内联函数">内联函数</h3><p>1.使用inline的一些注意事项</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;<span class="comment">//inline 仅与声明放在一起</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码不能成为内联函数，以下可以</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"><span class="comment">//函数与定义放在了一起</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所以说，inline是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。比较好的风格就是只在定义前面加上inline,而不是在声明和定义前面都加。这样才能体现出c++/c的一种良好设计风格声明与定义不可混为一谈。</p>
-<h3 id="拷贝构造函数">拷贝构造函数</h3><p>拷贝构造函数，又称为复制构造函数，是一种特殊的构造函数，它由编译器调用来完成一些基于同一类的其它对象的构建及其初始化。其唯一的形参必须是引用，但是并不限制为const，一般普遍的会加上const限制。此函数经常用在函数调用时用户定义类型的值传递及返回。拷贝构造函数要调用基类的拷贝构造函数和成员函数。如果可以的话，它将用常量方式调用，另外，也可以用非常量方式调用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> CExample &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  CExample(<span class="keyword">int</span> b) &#123;</span><br><span class="line">    a = b;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//一般函数</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">CExample <span class="title">A</span><span class="params">(<span class="number">100</span>)</span></span>;</span><br><span class="line">  CExample B = A;</span><br><span class="line">  B.Show();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行程序，屏幕输出100。从以上代码可以看出，系统为对象A的复制过程。就对象而言，相同类型的类对象是通过拷贝构造函数来完成整个复制过程的。</p>
-<p>下面举例说明拷贝构造函数的工作过程。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> CExample &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  CExample(<span class="keyword">int</span> b) &#123;</span><br><span class="line">    a = b;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//拷贝构造函数</span></span><br><span class="line">  CExample(<span class="keyword">const</span> CExample&amp; C) &#123;</span><br><span class="line">    a = C.a;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//一般函数</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">CExample <span class="title">A</span><span class="params">(<span class="number">100</span>)</span></span>;</span><br><span class="line">  CExample B = A;<span class="comment">//CExample B(A)；具有相同的效果</span></span><br><span class="line">  B.Show();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数模版">函数模版</h3><p>在创建完成抽象操作的函数时，如：拷贝，反转和排序，你必须定义多个版本以便能处理每一种数据类型。以max()函数为例，它返回两个参数中的较大者：</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> <span class="built_in">max</span>(<span class="keyword">double</span> first, <span class="keyword">double</span> <span class="built_in">second</span>);</span><br><span class="line">complex <span class="built_in">max</span>(complex first, <span class="keyword">double</span> <span class="built_in">second</span>);</span><br><span class="line">date <span class="built_in">max</span>(date first, date <span class="built_in">second</span>);</span><br></pre></td></tr></table></figure>
-<p>尽管这个函数针对不同的数据类型其实现都是一样的，但程序员必须为每一种数据类型定义一个单独的版本：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">double max(double <span class="keyword">first</span>, double <span class="keyword">second</span>) &#123;</span><br><span class="line"><span class="command">  return</span> <span class="keyword">first</span> &gt; <span class="keyword">second</span>? <span class="keyword">first</span> : <span class="keyword">second</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">complex max(complex <span class="keyword">first</span>, complex <span class="keyword">second</span>) &#123;</span><br><span class="line"><span class="command">  return</span> <span class="keyword">first</span> &gt; <span class="keyword">second</span>? <span class="keyword">first</span> : <span class="keyword">second</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">date</span> max(<span class="type">date</span> <span class="keyword">first</span>, <span class="type">date</span> <span class="keyword">second</span>) &#123;</span><br><span class="line"><span class="command">  return</span> <span class="keyword">first</span> &gt; <span class="keyword">second</span>? <span class="keyword">first</span> : <span class="keyword">second</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样不仅仅会重复劳动，容易出错，而且还带来很大的维护和调试工作量。更糟的是，即使你在程序中不使用某个版本，其代码仍然增加可执行文件的大小，大多数编译器将不会从可执行文件中删除引用的函数。</p>
-<p>所以我们使用了函数模版这种方法解决这个问题。</p>
-<p>第一步：定义<br><br>函数模版里的声明是关键字template后跟随一个或多个模版在尖括弧内的参数和原型。与普通函数相对，它通常是在一个转换单元里声明，而在另一个单元中定义，你可以在某个头文件中定义模版。例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MAX_INCLUDED</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAX_INCLUDED</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(T t1, T t2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (t1 &gt; t2) ? t1:t2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<p>定义T作为模版参数，或者是占位符，当实例化max()时，它将替代具体的数据类型。max是函数名，t1和t2是其参数，返回值的类型为T。你可以像使用普通的函数那样使用这个max()。编译器按照所使用的数据类型自动产生相应的模版转化，或者说是实例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">10</span>, m = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">int</span> highest = max(n, m);<span class="comment">//产生int版本</span></span><br><span class="line"><span class="built_in">std</span>::<span class="keyword">complex</span> c1,c2;</span><br><span class="line"><span class="comment">//..给c1, c2赋值</span></span><br><span class="line"><span class="built_in">std</span>::<span class="keyword">complex</span> higher = max(c1,c2);<span class="comment">//complex 版本</span></span><br></pre></td></tr></table></figure>
-<p>第二步：改进设计<br><br>上述的max()的实现还有些土气——参数t1和t2是用值来传递的。对于像int,float这样的内建数据类型来说不是什么问题。但是，对于像std::complex 和 std::string 这样的用户定义的数据类型来说，通过引用传递参数会更有效。此外，因为max()会认为其参数是不会被改变的，我们应该将t1和t2声明为变量const(常量)。下面是max()的改进版本：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">max</span><span class="params">(<span class="keyword">const</span> T&amp; t1, <span class="keyword">const</span> T&amp; t2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span>(t1 &gt; t2) ? t1 : t1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="抽象类">抽象类</h3><p>在C++中，含有纯虚拟函数的类称为抽象类，它不能生成对象，即抽象类无法创建对象。<br><br>纯序函数的形式如下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualreturntypefunction()=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<p>例如，类A有两个纯虚函数lock()、unlock()和一个虚析构函数：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  virtualvoidlock(<span class="keyword">void</span>)=<span class="number">0</span>;</span><br><span class="line">  virtualvoidunlock(<span class="keyword">void</span>)=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">virtual</span>~A(<span class="keyword">void</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类模版与_STL_编程">类模版与 STL 编程</h3><p><li>类模版的概念:<br><br>类模版定义的语法为</li></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template &lt;模版参数表&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">	成员名;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中模版参数表中的类型为参数化类型，也称可变类型，类型名为class(或typename);模版参数表中的类型也可包含普通类型，普通类型的参数用来为类的成员提供初值。类模版中的成员函数可以是模版函数，也可以是普通函数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> TNO, <span class="keyword">class</span> TScore, <span class="keyword">int</span> num&gt;       <span class="comment">//TNO, TScore 为参数化类型</span></span><br><span class="line"><span class="keyword">class</span> Student</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  TNO StudentID[num];       <span class="comment">//参数化类型数组，储存姓名</span></span><br><span class="line">  TScore score[num];        <span class="comment">//参数化类型数组，储存分数</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function">TNO <span class="title">TopStudent</span><span class="params">()</span> </span>&#123;        <span class="comment">//普通函数</span></span><br><span class="line">    <span class="keyword">return</span> StudentID[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">BelowNum</span><span class="params">(TScore ascore)</span> </span>&#123;       <span class="comment">//函数模版</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> </span>&#123;       <span class="comment">//普通函数</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="虚基类">虚基类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 派生类名 : <span class="typename">virtual 继承方式 基类名</span></span></span><br></pre></td></tr></table></figure>
-<p><li>virtual 是关键字，声明该变量为派生类的虚基类。</li></p>
-<p><li>在多继承的情况下，虚基类关键字的作用范围和继承方式关键字相同，只对紧跟其后面的基类起作用。</li></p>
-<p><li>声明了虚基类之后，虚基类在进一步派生的过程中始终和派生类一起，维护同一个基类对象的拷贝。</li></p>
-<h3 id="容器">容器</h3>
       
     </div>
     

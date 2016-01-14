@@ -168,6 +168,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-事件驱动events" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/10/事件驱动events/" class="article-date">
+  	<time datetime="2015-11-10T06:38:35.000Z" itemprop="datePublished">2015-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/10/事件驱动events/">Node.js事件驱动events</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事件驱动events">事件驱动events</h3><p>events是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了<strong><em>唯一的接口</em></strong>，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。</p>
+<h5 id="事件发射器">事件发射器</h5><p>events模块只提供了一个对象：evnts.EventEmitter。EventEMitter的核心是事件发射器与实践监听器功能的封装。EventEmitter的每一个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件EventEmitter支持若干个事件监听器。当事件发射的时候，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener1'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener2'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.emit(<span class="string">'someEvent'</span>, <span class="string">'byvoid'</span>, <span class="number">1999</span>);</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">listener1</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br><span class="line"><span class="label">listener2</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br></pre></td></tr></table></figure>
+<p>以上例子中，emitter为事件someEvent注册了两个事件监听器，然后发射了someEvent事件。运行结果中可以看到两个事件监听器回调函数被先后调用。</p>
+<p>这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
+<p><li>EventEmitter.on(event, listener)为指定    事件注册一个监听器，接受一个字符串event和一个回调函数listener。</li></p>
+<p><li>EventEmitter.emit(event, [arg1], [arg2], […])发射event事件，传递若干可选参数到事件监听器的参数表。</li></p>
+<p><li>EventEmitter.once(event, listener) 为指定事件注册一个<strong><em>单次</em></strong>监听器，即监听器最多只会触发一次，出发后立刻解除该监听器。</li></p>
+<p><li>EventEmitter.removeListener(event, Listener)移除指定事件的某个监听器，listener必须是该事件已经注册过的监听器。</li></p>
+<p><li>EventEmitter.removeAllListeners([event])移除所有的事件监听器。</li></p>
+<h5 id="继承_EventEmitter">继承 EventEmitter</h5><p>大多数时候我们不会直接使用 EventEmitter,而是在对象中继承它。包括 fs、net、 http 在内的,只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
+<p>为什么要这样做呢?原因有两点。首先,具有某个实体功能的对象实现事件符合语义, 事件的监听和发射应该是一个对象的方法。其次 JavaScript 的对象机制是基于原型的,支持 部分多重继承,继承 EventEmitter 不会打乱对象原有的继承关系。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-面向对象编程的基础知识（下）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -360,64 +424,6 @@
 
 
   
-    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/使用类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
-<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
-<p>实例如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -459,6 +465,64 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stock00.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::acquire(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; co, <span class="keyword">long</span> n, <span class="keyword">double</span> pr) &#123;</span><br><span class="line">	company = co;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares can't be negative"</span></span><br><span class="line">				  &lt;&lt; company &lt;&lt; <span class="string">" shares set to 0.\n"</span>;</span><br><span class="line">		shares = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares = n;</span><br><span class="line">	&#125;</span><br><span class="line">	share_val = pr;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::buy(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares purchased can't be negative."</span></span><br><span class="line">				  &lt;&lt; <span class="string">"Transaction is aborted.\n"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares += num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::sell(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares sold can't be negative."</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; shares) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"You can't sell more than you have!c "</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares -= num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price) &#123;</span><br><span class="line">	share_val = price;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::show() &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">			  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; <span class="string">'\n'</span></span><br><span class="line">			  &lt;&lt; <span class="string">" Share Price: $"</span> &lt;&lt; share_val</span><br><span class="line">			  &lt;&lt; <span class="string">" Total Worth: $"</span> &lt;&lt; total_val &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><li>成员函数说明<br><br>acquire()</li></p>
 
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/使用类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。<br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：<br></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。<br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
+<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。</p>
+<p>实例如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifndef</span> MYTIMEO_H_</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MYYTIMEO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Time &#123;</span><br><span class="line">	privete:</span><br><span class="line">		<span class="keyword">int</span> hours;</span><br><span class="line">		<span class="keyword">int</span> minutes;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Time();</span><br><span class="line">		Time(<span class="keyword">int</span> h, <span class="keyword">int</span> m = <span class="number">0</span>);</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddMin</span><span class="params">(<span class="keyword">int</span> m)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">AddHr</span><span class="params">(<span class="keyword">int</span> h)</span></span>;</span><br><span class="line">		<span class="keyword">void</span> Re</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -731,80 +795,6 @@
 <h4 id="函数重载">函数重载</h4><p>函数多态（函数重载）让您能够使用多个同名函数。</p>
 <h4 id="函数模版">函数模版</h4><p>现在的c++编译器实现了c++新增的意向特性——函数模版。函数模版是通用的函数描述，也就是说，它们使用泛型来定义函数，其中的泛型可用具体的类型（如int或double）替换。通过将类型作为参数传递给模版，可使编译器生成该类型的函数。由于类型是用参数表示的，因此模版特性又是也被称为参数化类型。<br><br>函数模版允许使用任意类型的方式来定义函数，例如我们可以建立一个交换模版：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">template</span> &lt;typename AnyType&gt; </span><br><span class="line">void Swap(AnyType &amp;a, AnyType &amp;b)&#123;</span><br><span class="line">	<span class="title">AnyType</span> temp;</span><br><span class="line">	<span class="title">temp</span> = a;</span><br><span class="line">	<span class="title">a</span> = b;</span><br><span class="line">	<span class="title">b</span> = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-函数探幽(上)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/27/函数探幽(上)/" class="article-date">
-  	<time datetime="2015-10-27T08:38:35.000Z" itemprop="datePublished">2015-10-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/27/函数探幽(上)/">c++学习知识点纪录（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="&lt;函数探幽(上)&gt;">&lt;函数探幽(上)&gt;</h4><h3 id="c++内联函数">c++内联函数<br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。<br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line">	</span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。<br></p>
-<h5 id="内联与宏">内联与宏</h5><p>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。<br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong><br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rats;</span><br><span class="line"><span class="keyword">int</span> &amp; rodents = rats;<span class="comment">//int &amp; rodents之间加一个空格会更好的说明标志符的性质</span></span><br></pre></td></tr></table></figure>
-<p>其中,&amp;不是地址运算符，而是类型标志符的一部分，就像声明中的char*指的是指向char的指针一样，int&amp;指的是指向int的引用。上述引用声明允许将rats与rodents互换——他们指向相同的值和内存单元。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line">	<span class="keyword">int</span> &amp; rodents = rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	rodents++;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//地址部分</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats address = "</span> &lt;&lt; &amp;rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运算结果：<br><br>rats = 101, rodents = 101<br><br>rats = 102, rodents = 102<br><br>rats address = 0x7fff54435ae8, rodents address = 0x7fff54435ae8<br></p>
-<p>对于c语言用户而言，首次接触到引用时可能也会有些疑惑，因为这些用户会很自然地联想到指针，但它们之间还是有区别的。例如，可以创建指向rats的引用和指针：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line"><span class="keyword">int</span> &amp; rodents = rats; <span class="comment">// &amp;是个标志符</span></span><br><span class="line"><span class="keyword">int</span> * prats = &amp;rats; <span class="comment">// *是个标志符</span></span><br></pre></td></tr></table></figure>
-<p>两个地方要注意： 在程序声明变量的时候的*，只是表明“它是一个无符号整数，这个整数指向某个内存地址，一次访问sizeof(type)长度”。这点不要和(*)操作符混淆；<br><br>在C++程序声明变量的时候的&amp;，只是表明“它是一个引用，这个引用声明时不开辟新空间，它在内存分配表加入新的一行，该行内存地址等于和调用时传入的对应参数内存地址”。<br><br>这点不要和(*)声明符，(&amp;)操作符混淆。<br><br></p>
-<p>这样，表达式rodents和<em>prats都可以同rats互换，而表达式&amp;rodents和prats都可以同&amp;rats互换。从这一点来说，引用看起来很像伪装表示的指针（其中，\</em>杰出引用运算符被隐式理解）。实际上，应用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是，必须在声明引用是将其初始化，而不能像指针那样，先声明，再赋值：</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rat;</span><br><span class="line"><span class="keyword">int</span> &amp; rodent;</span><br><span class="line">rodent = rat <span class="comment">//你不能这样做！</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> * <span class="built_in">ptr</span><span class="comment">;</span></span><br><span class="line"><span class="built_in">ptr</span> = &amp;value<span class="comment">; //这个是可以的</span></span><br></pre></td></tr></table></figure>
-<p>引用更接近于const指针，必须在创建时进行初始化，一旦于某个变量关联起来，就讲一只效忠于它。也就是说：</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp; rodents = rats;</span><br></pre></td></tr></table></figure>
-<p>实际上是下属代码的伪装表示：</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> pr = &amp;rats;</span><br></pre></td></tr></table></figure>
-<p>其中，引用rodents扮演的角色与表达式*pr相同。<br><br>下面的程序演示了将rats变量的引用改为bunnies变量的引用时，将发生的情况。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">int</span> rats = <span class="number">101</span>;</span><br><span class="line">	<span class="keyword">int</span> &amp; rodents = rats;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt; endl; </span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"rats address = "</span> &lt;&lt; &amp;rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> bunnies = <span class="number">50</span>;</span><br><span class="line">	rodents = bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"bunnies = "</span> &lt;&lt; bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rats = "</span> &lt;&lt; rats;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents = "</span> &lt;&lt; rodents &lt;&lt;endl;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"bunnies address = "</span> &lt;&lt; &amp;bunnies;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">", rodents address = "</span> &lt;&lt; &amp;rodents &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>程序输出清单：<br>rats = 101, rodents = 101<br><br>rats address = 0x7fff58faaac8<br><br>, rodents address = 0x7fff58faaac8<br><br>bunnies = 50, rodents = 50<br><br>bunnies address = 0x7fff58faaabc, rodents address = 0x7fff58faaac8<br></p>
-<p>最初，rodents引用的是rats，但随后程序试图将rodents作为bunnies的引用：<br><br>rodents = bunnies;<br><br>咋一看，这种意图暂时是成功的，因为rodents的值从101变为了50。但仔细研究发现，rats也变成了50，同时rats和rodents的地址，而该地址与bunnies的地址不同。由于rodents是rats的别名，因此上述赋值语句与下面的语句等下:</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rats = bunnies<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>也就是说，这意味着“将bunnies变量的值赋值给rat变量”。简而言之，可以通过初始化声明来设置。</p>
-
       
     </div>
     
