@@ -271,6 +271,23 @@
 <p>注意：<br>Swift的Arrays,Sets和Dictionaries类型被实现为泛型集合。</p>
 </blockquote>
 <h3 id="集合的可变性">集合的可变性</h3><p>如果创建一个Arrays,Sets或Dictonaries并且把它们分配成一个变量，这个集合将会是可变的。这意味着我们可以在创建之后添加更多或移除已存在的数据项，或者改变集合中的数据项。如果我们把Arrarys,Sets或Dictionaries分配成常量，那么它就是不可变的，它的大小与内容都不能被改变。</p>
+<h3 id="集合类型的语法">集合类型的语法</h3><p>Swift中的Set类型被写为Set<element>，这里的Element表示Set中允许储存的类型，和数组不同的是，集合没有等价的简化形式。</element></p>
+<p><li>创建和构造一个空的集合</li></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> letters = <span class="built_in">Set</span>&lt;characters&gt;()</span><br></pre></td></tr></table></figure>
+<p>此外，如果上下文提供了类型信息，比如作为函数或者已知类型的变量或常量，我们可以通过一个空的数组字面量创建一个空的Set：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">letters.<span class="function"><span class="title">insert</span><span class="params">(<span class="string">"a"</span>)</span></span></span><br><span class="line"><span class="comment">//letters 现在含有一个character类型的值</span></span><br><span class="line">letter = []</span><br><span class="line"><span class="comment">//letters 现在是一个空的Set,但是它依然是Set&lt;character&gt;类型</span></span><br></pre></td></tr></table></figure>
+<p><li>用数组字面量创建集合</li></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> favoriteGames: <span class="built_in">Set</span>&lt;<span class="built_in">String</span>&gt; = [<span class="string">"Rock"</span>, <span class="string">"Classical"</span>,  <span class="string">"Hip hop"</span>]</span><br></pre></td></tr></table></figure>
+<p><li>操作</li></p>
+<p>集合的很多操作我们都可以使用数组进行类比，我们来说一些一些特殊的操作吧。</p>
+<p>基本的集合操作</p>
+<blockquote>
+<p>a.intersect(b) 交<br>a.exclusiveOr(b) 异或<br>a.union(b) 并<br>a.subtract(b) a-b</p>
+</blockquote>
+<p>集合成员关系和相等</p>
+<blockquote>
+<p>== 来判断两个集合是否包含全部相同的值<br>isSubsetOf(_:) 判断一个集合中的值是否也被包含在另外一个集合中。<br>isSupersetOf(_:) 判断一个集合中包含另一个集合中所有的值。<br>isStrictSubsetOf(_:) 判断一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等。<br>isDisjointWith(_:) 判断两个集合是否不含有相同的值</p>
+</blockquote>
 <h3 id="数组">数组</h3><p>数组的简单语法</p>
 <p>写Swift数组应该遵循像Array<element>这样的形式，其中Element是这个数组中唯一允许存在的数据类型。我们也可以使用像[Element]这样的简单语法。尽管两种形式在功能上是一样的，但是推荐较短的那种。</element></p>
 <p>创建一个空数组</p>
@@ -285,12 +302,24 @@
 <p>我们可以使用加法操作符(+)来进行拼接操作：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> anotherThreeDoubles = <span class="function"><span class="title">Array</span><span class="params">(count: <span class="number">3</span>, repeatedValue: <span class="number">2.5</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">var</span> sixDoubles = threeDoubles + anotherThreeDoubles</span><br><span class="line"><span class="comment">//[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span></span><br></pre></td></tr></table></figure>
 <h3 id="访问和修改数组">访问和修改数组</h3><blockquote>
-<p>count 可以用于获取数组中的数据项数量：        eg: shoppingList.count<br>isEmpty 作为检查 count属性的值是否为0的捷径：         shoppingList.isEmpty</p>
+<p>count 可以用于获取数组中的数据项数量：        eg: shoppingList.count<br>isEmpty 作为检查 count属性的值是否为0的捷径：         eg:shoppingList.isEmpty</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> shoppingList.isEmpty &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is empty."</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"The shopping list is not empty."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>append(_:) 可以在数组后面添加新的数据项：<br>insert(_:atIndex:)</p>
+<p>append(_:) 可以在数组后面添加新的数据项：<br>insert(_:atIndex:) 向某个具体索引值之前添加数据项        eg:shoppingList.insert(“Mapple Syrup”, atIndex: 0)<br>removeAtIndex(_:) 移除数组中某一项。这个方法把数组在特定索引值中储存的数据项移除并且返回被移除的数据项（我们不需要的时候可以无视）：</p>
 </blockquote>
+<h3 id="字典">字典</h3><p>字典是一种储存多个相同类型的容器。每个值（value）都关联唯一的键（key）。</p>
+<blockquote>
+<p>注意：<br>Swift 的Dictionary类型被桥接到Foundation的NSDictionary类。<br>更多关于在Foundation和Cocoa中使用Dictionary类型的信息，参见 Using Swift with Cocoa and Objective-C (Swift 2.1) 一书。</p>
+</blockquote>
+<p><li>字典的快捷语法</li></p>
+<p>使用Dictionary<key, value="">定义字典，我们也可以用[key: Value]这样的快捷形式创建，并且这种方法会更好。</key,></p>
+<p><li>创建一个空字典</li></p>
+<p>我们可以像数组一样使用构造语法创建一个拥有确定类型的空字典：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var namesOfIntegers = [<span class="link_label">Int: String</span>](<span class="link_url"></span>)</span><br><span class="line">// namesOfIntergers是一个空的[Int: String] 字典</span><br></pre></td></tr></table></figure>
+<p>这个例子创建一个[Int: String]类型的空字典来储存整数的英语命名。它们键是Int型，值是String型。</p>
+<p><li>访问和修改字典</li></p>
+<p>我们</p>
 
       
     </div>
