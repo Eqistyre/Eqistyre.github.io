@@ -168,6 +168,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DataStructure(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/16/DataStructure(1)/" class="article-date">
+  	<time datetime="2015-12-16T02:38:35.000Z" itemprop="datePublished">2015-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/16/DataStructure(1)/">DataStructure(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Preface">Preface</h3><p>I will try to use English record my blog from today.</p>
+<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete implementation of the contract provided by an ADT.</p>
+<p>Different kinds of data structures are suited to different kinds of applications, examples:</p>
+<p><li>Databases use B-tree indexes for small percentages of data retrieval.<br></li></p>
+<p><li>compilers and databases use dynamic hash tables as look-up tables.<br></li></p>
+<p>Usaually, efficient data structures are key to designing efficient algorithms.</p>
+<h3 id="Overview">Overview</h3><p>Data structures are generally based on the ability of a computer fetch and store data at any place in its memory, specified by <em>pointer</em>-a bit string, representing a memory address. </p>
+<h3 id="Examples">Examples</h3><p>There are numerous types of data structures, gennerally built upon simpler primitive data types:(just like a tress)</p>
+<p><li>An array:a number of elements in a specific order, typically all of the same type.I think the array is one of the type we familiar with<br></li></p>
+<p><li>An associative array:a more flexible variation on an array, in which name-value pairs can be added and deleted freely. A hash table is a common implementation of an associative array.<br></li></p>
+<p><li>A record(also called tuple or struct):an aggregate data structure. A  record is a value that contains oher values, typically in fixed number and sequence and typically indexed by names. The elements of records are usually called fields or members(You can find struct in C, in C++ it have an advanced name class, but it also remmained in C++)<br></li></p>
+<p><li>A union: a data structure that specifies which of a number of permitted primitive types may be stored in it’s instances,e.g. float or long integer. Contrast with a record, which could be defined to contain a float and an integer; whereas in a union, ther is only one value at time. Enough space is allocated to contain the widest member datatype(I will give a instance in c)</li></p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">number</span></span></span><br><span class="line">&#123;</span><br><span class="line">int x;</span><br><span class="line">long y;</span><br><span class="line">double z;</span><br><span class="line">&#125;;</span><br><span class="line">number num = (<span class="number">4</span>,<span class="number">15</span>,<span class="number">30.7</span>);</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p><li>A tagged union: a variant union contains an additional field indicating its current type, for enhanced type safety.<br></li></p>
+<p><li>A set: an abstract data structure that can store specific values, in no particular order and with no duplicate values.<br></li></p>
+<p><li>A graph and a tree:linked abstract data structures composed of nodes. Each node contains a value and one or more pointers to other nodes arranged in a hierarchy. Graphs can be used to represent networks, while variants of trees can be used for sorting and searching, having their nodes arranged in some relative order based on their values.<br></li></p>
+<p><li>A class: a data structure that contains data fields, like a record, as well as various methods which operate on the contents of the record. In the context of object-oriented programming, records are known as plain old data structures to distinguish them from classes.<br><br></li></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-杂感12.15" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -727,60 +795,6 @@
         <h3 id="HTTP服务器与客户端">HTTP服务器与客户端</h3><p>Node.js标准库提供了http模块，其中封装了一个高效的HTTP服务器和一个简易的HTTP客户端。http.Server是一个基于事件的HTTP服务器，它的核心由Node.js下层部分实现，而接口由JavaScript封装，兼顾了高性能与建议性。</p>
 <h4 id="HTTP服务器">HTTP服务器</h4><p>http.Server是http模块中的HTTP服务器对象。用Node.js做的所有基于HTTP服务器协议的系统，如网站，社交应用甚至代理服务器，都是基于http.Server实现的。它提供了一套封装级别很低的API，仅仅是流控制和简单的消息解析，所有的高层功能都是通过它的接口来实现。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-杂感（二）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/11/杂感（二）/" class="article-date">
-  	<time datetime="2015-11-11T02:38:35.000Z" itemprop="datePublished">2015-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/11/杂感（二）/">双十一有感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我没有猫也没有她</span><br><span class="line">但我还有我的时光机</span><br></pre></td></tr></table></figure>
-<p>双十一到了，这也就说明很快就要步入一六年了。自己算了下，自己很快就要大三了，压力开始变得越来越大。自己多累点吧。这个世界上最美的色彩是0和1组成的。那里是我喜欢的世界。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">人在世</span><br><span class="line">责在身</span><br><span class="line">谁也不能共一生</span><br></pre></td></tr></table></figure>
-<p>每个人在这个世界上都是有着自己的责任的，自己去努力的完成自己的责任吧。</p>
-
       
     </div>
     
