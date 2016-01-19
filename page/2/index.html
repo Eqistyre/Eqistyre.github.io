@@ -168,6 +168,60 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DataStructure(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/17/DataStructure(2)/" class="article-date">
+  	<time datetime="2015-12-17T10:38:35.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/17/DataStructure(2)/">DataStructure(2)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linear_list">Linear_list</h2><h3 id="Defination">Defination</h3><p>Linar list is one of the commonly used and simplest data structure. in a brief,a linar list is a finite sequence consist of n data element.</p>
+<p>In a slightly more complex linear list, a data elements can consist of many item. under these circumstances, we usually call the elements as record, and we call the linar list which has many records as file.</p>
+<p>In a linar list, we define the elements the linar list hava as it’s long, when n = 0 we called it as empty list.</p>
+<p>The abstract data structure type is defined as follows：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ADT <span class="keyword">List</span> &#123;</span><br><span class="line">	Data Object: <span class="keyword">D</span> = &#123; ai | ai ∈ ElemeSet, i = 1, 2, ……, <span class="keyword">n</span> , <span class="keyword">n</span> ≥ 0&#125;</span><br><span class="line">	Data Relationship: R1 = &#123; &lt;ai-1, ai&gt; | ai-1, ai ∈ <span class="keyword">D</span>, i =2, ……, <span class="keyword">n</span>&#125;</span><br><span class="line">	Basic Operation:</span><br><span class="line">		Init <span class="keyword">List</span>(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Operation Result: construct a empty linar <span class="keyword">list</span> <span class="keyword">L</span>.</span><br><span class="line">		DestoryList(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> <span class="keyword">L</span> is already existed.</span><br><span class="line">			Operation Result: destory linar <span class="keyword">list</span> <span class="keyword">L</span>.</span><br><span class="line">		ClearList(&amp;<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> <span class="keyword">L</span> is already existed.</span><br><span class="line">			Operation Result: change the linar <span class="keyword">list</span> <span class="keyword">L</span> into empty <span class="keyword">list</span>.</span><br><span class="line">		ListEmpty(<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> <span class="keyword">L</span> is already existed.</span><br><span class="line">			Operation Result: <span class="keyword">if</span> <span class="keyword">list</span> <span class="keyword">L</span> is a empty <span class="keyword">list</span>, <span class="keyword">return</span> TRUE, <span class="keyword">else</span> <span class="keyword">return</span> FALSE.</span><br><span class="line">		ListLength(<span class="keyword">L</span>)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> <span class="keyword">L</span> is already existed.</span><br><span class="line">			Operation Result: <span class="keyword">return</span> the number of data elements <span class="keyword">in</span> <span class="keyword">L</span>.</span><br><span class="line">		GetElem(<span class="keyword">L</span>, i, &amp;<span class="keyword">e</span>)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> is already existed, 1 ≤ i ≤ ListLength(<span class="keyword">L</span>).</span><br><span class="line">			Operation Result: <span class="keyword">return</span> the value of the i elements <span class="keyword">by</span> throwing <span class="keyword">e</span>.(用<span class="keyword">e</span>返回<span class="keyword">L</span>中第i个数据元素的值)</span><br><span class="line">		LocateElem(<span class="keyword">L</span>, <span class="keyword">e</span>, <span class="keyword">compare</span>())</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> is already existed, <span class="keyword">compare</span>() is a function judge data elements.</span><br><span class="line">			Operation Result: <span class="keyword">return</span> the first <span class="keyword">one</span> <span class="keyword">which</span> and <span class="keyword">e</span> satisfy relationship <span class="keyword">compare</span>()'s dataelements's rank. <span class="keyword">if</span> there is <span class="keyword">no</span> data elements like this, <span class="keyword">return</span> 0.(英语表述有误，尝试使用中文模式：（返回<span class="keyword">L</span>中第1个与<span class="keyword">e</span>满足关系<span class="keyword">compare</span>()的数据元素的位序。若这样的数据元素不存在，则返回值为0）)</span><br><span class="line">		PriorElem(<span class="keyword">L</span>, cur_e, &amp;pre_e)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> is already existed, <span class="keyword">compare</span>()</span><br><span class="line">			Operation Result: <span class="keyword">if</span> the cur_e is <span class="keyword">L</span>'s data elements, and is not the first <span class="keyword">one</span>, then <span class="keyword">use</span> pre_e <span class="keyword">return</span> it's precursor, <span class="keyword">else</span> operation failed, pre_e is not defination(若cur_e是<span class="keyword">L</span>的数据元素，且不是第一个，则用pre_e返回它的前驱，否则操作失败，pre_e无定义)</span><br><span class="line">		NextElem(<span class="keyword">L</span>, cur_e, &amp;next_e)</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> is already existed.</span><br><span class="line">			Operation Result: </span><br><span class="line">		ListInsert(&amp;<span class="keyword">L</span>, i, <span class="keyword">e</span>)</span><br><span class="line">			Initial Condition: </span><br><span class="line">			Operation Result:</span><br><span class="line">		ListDelete(&amp;<span class="keyword">L</span>, i, <span class="keyword">e</span>)</span><br><span class="line">			Initial Condition:</span><br><span class="line">			Operation Result:</span><br><span class="line">		ListTraverse(<span class="keyword">L</span>, visit())</span><br><span class="line">			Initial Condition: the linar <span class="keyword">list</span> is alreay existed.</span><br><span class="line">			Operation Result: <span class="keyword">in</span> <span class="keyword">order</span></span><br><span class="line">	&#125; ADT <span class="keyword">List</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DataStructure(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -743,58 +797,6 @@
 <p><li>选定一个key值，/<strong>使用at函数就能Map中取出这个key值对应的Label对象</strong>/<br></li></p>
 <p><li>将取出的Label对象添加到场景中<br></li></p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-HTTP 服务器与客户端" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/11/HTTP 服务器与客户端/" class="article-date">
-  	<time datetime="2015-11-11T10:38:35.000Z" itemprop="datePublished">2015-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/11/HTTP 服务器与客户端/">Node.js HTTP 服务器与客户端</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="HTTP服务器与客户端">HTTP服务器与客户端</h3><p>Node.js标准库提供了http模块，其中封装了一个高效的HTTP服务器和一个简易的HTTP客户端。http.Server是一个基于事件的HTTP服务器，它的核心由Node.js下层部分实现，而接口由JavaScript封装，兼顾了高性能与建议性。</p>
-<h4 id="HTTP服务器">HTTP服务器</h4><p>http.Server是http模块中的HTTP服务器对象。用Node.js做的所有基于HTTP服务器协议的系统，如网站，社交应用甚至代理服务器，都是基于http.Server实现的。它提供了一套封装级别很低的API，仅仅是流控制和简单的消息解析，所有的高层功能都是通过它的接口来实现。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     
