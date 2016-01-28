@@ -11,13 +11,13 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
 123456789101112function fuzzyPlural(single) &amp;#123;  var result = single.replace(/o/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeWars[1]">
-<meta property="og:url" content="http://eqistyre.github.io/2015/11/29/刷codewars的小记录/index.html">
+<meta property="og:url" content="http://eqistyre.github.io/2016/01/28/刷codewars的小记录/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="###记录今天在CodeWars上面刷题，发现第一题就不会做。纯英语看的我慎得慌。
 map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
 1array.map(callback[, thisArg])
 123456789101112function fuzzyPlural(single) &amp;#123;  var result = single.replace(/o/">
-<meta property="og:updated_time" content="2016-01-27T06:29:48.000Z">
+<meta property="og:updated_time" content="2016-01-28T07:46:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeWars[1]">
 <meta name="twitter:description" content="###记录今天在CodeWars上面刷题，发现第一题就不会做。纯英语看的我慎得慌。
@@ -179,8 +179,8 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
       <div class="body-wrap"><article id="post-刷codewars的小记录" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/29/刷codewars的小记录/" class="article-date">
-  	<time datetime="2015-11-28T16:38:35.000Z" itemprop="datePublished">2015-11-29</time>
+      <a href="/2016/01/28/刷codewars的小记录/" class="article-date">
+  	<time datetime="2016-01-28T07:38:35.000Z" itemprop="datePublished">2016-01-28</time>
 </a>
     </div>
   
@@ -217,6 +217,9 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
 <p>var lengthOfSequence = function (arr, n) {<br>  // TODO: Write some scripts here<br>  var index1 = arr.indexOf(n);<br>  var index2 = arr.indexOf(n,index1 + 1);<br>  var index3 = arr.indexOf(n,index2 + 1);<br>  if (index1 == -1 || index2 == -1 || index3 != -1) {return 0} ;<br>  return index2 - index1 + 1;<br>};</p>
 <p>一种机智的方法！<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">listToArray</span><span class="params">(list)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">array</span> = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> node = <span class="keyword">list</span>; node; node = node.next)</span><br><span class="line">    <span class="keyword">array</span>.push(node.value);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>也是6<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pattern</span><span class="params">(n)</span> <span class="comment">&#123;</span><br><span class="line">  var res = [], i;</span><br><span class="line">  for(i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">    res.push(Array(i + 1).join(i));</span><br><span class="line">  &#125;</span></span><br><span class="line">  <span class="title">return</span> <span class="title">res</span>.<span class="title">join</span><span class="params">(<span class="string">'\n'</span>)</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还有这种拼接方式我都忘了。。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">maskify</span><span class="params">(cc)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> cc.slice(<span class="number">0</span>, -<span class="number">4</span>).replace(/./g, <span class="string">'#'</span>) + cc.slice(-<span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>又是正则。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function insertDash(num) &#123;</span><br><span class="line">   return num.toString().replace(/[<span class="link_label">13579</span>](<span class="link_url">?=[13579]</span>)/g, "$&amp;-");</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我想今天刷到6kyu。也许我也该用Ruby写下这些东西。</p>
 
       
     </div>
@@ -226,18 +229,9 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
     
 <nav id="article-nav">
   
-    <a href="/2015/11/29/各种排序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          考试之前看的各种排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/29/今天的我是非常开心的我/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Cocos-2dx中踩的又一个坑，关于lambda函数</div>
+    <a href="/2016/01/25/开发日志(三)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开发日志（三）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
