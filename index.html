@@ -216,6 +216,11 @@
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">likes</span><span class="params">(names)</span> </span>&#123;</span><br><span class="line">  names = names || [];</span><br><span class="line">  <span class="keyword">switch</span>(names.length)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">return</span> <span class="string">'no one likes this'</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> names[<span class="number">0</span>] + <span class="string">' likes this'</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> names[<span class="number">0</span>] + <span class="string">' and '</span> + names[<span class="number">1</span>] + <span class="string">' like this'</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> names[<span class="number">0</span>] + <span class="string">', '</span> + names[<span class="number">1</span>] + <span class="string">' and '</span> + names[<span class="number">2</span>] + <span class="string">' like this'</span>; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">return</span> names[<span class="number">0</span>] + <span class="string">', '</span> + names[<span class="number">1</span>] + <span class="string">' and '</span> + (names.length - <span class="number">2</span>) + <span class="string">' others like this'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>还有下面这个简直clever到极致的方法！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">likes</span> (<span class="params">names</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> templates = [</span><br><span class="line">    <span class="string">'no one likes this'</span>,</span><br><span class="line">    <span class="string">'&#123;name&#125; likes this'</span>,</span><br><span class="line">    <span class="string">'&#123;name&#125; and &#123;name&#125; like this'</span>,</span><br><span class="line">    <span class="string">'&#123;name&#125;, &#123;name&#125; and &#123;name&#125; like this'</span>,</span><br><span class="line">    <span class="string">'&#123;name&#125;, &#123;name&#125; and &#123;n&#125; others like this'</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="keyword">var</span> idx = <span class="built_in">Math</span>.min(names.length, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> templates[idx].replace(<span class="regexp">/&#123;name&#125;|&#123;n&#125;/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val === <span class="string">'&#123;name&#125;'</span> ? names.shift() : names.length;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">calculateHypotenuse</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((a &lt; <span class="number">0</span> || b &lt; <span class="number">0</span>) || (<span class="keyword">typeof</span> a != <span class="string">"number"</span> || <span class="keyword">typeof</span> b != <span class="string">"number"</span> ) || (<span class="built_in">isNaN</span>(a) || <span class="built_in">isNaN</span>(b))) &#123;</span><br><span class="line">  	<span class="keyword">return</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(a*a + b*b).toFixed(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>toFixed()精度控制，typeof 检测类型，但是检测不出NaN,isNan()用于检测NaN。</p>
+<p>题目：<br>The main idea is to count all the occuring characters(UTF-8) in string. If you have string like this aba then the result should be { ‘a’: 2, ‘b’: 1 }</p>
+<p>What if the string is empty ? Then the result should be empty object literal { }</p>
+<p>解法：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span></span> <span class="built_in">count</span> (string) &#123;  </span><br><span class="line">  var <span class="built_in">count</span> = &#123;&#125;;</span><br><span class="line">  string.split(<span class="string">''</span>).forEach(<span class="function"><span class="keyword">function</span><span class="params">(s)</span></span> &#123;</span><br><span class="line">     <span class="built_in">count</span>[s] ? <span class="built_in">count</span>[s]++ : <span class="built_in">count</span>[s] = <span class="number">1</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">count</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -441,6 +446,68 @@
 <h3 id="优点">优点</h3><p><li>Vue 是一种视图层的开发框架，这也决定了它不必像Angular那样构造一个单面应用，可以很好的镶入已有的页面中，并且很好的配合其它框架使用。</li></p>
 <p><li>默认单向绑定，同时也支持双向绑定，可以有效防止数据逆流。</li></p>
 <h3 id="吐槽">吐槽</h3><p>没想到竟然趴在桌子上就睡着了呢，放假的学校总是冷冷清清的。下午要得好好写代码呢。准备用vue写一个小的追番应用</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-NodeExpress" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/NodeExpress/" class="article-date">
+  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/NodeExpress/">express概述</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言">前言</h3><p>上火车了，时间真的好快，终于快回家了，列车上也没有什么事情，也就把express看一下吧。</p>
+<p>express 是一种使用广泛的基于node的开发框架，它具有着许多的优点。</p>
+<p><li>路由控制</li></p>
+<p><li>模板解析支持</li></p>
+<p><li>动态视图</li></p>
+<p><li>用户会话</li></p>
+<p><li>CSRF保护</li></p>
+<p><li>静态文件服务</li></p>
+<p><li>错误控制器</li></p>
+<p><li>访问日志</li></p>
+<p><li>缓存</li></p>
+<p><li>插件支持</li></p>
 
       
     </div>
@@ -809,130 +876,6 @@
 <p>计算Fib(n)的这种方法是一个线性迭代。这两种方法在计算中所需的步骤上差异巨大－－后一方法想对于n为线性的，前一个的增长像Fib(n)一样快。</p>
 <p><em>当我们考虑的是在层次结构性的数据操作，而不是对数操作时，将会发现树形递归计算过程是一种自然的、威力强大的工具。即使是对于数的计算，树形递归计算过程也可能帮助我们理解和设计程序，以斐波那契数程序为例，虽然第一个fib过程远比第二个低效，但它却更加直接了当。可以提供很好的思路。</em></p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
-<p><li>Static search</li></p>
-<p>Method one: sequential search</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺序查找1算法的时间复杂度是O(n)。</p>
-<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
-<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
-<p>Method two: Binary Search(二分查找)</p>
-<p>假设n个数据元素的关键字满足有序（比如：小到大）k<sub>1</sub> &lt; k<sub>2</sub> &lt; k<sub>3</sub> &lt; … &lt; k<sub>n</sub>， 并且是连续存放的（数组）， 那么可以进行二分查找。</p>
-<p>如果查询不到则会出现left &gt; right这种情况！</p>
-<p>这种方法让我想起了小时候和父亲玩网游里的一个小游戏呢。 </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int <span class="type">BinarySearch</span>(<span class="type">StaticTable</span> * <span class="type">Tbl</span>, <span class="type">ElementType</span> <span class="type">K</span>) &#123;</span><br><span class="line">	int <span class="keyword">left</span>, <span class="keyword">right</span>, mid, <span class="type">NoFound</span> = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">left</span> = <span class="number">1</span>; <span class="comment">//初始化左边界</span></span><br><span class="line">	<span class="keyword">right</span> = <span class="type">Tbl</span>-&gt;<span class="type">Length</span>; <span class="comment">//初始化右边界</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="keyword">left</span> &lt;= <span class="keyword">right</span>) &#123;</span><br><span class="line">		mid = (<span class="keyword">left</span> + <span class="keyword">right</span>) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="type">K</span> &lt; <span class="type">Tbl</span>-&gt;<span class="type">Element</span>[mid]) &#123;</span><br><span class="line">			<span class="keyword">right</span> = mid - <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type">K</span> &gt; <span class="type">Tbl</span>-&gt;<span class="type">Element</span>[mid]) &#123;</span><br><span class="line">			<span class="keyword">left</span> = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="type">NotFound</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>二分法查找算法具有对数的时间复杂度O(logN)。</p>
-<p>启示：<br><br>11个元素的二分查找判定树<br><br>判定树上每个结点的查找次数刚好为该结点所在的层数；查找成功时查找次数不会超过判定树的深度；n个节点的判定树的深度为[log<sub>2</sub>n]+1。ASL(Average Search Length) = (各个层数上节点数^层数) / 总结点数；</p>
-<p><li>Dynamic search</li></p>
-<p>树(Tree)的定义:</p>
-<p>1.子树是不想交的<br><br>2.除了根结点外，每个结点有且只有一个父结点<br><br>3.一颗N个结点的树有N-1条边（树是保证边最少的一种方式）<br></p>
-<p>树(Tree)的一些基本术语:<br>1.结点的度(Degree)：结点的子树个数。<br><br>2.树的度：树的所有结点中最大的度数。<br><br>3.叶结点(Leaf)：度为0的结点。<br><br>4.父结点(Parent)：有子树的结点是其子树的根结点的父节点。<br><br>5.子结点：若A结点是B结点的父结点，则称B结点是A结点的字结点；子结点也称为孩子结点(Child)。：<br><br>6.兄弟结点(sibling)：具有同一父节点的各结点彼此是兄弟结点。<br></p>
-<p>树(Tree)的表示:</p>
-<p>不能采取数组储存，因为数组储存会有无法识别的问题。也不适合采用链状储存，因为每个结点含有的指针数不一样，无法使用统一的方法去表示这些指针。</p>
-<p>儿子－兄弟表示法<br><br>两个空间，一个指向下一代，一个指向其兄弟，这样一搞看起来像是变位的二叉树了。</p>
-<p>二叉树（有左右之分）分类：<br><br>斜二叉树（Skewed Binary Tree）：只有一条边的二叉树<br><br>完美二叉树，满二叉树（Perfect Binary Tree）：二分，且叶结点不残缺<br><br>完全二叉树（Full Binary Tree）：有n个结点的二叉树，对树中结点按从上至下、从左至右的顺序进行编号，编号为i (1 ≤ i ≤ n)结点与满二叉树中编号为i结点在二叉树中位置相同<br></p>
-<p>在二叉树中，叶结点的个数 ＝ 有两个儿子结点的个数 ＋ 1。</p>
-<p>二叉树的抽象数据类型定义<br><br>类型名称：二叉树<br><br>数据对象集：一个有穷的结点集合。若不为空，则由根结点和其左、右二叉子树组成<br><br>操作集：BT ∈ BinTree, Item ∈ ElementType, 重要操作有：<br><br>1、Boolean IsEmpty(BinTree BT)：判断BT是否为空；<br><br>2、void Traversal(BinTree BT)：遍历，按某顺序访问每个结点；<br><br>3、BinTree CreatBinTree( )：创建一个二叉树。<br></p>
-<p>常用的遍历方法有：</p>
-<p><li>void PreOrderTraversal(BinTree BT):先序－－根、左子树、右子树；</li></p>
-<p><li>void InOderTraversal(BinTree BT):中序－－左子树、根、右子树；</li></p>
-<p><li>void PostTraversal(BinTree BT):后序－－左子树、右子树、根；</li></p>
-<p><li>void LevelTraversal(BinTree BT):层次遍历，从上倒下、从左到右；<br><br> <em> 这里的先、中、后指的是根！</em></li></p>
-<h4 id="二叉树的储存结构">二叉树的储存结构</h4><p>1.顺序储存结构（在计算机中用一组地址连续的储存单元依次储存呢线性表的各个数据元素，称作线性表的顺序储存结构）</p>
-<p>完全二叉树：特别适合数组储存！因为不缺结点，对于一般二叉树我们可以补全结点，不过会有一堆堆的空间浪费！对了，这里还是会有规律的～<br><br>2.链表储存（儿子－－兄弟储存法）</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//说真的我真心觉得这种方式好奇怪呀。就是说我们创建了一个结构体TreeNode 然后我们让 *<span class="keyword">BinTree </span>指向它，这里的Typedef的意思不再是起别名而是说后面的*<span class="keyword">BinTree </span>= TreeNode 也就是说<span class="keyword">BinTree指向TreeNode</span><br><span class="line"></span><span class="label">typedef</span> <span class="keyword">struct </span>TreeNode *<span class="keyword">BinTree;</span><br><span class="line"></span><span class="label">typedef</span> <span class="keyword">Bintree </span>Position<span class="comment">;</span></span><br><span class="line"><span class="keyword">struct </span>TreeNode &#123;</span><br><span class="line">	ElementType <span class="preprocessor">Data</span><span class="comment">;</span></span><br><span class="line">	<span class="keyword">BinTree </span>Left<span class="comment">;</span></span><br><span class="line">	<span class="keyword">BinTree </span>Right<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉树的递归遍历">二叉树的递归遍历</h4><p><1>先序遍历</1></p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> PreOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>		preOrderTraversal(<span class="keyword">BT-&gt;Left);</span><br><span class="line"></span>		preOrderTraversal(<span class="keyword">BT-&gt;Right);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><2>中序遍历</2></p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> InOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		InOrderTraversal(<span class="keyword">BT-&gt;Left);</span><br><span class="line"></span>		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>		InOrderTraversal(<span class="keyword">BT-&gt;Right);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以看到在中序遍历中会把左结点优先，也就是说根结点后来读，先读左边的左边（如果有左边的话）。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> PostOrderTraversal( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span> (<span class="keyword">BT) </span>&#123;</span><br><span class="line">		PostOrderTraversal(<span class="keyword">BT-&gt;Left);</span><br><span class="line"></span>		PostOrderTraversal(<span class="keyword">BT-&gt;Right);</span><br><span class="line"></span>		printf(<span class="string">"%d"</span>, <span class="keyword">BT-&gt;Data);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><em>先序、中序和后序遍历过程：遍历过程中经过的路线一样，知识访问各个结点的时机不同!</em></p>
-<h4 id="二叉树的非递归遍历">二叉树的非递归遍历</h4><p>非递归算法实现的基本思路：使用堆栈。</p>
-<p>中序遍历非递归遍历算法<br></p>
-<p><li>遇到一个结点，就把它压栈，并去遍历它的左子树；</li></p>
-<p><li>党左子树遍历结束后，从栈顶弹出这个结点并访问它；</li></p>
-<p><li>然后按其右指针再去遍历该结点的右子树；</li></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void InOrderTraversal( BinTree BT ) &#123;</span><br><span class="line">	BinTree <span class="literal">T</span> = BT;</span><br><span class="line">	Stack S = CreatStack(MaxSize);</span><br><span class="line">	//判定条件树不空，堆栈不空</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">T</span> || !IsEmpty(S)) &#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="literal">T</span>) &#123;</span><br><span class="line">			push(S, <span class="literal">T</span>);</span><br><span class="line">			<span class="literal">T</span> = <span class="literal">T</span>-&gt;Left;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!IsEmpty(S)) &#123;</span><br><span class="line">			<span class="literal">T</span> = Pop(S);</span><br><span class="line">			printf(<span class="string">"%5d"</span>, <span class="literal">T</span>-&gt;Data);</span><br><span class="line">			<span class="literal">T</span> = <span class="literal">T</span>-&gt;Right;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="层序遍历">层序遍历</h4><p>二叉树遍历的核心问题：二维结构的线性话（把二维化为一维）<br></p>
-<p><li>从结点访问其左、右儿子结点</li></p>
-<p><li>访问左儿子后，右儿子结点怎么办？<br>需要一个储存结构保存暂时不访问的结点，我们应该选用：堆栈、队列。<br></li></p>
-<p><li>队列实现：遍历从根结点开始，首先将根结点入队，然后开始执行循环：结点出队、访问该结点、其左右儿子入队。</li></p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">void</span> LevelOrderTraversal ( <span class="keyword">BinTree </span><span class="keyword">BT) </span>&#123;</span><br><span class="line">	Queue Q<span class="comment">;</span></span><br><span class="line">	<span class="keyword">BinTree </span>T<span class="comment">;</span></span><br><span class="line">	<span class="preprocessor">if</span> (!<span class="keyword">BT) </span>&#123;</span><br><span class="line">		return<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">	Q = CreatQueue(MaxSize)<span class="comment">;</span></span><br><span class="line">	<span class="keyword">addQ(Q, </span><span class="keyword">BT);</span><br><span class="line"></span>	<span class="preprocessor">while</span> (!IsEmptyQ(Q)) &#123;</span><br><span class="line">		T = DeleteQ(Q)<span class="comment">;</span></span><br><span class="line">		printf(<span class="string">"%d\n"</span>, T-&gt;<span class="preprocessor">Data</span>)<span class="comment">;</span></span><br><span class="line">		<span class="preprocessor">if</span>(T-&gt;Left) &#123;</span><br><span class="line">			<span class="keyword">AddQ(Q, </span>T-&gt;Left)<span class="comment">;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="preprocessor">if</span>(T-&gt;Right) &#123;</span><br><span class="line">			<span class="keyword">AddQ(Q, </span>T-&gt;Right)<span class="comment">;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉搜索树">二叉搜索树</h4><p>查找问题：<br></p>
-<p><li>静态查找与动态查找</li></p>
-<p><li>针对动态查找，数据如何组织？</li></p>
-<p>二叉搜索树（BST, Binary Search Tree）也称为二叉排序树或二叉查找树，二叉搜索树，若不为空，满足以下性质：<br></p>
-<p><li>1.非空左子树所有键值小于其根结点的键值。</li></p>
-<p><li>2.非空右子树所有键值大于其根结点的键值。</li></p>
-<p><li>3.左、右子树都是二叉搜索树。</li></p>
-<h4 id="二叉搜索树操作的特别函数：">二叉搜索树操作的特别函数：</h4><p>Position Find(ElementType X, BinTree BST)：从二叉搜索树BST中查找元素X,返回其所在结点的地址；</p>
-<p>Position FinMin(BinTree BST)：从二叉搜索树BST中查找并返回最小元素所在结点的地址；</p>
-<p>Postion FindMax(BinTree BST)：从二叉搜索树BST中查找并返回最大元素所在的结点。</p>
-<p>由于非递归函数的执行效率高，可将“尾递归”函数改为迭代函数。</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Postion Find(ElementType X, BinTree BST) &#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="subst">!</span>BST) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(X &gt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> Find(X, BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(X &lt; BST<span class="subst">-&gt;</span>Left) &#123;</span><br><span class="line">		<span class="keyword">return</span> Find(X, BST<span class="subst">-&gt;</span>Left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> BST;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以发现这是一种“尾递归”，由于非递归函数的执行效率高，可将“尾递归”函数改成迭代函数。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Position</span> <span class="keyword">IterFind(ElementType </span>X, <span class="keyword">BinTreeBST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">while</span>(<span class="keyword">BST) </span>&#123;</span><br><span class="line">		<span class="preprocessor">if</span>( X &gt; <span class="keyword">BST </span>-&gt; <span class="preprocessor">Data</span>) &#123;</span><br><span class="line">			<span class="keyword">BST </span>= <span class="keyword">BST-&gt;Right;</span><br><span class="line"></span>		&#125; <span class="preprocessor">else</span> <span class="preprocessor">if</span>(x &lt; <span class="keyword">BST-&gt; </span><span class="preprocessor">Data</span>) &#123;</span><br><span class="line">			<span class="keyword">BST </span>= <span class="keyword">BST-&gt;Left;</span><br><span class="line"></span>		&#125;</span><br><span class="line">		<span class="preprocessor">else</span> &#123;</span><br><span class="line">			return <span class="keyword">BST;</span><br><span class="line"></span>		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return NULL<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Position</span> FindMin(<span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(!<span class="keyword">BST) </span>&#123;</span><br><span class="line">		return NULL<span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="preprocessor">else</span> <span class="preprocessor">if</span>(!<span class="keyword">BST-&gt;Left) </span>&#123;</span><br><span class="line">		return <span class="keyword">BST;</span><br><span class="line"></span>	&#125;</span><br><span class="line">	<span class="preprocessor">else</span> &#123;</span><br><span class="line">		return FindMin(<span class="keyword">BST-&gt;Left);</span><br><span class="line"></span>	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">Position</span> FindMax(<span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(<span class="keyword">BST) </span>｛</span><br><span class="line">		<span class="preprocessor">while</span>( <span class="keyword">BST-&gt;Right) </span>&#123;</span><br><span class="line">			<span class="keyword">BST </span>= <span class="keyword">BST-&gt;Right</span><br><span class="line"></span>		&#125;</span><br><span class="line">	｝</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉搜索树的插入">二叉搜索树的插入</h4><p>[分析]我们要找到插入的位置，可以使用Find方法。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BinTree </span>Insert( ElementType X, <span class="keyword">BinTree </span><span class="keyword">BST) </span>&#123;</span><br><span class="line">	<span class="preprocessor">if</span>(!<span class="keyword">BST) </span>&#123;</span><br><span class="line">		//若原树为空，生成并返回一个结点的二叉搜索树</span><br><span class="line">		<span class="keyword">BST </span>= malloc(sizeof(<span class="keyword">struct </span>TreeNode))<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Data </span>= X<span class="comment">;</span></span><br><span class="line">		<span class="keyword">BST-&gt;Left </span>= <span class="keyword">BST-&gt;Right </span>= NULL</span><br><span class="line">	&#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">		<span class="preprocessor">if</span>(X &lt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Left </span>= Insert(X, <span class="keyword">BST-&gt;Left);</span><br><span class="line"></span>			&#125;</span><br><span class="line">		<span class="preprocessor">else</span> <span class="preprocessor">if</span>(X &gt; <span class="keyword">BST-&gt;Data) </span>&#123;</span><br><span class="line">			<span class="keyword">BST-&gt;Right </span>= Insert(X, <span class="keyword">BST-&gt;Right);</span><br><span class="line"></span>		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="keyword">BST;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二叉搜索树的删除">二叉搜索树的删除</h4><p>考虑三种情况：<br></p>
-<p><li>要删除的是叶结点：直接删除，并再修改其父节点指针为NULL。<br></li></p>
-<p><li>要删除的结点只有一个孩子结点：将其父节点的指针指向要删除的孩子结点。<br></li></p>
-<p><li>要删除的结点有左、右两颗子树：用另一结点替代被删除结点：<em>右子树的最小元素</em>或者<em>左子树的最大元素</em>。<br></li></p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">BinTree Delete(ElementType X, BinTree BST) &#123;</span><br><span class="line">	Position Tmp;</span><br><span class="line">	<span class="keyword">if</span>(<span class="subst">!</span>BST) &#123;</span><br><span class="line">		printf(<span class="string">"要删除的元素未找到"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &lt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Left = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//左子树递归删除</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (X &gt; BST<span class="subst">-&gt;</span><span class="built_in">Data</span>) &#123;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(X, BST<span class="subst">-&gt;</span>Right);<span class="comment">//右子树递归删除</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(BST<span class="subst">-&gt;</span>Left <span class="subst">&amp;&amp;</span> BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">		Tmp = FindMin(BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		BST<span class="subst">-&gt;</span><span class="built_in">Data</span> = Tmp<span class="subst">-&gt;</span><span class="built_in">Data</span>;</span><br><span class="line">		BST<span class="subst">-&gt;</span>Right = Delete(BST<span class="subst">-&gt;</span><span class="built_in">Data</span>, BST<span class="subst">-&gt;</span>Right);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			Tmp = BST;</span><br><span class="line">			<span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Left) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Right;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="subst">!</span>BST<span class="subst">-&gt;</span>Right) &#123;</span><br><span class="line">				BST = BST<span class="subst">-&gt;</span>Left;</span><br><span class="line">			&#125;</span><br><span class="line">			free(Tmp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
