@@ -17,7 +17,7 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
 map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。
 1array.map(callback[, thisArg])
 123456789101112function fuzzyPlural(single) &amp;#123;  var result = single.replace(/o/g,">
-<meta property="og:updated_time" content="2016-01-28T16:09:06.000Z">
+<meta property="og:updated_time" content="2016-01-29T12:11:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeWars[1]">
 <meta name="twitter:description" content="记录今天在CodeWars上面刷题，发现第一题就不会做。纯英语看的我慎得慌。
@@ -236,6 +236,7 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
 <p>题目：<br>The main idea is to count all the occuring characters(UTF-8) in string. If you have string like this aba then the result should be { ‘a’: 2, ‘b’: 1 }</p>
 <p>What if the string is empty ? Then the result should be empty object literal { }</p>
 <p>解法：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span></span> <span class="built_in">count</span> (string) &#123;  </span><br><span class="line">  var <span class="built_in">count</span> = &#123;&#125;;</span><br><span class="line">  string.split(<span class="string">''</span>).forEach(<span class="function"><span class="keyword">function</span><span class="params">(s)</span></span> &#123;</span><br><span class="line">     <span class="built_in">count</span>[s] ? <span class="built_in">count</span>[s]++ : <span class="built_in">count</span>[s] = <span class="number">1</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">count</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function goodVsEvil(good, evil) &#123;  </span><br><span class="line">  <span class="keyword">var</span> getWorth = function( side, worth ) &#123;</span><br><span class="line">    <span class="keyword">return</span> side.split(' ').reduce( function(<span class="literal">result</span>, value, index) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">result</span> + (worth[index] * value);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> <span class="literal">result</span> = getWorth( good, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">10</span>] ) - getWorth( evil, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">10</span>] );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">result</span> &gt; <span class="number">0</span> ? <span class="string">"Battle Result: Good triumphs over Evil"</span> :</span><br><span class="line">         <span class="literal">result</span> &lt; <span class="number">0</span> ? <span class="string">"Battle Result: Evil eradicates all trace of Good"</span> :</span><br><span class="line">                      <span class="string">"Battle Result: No victor on this battle field"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -244,6 +245,15 @@ map() 方法返回一个由原数组中的每个元素调用一个指定方法�
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/29/刷codewars的小记录2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CodeWars[2]
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/25/开发日志(三)/" id="article-nav-older" class="article-nav-link-wrap">
