@@ -168,11 +168,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-数据结构基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/31/对象与类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+      <a href="/2015/11/02/数据结构基础（一）/" class="article-date">
+  	<time datetime="2015-11-02T04:38:35.000Z" itemprop="datePublished">2015-11-02</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/对象与类/">c++学习知识点纪录（五）</a>
+      <a class="article-title" href="/2015/11/02/数据结构基础（一）/">数据结构学习笔记（一）</a>
     </h1>
   
 
@@ -194,20 +194,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="对象与类">对象与类</h3><h5 id="访问控制">访问控制</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Stock &#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">char</span> company[<span class="number">30</span>];</span><br><span class="line">		<span class="keyword">int</span> shares;</span><br><span class="line">		<span class="keyword">double</span> share_val;</span><br><span class="line">		<span class="keyword">double</span> total_val;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">set_tot</span><span class="params">()</span> </span>&#123; total_val = shares * share_val;&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * co, <span class="keyword">int</span> n, <span class="keyword">double</span> pr)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">buy</span><span class="params">(<span class="keyword">int</span> num, hhhh</span><br><span class="line">		ouble price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏（将数据放在类的私有部分中）是一种封装，将实现的细节隐藏在私有部分中，就像Stock_tot( )中所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。<br><br>数据隐藏不仅可以防止直接访问数据，还让开发者（类的用户）无需了解数据是如何表示的。例如，show( )成员将显示某支股票的总价格（还有其它内容），这个值可以储存在对象中（上述代码正是这样做的），也可以在需要时通过计算得到。从使用类的角度来看，使用哪种方法没有什么区别。所需要知道的只是各种成员函数的功能；也就是说，需要知道成员函数接受什么样的参数以及返回什么类型的值。原则是将实现细节从接口设计中分离出来。如果以后找到了更好的，实现数据表示或成员函数细节的方法，可以对这些细节进行修改，则无需修改程序接口，这使程序维护起来更容易。</p>
-<h5 id="控制成员的访问：公有还是私有">控制成员的访问：公有还是私有</h5><p>无论类成员时数据成员还是成员函数，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是oop主要的目标之一，因此数据项通常放在私有部分，组成类的接口的成员函数放在公有部分：否则，就无法从程序中调用这种函数。<br><br>还需要创建类描述的第二部分：为那些由类声明中的原型表示的成员函数提供代码。成员函数定义与常规函数定义非常相似，他们都有函数头和函数体，也可以有返回类型和参数。但是他们还有两个特殊的特征。</p>
-<p><li>定义成员函数时，使用作用域解析运算符（::）来标志函数所属的类；</li></p>
-<p><li>类方法可以访问类的private组件。<br>首先，成员韩式的函数头使用作用域运算符解析（::）来指出函数所属的类。例如，update( )成员的函数头如下：</li></p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price)</span><br></pre></td></tr></table></figure>
-<p>这种表示法意味着我们定义的update( )函数是Stock类的成员。这不仅将update( )标识为成员函数，还意味着我们可以将另一个类的成员函数命名为update( )。例如，Buffoon( )类的update( )函数的函数头如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Buffoon::<span class="function"><span class="title">update</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<p>因此，作用域解析运算符确定了方法定义对应的类的身份。我们说，标识符update( )具有类作用域（class scope）。Stock类的其他成员函数不必使用作用域解析符，就可以使用update( )方法，这事因为他们属于同一个类，因此update( )是可见的。然而在类声明和方法定义之外使用update( )时，需要采用特殊的措施。<br><br>类方法的完整名中包含类名，我们说，Stock::update( )是函数的限定名(qualified name)：而简单的update( )是全名的缩写（非限定名，unqualified name）它只能在类作用域中使用。<br><br>方法的第二个特点是，方法可以访问类的私有成员。例如show( )方法可以使用这样的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>:: &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">	  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; endl</span><br><span class="line">	  &lt;&lt; <span class="string">" Share Prices: $"</span> &lt;&lt; share_val</span><br><span class="line">	  &lt;&lt; <span class="string">" Total Worth: $"</span></span><br></pre></td></tr></table></figure>
-<p>其中company,shares等都是Stock类的私有数据成员。如果试图使用非成员函数访问这些数据成员，编译器禁止这样做（友元函数除外）。<br></p>
-<p>程序清单:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stock00.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::acquire(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; co, <span class="keyword">long</span> n, <span class="keyword">double</span> pr) &#123;</span><br><span class="line">	company = co;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares can't be negative"</span></span><br><span class="line">				  &lt;&lt; company &lt;&lt; <span class="string">" shares set to 0.\n"</span>;</span><br><span class="line">		shares = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares = n;</span><br><span class="line">	&#125;</span><br><span class="line">	share_val = pr;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::buy(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares purchased can't be negative."</span></span><br><span class="line">				  &lt;&lt; <span class="string">"Transaction is aborted.\n"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares += num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::sell(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares sold can't be negative."</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; shares) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"You can't sell more than you have!c "</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares -= num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price) &#123;</span><br><span class="line">	share_val = price;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::show() &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">			  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; <span class="string">'\n'</span></span><br><span class="line">			  &lt;&lt; <span class="string">" Share Price: $"</span> &lt;&lt; share_val</span><br><span class="line">			  &lt;&lt; <span class="string">" Total Worth: $"</span> &lt;&lt; total_val &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><li>成员函数说明<br><br>acquire()</li></p>
+        <p>使用typedef为现有类型创建同义字，定义易于记忆的类型名：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> size;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">measure</span><span class="params">(size * psz)</span></span>;</span><br><span class="line">size <span class="built_in">array</span>[<span class="number">4</span>];</span><br><span class="line">size len=file.getlength();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;size&gt;vs;</span><br></pre></td></tr></table></figure>
+<p>typedef 还可以掩饰复合类型，如指针和数组：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="value">char</span>　<span class="value">line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">char</span>　<span class="value">text</span><span class="attr_selector">[81]</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只需这样定义，Line类型即代表了具有81个元素的字符数组，使用方法如下：</span></span><br><span class="line">typedef <span class="value">char</span> <span class="value">Line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">Line</span>　<span class="value">text</span>,<span class="value">line</span>;</span><br><span class="line"><span class="function">getline</span>(<span class="value">text</span>);</span><br></pre></td></tr></table></figure>
+<p>同样，可以像下面这样隐藏指针语法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>　<span class="keyword">char</span>*　pstr;</span><br><span class="line"><span class="function"><span class="keyword">int</span>　<span class="title">mystrcmp</span><span class="params">(<span class="keyword">const</span>　pstr　p1,<span class="keyword">const</span>　pstr　p3)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名;<span class="comment">//结构体指针</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = &amp;一个结构体的名字;<span class="comment">//结构体指针并赋初值</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 = <span class="keyword">new</span> <span class="keyword">struct</span> 结构体类型名;<span class="comment">//结构体指针并用new申请内存</span></span><br><span class="line"><span class="keyword">struct</span> 结构体类型名 *指针名 =(<span class="keyword">struct</span> 结构体类型名 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> 结构体类型名))<span class="comment">//结构体指针并用malloc申请内存 使用应包含头文件stdlib.h</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//对象指针的定义方法略同。</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">class</span> C</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    C obj;</span><br><span class="line">    C *p = obj;</span><br><span class="line">    p-&gt;num = <span class="number">5</span>;</span><br><span class="line">    p-&gt;name = <span class="string">"Tony"</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;num &lt;&lt; p-&gt;name &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序输出：5Tony</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -290,11 +283,11 @@
 
 
   
-    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/31/二十年/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+      <a href="/2015/10/31/对象与类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
 </a>
     </div>
   
@@ -307,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+      <a class="article-title" href="/2015/10/31/对象与类/">c++学习知识点纪录（五）</a>
     </h1>
   
 
@@ -316,8 +309,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
-<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
+        <h3 id="对象与类">对象与类</h3><h5 id="访问控制">访问控制</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Stock &#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">char</span> company[<span class="number">30</span>];</span><br><span class="line">		<span class="keyword">int</span> shares;</span><br><span class="line">		<span class="keyword">double</span> share_val;</span><br><span class="line">		<span class="keyword">double</span> total_val;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">set_tot</span><span class="params">()</span> </span>&#123; total_val = shares * share_val;&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * co, <span class="keyword">int</span> n, <span class="keyword">double</span> pr)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">buy</span><span class="params">(<span class="keyword">int</span> num, hhhh</span><br><span class="line">		ouble price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">double</span> price)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏（将数据放在类的私有部分中）是一种封装，将实现的细节隐藏在私有部分中，就像Stock_tot( )中所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。<br><br>数据隐藏不仅可以防止直接访问数据，还让开发者（类的用户）无需了解数据是如何表示的。例如，show( )成员将显示某支股票的总价格（还有其它内容），这个值可以储存在对象中（上述代码正是这样做的），也可以在需要时通过计算得到。从使用类的角度来看，使用哪种方法没有什么区别。所需要知道的只是各种成员函数的功能；也就是说，需要知道成员函数接受什么样的参数以及返回什么类型的值。原则是将实现细节从接口设计中分离出来。如果以后找到了更好的，实现数据表示或成员函数细节的方法，可以对这些细节进行修改，则无需修改程序接口，这使程序维护起来更容易。</p>
+<h5 id="控制成员的访问：公有还是私有">控制成员的访问：公有还是私有</h5><p>无论类成员时数据成员还是成员函数，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是oop主要的目标之一，因此数据项通常放在私有部分，组成类的接口的成员函数放在公有部分：否则，就无法从程序中调用这种函数。<br><br>还需要创建类描述的第二部分：为那些由类声明中的原型表示的成员函数提供代码。成员函数定义与常规函数定义非常相似，他们都有函数头和函数体，也可以有返回类型和参数。但是他们还有两个特殊的特征。</p>
+<p><li>定义成员函数时，使用作用域解析运算符（::）来标志函数所属的类；</li></p>
+<p><li>类方法可以访问类的private组件。<br>首先，成员韩式的函数头使用作用域运算符解析（::）来指出函数所属的类。例如，update( )成员的函数头如下：</li></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price)</span><br></pre></td></tr></table></figure>
+<p>这种表示法意味着我们定义的update( )函数是Stock类的成员。这不仅将update( )标识为成员函数，还意味着我们可以将另一个类的成员函数命名为update( )。例如，Buffoon( )类的update( )函数的函数头如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Buffoon::<span class="function"><span class="title">update</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>因此，作用域解析运算符确定了方法定义对应的类的身份。我们说，标识符update( )具有类作用域（class scope）。Stock类的其他成员函数不必使用作用域解析符，就可以使用update( )方法，这事因为他们属于同一个类，因此update( )是可见的。然而在类声明和方法定义之外使用update( )时，需要采用特殊的措施。<br><br>类方法的完整名中包含类名，我们说，Stock::update( )是函数的限定名(qualified name)：而简单的update( )是全名的缩写（非限定名，unqualified name）它只能在类作用域中使用。<br><br>方法的第二个特点是，方法可以访问类的私有成员。例如show( )方法可以使用这样的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>:: &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">	  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; endl</span><br><span class="line">	  &lt;&lt; <span class="string">" Share Prices: $"</span> &lt;&lt; share_val</span><br><span class="line">	  &lt;&lt; <span class="string">" Total Worth: $"</span></span><br></pre></td></tr></table></figure>
+<p>其中company,shares等都是Stock类的私有数据成员。如果试图使用非成员函数访问这些数据成员，编译器禁止这样做（友元函数除外）。<br></p>
+<p>程序清单:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"stock00.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::acquire(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; co, <span class="keyword">long</span> n, <span class="keyword">double</span> pr) &#123;</span><br><span class="line">	company = co;</span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares can't be negative"</span></span><br><span class="line">				  &lt;&lt; company &lt;&lt; <span class="string">" shares set to 0.\n"</span>;</span><br><span class="line">		shares = <span class="number">0</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares = n;</span><br><span class="line">	&#125;</span><br><span class="line">	share_val = pr;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::buy(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares purchased can't be negative."</span></span><br><span class="line">				  &lt;&lt; <span class="string">"Transaction is aborted.\n"</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares += num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::sell(<span class="keyword">long</span> num, <span class="keyword">double</span> price) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line">	<span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Number of shares sold can't be negative."</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; shares) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"You can't sell more than you have!c "</span></span><br><span class="line">			 &lt;&lt; <span class="string">"Transaction is aborted.\n"</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		shares -= num;</span><br><span class="line">		share_val = price;</span><br><span class="line">		set_tot();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::update(<span class="keyword">double</span> price) &#123;</span><br><span class="line">	share_val = price;</span><br><span class="line">	set_tot();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Stock::show() &#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Company: "</span> &lt;&lt; company</span><br><span class="line">			  &lt;&lt; <span class="string">" Shares: "</span> &lt;&lt; shares &lt;&lt; <span class="string">'\n'</span></span><br><span class="line">			  &lt;&lt; <span class="string">" Share Price: $"</span> &lt;&lt; share_val</span><br><span class="line">			  &lt;&lt; <span class="string">" Total Worth: $"</span> &lt;&lt; total_val &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><li>成员函数说明<br><br>acquire()</li></p>
 
       
     </div>
@@ -382,6 +387,58 @@
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">func <span class="title">makeASandwich</span>(<span class="params"></span>) throws </span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">try</span> <span class="title">makeASandwich</span>(<span class="params"></span>)</span><br><span class="line">  <span class="title">eatASandwich</span>(<span class="params"></span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> Error.OutOfCleanDishes </span>&#123;</span><br><span class="line">  washDishes()</span><br><span class="line">&#125; <span class="keyword">catch</span> Error.MissingIngredients(<span class="keyword">let</span> ingredients) &#123;</span><br><span class="line">  buyGroceries(ingredients)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果没有错误被抛出, eatASandwich()函数会被调用。如果一个匹配Error.OutOfCleanDishes的错误被抛出,washDishes函数会被调用。如果一个匹配Error.MissingIngredients的错误被抛出，buyGroceries(_:)函数会随着被catch所捕捉到的关联值[String]被调用。</p>
 <p>当可选类型被第一次赋值之后就可以确定之后一直有值的时候，隐式解析可选类型非常有用。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/二十年/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
+<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
 
       
     </div>
@@ -749,90 +806,9 @@
 
 
   
-    <article id="post-requirejs_入门指南" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/requirejs_入门指南/" class="article-date">
-  	<time datetime="2015-10-21T01:38:35.000Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/requirejs_入门指南/">RequireJS 入门指南</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="RequireJS_入门指南">RequireJS 入门指南</h2><h3 id="简介">简介</h3><p>如今最常用的JavaScript库之一是RequireJS。最近我参与的每个项目，都用到了RequireJS，或者是我向它们推荐了增加RequireJS。在这篇文章中，我将描述RequireJS是什么，以及它的一些基础场景。</p>
-<p>异步模块定义(AMD)<br>谈起RequireJS，你无法绕过提及JavaScript模块是什么，以及AMD是什么。</p>
-<p>JavaScript模块只是遵循SRP(Single Responsibility Principle单一职责原则)的代码段，它暴露了一个公开的API。在现今JavaScript开发中，你可以在模块中封装许多功能，而且在大多数项目中，每个模块都有其自己的文件。这使得JavaScript开发者日子有点难过，因为它们需要持续不断的关注模块之间的依赖性，按照一个特定的顺序加载这些模块，否则运行时将会放生错误。</p>
-<p>当你要加载JavaScript模块时，就会使用script标签。为了加载依赖的模块，你就要先加载被依赖的，之后再加载依赖的。使用script标签时，你需要按照此特定顺序安排它们的加载，而且脚本的加载是同步的。可以使用async和defer关键字使得加载异步，但可能因此在加载过程中丢失加载的顺序。另一个选择是将所有的脚本捆绑打包在一起，但在捆绑的时候你仍然需要把它们按照正确的顺序排序。</p>
-<p>AMD就是这样一种对模块的定义，使模块和它的依赖可以被异步的加载，但又按照正确的顺序。</p>
-<p>Getting Started with RequireJS Library</p>
-<p>CommonJS, 是对通用的JavaScript模式的标准化尝试，它包含有 AMD 定义 ，我建议你在继续本文之前先读一下。在ECMAScript 6这个下一版本JavaScript 规范中，有关于输出，输入以及模块的规范定义，这些将成为JavaScript语言的一部分，而且这不会太久。这也是关于RequireJS我们想说的东西。</p>
-<p>RequireJS?</p>
-<p>RequireJS是一个Javascript 文件和模块框架，可以从 <a href="http://requirejs.org/下载，如果你使用Visual" target="_blank" rel="external">http://requirejs.org/下载，如果你使用Visual</a> Studio也可以通过Nuget获取。它支持浏览器和像node.js之类的服务器环境。使用RequireJS,你可以顺序读取仅需要相关依赖模块。</p>
-<p>RequireJS所做的是，在你使用script标签加载你所定义的依赖时，将这些依赖通过head.appendChild()函数来加载他们。当依赖加载以后，RequireJS计算出模块定义的顺序，并按正确的顺序进行调用。这意味着你需要做的仅仅是使用一个“根”来读取你需要的所有功能，然后剩下的事情只需要交给RequireJS就行了。为了正确的使用这些功能，你定义的所有模块都需要使用RequireJS的API，否者它不会像期望的那样工作。</p>
-<p>RequireJS API 存在于RequireJS载入时创建的命名空间requirejs下。其主要API主要是下面三个函数:</p>
-<p>define– 该函数用户创建模块。每个模块拥有一个唯一的模块ID，它被用于RequireJS的运行时函数，define函数是一个全局函数，不需要使用requirejs命名空间.<br>require– 该函数用于读取依赖。同样它是一个全局函数，不需要使用requirejs命名空间.<br>config– 该函数用于配置RequireJS.<br>在后面，我们将教你如果使用这些函数，但首先让我们先了解下RequireJS的加载流程。</p>
-<p>data-main属性</p>
-<p>当你下载RequireJS之后，你要做的第一件事情就是理解RequireJS是怎么开始工作的。当RequireJS被加载的时候，它会使用data-main属性去搜寻一个脚本文件（它应该是与使用src加载RequireJS是相同的脚本）。data-main需要给所有的脚本文件设置一个根路径。根据这个根路径，RequireJS将会去加载所有相关的模块。下面的脚本是一个使用data-main例子：</p>
-<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"scripts/require.js"</span> <span class="attribute">data-main</span>=<span class="value">"scripts/app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre><p>另外一种方式定义根路劲是使用配置函数，后面我们将会看到。requireJs假设所有的依赖都是脚本，那么当你声明一个脚本依赖的时候你不需要使用.js后缀。</p>
-<p>配置函数</p>
-<p>如果你想改变RequireJS的默认配置来使用自己的配置，你可以使用require.configh函数。config函数需要传入一个可选参数对象，这个可选参数对象包括了许多的配置参数选项。下面是一些你可以使用的配置：</p>
-<p>baseUrl——用于加载模块的根路径。<br>paths——用于映射不存在根路径下面的模块路径。<br>shims——配置在脚本/模块外面并没有使用RequireJS的函数依赖并且初始化函数。假设underscore并没有使用  RequireJS定义，但是你还是想通过RequireJS来使用它，那么你就需要在配置中把它定义为一个shim。<br>deps——加载依赖关系数组<br>下面是使用配置的一个例子：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>.config(&#123;</span><br><span class="line">    <span class="regexp">//</span><span class="constant">By</span> default load any <span class="class"><span class="keyword">module</span> <span class="title">IDs</span> <span class="title">from</span> <span class="title">scripts</span>/<span class="title">app</span></span></span><br><span class="line">    <span class="symbol">baseUrl:</span> <span class="string">'scripts/app'</span>,</span><br><span class="line">    <span class="regexp">//except</span>, <span class="keyword">if</span> the <span class="class"><span class="keyword">module</span> <span class="title">ID</span> <span class="title">starts</span> <span class="title">with</span> "<span class="title">lib</span>"</span></span><br><span class="line">     <span class="symbol">paths:</span> &#123;</span><br><span class="line">        <span class="class"><span class="keyword">lib</span>: '../<span class="title">lib</span>'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="regexp">//</span> load backbone as a shim</span><br><span class="line">    <span class="symbol">shim:</span> &#123;</span><br><span class="line">        <span class="string">'backbone'</span><span class="symbol">:</span> &#123;</span><br><span class="line">            <span class="regexp">//</span><span class="constant">The</span> underscore script dependency should be loaded before loading backbone.js</span><br><span class="line">            <span class="symbol">deps:</span> [<span class="string">'underscore'</span>],</span><br><span class="line">            <span class="regexp">//</span> use the global <span class="string">'Backbone'</span> as the <span class="class"><span class="keyword">module</span> <span class="title">name</span>.</span></span><br><span class="line">            <span class="symbol">exports:</span> <span class="string">'Backbone'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>在这个例子中把根路径设置为了scripts/app，由lib开始的每个模块都被配置在scripts/lib文件夹下面，backbone 加载的是一个shim依赖。</p>
-<p>用RequireJS定义模块</p>
-<p>模块是进行了内部实现封装、暴露接口和合理限制范围的对象。ReuqireJS提供了define函数用于定义模块。按章惯例每个Javascript文件只应该定义一个模块。define函数接受一个依赖数组和一个包含模块定义的函数。通常模块定义函数会把前面的数组中的依赖模块按顺序做为参数接收。例如，下面是一个简单的模块定义:</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"logger"</span>], <span class="function"><span class="keyword">function</span><span class="params">(logger)</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            firstName: <span class="string">"John"</span>,</span><br><span class="line">            lastName: “Black“,</span><br><span class="line">            sayHello: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; </span><br><span class="line">                logger.log(‘hello’);</span><br><span class="line">           		&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>我们看，一个包含了logger的模块依赖数组被传给了define函数,该模块后面会被调用。同样我们看所定义的模块中有一个名为logger的参数，它会被设置为logger模块。每一个模块都应该返回它的API.这个示例中我们有两个属性(firstName和lastName)和一个函数(sayHello)。然后，只要你后面定义的模块通过ID来引用这个模块，你就可以使用其暴露的API。</p>
-<p>使用require函数</p>
-<p>在RequireJS中另外一个非常有用的函数是require函数。require函数用于加载模块依赖但并不会创建一个模块。例如：下面就是使用require定义了能够使用jQuery的一个函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'jquery'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//jQuery was loaded and can be used now</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>小结</p>
-<p>在这篇文章中我介绍了RequireJS库,它是我创建每个Javascript项目都会用到的库函数之一。它不仅仅用于加载模块依赖和相关的命令，RequireJS帮助我们写出模块化的JavaScript代码，这非常有利于代码的可扩展性和重用性。</p>
-<p>本文地址：<a href="http://www.oschina.net/translate/getting-started-with-the-requirejs-library" target="_blank" rel="external">http://www.oschina.net/translate/getting-started-with-the-requirejs-library</a><br><br>原文地址：<a href="http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library" target="_blank" rel="external">http://www.codeproject.com/Articles/625262/Getting-Started-with-the-RequireJS-Library</a><br><br>本文中的所有译文仅用于学习和交流目的，转载请务必注明文章译者、出处、和本文链接<br>我们的翻译工作遵照 CC 协议，如果我们的工作有侵犯到您的权益，请及时联系我们</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </div>

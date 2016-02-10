@@ -168,6 +168,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-关于Node的一些小事" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/10/关于Node的一些小事/" class="article-date">
+  	<time datetime="2016-02-10T11:38:35.000Z" itemprop="datePublished">2016-02-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/10/关于Node的一些小事/">关于Node的一些小事</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="REST_风格的路由规则">REST 风格的路由规则</h3><p>REST的全称是表征状态转移(Representational State Transfer)</p>
+<p><li>1.GET:获取<br></li></p>
+<p><li>2.POST:新增<br></li></p>
+<p><li>3.PUT:更新<br></li></p>
+<p><li>4.DELETE:删除<br></li></p>
+<h3 id="路由设置">路由设置</h3><p>书上面的路由设置会有问题的。后来发现路由设置应该在routes下面设置。</p>
+<h3 id="关于jade">关于jade</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p Hello #&#123;<span class="ruby">name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>会被翻译为如下的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">anonymous</span>(<span class="params">locals, attrs, escape, rethrow</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> buf = [];</span><br><span class="line">  <span class="keyword">with</span> (locals || &#123;&#125;) &#123;</span><br><span class="line">    <span class="keyword">var</span> interp;</span><br><span class="line">    buf.push(<span class="string">'\n&lt;p&gt;Hello '</span> + <span class="built_in">escape</span>((interp = name) == <span class="literal">null</span> ? <span class="string">''</span> : interp) + <span class="string">'\n&lt;/p&gt;'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> buf.join(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好吧这个就是个奇怪的东西。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-刷codewars的小记录2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -817,91 +877,9 @@
 
 
   
-    <article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/DataStructure(5)/" class="article-date">
-  	<time datetime="2015-12-25T14:40:35.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/DataStructure(5)/">DataStructure(5)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="平衡二叉树">平衡二叉树</h3><p>“平衡因子（Balance Factor, 简BF）”：BF(T) = h<sub>L</sub> - h<sub>R</sub>。<br><br>平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。</p>
-<h3 id="平衡二叉树的调整">平衡二叉树的调整</h3><p><img src="https://raw.githubusercontent.com/AirOil/Test_X/bf0bff39b0ea74be9ad67b971c1062e0091483c9/imgs/二叉树.png" alt="二叉树的调整"></p>
-<p>这个放图了，不放图的话实在是说不清楚，哈哈～<br><br>也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调整。</p>
-<h3 id="图(map)">图(map)</h3><p>图的定义：</p>
-<p>表示“多对多”的关系<br><br>包含</p>
-<p><li>一组顶点：通常用V(Vertex)表示顶点集合</li></p>
-<p><li>一组边：通常用E(Edge)表示边的集合</li></p>
-<p><li>边是顶点对：(v, w) ∈ E, 其中v, w ∈ V</li></p>
-<p><li>有向边\<v, w\="">表示从v指向w的边（单行线）</v,></li></p>
-<p><li>不考虑重边与自回路</li></p>
-<p>抽象数据类型定义</p>
-<p><li>类型名称：图(Graph)</li></p>
-<p><li>数据对象集：G(V, E)由一个非空的有限顶点集合V和一个有限边集合E组成。</li></p>
-<p><li>操作集：对于任意图G ∈ Graph， 以及v ∈,  e ∈ E</li></p>
-<p>操作方法：</p>
-<p><li>Graph Create(): 建立并返回空图；</li></p>
-<p><li>Graph InsertVertex(Graph G, Vertex v):将v插入G；</li></p>
-<p><li>Graph InsertEdge(Graph G, Edge e):将e插入G；</li></p>
-<p><li>void DFS(Graph G, Vertex v):从顶点v出发深度优先遍历图G；</li></p>
-<p><li>void DFS(Graph G, Vertex v):从顶点v出发宽度优先遍历图G；</li></p>
-<p><li>void ShortestPath(Graph G, Vertex v, int Dist[]):计算图G中顶点v到任意其他顶点的最短距离；</li></p>
-<p><li>void MST(Graph G):计算图G的最小生成树；</li></p>
-<p><li>………</li></p>
-<p>常见术语：</p>
-<p><li>无向图：所有的图都没有方向</li></p>
-<p>怎么在程序中表示一个图：</p>
-<p><li>1.邻接矩阵G[N][N]–N个顶点从0到N-1编号。<br><br>特征:对角线上全是0；<br><br>特征:按对角线对称；</li></p>
-<blockquote>
-<p>G[i][j] = 1(若\<v<sub>i,v<sub>j</sub>>) or 0(否则)</v<sub></p>
-</blockquote>
-<p>Question：对于有N个顶点的无向图，怎样存储可以省一半空间？<br><br>Answer:用一个长度为N(N+1)/2的1维数组</p>
-<p><li>2.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
