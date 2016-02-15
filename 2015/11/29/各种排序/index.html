@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
 12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
-<meta property="og:updated_time" content="2016-01-14T08:12:44.000Z">
+<meta property="og:updated_time" content="2016-02-15T15:01:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="考试之前看的各种排序">
 <meta name="twitter:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
@@ -205,6 +205,7 @@
       
         <h3 id="&lt;一&gt;插入排序">&lt;一&gt;插入排序</h3><p>有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法<br></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">voidinsertion_sort(intarray[],intfirst,intlast)</span><br><span class="line">&#123;</span><br><span class="line">inti,j;</span><br><span class="line"><span class="keyword">int</span> temp;</span><br><span class="line"><span class="keyword">for</span>(i = first+<span class="number">1</span>; i &lt; last ; i++)</span><br><span class="line">&#123;</span><br><span class="line">temp=<span class="built_in">array</span>[i];</span><br><span class="line">j=i-<span class="number">1</span>;</span><br><span class="line"><span class="comment">//与已排序的数逐一比较，大于temp时，该数移后</span></span><br><span class="line"><span class="keyword">while</span> ((j&gt;=<span class="number">0</span>) &amp;&amp; (<span class="built_in">array</span>[j]&gt;temp))</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">array</span>[j+<span class="number">1</span>]=<span class="built_in">array</span>[j];</span><br><span class="line">j--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存在大于temp的数</span></span><br><span class="line"><span class="keyword">if</span>(j!=i-<span class="number">1</span>)</span><br><span class="line">&#123;<span class="built_in">array</span>[j+<span class="number">1</span>]=temp;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="&lt;二&gt;冒泡排序">&lt;二&gt;冒泡排序</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="&lt;三&gt;选择排序">&lt;三&gt;选择排序</h3><h3 id="&lt;四&gt;快速排序">&lt;四&gt;快速排序</h3>
       

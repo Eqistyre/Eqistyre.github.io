@@ -17,7 +17,7 @@
 删除splice(0,2)从第一项开始删除两项，即删除头两项。
 插入splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”
 替换splice(2,">
-<meta property="og:updated_time" content="2015-10-17T06:02:15.000Z">
+<meta property="og:updated_time" content="2016-02-15T14:59:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript心得（二）">
 <meta name="twitter:description" content="9.19日小结splice()这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容
@@ -213,7 +213,7 @@
 <p><li>删除<br><br>splice(0,2)从第一项开始删除两项，即删除头两项。<br><br></li></p>
 <p><li>插入<br><br>splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”<br><br></li></p>
 <p><li>替换<br><br>splice(2,2,”red,”green”) 从第二项开始删除两项之后再添加两项即完成了替换功能。<br><br></li></p>
-<h4 id="RegExp类型（正则表达式）"><li>RegExp类型（正则表达式）</li></h4><p>这是个大坑，以后会写一个专题的。</p>
+<h4 id="RegExp类型（正则表达式）"><li>RegExp类型（正则表达式）</li></h4><p>这是个大坑，以后会写一个专题的。<br><a id="more"></a></p>
 <h4 id="没有重载"><li>没有重载</li></h4><p>将函数名想象为指针，有助于理解为什么ECMAScript中没有函数重载的概念。<br></p>
 <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function addSomeNumber(num) &#123;</span><br><span class="line">	<span class="keyword">return</span> num + <span class="number">200</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="literal">result</span> = addSomeNumber(<span class="number">100</span>);//<span class="number">300</span></span><br></pre></td></tr></table></figure>
 <p>后面的函数覆盖了前面的函数，这个例子与下面的例子并没有什么区别</p>
