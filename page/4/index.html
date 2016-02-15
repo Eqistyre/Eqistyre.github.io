@@ -168,6 +168,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-面向对象编程的基础知识（上）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/06/面向对象编程的基础知识（上）/" class="article-date">
+  	<time datetime="2015-11-06T14:38:35.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/06/面向对象编程的基础知识（上）/">Objective-C基础教程&lt;一&gt;</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象编程的基础知识（上）">面向对象编程的基础知识（上）</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中我一开始是没有看懂<strong><em>const char </em>words[4]*</strong>这句的意思的。按照我的想法这里应该是char words[4]这种样子的。后来想起来这样只能进行储存一些字母。如（还有下面的例子我是用c++与c的混合体来写的）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：n<br></p>
+<p>然后我们可以看出来它只是会输出一个字母n。那么如果我想输出一堆字符串我该怎么办呢？于是我写了下面这个程序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：warning: conversion from string literal to ‘char <em>‘ is<br>      deprecated [-Wc++11-compat-deprecated-writable-strings]<br>    char </em> words[4] = {“one”,”two”,”three”,”four”};<br><br>以及一堆类似的错误，于是我把代码改了一遍。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：two<br><br><br>于是我们发现造成这样的结果就是因为一个小小的const变量！下面我们来详细的谈论下const变量。原因就是words[4]</p>
+<hr>
+<p>const 推出的初始目的，正是为了取代预编译指令，消除它的缺点，同时继承它的优点。<br></p>
+<h6 id="主要作用">主要作用</h6><p>（1）可以定义const常量，具有不可变性。<br><br>例如：const int Max=100; Max++会产生错误; <br><br>（2）便于进行类型检查，使编译器对处理内容有更多了解，消 除了一些隐患。<br><br>例如： void f(const int i) { ………} 编译器就会知道i是一个常量，不允许修改； <br><br>（3）可以避免意义模糊的数字出现，同样可以很方便地进行参数的调整和修改。 同宏定义一样，可以做到不变则已，一变都变！<br><br>（4）可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。 还是上面的例子，如果在函数体内修改了i，编译器就会报错； <br><br>例如： void f(const int i) { i=10;//error! }<br><br>（5） 可以节省空间，避免不必要的内存分配。 例如： <br><br>#define PI 3.14159 //常量宏<br>const double Pi=3.14159; //此时并未将Pi放入RAM中 ……<br><br>double i=Pi; //此时为Pi分配内存，以后不再分配！ <br><br>double I=PI; //编译期间进行宏替换，分配内存 <br><br>double j=Pi; //没有内存分配 <br><br>double J=PI; //再进行宏替换，又一次分配内存！<br><br>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干份拷贝。 <br><br>（6）提高了效率。 <br><br>编译器通常不为普通const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高。<br></p>
+<h6 id="限定内容">限定内容</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> * pStr;</span><br><span class="line"><span class="keyword">char</span> <span class="built_in">string</span>[<span class="number">4</span>] = <span class="string">"bbc"</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *p1 =<span class="string">" string"</span>; <span class="comment">//1式</span></span><br><span class="line"><span class="keyword">const</span> pStr p2 =<span class="string">" string"</span>; <span class="comment">//2式</span></span><br><span class="line">p1++;</span><br><span class="line">p2++;</span><br></pre></td></tr></table></figure>
+<p>const使用的基本形式： const type m;限定m不可变。替换基本形式中的m为1式中的*p1，替换后const char *p1;限定*p1不可变，当然p1是可变的，因此问题中p1++是对的。替换基本形式中的type为2式中的pStr，替换后const pStr m;限定m不可变，题中的pStr就是一种新类型，因此问题中p2不可[1]  变，p2++是错误的。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pContent; <span class="comment">//*pContent是const, pContent可变</span></span><br></pre></td></tr></table></figure>
+<p>我们可以推导出：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这个里面*pContent是const, words[4]可变。<br><br>突然发现自己写到这里好累！好吧，那么自己就可以休息咯，接下来一章让我们正式进入Object-C的世界！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-数据结构基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -732,57 +801,6 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travel_time <span class="function"><span class="title">sum</span><span class="params">(travel_time t1,travel_time t2)</span></span></span><br></pre></td></tr></table></figure>
 <p>所以有一下程序：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="keyword">struct</span> travel_time &#123;</span><br><span class="line">	<span class="keyword">int</span> hours;</span><br><span class="line">	<span class="keyword">int</span> mins;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Mins_per_hr = <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	travel_time day1 = &#123;<span class="number">5</span>, <span class="number">45</span>&#125;;</span><br><span class="line">	travel_time day2 = &#123;<span class="number">4</span>, <span class="number">45</span>&#125;;	</span><br><span class="line">	</span><br><span class="line">	travel_time trip = sum(day1, day2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Two-day total: "</span>;</span><br><span class="line">	show_time(trip);</span><br><span class="line">	</span><br><span class="line">	travel_time day3 = &#123;<span class="number">4</span>, <span class="number">32</span>&#125;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Three day total: "</span>;</span><br><span class="line">	show_time(sum(trip, day3));</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">travel_time <span class="title">sum</span><span class="params">(travel_time t1, travel_time t2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	travel_time total;</span><br><span class="line">	</span><br><span class="line">	total.mins = (t1.mins + t2.mins) % Mins_per_hr;</span><br><span class="line">	total.hours = t1.hours + t2.hours +(t1.mins + t2.mins) / Mins_per_hr;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_time</span><span class="params">(travel_time t)</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; t.hours &lt;&lt; <span class="string">" hours, "</span></span><br><span class="line">		 &lt;&lt; t.mins &lt;&lt;  <span class="string">" minutes\n"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-杂感（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/23/杂感（一）/" class="article-date">
-  	<time datetime="2015-10-22T16:38:35.000Z" itemprop="datePublished">2015-10-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/杂感（一）/">SegementFault Hackthon比赛前的有感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;马上就要到hackthon,自己的心里有一些紧张，害怕自己在这次的hackthon上做不出来什么东西，也感受到了自己的实力不足。Muxi首页也要开始搞了，用承浩搭建好的本地服务器（应该是这个鬼吧），对了今晚承浩还要讲服务流程，自己得好好听听。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;听完了承浩的讲话，现在在304开始熬夜了。。问了下显阳有没有什么好用的东西，他说flexbox <a href="w3cplus_flexbox详解"></a><a href="http://www.w3cplus.com/css3/a-guide-to-flexbox.html" target="_blank" rel="external">http://www.w3cplus.com/css3/a-guide-to-flexbox.html</a> 是一个很好用的模版，在这里我顺便来分析一下这个模版吧。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。。。想了半天。我想这是一个刚刚w3cplus上的教程已经说的很详细了，一个可以了。。简单的布局用这种模版还是不错的。</p>
-
       
     </div>
     

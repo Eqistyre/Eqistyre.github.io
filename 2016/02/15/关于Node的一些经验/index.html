@@ -3,25 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DataStructure(5) | SakuraNeko</title>
+  <title>关于前端与Node的一些经验 | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="平衡二叉树“平衡因子（Balance Factor, 简BF）”：BF(T) = hL - hR。平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。
-平衡二叉树的调整
-这个放图了，不放图的话实在是说不清楚，哈哈～也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调">
+  <meta name="description" content="###折腾的几天这几天一直在折腾那个echarts数据处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataStructure(5)">
-<meta property="og:url" content="http://eqistyre.github.io/2015/12/25/DataStructure(5)/index.html">
+<meta property="og:title" content="关于前端与Node的一些经验">
+<meta property="og:url" content="http://eqistyre.github.io/2016/02/15/关于Node的一些经验/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="平衡二叉树“平衡因子（Balance Factor, 简BF）”：BF(T) = hL - hR。平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。
-平衡二叉树的调整
-这个放图了，不放图的话实在是说不清楚，哈哈～也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调">
-<meta property="og:image" content="https://raw.githubusercontent.com/AirOil/Test_X/bf0bff39b0ea74be9ad67b971c1062e0091483c9/imgs/二叉树.png">
-<meta property="og:updated_time" content="2015-12-27T15:58:05.000Z">
+<meta property="og:description" content="###折腾的几天这几天一直在折腾那个echarts数据处理">
+<meta property="og:updated_time" content="2016-02-15T14:54:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataStructure(5)">
-<meta name="twitter:description" content="平衡二叉树“平衡因子（Balance Factor, 简BF）”：BF(T) = hL - hR。平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。
-平衡二叉树的调整
-这个放图了，不放图的话实在是说不清楚，哈哈～也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调">
+<meta name="twitter:title" content="关于前端与Node的一些经验">
+<meta name="twitter:description" content="###折腾的几天这几天一直在折腾那个echarts数据处理">
   
   
     <link rel="icon" href="/favicon.png">
@@ -174,11 +167,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-关于Node的一些经验" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/25/DataStructure(5)/" class="article-date">
-  	<time datetime="2015-12-25T14:40:35.000Z" itemprop="datePublished">2015-12-25</time>
+      <a href="/2016/02/15/关于Node的一些经验/" class="article-date">
+  	<time datetime="2016-02-15T14:52:35.000Z" itemprop="datePublished">2016-02-15</time>
 </a>
     </div>
   
@@ -191,7 +184,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DataStructure(5)
+      关于前端与Node的一些经验
     </h1>
   
 
@@ -207,38 +200,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="平衡二叉树">平衡二叉树</h3><p>“平衡因子（Balance Factor, 简BF）”：BF(T) = h<sub>L</sub> - h<sub>R</sub>。<br><br>平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。</p>
-<h3 id="平衡二叉树的调整">平衡二叉树的调整</h3><p><img src="https://raw.githubusercontent.com/AirOil/Test_X/bf0bff39b0ea74be9ad67b971c1062e0091483c9/imgs/二叉树.png" alt="二叉树的调整"></p>
-<p>这个放图了，不放图的话实在是说不清楚，哈哈～<br><br>也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调整。</p>
-<h3 id="图(map)">图(map)</h3><p>图的定义：</p>
-<p>表示“多对多”的关系<br><br>包含</p>
-<p><li>一组顶点：通常用V(Vertex)表示顶点集合</li></p>
-<p><li>一组边：通常用E(Edge)表示边的集合</li></p>
-<p><li>边是顶点对：(v, w) ∈ E, 其中v, w ∈ V</li></p>
-<p><li>有向边\<v, w\="">表示从v指向w的边（单行线）</v,></li></p>
-<p><li>不考虑重边与自回路</li></p>
-<p>抽象数据类型定义</p>
-<p><li>类型名称：图(Graph)</li></p>
-<p><li>数据对象集：G(V, E)由一个非空的有限顶点集合V和一个有限边集合E组成。</li></p>
-<p><li>操作集：对于任意图G ∈ Graph， 以及v ∈,  e ∈ E</li></p>
-<p>操作方法：</p>
-<p><li>Graph Create(): 建立并返回空图；</li></p>
-<p><li>Graph InsertVertex(Graph G, Vertex v):将v插入G；</li></p>
-<p><li>Graph InsertEdge(Graph G, Edge e):将e插入G；</li></p>
-<p><li>void DFS(Graph G, Vertex v):从顶点v出发深度优先遍历图G；</li></p>
-<p><li>void DFS(Graph G, Vertex v):从顶点v出发宽度优先遍历图G；</li></p>
-<p><li>void ShortestPath(Graph G, Vertex v, int Dist[]):计算图G中顶点v到任意其他顶点的最短距离；</li></p>
-<p><li>void MST(Graph G):计算图G的最小生成树；</li></p>
-<p><li>………</li></p>
-<p>常见术语：</p>
-<p><li>无向图：所有的图都没有方向</li></p>
-<p>怎么在程序中表示一个图：</p>
-<p><li>1.邻接矩阵G[N][N]–N个顶点从0到N-1编号。<br><br>特征:对角线上全是0；<br><br>特征:按对角线对称；</li></p>
-<blockquote>
-<p>G[i][j] = 1(若\<v<sub>i,v<sub>j</sub>>) or 0(否则)</v<sub></p>
-</blockquote>
-<p>Question：对于有N个顶点的无向图，怎样存储可以省一半空间？<br><br>Answer:用一个长度为N(N+1)/2的1维数组</p>
-<p><li>2.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li></p>
+        <p>###折腾的几天<br>这几天一直在折腾那个echarts数据处理<br><a id="more"></a></p>
 
       
     </div>
@@ -248,18 +210,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/02/C++知识点maybe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          考试之前看的各种c++知识点
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/22/SICP(1)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SICP读书笔记(1)</div>
+    <a href="/2016/02/10/关于Node的一些小事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于Node的一些小事</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
