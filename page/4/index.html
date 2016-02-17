@@ -168,6 +168,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-面向对象编程的基础知识（下）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/07/面向对象编程的基础知识（下）/" class="article-date">
+  	<time datetime="2015-11-07T06:38:35.000Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/面向对象编程的基础知识（下）/">Objective-C基础教程&lt;二&gt;</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="面向对象编程的基础知识（下）">面向对象编程的基础知识（下）</h3><h5 id="@interface部分">@interface部分</h5><p>创建某个特定类对象之前，Objective-C编译器需要一些有关该类的信息，尤其是对象的数据成员（即对象的C语言类型结构体应该是什么样子）及其提供的功能。可以使用@interface指令把这些信息传递给编译器。</br><br>以下是Circle类的接口。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">interface</span> Circle : NSObject </span>&#123;</span><br><span class="line">	<span class="tag">ShapeColor</span> <span class="tag">fillColor</span>;</span><br><span class="line">	<span class="tag">ShapeRect</span> <span class="tag">bounds</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setFillColor</span>:<span class="value"> (ShapeColor) fillColor</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="rule"><span class="attribute">setBounds</span>:<span class="value"> (ShapeRect) bounds</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span> (<span class="tag">void</span>) <span class="tag">draw</span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">end</span> //Circle</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/07/面向对象编程的基础知识（下）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-面向对象编程的基础知识（上）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -680,70 +735,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/27/函数探幽(上)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-函数原型与函数调用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/26/函数原型与函数调用/" class="article-date">
-  	<time datetime="2015-10-26T12:38:35.000Z" itemprop="datePublished">2015-10-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/26/函数原型与函数调用/">c++学习知识点纪录（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="初步认识函数">初步认识函数</h2><p></br></p>
-<h4 id="函数与数组">函数与数组</h4><p>函数如何使用指针来处理数组？</br><br>在大多数情况下，C++和C语言一样，也将数组名视为指针。c++酱数组名解释为第一个元素的地址</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookies == &amp;cookies<span class="string">[0]</span></span><br></pre></td></tr></table></figure>
-<h4 id="函数原型与函数调用">函数原型与函数调用</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function">diuble <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	cheers(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Cherrs!"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为什么需要函数原型?</br><br>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量高数编译器。例如，请看原型将如何下述函数调用：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double volume = cube<span class="list">(<span class="keyword">side</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>首先，原型告诉编译器，cube()有一饿double参数。如果程序没有提供这样的函数，原型将让编译器能捕获这种错误。</p>
-<h4 id="函数和结构">函数和结构</h4><p>现在将注意力从数组转移到结构。为结构编写函数比为数组便携函数要简单得多。虽然结构变量和数组一样，都可以储存多个数据想，但在涉及到函数时，结构变量的行为更接近于基本的单值变量。也就是说与数组不同，结构变量的行为更接近于基本的单值变量。也就是说，与数组不同，结构将其数据组合成单个实体或者数据对象，则更应该被视为一个整体。</p>
-<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">travel_time</span></span>&#123;</span><br><span class="line">	int hours;</span><br><span class="line">	int mins;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>返回值的类型为travel_time,两个参数应该也为这种类型。这个东西的函数原型应该如下所示：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travel_time <span class="function"><span class="title">sum</span><span class="params">(travel_time t1,travel_time t2)</span></span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/26/函数原型与函数调用/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

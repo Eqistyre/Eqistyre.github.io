@@ -168,6 +168,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-swift&lt;二&gt;" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/swift<二>/" class="article-date">
+  	<time datetime="2016-01-12T17:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/swift<二>/">Swift学记笔记（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="空合运算符(Nil_Coalescing_Operator)">空合运算符(Nil Coalescing Operator)</h3><p>空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：</p>
+<p><li>表达式a必须式Optional类型</p>
+<p><li>默认值b的类型必须要和a储存值的类型保持一致</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">a</span> <span class="exclamation_mark">!</span>= <span class="function_or_atom">nil</span> ? <span class="function_or_atom">a</span> <span class="exclamation_mark">!</span> : <span class="function_or_atom">b</span></span><br></pre></td></tr></table></figure>
+<p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当a中的值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具有可读性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="built_in">String</span>? <span class="comment">//默认为nil</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName ?? defaultColorName</span><br></pre></td></tr></table></figure>
+<p>userDefinedColorName变量被定义为一个可选的String类型，默认值为nil。由于userDefinedColorName是一个可选类型，我们可以使用空合运算符去判断其值。在上一个例子中，通过空合运算符为一个名为colorNameToUse的变量赋予一个字符串类型初始值。由于userDefinedColorName值为空，因此表达式userDefinedColorName ?? defaultColorName返回defaultColorName的值，即red。</p>
+<p>另一种情况，分配一个非空值（non-nil）给userDefinedColorName,再次执行空合运算，运算结果为封包在userDefaultColorName中的值，而非默认值。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">user</span>DefaultColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = <span class="keyword">user</span>DefinedColorName ?? <span class="keyword">default</span>ColorName</span><br></pre></td></tr></table></figure>
+<h3 id="区间运算符">区间运算符</h3><p>Swift提供了两个方便表达一个区间的运算符。</p>
+<h3 id="闭区间运算符">闭区间运算符</h3><p>闭区间运算符（a…b）定义一个包含从a到b（包括a和b）的所有值的区间，b必须大于等于a。闭区间运算符在迭代一个区间的所有值时是非常有用的（Ps：这个与python的语法好像啊）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
+<p>半开区间运算符<br>(a..&lt;b)从a到b不包括b的区间。</p>
+<h3 id="集合（Sets）">集合（Sets）</h3><p>Swift语言中的Arrarys,Sets或Dictionaries中储存的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时也说明我们完全可以对取回值的类型非常自信。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/13/swift<二>/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -702,63 +769,6 @@
 <p>这事情自己应付了就行。不需要投入太多的精力，自己还是要好好去学习。这事情能获取学校多少帮助就争取获取多少。</p>
 <p>听着周杰伦的的《阳光宅男》，自己觉得自己一个唱首《月光男孩》。自己越来越空虚了。好烦！</p>
 <p>算了还是好好写代码。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-颓废的两天" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/10/颓废的两天/" class="article-date">
-  	<time datetime="2015-12-10T07:38:35.000Z" itemprop="datePublished">2015-12-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/10/颓废的两天/">十二月中旬杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="颓废的两天（12-4）">颓废的两天（12.4）</h3><p>这两天真的很颓废，没有去做什么事情，，Github上面的进度也断了。主要原因是我不应该去看小说啊啊啊。小说真的很能让自己颓废掉。</p>
-<p>说下自己未来几天的计划吧</p>
-<p><li>1.去看看数字逻辑周六（也就是明天）要去做数字逻辑的实验了<br></li></p>
-<p><li>2.还要去复习数据结构和C++，虽然我可以考过这两门，但是太多课没有去上了<br></li></p>
-<p><li>3.Osmanthus项目先停一会吧<br></li></p>
-<p><li>4.Lua脚本扩展那本书看完，那本书挺基础的<br></li></p>
-<h3 id="活过来了（12-10）">活过来了（12.10）</h3><p>终于终于颓废的几天过去了，可以重新好好的做事了，那些奇奇怪怪的事情也都干完了。不过自己还是要注意要考四级了，好好努力咯加油少年</p>
 
       
     </div>
