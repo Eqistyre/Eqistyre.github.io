@@ -5,16 +5,28 @@
   
   <title>Exploring-es6(1) | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。">
+  <meta name="description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：
+2015.6ES6成为了新的标准。
+它的特征渐渐的在javascript的引擎里表现出来。
+Transpilers（转换器）可以把ES6转换为ES5
+还有ES6的目标：(用汉语写不下去了。。我还是用英语写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Exploring-es6(1)">
 <meta property="og:url" content="http://eqistyre.github.io/2016/02/19/Exploring-es6/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。">
-<meta property="og:updated_time" content="2016-02-19T07:24:54.000Z">
+<meta property="og:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：
+2015.6ES6成为了新的标准。
+它的特征渐渐的在javascript的引擎里表现出来。
+Transpilers（转换器）可以把ES6转换为ES5
+还有ES6的目标：(用汉语写不下去了。。我还是用英语写">
+<meta property="og:updated_time" content="2016-02-19T08:35:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring-es6(1)">
-<meta name="twitter:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。">
+<meta name="twitter:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：
+2015.6ES6成为了新的标准。
+它的特征渐渐的在javascript的引擎里表现出来。
+Transpilers（转换器）可以把ES6转换为ES5
+还有ES6的目标：(用汉语写不下去了。。我还是用英语写">
   
   
     <link rel="icon" href="/favicon.png">
@@ -200,8 +212,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言">前言</h2><p>准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。<br><a id="more"></a></p>
-
+        <h2 id="前言">前言</h2><p>准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：</p>
+<p><li>2015.6ES6成为了新的标准。<br></li></p>
+<p><li>它的特征渐渐的在javascript的引擎里表现出来。<br></li></p>
+<p><li>Transpilers（转换器）可以把ES6转换为ES5<br></li></p>
+<p>还有ES6的目标：(用汉语写不下去了。。我还是用英语写吧)</p>
+<p><li>complex applications<br></li></p>
+<p><li>libraries (possibly including the DOM) shared by those applications<br></li></p>
+<p><li>code generators targeting the new edition<br></li></p>
+<p>Maybe modules are also an answer to goal.</p>
+<p>And there is also a goal to improve interoperation.for examples:</p>
+<p><li>Classes: are based on how constructor functions are currently used.<br></li></p>
+<p><li>Modules: picked up design ideas from the CommonJS module format.<br></li></p>
+<p><li>Arrow functions: have syntax that is borrowed from CoffeeScript.<br></li></p>
+<p><li>Named function parameters: There is no built-in support for named parameters. Instead, the<br>existing practice of naming parameters via object literals is supported via destructuring in parameter definitions.<br></li></p>
+<p>I think javascript will be more useful as the result of Classes! and there is a funny question~</p>
+<blockquote>
+<p>Why are there “fat” arrow functions (=&gt;) in ES6, but no “thin” arrow functions (-&gt;)?<br>ECMAScript 6 has syntax for functions with a lexical this, so-called arrow functions. However, it does not have arrow syntax for functions with dynamic this. That omission was deliberate; method definitions cover most of the use cases for thin arrows. If you really need dynamic this, you can still use a traditional function expression.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="From_var_to_let/consts">From var to let/consts</h2>
       
     </div>
     
