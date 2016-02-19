@@ -168,6 +168,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-杂感12.15" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/15/杂感12.15/" class="article-date">
+  	<time datetime="2015-12-14T16:38:35.000Z" itemprop="datePublished">2015-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/15/杂感12.15/">吐槽</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="我现在很想吐槽">我现在很想吐槽</h3><p>我现在很想吐槽！我现在很想吐槽！我现在很想吐槽！我现在很想吐槽！</p>
+<p>没有猫也没有她，自己还多了一堆事。</p>
+<p>这事情自己应付了就行。不需要投入太多的精力，自己还是要好好去学习。这事情能获取学校多少帮助就争取获取多少。</p>
+<p>听着周杰伦的的《阳光宅男》，自己觉得自己一个唱首《月光男孩》。自己越来越空虚了。好烦！</p>
+<p>算了还是好好写代码。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-颓废的两天" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -672,71 +727,6 @@
       
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-事件驱动events" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/10/事件驱动events/" class="article-date">
-  	<time datetime="2015-11-10T06:38:35.000Z" itemprop="datePublished">2015-11-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/10/事件驱动events/">Node.js事件驱动events</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="事件驱动events">事件驱动events</h3><p>events是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了<strong><em>唯一的接口</em></strong>，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。</p>
-<h5 id="事件发射器">事件发射器</h5><p>events模块只提供了一个对象：evnts.EventEmitter。EventEMitter的核心是事件发射器与实践监听器功能的封装。EventEmitter的每一个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件EventEmitter支持若干个事件监听器。当事件发射的时候，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener1'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener2'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.emit(<span class="string">'someEvent'</span>, <span class="string">'byvoid'</span>, <span class="number">1999</span>);</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">listener1</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br><span class="line"><span class="label">listener2</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br></pre></td></tr></table></figure>
-<p>以上例子中，emitter为事件someEvent注册了两个事件监听器，然后发射了someEvent事件。运行结果中可以看到两个事件监听器回调函数被先后调用。</p>
-<p>这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
-<p><li>EventEmitter.on(event, listener)为指定    事件注册一个监听器，接受一个字符串event和一个回调函数listener。</p>
-<p><li>EventEmitter.emit(event, [arg1], [arg2], […])发射event事件，传递若干可选参数到事件监听器的参数表。</p>
-<p><li>EventEmitter.once(event, listener) 为指定事件注册一个<strong><em>单次</em></strong>监听器，即监听器最多只会触发一次，出发后立刻解除该监听器。</p>
-<p><li>EventEmitter.removeListener(event, Listener)移除指定事件的某个监听器，listener必须是该事件已经注册过的监听器。</p>
-<p><li>EventEmitter.removeAllListeners([event])移除所有的事件监听器。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/10/事件驱动events/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

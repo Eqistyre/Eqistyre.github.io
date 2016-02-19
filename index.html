@@ -168,6 +168,60 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Exploring-es6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/19/Exploring-es6/" class="article-date">
+  	<time datetime="2016-02-19T10:38:35.000Z" itemprop="datePublished">2016-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/19/Exploring-es6/">Exploring-es6(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言">前言</h2><p>准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/19/Exploring-es6/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-关于Node的一些经验" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -602,68 +656,6 @@
 <p>缺点：<br><br>Session变量和cookies是同一类型的。如果某用户将浏览器设置为不兼容任何cookie，那么该用户就无法使用这个Session变量！<br><br>当一个用户访问某页面时，每个Session变量的运行环境便自动生成，这些Session变量可在用户离开该页面后仍保留20分钟！（事实上，这些变量一直可保留至“timeout”。“timeout”的时间长短由Web服务器管理员设定。一些站点上的变量仅维持了3分钟，一些则为10分钟，还有一些则保留至默认值20分钟。）所以，如果在Session中置入了较大的对象（如ADOrecordsets，connections， 等等），那就有麻烦了！随着站点访问量的增大，服务器将会因此而无法正常运行！<br>因为创建Session变量有很大的随意性，可随时调用，不需要开发者做精确地处理，所以，过度使用session变量将会导致代码不可读而且不好维护。虽然“你可以在任何想要使用的时候直接使用session变量，而不必事先声明它，这种方式接近于在VB中变量的使用。使用完毕后，也不必考虑将其释放，因为它将自动释放”。但是，“谁”想到那儿呢？变量的含义是什么？这些都变得不很清晰。<br>分享。</p>
 <p>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上它还有其他选择。</p>
 <p>也就是说，如果我浏览器关了，那么我的session就失效了，一个对应一个浏览器，而cookie会保存，通常两者会混合着使用。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-NodeExpress" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/NodeExpress/" class="article-date">
-  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/NodeExpress/">express概述</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言">前言</h3><p>上火车了，时间真的好快，终于快回家了，列车上也没有什么事情，也就把express看一下吧。</p>
-<p>express 是一种使用广泛的基于node的开发框架，它具有着许多的优点。</p>
-<p><li>路由控制</li></p>
-<p><li>模板解析支持</li></p>
-<p><li>动态视图</li></p>
-<p><li>用户会话</li></p>
-<p><li>CSRF保护</li></p>
-<p><li>静态文件服务</li></p>
-<p><li>错误控制器</li></p>
-<p><li>访问日志</li></p>
-<p><li>缓存</li></p>
-<p><li>插件支持</li></p>
 
       
     </div>
