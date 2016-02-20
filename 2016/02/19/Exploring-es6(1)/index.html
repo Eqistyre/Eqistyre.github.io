@@ -12,14 +12,14 @@ Transpilers（转换器）可以把ES6转换为ES5
 还有ES6的目标：(用汉语写不下去了。。我还是用英语写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Exploring-es6(1)">
-<meta property="og:url" content="http://eqistyre.github.io/2016/02/19/Exploring-es6/index.html">
+<meta property="og:url" content="http://eqistyre.github.io/2016/02/19/Exploring-es6(1)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：
 2015.6ES6成为了新的标准。
 它的特征渐渐的在javascript的引擎里表现出来。
 Transpilers（转换器）可以把ES6转换为ES5
 还有ES6的目标：(用汉语写不下去了。。我还是用英语写">
-<meta property="og:updated_time" content="2016-02-20T03:29:08.000Z">
+<meta property="og:updated_time" content="2016-02-20T06:43:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring-es6(1)">
 <meta name="twitter:description" content="前言准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：
@@ -179,10 +179,10 @@ Transpilers（转换器）可以把ES6转换为ES5
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Exploring-es6" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Exploring-es6(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/19/Exploring-es6/" class="article-date">
+      <a href="/2016/02/19/Exploring-es6(1)/" class="article-date">
   	<time datetime="2016-02-19T10:38:35.000Z" itemprop="datePublished">2016-02-19</time>
 </a>
     </div>
@@ -250,11 +250,12 @@ Transpilers（转换器）可以把ES6转换为ES5
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCoord</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`(<span class="subst">$&#123;x&#125;</span>, <span class="subst">$&#123;y&#125;</span>)`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="From_function_expressions_to_arrow_functions">From function expressions to arrow functions</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UiComponent</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> _this = <span class="keyword">this</span>; <span class="comment">// (A)</span></span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'myButton'</span>); button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'CLICK'</span>);</span><br><span class="line">        _this.handleClick(); <span class="comment">// (B)</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">UiComponent.prototype.handleClick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">···</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>In ES6, you can use arrow functions, which don’t shadow this (line A, lexical this):</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> UiComponent &#123; <span class="constructor"><span class="keyword">constructor</span>() </span>&#123;</span><br><span class="line"><span class="keyword">let</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'myButton'</span>); button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'CLICK'</span>);</span><br><span class="line"><span class="keyword">this</span>.handleClick(); <span class="comment">// (A) &#125;);</span></span><br><span class="line">    &#125;</span><br><span class="line">    handleClick() &#123;</span><br><span class="line">···</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> UiComponent &#123;</span><br><span class="line">  <span class="constructor"><span class="keyword">constructor</span>() </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'myButton'</span>);</span><br><span class="line">    button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'CLICK'</span>);</span><br><span class="line">      <span class="keyword">this</span>.handleClick(); <span class="comment">// (A)</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    ···</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Arrow functions are especially handy for short callbacks that only return results of expressions. In ES5, such callbacks are relatively verbose:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> squares = arr.map(<span class="function"><span class="keyword">function</span> <span class="params">(x)</span> </span>&#123; <span class="keyword">return</span> x * x &#125;);</span><br></pre></td></tr></table></figure>
 <p>In ES6, arrow functions are much more concise:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">let squares = arr.<span class="built_in">map</span>(x =&gt; x * x);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">var squares = arr.<span class="built_in">map</span>(x =&gt; x * x)</span><br></pre></td></tr></table></figure>
+<p>When defining parameters, you can even omit parentheses if the parameters are just a single identifier. Thus: (x) =&gt; x <em> x and x =&gt; x </em> x are both allowed, but I think (x) =&gt; x * x is better, because we use () =&gt; {} display anonymous function.</p>
 
       
     </div>
@@ -263,6 +264,15 @@ Transpilers（转换器）可以把ES6转换为ES5
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/20/Exploring-es6(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Exploring-es6(2)
+        
+      </div>
+    </a>
   
   
     <a href="/2016/02/15/关于Node的一些经验/" id="article-nav-older" class="article-nav-link-wrap">
