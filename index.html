@@ -214,17 +214,6 @@
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In ES6</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x=0, y=0)</span> </span>&#123;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Handling_named_parameters">Handling named parameters</h3><p>A common way of naming parameters in JavaScript is via object literals (the so-called options object pattern):</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">selectEntries</span>(&#123; <span class="attribute">start</span>: <span class="number">0</span>, <span class="attribute">end</span>: -<span class="number">1</span> &#125;);</span><br></pre></td></tr></table></figure>
-<p>In ES5, you can implement selectEntries() as follows:</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectEntries</span><span class="params">(options)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> start = options.start || <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> end = options.end || -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> step = options.step || <span class="number">1</span>;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In ES6, you can use destructuring in parameter definitions and the code becomes simpler:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">selectEntries</span><span class="params">(&#123; start=<span class="number">0</span>, end=-<span class="number">1</span>, step=<span class="number">1</span> &#125;)</span> </span>&#123;</span><br><span class="line">   ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>about parameter default values</p>
-<p>下面我来解释一下默认参数的问题：下面是函数</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(x, y = 0)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面是执行：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="title">f</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">&gt;<span class="function"><span class="title">f</span><span class="params">()</span></span></span><br><span class="line">[undefined, <span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
-
       
     </div>
     
@@ -233,6 +222,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/20/Exploring-es6(2)/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
