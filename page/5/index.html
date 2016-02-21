@@ -168,6 +168,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-内存模型和名称空间" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/内存模型和名称空间/" class="article-date">
+  	<time datetime="2015-10-29T13:38:35.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/内存模型和名称空间/">c++学习知识点纪录（四）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单独编译">单独编译</h4><p>请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。</br></p>
+<p><li>函数原型。</p>
+<p><li>使用#define或const定义的符号常量。</p>
+<p><li>结构声明。</p>
+<p><li>类声明。</p>
+<p><li>模版声明。</p>
+<p><li>内联函数。</p>
+<h4 id="储存持续性，作用域和链接性">储存持续性，作用域和链接性</h4><p><li>自动储存持续性：在函数定义中声明的变量（包括函数参数）的持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。</p>
+<p><li>静态函数储存持续性：在函数定义外定义的变量和使用关键字static定义的变量的储存持续性都为静态。它们在程序整个允许过程中都存在</p>
+<p><li>线程储存持续性：多和处理器中有这个东西。</p>
+<p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</p>
+<h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。</br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/29/内存模型和名称空间/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-函数探幽(下)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -685,66 +751,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/21/JavaScript函数声明与表达式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript面向对象的程序设计" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/JavaScript面向对象的程序设计/" class="article-date">
-  	<time datetime="2015-09-20T02:38:35.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/JavaScript面向对象的程序设计/">JavaScript面向对象的程序设计</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-20日小结">9.20日小结</h2><h3 id="面向对象的程序设计">面向对象的程序设计</h3><h4 id="序"><li>序</h4><p>两种创建实例并且为它添加属性和方法的方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"sakura"</span>;</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line">person.job = <span class="string">"Weber"</span>;</span><br><span class="line"></span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方法创建了一个实例然后为其一一赋值，几年后，对象字量成为了这种创建对象的首选模式。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name:<span class="string">"Sakura"</span>,</span><br><span class="line">	age:<span class="number">18</span>,</span><br><span class="line">	job:<span class="string">"Weber"</span>,</span><br><span class="line"></span><br><span class="line">	sayName: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="属性类型"><li>属性类型</h4><p>object.defineProperty()<br></br><li>[[Configurabale]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。默认true。<br></br><li>[[Enumerable]]:表示能否通过for-in循环返回属性。默认true。<br></br><li>[[Writable]]:表示能否修改属性的值。默认true。<br></br><li>[[Value]]:包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。特性的默认值为undefined。</p>
-<h5 id="访问器属性">访问器属性</br></h5><p>访问器属性不包含数据值；它们包含一对儿getter和setter(并不是必需的)。在读取访问器属性的时候，会调用getter函数，这个函数负责返回有效的值。在写入访问属性的时候会调用setter函数传入新值。<br></br><li>[[Configurabale]]<br></br><li>[[Enumerable]]<br></br><li>[[Get]]在读取属性时调用的函数。默认值为undefined<br></br><li>[[Set]]在写入属性时调用的函数。默认值为undefined<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/20/JavaScript面向对象的程序设计/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
