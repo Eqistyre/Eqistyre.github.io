@@ -168,6 +168,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-算法设计与分析(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/22/算法设计与分析(1)/" class="article-date">
+  	<time datetime="2016-02-22T14:40:35.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/22/算法设计与分析(1)/">算法设计与分析(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="算法设计的一半过程">算法设计的一半过程</h3><p>其中有一步，在精确解和近似解里选择。用绝对值进行</p>
+<h3 id="算法分析">算法分析</h3><p><li>渐进符号<br></li></p>
+<p><li>最好，最坏和平均<br></li></p>
+<p><li>非递归算法的分析<br></li></p>
+<p><li>递归算法的分析<br></li></p>
+<p><li>算法的后验分析<br></li></p>
+<h5 id="对于算法我们主要要分析空间与时间（时空开销）。">对于算法我们主要要分析空间与时间（时空开销）。</h5><p><li>输入量多少<br></li></p>
+<p><li>基本语句：执行次数与整个算法执行时间成正比的语句<br></li></p>
+<p>#####</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Exploring-es6(3)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -266,7 +325,7 @@
 <p>Multiple return values via objectss</p>
 <p>The method Object.getOwnPropertyDescriptor() return a property descriptors, an object that holds multiple values in its properties.</p>
 <p>In ES5, even if you are only interested in the properties of an object, you still need an intermediate variable (propDesc in the example below):</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> propDesc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>); <span class="keyword">var</span> writable = propDesc.writable;</span><br><span class="line"><span class="keyword">var</span> configurable = propDesc.configurable;</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true</span></span><br><span class="line">In ES6, you can use destructuring:</span><br><span class="line"><span class="keyword">let</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;writable, configurable&#125; = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true &#123;writable, configurable&#125; is an abbreviation for:</span></span><br><span class="line">&#123; writable: writable, configurable: configurable &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> propDesc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">var</span> writable = propDesc.writable;</span><br><span class="line"><span class="keyword">var</span> configurable = propDesc.configurable;</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true</span></span><br><span class="line">In ES6, you can use destructuring:</span><br><span class="line"><span class="keyword">let</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;writable, configurable&#125; = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true &#123;writable, configurable&#125; is an abbreviation for:</span></span><br><span class="line">&#123; writable: writable, configurable: configurable &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Handling_multiple_default_values">Handling multiple default values</h3><p>In ES5, you specify default values for parameters like this:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In ES6</p>
@@ -685,63 +744,6 @@
 <h4 id="Zyklus-Green"><li>Zyklus-Green</li></h4><p>1.19~09:00<table>泡了碗面，把给的图重新切了一下。其实滑动条是有的，不需要自己重做，自己把它稍微重写下吧。</table></p>
 <p>1.19~11:30<table>把settingLayer写好了，滑动条属性get。准备设置触碰范围。</table></p>
 <p>1.19~16:15<table>无线滚动做好，着手于其余的细微调节。</table></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-开发日志(一)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/18/开发日志(一)/" class="article-date">
-  	<time datetime="2016-01-18T07:38:35.000Z" itemprop="datePublished">2016-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/18/开发日志(一)/">开发日志（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自己还是得写开发日志呀，也可以作为写代码时的消遣＝＝。前几天的开发进度只能模模糊糊的写上去了。</p>
-<h4 id="Zyklus-Green"><li>Zyklus-Green</li></h4><p>1.16<table>项目正式开工，调好了分辨率。</table></p>
-<p>1.17<table>加入了启动界面，音乐控制。中途由于自己傻，少写了一个导演类，导致无法获取实例。</table></p>
-<p>1.18~11:30<table>又出Bug了，游戏场景无法变化图片。</table></p>
-<p>1.18~15:34<table>发现imageview类竟然是ui类的子类，所以选择在计时器中使用，但发现Fps逐渐降低，猜测是由于不断执行setvisible操作所致，修复中。</table></p>
-<p>1.18~16:34<table>整整一个小时，终于修好了这个Bug,只要把声明重新写在public里就行了，然后再分别定义分别判断，正在加入第二张图，构建无限循环。</table></p>
-<p>1.18~16:59<table>图给错了！！这图压根不能无限循环好吧，明天需要重做这图。</table></p>
 
       
     </div>
