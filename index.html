@@ -168,6 +168,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Java笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/23/Java笔记（一）/" class="article-date">
+  	<time datetime="2016-02-23T01:38:35.000Z" itemprop="datePublished">2016-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/23/Java笔记（一）/">Java笔记&amp;&amp;数据库笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言">前言</h3><p>我们院还是会开java课的呀。郁闷。。明明Java要被C++简单多了。。</p>
+<h3 id="一些看到比较有感觉的特点">一些看到比较有感觉的特点</h3><p>Java枚举:</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FreshJuice</span> &#123;</span></span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">FreshJuiceSize</span>&#123; <span class="title">SMALL</span>, <span class="title">MEDUIM</span>, <span class="title">LARGE</span> &#125;</span></span><br><span class="line">   <span class="constant">FreshJuiceSize</span> size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">FreshJuiceTest</span> &#123;</span></span><br><span class="line">   public static void main(<span class="constant">String</span> args[])&#123;</span><br><span class="line">      <span class="constant">FreshJuice</span> juice = new <span class="constant">FreshJuice</span>();</span><br><span class="line">      juice.size = <span class="constant">FreshJuice</span>. <span class="constant">FreshJuiceSize</span>.<span class="constant">MEDUIM</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口:</p>
+<p>接口（英文：Interface），在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明。一个类通过继承接口的方式，从而来继承接口的抽象方法。</p>
+<p>接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念。类描述对象的属性和方法。接口则包含类要实现的方法。<br>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。</p>
+<p>接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类。另外，在Java中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。</p>
+<p>接口与类相似点：<br></p>
+<p><li>一个接口可以有多个方法。<br></li></p>
+<p><li>接口文件保存在.java结尾的文件中，文件名使用接口名。<br></li></p>
+<p><li>接口的字节码文件保存在.class结尾的文件中。<br></li></p>
+<p><li>接口相应的字节码文件必须在与包名称相匹配的目录结构中。<br></li></p>
+<p>接口与类的区别：<br></p>
+<p><li>接口不能用于实例化对象。<br></li></p>
+<p><li>接口没有构造方法。<br></li></p>
+<p><li>接口中所有的方法必须是抽象方法。<br></li></p>
+<p><li>接口不能包含成员变量，除了static和final变量。<br></li></p>
+<p><li>接口不是被类继承了，而是要被类实现。<br></li></p>
+<p><li>接口支持多重继承。<br></li></p>
+<h3 id="数据库">数据库</h3><p><li>数据（Data）<br></li></p>
+<p><li>数据库（Database）<br></li></p>
+<p><li>数据库管理系统（DBMS）<br></li></p>
+<p><li>数据库系统（DBS）<br></li></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-算法设计与分析(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -689,60 +762,6 @@
 <p>1.24<table><br>下了一堆的Atom插件。</table></p>
 <p>1.25~9:00<table><br>开始进行后台搭建，node什么的好多都忘了。</table></p>
 <p>1.25~11:00<table><br>重新看了一下许多的node方面的内容，路由控制，rest一类的。</table></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-开发日志(二)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/19/开发日志(二)/" class="article-date">
-  	<time datetime="2016-01-19T01:38:35.000Z" itemprop="datePublished">2016-01-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/19/开发日志(二)/">开发日志（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>家里要下雪了，所以改签了车票，二十号回家，自己也有点想家了。</p>
-<h4 id="Zyklus-Green"><li>Zyklus-Green</li></h4><p>1.19~09:00<table>泡了碗面，把给的图重新切了一下。其实滑动条是有的，不需要自己重做，自己把它稍微重写下吧。</table></p>
-<p>1.19~11:30<table>把settingLayer写好了，滑动条属性get。准备设置触碰范围。</table></p>
-<p>1.19~16:15<table>无线滚动做好，着手于其余的细微调节。</table></p>
 
       
     </div>

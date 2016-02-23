@@ -168,6 +168,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-STL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/20/STL/" class="article-date">
+  	<time datetime="2015-12-20T13:38:35.000Z" itemprop="datePublished">2015-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/20/STL/">C++ learning notes (7)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Preface">Preface</h3><p>STL reveale a kind of programming ways - Generic Programming, we will introduce a new module - initializer_list.</p>
+<h3 id="String_Class">String Class</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//str1.cpp -- introducing the string class</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="comment">//using string constructors</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">one</span><span class="params">(<span class="string">"Lottery Winner!"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; one &lt;&lt; endl;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">two</span><span class="params">(<span class="number">20</span>, <span class="string">'$'</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; two &lt;&lt; endl;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">three</span> <span class="params">(one)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; three &lt;&lt; endl;</span><br><span class="line">	one += <span class="string">" Oops!"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; one &lt;&lt; endl;</span><br><span class="line">	two  = <span class="string">"Sorry! That was "</span>;</span><br><span class="line">	three[<span class="number">0</span>] = <span class="string">'P'</span>;</span><br><span class="line">	<span class="built_in">string</span> four;</span><br><span class="line">	four = two + three;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; four &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">char</span> alls[] = <span class="string">"All's Well that ends well"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">five</span><span class="params">(alls, <span class="number">20</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; five &lt;&lt; <span class="string">"!\n"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">six</span><span class="params">(alls + <span class="number">6</span>, alls + <span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; six &lt;&lt; <span class="string">", "</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">seven</span><span class="params">(&amp;five[<span class="number">6</span>], &amp;five[<span class="number">10</span>])</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; seven &lt;&lt; <span class="string">"...\n"</span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">eight</span><span class="params">(four, <span class="number">7</span>, <span class="number">16</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; eight &lt;&lt; <span class="string">" in motion!"</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>we can know from str1.cpp there’re many overload in the STL.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/20/STL/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DataStructure(3)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -672,69 +728,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/11/29/今天的我是非常开心的我/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos2d-x的简单知识点1126" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/24/Cocos2d-x的简单知识点1126/" class="article-date">
-  	<time datetime="2015-11-24T08:38:35.000Z" itemprop="datePublished">2015-11-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/24/Cocos2d-x的简单知识点1126/">Cocos2d-x的简单知识点&lt;二&gt;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="吐槽">吐槽</h3><p>先来吐槽一下。。Cocos的版本更新实在是太快，导致书上的很多东西都找不到了，这让我感到很忧伤。还有这两天的天气也的确是冻成狗哈，自己仍旧作死的穿着很少的两件衣服。</p>
-<h3 id="正片">正片</h3><p>这次的正片基本上是自己边读文档边写的，支持的版本为v2.3.3.0。</p>
-<p><li>首先说下UI的布局与多分辨率适配吧。</br><br>我们打开了Cocos编辑器后会发现有四个钉和中间的两个拉伸条（话说我当时就没有看到这个拉伸条呢）一共六个属性。</br><br>1.当打开其中一个任意图钉时，当前节点与父节点的对应边的距离即被固定。当父节点的大小被修改时，当前节点与父节点对应边的距离总是不变。</br><br>2.当打开其中的任意两个相对的图钉，当前节点与父节点对应的两边距离成固定比例。即当修改父节点的大小时，当前节点到父节点对应两条边的距离之比总是不变的。</br><br>3.当开启中间任意一条拉伸条，如横向拉伸条，节点的宽度与父节点的宽度之比固定不变。</br></p>
-<p>还有我们要明白：在Cocos2d-x中有两种分辨率：设备分辨率，屏幕分辨率。设备分辨率即当前游戏所运行平台的实际分辨率；设计分辨率就是我们设计游戏的分辨率。</p>
-<p>设计分辨率一般在启动时进行设置：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">APPDelegate::</span>applicationDidFinishLauching</span><br></pre></td></tr></table></figure>
-<p>中进行，代码如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">director -&gt; <span class="function"><span class="title">getOpenGlView</span><span class="params">()</span></span> -&gt;<span class="function"><span class="title">setDesignResolutionSize</span><span class="params">(<span class="number">960</span>, <span class="number">640</span>, ResolutionPolicy::FIXED_HEIGHT)</span></span></span><br></pre></td></tr></table></figure>
-<p>我们可以看出来这里的策略和cocos2d-js是一样的，不过我现在却记不得cocos2d-js里的策略了。</p>
-<p>下面来说说cocos2d-x中的解决方案吧<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/24/Cocos2d-x的简单知识点1126/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

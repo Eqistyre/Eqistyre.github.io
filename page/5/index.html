@@ -220,6 +220,69 @@
 
 
   
+    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/声明与变量/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。</br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
+<h4 id="元组">元组</h4><p>元组(tuples)把多个值组合为一个复合值。感觉和C++结构体很像，但是要远远比结构体好＝＝。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let http404Error = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</span><br><span class="line">let (statusCode, statusMessage) = http404Error</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusCode)"</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusMessage)"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="隐式解析可选类型">隐式解析可选类型</h4><p>如上所述，可选类型暗示了常量或变量可以”没有值”。可选可以通过if语句来判断是否有值，如果有值的话可以通过可选绑定来解析值。</p>
+<p>这种类型的可选状态被定义为隐式可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号(String?)改成感叹号(String!)来声明一个隐式解析可选类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="built_in">String</span>? =  <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="built_in">String</span> = possibleString! <span class="comment">//通过！来获取值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="built_in">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="built_in">String</span> = assumedString <span class="comment">//不需要通过1来获取值</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误处理">错误处理</h3><p>Nike一通过错误处理(error handling)来应对程序执行中可能遇到的错误条件。<br>相对于可选中运用值的存在与缺失来表达函数的成功与失败，错误处理可以推断失败的原因，并传播至程序的其它部分。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">canThrowAnError</span><span class="params">()</span></span> throws &#123;</span><br><span class="line">  <span class="comment">// 这个函数有可能抛出错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个函数中可以通过在声明中添加throws关键字来抛出错误消息。当你的函数能抛出错误消息时，你应该在表达时中前置try关键词。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">try</span> <span class="title">canThrowAnError</span>(<span class="params"></span>)</span><br><span class="line">  <span class="comment">//没有错误消息抛出</span></span><br><span class="line">&#125; <span class="keyword">catch</span> </span>&#123;</span><br><span class="line">  <span class="comment">//有一个错误消息抛出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/31/声明与变量/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-内存模型和名称空间" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -682,64 +745,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/11/Cocos-js的打包与触摸事件/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos－js的简单知识点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/08/Cocos－js的简单知识点/" class="article-date">
-  	<time datetime="2015-10-08T02:38:35.000Z" itemprop="datePublished">2015-10-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/08/Cocos－js的简单知识点/">Cocos－js的简单知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="10-8">10.8</h2><p>国庆结束了，自己也生病了。自己国庆太作了，现在头都晕晕的。接下来的时间也要好好学习了。今天看了一下cocos2d-js方面的东西。</p>
-<p><li>安装步骤：</br><br>1.首先我们要把SDK,NDK环境目录配置好。</br><br>2.然后我们需要把那些奇怪的东西搞好。</p>
-<p><li>基本名词的解释:</br><br>1.Scene</br><br>使用场景拆分游戏界面，能够让游戏结构更清晰，代码更容易维护，而且有利于运行时的性能优化。从一个场景切换到另一个场景的时候。Cocos-JS框架会将前者销毁，该场景中包含的所有图片，文本资源都会被清除</br></p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HelloworldScene = cc.Scene.extend(&#123;</span><br><span class="line">	onEnter:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>._super();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> layer = <span class="keyword">new</span> HelloWorldLayer();</span><br><span class="line">		<span class="keyword">this</span>.addChild(layer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这段代码就定义了一个场景，其重点是extend函数。</br><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/08/Cocos－js的简单知识点/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
