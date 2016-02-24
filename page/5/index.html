@@ -168,11 +168,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/31/二十年/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+      <a href="/2015/10/31/使用类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
     </h1>
   
 
@@ -194,9 +194,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
-<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
-
+        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。</br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：</br></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。</br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
+<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。<br>
       
     </div>
     
@@ -205,6 +209,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/31/使用类/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -268,6 +276,58 @@
         <p class="article-more-link">
           <a  href="/2015/10/31/声明与变量/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/二十年/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
+<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
       
       <div class="clearfix"></div>
     </div>
@@ -689,62 +749,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/20/《css高效开发实战》读后感/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos-js的打包与触摸事件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/11/Cocos-js的打包与触摸事件/" class="article-date">
-  	<time datetime="2015-10-11T01:38:35.000Z" itemprop="datePublished">2015-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/11/Cocos-js的打包与触摸事件/">Cocos-js的打包与触摸事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="10-11">10.11</h2><h4 id="关于打包publish"><li>关于打包publish</h4><p>cocos－js的打包真的好神奇。我这个版本的打包会有一些奇奇怪怪的事情发生，首先它会告诉我我找不到JDK然后我就发现了，我的JDK版本是1.8的版本，然后他就会报错，于是我们就需要去更改一下配置。我们首先找到cocos2d-js-v3.6.1\tools\cocos2d-console\plugins\project_compile\build_web_init_.py然后把它打开。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">JDK_1_8 = <span class="string">"1.8"</span></span><br><span class="line">JDK_1_7 = <span class="string">"1.7"</span></span><br><span class="line">JDK_1_6 = <span class="string">"1.6"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_jdk_version</span><span class="params">()</span>:</span></span><br><span class="line">     commands = [                                                            </span><br><span class="line">           <span class="string">"java"</span>,</span><br><span class="line">           <span class="string">"-version"</span></span><br><span class="line">       ]</span><br><span class="line">     child = subprocess.Popen(commands, stderr=subprocess.PIPE)</span><br><span class="line"></span><br><span class="line">     jdk_version = <span class="keyword">None</span></span><br><span class="line">     <span class="keyword">for</span> line <span class="keyword">in</span> child.stderr:</span><br><span class="line">         <span class="keyword">if</span> <span class="string">'java version'</span> <span class="keyword">in</span> line:</span><br><span class="line">             <span class="keyword">if</span> <span class="string">'1.8'</span> <span class="keyword">in</span> line:</span><br><span class="line">                 jdk_version = JDK_1_8</span><br><span class="line">             <span class="keyword">if</span> <span class="string">'1.7'</span> <span class="keyword">in</span> line:</span><br><span class="line">                 jdk_version = JDK_1_7</span><br><span class="line">             <span class="keyword">if</span> <span class="string">'1.6'</span> <span class="keyword">in</span> line:</span><br><span class="line">                 jdk_version = JDK_1_6</span><br></pre></td></tr></table></figure>
-<p>改成这个样就行了，然后或许会报错说askdef class com.google.javascript.jscomp.ant.CompileTask cannot be found。那么我们就把complier-1.7复制一下改成complier-1.8就行了。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/11/Cocos-js的打包与触摸事件/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
