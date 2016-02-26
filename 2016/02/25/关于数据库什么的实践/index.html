@@ -17,7 +17,7 @@ Mysql什么鬼的">
 前期准备首先你需要一台服务器。
 你需要使用ORM2
 Mysql什么鬼的">
-<meta property="og:updated_time" content="2016-02-26T03:38:10.000Z">
+<meta property="og:updated_time" content="2016-02-26T06:49:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于数据库什么的实践">
 <meta name="twitter:description" content="前言这两天坑比的在弄数据库。在自己的centos上弄了很长时间。不过不得不说，centos上面弄环境搭建还是挺烦的。
@@ -220,6 +220,61 @@ Mysql什么鬼的">
 <p>一开始下午的时候以为这里面的 <code>define: function(db, models, next)</code> 是指创建表，后来发现不是。在这个里面这里应当指的是定义一个person，这样我们才能够在下面进行调用。</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">models<span class="built_in">.</span>person = db<span class="built_in">.</span><span class="class"><span class="keyword">define</span></span>(<span class="string">"person"</span>, &#123;</span><br><span class="line">        name: <span class="built_in">String</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>我觉得这一句是一个比较难的地方，我是这样想的。这个应该是创建了一个models实例。这个实例的数据库是来自于<code>orm.express(&quot;mysql://UserName:password@ip/Demo&quot;</code>中Demo所指向的”person”表。</p>
+<p>于是乎我就去查询了一下node-orm2的文档。发现里面是这样写的：</p>
+<blockquote>
+<p>After connecting, you can use the connection object (db) to define your models. You need to specify the name of the model, a specification of the properties and options (optional).</p>
+</blockquote>
+<p>后面还有一句：</p>
+<blockquote>
+<p>The model is called person (which is usually the name of the table in the database)</p>
+</blockquote>
+<p>也就是说的确后面的是数据库中的相应的表。</p>
+<h3 id="关于ORM2中一些基本属性">关于ORM2中一些基本属性</h3><p>There is many model properties in ORM2 shown below.</p>
+<ul>
+<li><code>text</code>: A text string;</li>
+<li><code>number</code>: A floating point number. You can specify <code>size: 2|4|8</code>.</li>
+<li><code>integer</code>: An integer. You can specify <code>size: 2|4|8</code>.</li>
+<li><code>boolean</code>: A true/false value;</li>
+<li><code>date</code>: A date object. You can specify <code>time: true</code></li>
+<li><code>enum</code>: A value from a list of possible values;</li>
+<li><code>object</code>: A JSON object;</li>
+<li><code>point</code>: A N-dimensional point (not generally supported);</li>
+<li><code>binary</code>: Binary data.</li>
+<li><code>serial</code>: Auto-incrementing integer. Used for primary keys.</li>
+</ul>
+<p>Each type can have additional options. Here’s a model defined directly on the model.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var Person = db.define(<span class="string">"person"</span>, &#123;</span><br><span class="line">    <span class="string">name    :</span> &#123; <span class="string">type:</span> <span class="string">"text"</span>, <span class="string">size:</span> <span class="number">50</span> &#125;,</span><br><span class="line">    <span class="string">surname :</span> &#123; <span class="string">type:</span> <span class="string">"text"</span>, <span class="string">defaultValue:</span> <span class="string">"Doe"</span> &#125;,</span><br><span class="line">    <span class="string">male    :</span> &#123; <span class="string">type:</span> <span class="string">"boolean"</span> &#125;,</span><br><span class="line">    <span class="string">vat     :</span> &#123; <span class="string">type:</span> <span class="string">"integer"</span>, <span class="string">unique:</span> <span class="literal">true</span> &#125;,</span><br><span class="line">    <span class="string">country :</span> &#123; <span class="string">type:</span> <span class="string">"enum"</span>, <span class="string">values:</span> [ <span class="string">"USA"</span>, <span class="string">"Canada"</span>, <span class="string">"Rest of the World"</span> ] &#125;,</span><br><span class="line">    <span class="string">birth   :</span> &#123; <span class="string">type:</span> <span class="string">"date"</span>, <span class="string">time:</span> <span class="literal">false</span> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="关于ORM2中一些基本操作">关于ORM2中一些基本操作</h3><ul>
+<li>Model.get(id, [options], cb)：从数据库中取出一个id元素。</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.<span class="keyword">get</span>(<span class="number">123</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, person)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Model.find([conditions][,options][,limit][,order][,cb])：Finding one or more elements has more options, each one can be given in no specific parameter order. Only <code>options</code> has to be after <code>conditions</code> (even if it’s an empty object).所以说我们可以通过这种方法进行按多值查找。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Person</span><span class="class">.find</span>(<span class="rules">&#123; <span class="rule"><span class="attribute">name</span>:<span class="value"> <span class="string">"John"</span>, surname: <span class="string">"Doe"</span> &#125;, <span class="number">3</span>, function (err, people) &#123;</span><br><span class="line">    // finds people with name=<span class="string">'John'</span> AND surname=<span class="string">'Doe'</span> and returns the first <span class="number">3</span></span><br><span class="line">&#125;)</span></span>;</span></span><br></pre></td></tr></table></figure>
+<p>If you need to sort the results because you’re limiting or just because you want them sorted do:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Person.find(&#123; surname: <span class="string">"Doe"</span> &#125;, <span class="string">"name"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, people)</span></span> &#123;</span><br><span class="line">    // finds people with surname=<span class="string">'Doe'</span> <span class="keyword">and</span> returns sorted by name ascending</span><br><span class="line">&#125;);</span><br><span class="line">Person.find(&#123; surname: <span class="string">"Doe"</span> &#125;, [ <span class="string">"name"</span>, <span class="string">"Z"</span> ], <span class="function"><span class="keyword">function</span> <span class="params">(err, people)</span></span> &#123;</span><br><span class="line">    // finds people with surname=<span class="string">'Doe'</span> <span class="keyword">and</span> returns sorted by name descending</span><br><span class="line">    // (<span class="string">'Z'</span> means DESC; <span class="string">'A'</span> means ASC - default)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>There are more options that you can pass to find something. These options are passed in a second object：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.find(&#123; surname: <span class="string">"Doe"</span> &#125;, &#123; <span class="built_in">offset</span>: <span class="number">2</span> &#125;, <span class="function"><span class="keyword">function</span> <span class="params">(err, people)</span> &#123;</span></span><br><span class="line">    <span class="comment">// finds people with surname='Doe', skips the first 2 and returns the others</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Model.count([ conditions, ] cb):</li>
+</ul>
+<p>我想这个看一下就明白了。。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Person</span><span class="class">.count</span>(<span class="rules">&#123; <span class="rule"><span class="attribute">surname</span>:<span class="value"> <span class="string">"Doe"</span> &#125;, function (err, count) &#123;</span><br><span class="line">    console.<span class="function">log</span>(<span class="string">"We have %d Does in our db"</span>, count)</span></span>;</span><br><span class="line">&#125;</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Model.exists([ conditions, ] cb)</li>
+</ul>
+<p>我想这个更是简单。。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Person</span><span class="class">.exists</span>(<span class="rules">&#123; <span class="rule"><span class="attribute">surname</span>:<span class="value"> <span class="string">"Doe"</span> &#125;, function (err, exists) &#123;</span><br><span class="line">    console.<span class="function">log</span>(<span class="string">"We %s Does in our db"</span>, exists ? <span class="string">"have"</span> : <span class="string">"don't have"</span>)</span></span>;</span><br><span class="line">&#125;</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Updating Items</li>
+</ul>
+<p>Every item returned has the properties that were defined to the Model and also a couple of methods you can use to change each item.</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person.<span class="keyword">get</span>(<span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, john)</span> </span>&#123;</span><br><span class="line">  John.name = <span class="string">"Joe"</span>;</span><br><span class="line">  John.surname = <span class="string">"Doe"</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Updating and then saving an instance can be done in a single call:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person.<span class="keyword">get</span>(<span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, John)</span> </span>&#123;</span><br><span class="line">    John.save(&#123; name: <span class="string">"Joe"</span>, surname: <span class="string">"Doe"</span> &#125;, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        console.log(<span class="string">"saved!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>We also can remove an instance:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// you could do this without even fetching it, look at Chaining section above</span></span><br><span class="line">Person.<span class="keyword">get</span>(<span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, John)</span> </span>&#123;</span><br><span class="line">    John.remove(<span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        console.log(<span class="string">"removed!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
