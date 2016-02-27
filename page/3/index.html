@@ -168,11 +168,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/25/DataStructure(5)/" class="article-date">
+  	<time datetime="2015-12-25T14:40:35.000Z" itemprop="datePublished">2015-12-25</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
+      <a class="article-title" href="/2015/12/25/DataStructure(5)/">DataStructure(5)</a>
     </h1>
   
 
@@ -194,16 +194,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
-<p><li>Static search</p>
-<p>Method one: sequential search</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺序查找1算法的时间复杂度是O(n)。</p>
-<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
-<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
-<p>Method two: Binary Search(二分查找)<br>
+        <h3 id="平衡二叉树">平衡二叉树</h3><p>“平衡因子（Balance Factor, 简BF）”：BF(T) = h<sub>L</sub> - h<sub>R</sub>。</br><br>平衡二叉树(Balanced Binary Tree) (AVL树)：空树，或者任一结点左、右子树高度差的绝对值不超过1，即|BF(T)| ≤ 1。</p>
+<h3 id="平衡二叉树的调整">平衡二叉树的调整</h3><p><img src="https://raw.githubusercontent.com/AirOil/Test_X/bf0bff39b0ea74be9ad67b971c1062e0091483c9/imgs/二叉树.png" alt="二叉树的调整"></p>
+<p>这个放图了，不放图的话实在是说不清楚，哈哈～</br><br>也就是说由于插入了一个元素，我们或许会导致这个二叉树不再平衡。所以我们得对这个二叉树进行调整。</p>
+<h3 id="图(map)">图(map)</h3><p>图的定义：</p>
+<p>表示“多对多”的关系</br><br>包含</p>
+<p><li>一组顶点：通常用V(Vertex)表示顶点集合</p>
+<p><li>一组边：通常用E(Edge)表示边的集合</p>
+<p><li>边是顶点对：(v, w) ∈ E, 其中v, w ∈ V</p>
+<p><li>有向边\<v, w\>表示从v指向w的边（单行线）</p>
+<p><li>不考虑重边与自回路</p>
+<p>抽象数据类型定义</p>
+<p><li>类型名称：图(Graph)</p>
+<p><li>数据对象集：G(V, E)由一个非空的有限顶点集合V和一个有限边集合E组成。</p>
+<p><li>操作集：对于任意图G ∈ Graph， 以及v ∈,  e ∈ E</p>
+<p>操作方法：</p>
+<p><li>Graph Create(): 建立并返回空图；</p>
+<p><li>Graph InsertVertex(Graph G, Vertex v):将v插入G；</p>
+<p><li>Graph InsertEdge(Graph G, Edge e):将e插入G；</p>
+<p><li>void DFS(Graph G, Vertex v):从顶点v出发深度优先遍历图G；</p>
+<p><li>void DFS(Graph G, Vertex v):从顶点v出发宽度优先遍历图G；</p>
+<p><li>void ShortestPath(Graph G, Vertex v, int Dist[]):计算图G中顶点v到任意其他顶点的最短距离；</p>
+<p><li>void MST(Graph G):计算图G的最小生成树；</p>
+<p><li>………<br>
       
     </div>
     
@@ -214,7 +227,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
+          <a  href="/2015/12/25/DataStructure(5)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -284,6 +297,69 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/22/SICP(1)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+<p><li>Static search</p>
+<p>Method one: sequential search</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顺序查找1算法的时间复杂度是O(n)。</p>
+<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
+<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
+<p>Method two: Binary Search(二分查找)<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -709,62 +785,9 @@
 
 
   
-    <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/29/今天就说说今天的一些小收获吧/" class="article-date">
-  	<time datetime="2015-11-29T14:38:35.000Z" itemprop="datePublished">2015-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/今天就说说今天的一些小收获吧/">Cocos-2dx杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="今天就说说今天的一些小收获吧">今天就说说今天的一些小收获吧</h3><p>首先关于界面切换的问题。我们创建一个SceneManager类，然后在这个类里面写如下代码。下面我会去解释这些代码的意思的。（算了我还是直接去注释这些代码吧，如果不去注释这些代码的话，写起来会比较麻烦的）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先我们在宏中要将我们需要包含的代码放进去，只有这样在后续的使用中，使用场景类的话才可以成功</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"SceneManager.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"GameRunning.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"OsmanthusBeginner.h"</span></span></span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::mSceneManager = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::sharedSceneManager()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mSceneManager == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mSceneManager = <span class="keyword">new</span> SceneManager();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mSceneManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, isTrans, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans, <span class="keyword">float</span> time )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enScenType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TextureCache::sharedTextureCache()-&gt;removeUnusedTextures();</span><br><span class="line">    Director* pDirector = Director::getInstance();</span><br><span class="line">    Scene* curScene = pDirector-&gt;getRunningScene();</span><br><span class="line">    <span class="keyword">if</span>(curScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pDirector-&gt;runWithScene(pScene);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isTrans)</span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(TransitionFade::create(time, pScene));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(pScene);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::pushScene( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enSceneType);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Director::getInstance()-&gt;pushScene(pScene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::popScene()</span><br><span class="line">&#123;</span><br><span class="line">    Director::getInstance()-&gt;popScene();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Scene* SceneManager::getSceneByType( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = Scene::create();</span><br><span class="line">    Layer *pLayer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">switch</span> (enSceneType)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> en_OsmanthusBeginner:</span><br><span class="line">            pLayer = OsmanthusBeginner::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> en_GameRunning:</span><br><span class="line">            pLayer = GameRunning::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pScene-&gt;addChild(pLayer);</span><br><span class="line">    <span class="keyword">return</span> pScene;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还有就是在相应的IOS中把相应的plist中的lanchImage进行替换，活着你可以在plist中重写</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

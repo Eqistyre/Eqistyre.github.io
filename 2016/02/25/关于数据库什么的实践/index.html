@@ -17,7 +17,7 @@ Mysql什么鬼的">
 前期准备首先你需要一台服务器。
 你需要使用ORM2
 Mysql什么鬼的">
-<meta property="og:updated_time" content="2016-02-26T06:49:24.000Z">
+<meta property="og:updated_time" content="2016-02-27T07:34:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于数据库什么的实践">
 <meta name="twitter:description" content="前言这两天坑比的在弄数据库。在自己的centos上弄了很长时间。不过不得不说，centos上面弄环境搭建还是挺烦的。
@@ -275,6 +275,11 @@ Mysql什么鬼的">
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person.<span class="keyword">get</span>(<span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, John)</span> </span>&#123;</span><br><span class="line">    John.save(&#123; name: <span class="string">"Joe"</span>, surname: <span class="string">"Doe"</span> &#125;, <span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        console.log(<span class="string">"saved!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>We also can remove an instance:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// you could do this without even fetching it, look at Chaining section above</span></span><br><span class="line">Person.<span class="keyword">get</span>(<span class="number">1</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, John)</span> </span>&#123;</span><br><span class="line">    John.remove(<span class="function"><span class="keyword">function</span> <span class="params">(err)</span> </span>&#123;</span><br><span class="line">        console.log(<span class="string">"removed!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>很重要的插入！！save是修改。。还有不知道为什么网上的那个人可以用save保存，以及node不支持ES6里面的一些东西。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">req</span><span class="class">.models</span><span class="class">.user</span><span class="class">.create</span>(<span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">phone</span>:<span class="value"> registerInfo.phone,</span><br><span class="line">  loginPWD: registerInfo.loginPWD,</span><br><span class="line">  height: registerInfo.height,</span><br><span class="line">  sexType: registerInfo.sexType,</span><br><span class="line">  age: registerInfo.age,</span><br><span class="line">  created: registerInfo.created,</span><br><span class="line">  Uid: registerInfo.Uid</span><br><span class="line">&#125;,<span class="function">function</span>(err) &#123;</span><br><span class="line">  console.<span class="function">log</span>(err)</span></span>;</span><br><span class="line">&#125;</span>);</span><br></pre></td></tr></table></figure></p>
+<p>下面这个命令可以帮助我们查询端口：</p>
+<blockquote>
+<p>lsof -i</p>
+</blockquote>
 
       
     </div>
@@ -283,6 +288,15 @@ Mysql什么鬼的">
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/26/各种居中/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          各种居中
+        
+      </div>
+    </a>
   
   
     <a href="/2016/02/23/mongoDB（一）/" id="article-nav-older" class="article-nav-link-wrap">
