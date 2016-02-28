@@ -168,6 +168,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-雾草！又尼玛是一个难题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/01/雾草！又尼玛是一个难题/" class="article-date">
+  	<time datetime="2015-12-01T06:38:35.000Z" itemprop="datePublished">2015-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/01/雾草！又尼玛是一个难题/">Cocos-2dx杂感</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="雾草！又尼玛是一个难题">雾草！又尼玛是一个难题</h3><p>首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。</p>
+<p>好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> GameRunning::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//////////////////////////////</span></span><br><span class="line">    <span class="comment">// 1. super init first</span></span><br><span class="line">    <span class="keyword">if</span> ( !Layer::init() )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> RootNode = CSLoader::createNode(<span class="string">"GameRunning.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningScene = Scene::create();</span><br><span class="line">    GameRunningScene-&gt;addChild(RootNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayerNode = CSLoader::createNode(<span class="string">"GameRunningLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayer = Layer::create();</span><br><span class="line">    GameRunningLayer-&gt;addChild(GameRunningLayerNode);;</span><br><span class="line">    GameRunningScene-&gt;addChild(GameRunningLayer);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(GameRunningScene);</span><br><span class="line"></span><br><span class="line"><span class="comment">//    CharacterLayer *CharacterLayer = CharacterLayer::create();</span></span><br><span class="line"><span class="comment">//    this-&gt;addChild(CharacterLayer);</span></span><br><span class="line">    <span class="keyword">auto</span> CharacterNode = cocos2d::CSLoader::createNode(<span class="string">"CharacterLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> CharacterLayer = Layer::create();</span><br><span class="line">    CharacterLayer-&gt;addChild(CharacterNode);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(CharacterLayer);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是自己写的一个程序哈，其中通过<code>this-&gt;addChilde(Character)</code>我们添加了一个CharacterLayer。但是这里的this到底指的是什么呢，我在这里推测这里的this指的应该是layer这样的东西。然后我找到了头文件中的一段。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GameRunning : <span class="keyword">public</span> cocos2d::Layer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// there's no 'id' in cpp, so we recommend returning the class instance pointer</span></span><br><span class="line">    <span class="keyword">static</span> cocos2d::<span class="function">Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//implement the "static create()" method manually</span></span><br><span class="line">    CREATE_FUNC(GameRunning);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/* defined(____GameRunning__) */</span></span></span><br></pre></td></tr></table></figure>
+<p>我们发现在这里面有一个<code>CREATE_FUNC(GameRunning)</code>然后我把它注释了，之后发现游戏画面中通过this添加的图层场景什么鬼的都没有了，于是我推测CREATE_FUNC就是关键。于是我就去查询了CREATE_FUNC()的源码。CREATE_FUNC()是一个宏定义，其定义如下：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @def CREATE_FUNC(__TYPE__)</span><br><span class="line"> * Define a create function for a specific type, such as Layer.</span><br><span class="line"> *</span><br><span class="line"> * @param __TYPE__  class type to add create(), such as Layer.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">#define CREATE_FUNC(__TYPE__) \</span></span><br><span class="line">static __TYPE__* create() <span class="string">\</span></span><br><span class="line">&#123; <span class="string">\</span></span><br><span class="line">    __TYPE__ *pRet = <span class="keyword">new</span>(<span class="attribute">std</span>::nothrow) __TYPE__(); <span class="string">\</span></span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        pRet-&gt;autorelease(); <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> pRet; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        <span class="keyword">delete</span> pRet; <span class="string">\</span></span><br><span class="line">        pRet = NULL; <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> NULL; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/01/雾草！又尼玛是一个难题/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -674,61 +734,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/11/07/面向对象编程的基础知识（下）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-面向对象编程的基础知识（上）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/06/面向对象编程的基础知识（上）/" class="article-date">
-  	<time datetime="2015-11-06T14:38:35.000Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/面向对象编程的基础知识（上）/">Objective-C基础教程&lt;一&gt;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="面向对象编程的基础知识（上）">面向对象编程的基础知识（上）</h3><p>先来说一个今天写代码的时候碰到的问题吧。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *words[<span class="number">4</span>] = &#123;<span class="string">"aardvark"</span>, <span class="string">"abacus"</span>, <span class="string">"allude"</span>, <span class="string">"zygote"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> wordCount = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; wordCount; i++) &#123;</span><br><span class="line">        NSLog(@<span class="string">"%s is %lu characters long"</span>, words[i], <span class="built_in">strlen</span>(words[i]));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/06/面向对象编程的基础知识（上）/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

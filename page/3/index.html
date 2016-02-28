@@ -168,6 +168,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/02/C++知识点maybe/" class="article-date">
+  	<time datetime="2016-01-01T16:38:35.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/02/C++知识点maybe/">考试之前看的各种c++知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="内联函数">内联函数</h3><p>1.使用inline的一些注意事项</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;<span class="comment">//inline 仅与声明放在一起</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码不能成为内联函数，以下可以</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"><span class="comment">//函数与定义放在了一起</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以说，inline是一种“用于实现的关键字”，而不是一种“用于声明的关键字”。比较好的风格就是只在定义前面加上inline,而不是在声明和定义前面都加。这样才能体现出c++/c的一种良好设计风格声明与定义不可混为一谈。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/02/C++知识点maybe/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DataStructure(5)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -244,6 +302,69 @@
 
 
   
+    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+<p><li>Static search</p>
+<p>Method one: sequential search</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顺序查找1算法的时间复杂度是O(n)。</p>
+<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
+<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
+<p>Method two: Binary Search(二分查找)<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -297,69 +418,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/22/SICP(1)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
-<p><li>Static search</p>
-<p>Method one: sequential search</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺序查找1算法的时间复杂度是O(n)。</p>
-<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
-<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
-<p>Method two: Binary Search(二分查找)<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -710,66 +768,6 @@
       
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-雾草！又尼玛是一个难题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/01/雾草！又尼玛是一个难题/" class="article-date">
-  	<time datetime="2015-12-01T06:38:35.000Z" itemprop="datePublished">2015-12-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/01/雾草！又尼玛是一个难题/">Cocos-2dx杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="雾草！又尼玛是一个难题">雾草！又尼玛是一个难题</h3><p>首先还是欢呼一下时间已经进入到十二月份了吧！马上就要结课了，不过这也代表着很快自己就要去考万恶的四级了～雾草，为什么还要考四级啊，郁闷脸。</p>
-<p>好吧，说下自己碰到的问题吧＝＝。自己找不到this指向的对象了。首先来看下源代码吧。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> GameRunning::init()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//////////////////////////////</span></span><br><span class="line">    <span class="comment">// 1. super init first</span></span><br><span class="line">    <span class="keyword">if</span> ( !Layer::init() )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> RootNode = CSLoader::createNode(<span class="string">"GameRunning.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningScene = Scene::create();</span><br><span class="line">    GameRunningScene-&gt;addChild(RootNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayerNode = CSLoader::createNode(<span class="string">"GameRunningLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> GameRunningLayer = Layer::create();</span><br><span class="line">    GameRunningLayer-&gt;addChild(GameRunningLayerNode);;</span><br><span class="line">    GameRunningScene-&gt;addChild(GameRunningLayer);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(GameRunningScene);</span><br><span class="line"></span><br><span class="line"><span class="comment">//    CharacterLayer *CharacterLayer = CharacterLayer::create();</span></span><br><span class="line"><span class="comment">//    this-&gt;addChild(CharacterLayer);</span></span><br><span class="line">    <span class="keyword">auto</span> CharacterNode = cocos2d::CSLoader::createNode(<span class="string">"CharacterLayer.csb"</span>);</span><br><span class="line">    <span class="keyword">auto</span> CharacterLayer = Layer::create();</span><br><span class="line">    CharacterLayer-&gt;addChild(CharacterNode);</span><br><span class="line">    <span class="keyword">this</span>-&gt;addChild(CharacterLayer);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是自己写的一个程序哈，其中通过<code>this-&gt;addChilde(Character)</code>我们添加了一个CharacterLayer。但是这里的this到底指的是什么呢，我在这里推测这里的this指的应该是layer这样的东西。然后我找到了头文件中的一段。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GameRunning : <span class="keyword">public</span> cocos2d::Layer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// there's no 'id' in cpp, so we recommend returning the class instance pointer</span></span><br><span class="line">    <span class="keyword">static</span> cocos2d::<span class="function">Scene* <span class="title">createScene</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="title">init</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//implement the "static create()" method manually</span></span><br><span class="line">    CREATE_FUNC(GameRunning);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span> <span class="comment">/* defined(____GameRunning__) */</span></span></span><br></pre></td></tr></table></figure>
-<p>我们发现在这里面有一个<code>CREATE_FUNC(GameRunning)</code>然后我把它注释了，之后发现游戏画面中通过this添加的图层场景什么鬼的都没有了，于是我推测CREATE_FUNC就是关键。于是我就去查询了CREATE_FUNC()的源码。CREATE_FUNC()是一个宏定义，其定义如下：</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @def CREATE_FUNC(__TYPE__)</span><br><span class="line"> * Define a create function for a specific type, such as Layer.</span><br><span class="line"> *</span><br><span class="line"> * @param __TYPE__  class type to add create(), such as Layer.</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">#define CREATE_FUNC(__TYPE__) \</span></span><br><span class="line">static __TYPE__* create() <span class="string">\</span></span><br><span class="line">&#123; <span class="string">\</span></span><br><span class="line">    __TYPE__ *pRet = <span class="keyword">new</span>(<span class="attribute">std</span>::nothrow) __TYPE__(); <span class="string">\</span></span><br><span class="line">    <span class="keyword">if</span> (pRet &amp;&amp; pRet-&gt;init()) <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        pRet-&gt;autorelease(); <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> pRet; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">\</span></span><br><span class="line">    &#123; <span class="string">\</span></span><br><span class="line">        <span class="keyword">delete</span> pRet; <span class="string">\</span></span><br><span class="line">        pRet = NULL; <span class="string">\</span></span><br><span class="line">        <span class="keyword">return</span> NULL; <span class="string">\</span></span><br><span class="line">    &#125; <span class="string">\</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/01/雾草！又尼玛是一个难题/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
