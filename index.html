@@ -168,6 +168,120 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Exploring-es6(4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/29/Exploring-es6(4)/" class="article-date">
+  	<time datetime="2016-02-29T13:38:35.000Z" itemprop="datePublished">2016-02-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/29/Exploring-es6(4)/">Exploring-es6(4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="From_CommonJS_modules_to_ES6_modules">From CommonJS modules to ES6 modules</h3><p>ES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. <code>But tools such as browserify, webpack or jspm let you use ES6 syntax to create modules, making the code you write future-proof</code></p>
+<h4 id="Multiple_exports">Multiple exports</h4><p>In CommonJS, you export multiple entities as follows:</p>
+<!-- lib.js -->
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">sqrt</span> = Math.<span class="built_in">sqrt</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span><span class="params">(x)</span> &#123;</span></span><br><span class="line">  return x <span class="built_in">*</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">diag</span><span class="params">(x, y)</span> &#123;</span></span><br><span class="line">  return <span class="built_in">sqrt</span>(<span class="built_in">square</span>(x) + <span class="built_in">square</span>(y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">module</span>.<span class="title">exports</span> =</span> &#123;</span><br><span class="line">  <span class="built_in">sqrt</span>: <span class="built_in">sqrt</span>,</span><br><span class="line">  <span class="built_in">square</span>: <span class="built_in">square</span>,</span><br><span class="line">  diag: diag,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<!-- main1.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> square = <span class="built_in">require</span>(<span class="string">'lib'</span>).square;</span><br><span class="line"><span class="keyword">var</span> diag = <span class="built_in">require</span>(<span class="string">'lib'</span>);</span><br><span class="line">s</span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">11</span>));  <span class="comment">// 121</span></span><br><span class="line"><span class="built_in">console</span>.log(diag(<span class="number">4</span>, <span class="number">3</span>));  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>Alternatively, you can import the whole module as an object and access square and diag via it:</p>
+<!-- main2.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'lib'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(lib.square(<span class="number">11</span>));  <span class="comment">// 121</span></span><br><span class="line"><span class="built_in">console</span>.log(lib.diag(<span class="number">4</span>, <span class="number">3</span>));  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>In ES6, multiple exports are called named exports and handled like this:</p>
+<!-- lib.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sqrt = <span class="built_in">Math</span>.sqrt;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">diag</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> sqrt(square(x) + square(y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- main1.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; square, diag &#125; <span class="keyword">from</span> <span class="string">'lib'</span>; <span class="built_in">console</span>.log(square(<span class="number">11</span>)); <span class="comment">// 121 console.log(diag(4, 3)); // 5</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Computer Networks A Systems Approach(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/29/Computer Networks A Systems Approach(1)/" class="article-date">
+  	<time datetime="2016-02-29T02:40:35.000Z" itemprop="datePublished">2016-02-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/29/Computer Networks A Systems Approach(1)/">Computer Networks A Systems Approach(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Network_Architectures">Network Architectures</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-CSS SECRETS(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -633,131 +747,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/02/20/Exploring-es6(2)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Exploring-es6(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/19/Exploring-es6(1)/" class="article-date">
-  	<time datetime="2016-02-19T10:38:35.000Z" itemprop="datePublished">2016-02-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/19/Exploring-es6(1)/">Exploring-es6(1)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言">前言</h2><p>准备组队去试试IFE了呢，其实是想报高级班的。现在觉得自己得开始准备学习更多相关内容。所以最近会有比较多的前端方面的笔记。这次大概会从ES6相关的东西开始记起吧。下面是一些关于ES6的信息：</p>
-<p><li>2015.6ES6成为了新的标准。</br></p>
-<p><li>它的特征渐渐的在javascript的引擎里表现出来。</br></p>
-<p><li>Transpilers（转换器）可以把ES6转换为ES5</br></p>
-<p>还有ES6的目标：(用汉语写不下去了。。我还是用英语写吧)</p>
-<p><li>complex applications</br></p>
-<p><li>libraries (possibly including the DOM) shared by those applications</br></p>
-<p><li>code generators targeting the new edition</br></p>
-<p>Maybe modules are also an answer to goal.</p>
-<p>And there is also a goal to improve interoperation.for examples:</p>
-<p><li>Classes: are based on how constructor functions are currently used.</br></p>
-<p><li>Modules: picked up design ideas from the CommonJS module format.</br></p>
-<p><li>Arrow functions: have syntax that is borrowed from CoffeeScript.</br></p>
-<p><li>Named function parameters: There is no built-in support for named parameters. Instead, the<br>existing practice of naming parameters via object literals is supported via destructuring in parameter definitions.</br></p>
-<p>I think javascript will be more useful as the result of Classes! and there is a funny question~</p>
-<blockquote>
-<p>Why are there “fat” arrow functions (=&gt;) in ES6, but no “thin” arrow functions (-&gt;)?<br>ECMAScript 6 has syntax for functions with a lexical this, so-called arrow functions. However, it does not have arrow syntax for functions with dynamic this. That omission was deliberate; method definitions cover most of the use cases for thin arrows. If you really need dynamic this, you can still use a traditional function expression.</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/19/Exploring-es6(1)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-关于Node的一些经验" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/15/关于Node的一些经验/" class="article-date">
-  	<time datetime="2016-02-15T14:52:35.000Z" itemprop="datePublished">2016-02-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/15/关于Node的一些经验/">关于前端与Node的一些经验</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="折腾的几天">折腾的几天</h3><p>这几天一直在折腾那个echarts数据处理,遇到了很多坑，现在先把坑列举出来，明天回到学校再补博客吧。所以这次的博客里面将包含以下内容。</br><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/15/关于Node的一些经验/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

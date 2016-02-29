@@ -168,6 +168,127 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-函数探幽(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/函数探幽(上)/" class="article-date">
+  	<time datetime="2015-10-27T08:38:35.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/27/函数探幽(上)/">c++学习知识点纪录（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="&lt;函数探幽(上)&gt;">&lt;函数探幽(上)&gt;</h4><h3 id="c++内联函数">c++内联函数</br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。</br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。</br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line"></span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。</br></p>
+<h5 id="内联与宏">内联与宏</h5><p>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。</br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong></br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/27/函数探幽(上)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-函数原型与函数调用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/26/函数原型与函数调用/" class="article-date">
+  	<time datetime="2015-10-26T12:38:35.000Z" itemprop="datePublished">2015-10-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/26/函数原型与函数调用/">c++学习知识点纪录（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="初步认识函数">初步认识函数</h2><p></br></p>
+<h4 id="函数与数组">函数与数组</h4><p>函数如何使用指针来处理数组？</br><br>在大多数情况下，C++和C语言一样，也将数组名视为指针。c++酱数组名解释为第一个元素的地址</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookies == &amp;cookies<span class="string">[0]</span></span><br></pre></td></tr></table></figure>
+<h4 id="函数原型与函数调用">函数原型与函数调用</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function">diuble <span class="title">cube</span><span class="params">(<span class="keyword">double</span> x)</span></span>;<span class="comment">//函数原型prototype</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	cheers(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cheers</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Cherrs!"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么需要函数原型?</br><br>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量高数编译器。例如，请看原型将如何下述函数调用：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double volume = cube<span class="list">(<span class="keyword">side</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>首先，原型告诉编译器，cube()有一饿double参数。如果程序没有提供这样的函数，原型将让编译器能捕获这种错误。</p>
+<h4 id="函数和结构">函数和结构</h4><p>现在将注意力从数组转移到结构。为结构编写函数比为数组便携函数要简单得多。虽然结构变量和数组一样，都可以储存多个数据想，但在涉及到函数时，结构变量的行为更接近于基本的单值变量。也就是说与数组不同，结构变量的行为更接近于基本的单值变量。也就是说，与数组不同，结构将其数据组合成单个实体或者数据对象，则更应该被视为一个整体。</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">travel_time</span></span>&#123;</span><br><span class="line">	int hours;</span><br><span class="line">	int mins;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回值的类型为travel_time,两个参数应该也为这种类型。这个东西的函数原型应该如下所示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travel_time <span class="function"><span class="title">sum</span><span class="params">(travel_time t1,travel_time t2)</span></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/26/函数原型与函数调用/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-杂感（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -627,153 +748,6 @@
         <p class="article-more-link">
           <a  href="/2015/09/19/JavaScript心得（二）/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript心得（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/18/JavaScript心得（一）/" class="article-date">
-  	<time datetime="2015-09-18T02:38:35.000Z" itemprop="datePublished">2015-09-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/18/JavaScript心得（一）/">JavaScript心得（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="9-18">9.18</h2><h5 id="javaScript没有块级作用域"><li>javaScript没有块级作用域</br></h5><pre><code><span class="keyword">for</span>(var i = <span class="number">0.</span>i &lt; <span class="number">10</span>; i++) {
-    doSomething[i]
-}
-
-alertt(i);    <span class="comment">//10</span>
-</code></pre><p>这个栗子说明了 javascript中if语句中的变量声明会将变量添加到当前的执行环境(这里的全局环境)中。</br></p>
-<h5 id="新增项color［3］"><li>新增项color［3］</br></h5><p>如果一个数组的元素原来只有两个现在使用 color[2]会添加第三个元素</p>
-<h5 id="栈方法"><li>栈方法</h5><pre><code>var colors = <span class="keyword">new</span> Array();
-var <span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"red"</span>,<span class="string">"green"</span>);
-alert(<span class="keyword">count</span>);
-
-<span class="keyword">count</span> = colors.<span class="keyword">push</span>(<span class="string">"black"</span>);
-alert(<span class="keyword">count</span>);
-
-var item = colors.<span class="keyword">pop</span>(); <span class="comment">//"black"</span>
-alert(colors.length); <span class="comment">//2</span>
-</code></pre><p>push()方法可以接收任意数量的参数，把它们逐个添加到数组末尾，<strong>并返回修改后数组的长度</strong>。</br><br>pop()方法可以从数组末尾移除最后一项，<strong>并且返回移除的项</strong>。</p>
-<h5 id="队列方法"><li>队列方法</h5><pre><code><span class="comment">//例一</span>
-<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
-va <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>);
-alert(<span class="built_in">count</span>);
-
-<span class="built_in">count</span> = colors.shift(); <span class="comment">// "red"</span>
-alert(colors.length); <span class="comment">//1</span>
-
-<span class="comment">//例二</span>
-<span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="type">Array</span>();
-<span class="keyword">var</span> <span class="built_in">count</span> = colors.push(<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"xbox"</span>,<span class="string">"ps4"</span>);
-alert(<span class="built_in">count</span>); <span class="comment">//4</span>
-
-<span class="built_in">count</span> = colors.unshift(<span class="string">"black"</span>);
-alert(<span class="built_in">count</span>); <span class="comment">//5</span>
-</code></pre><p>不同于栈数据的访问方法规则LIFO（后进先出）；队列结构的访问规则是FIFO（先进先出） </br><br>shift()   它能够从数组中取得第一项，即red 。unshift ()的作用与shift相反，它向前端添加任意个项并返回新数组长度。</p>
-<h5 id="js不接受重载"><li>js不接受重载</h5><p>js不像java那样可以重载，不能通过不同的参数值进行函数的匹配。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/18/JavaScript心得（一）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-一些Linux的命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/13/一些Linux的命令/" class="article-date">
-  	<time datetime="2015-09-13T02:38:35.000Z" itemprop="datePublished">2015-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/13/一些Linux的命令/">一些Linux的命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="9月13日的午间随笔">9月13日的午间随笔</h4><p>由于一个中文冒号的，浪费了自己许多的时间。自己对Linux不熟所以不知道从哪里找到错误日志，后来还是通过页面的检查查询了错误代码才发现。<br>服务器端的问题都会被记录在apache日志中，这个日志的目录是/var/log/apache2/error.log</p>
-<hr>
-<p>顺便熟悉一下Linux下的一些命令<br><br>cat:该命令是Concatenate的缩写（串联，联系），具有三大功能<br></p>
-<p><li>一次显示整个文件，$cat filename</li></p>
-<p><li>从键盘创建一个文件。$ cat &gt; filename。<br><br>cat是输出文件内容的命令，&gt;filename表示把内容送到文件filename里而不是默认的屏幕<br>但是这里cat后面没有参数，意味着cat将从键盘读取数据输入到filename中，以CTRL+D结束。</li></p>
-<p><li>将几个文件合并为一个文件：$cat file1 file2 &gt; file</li></p>
-<hr>
-<p>相关参数<br><br>-n 或 –number 由 1 开始对所有输出的行数编号<br><br>-b 或 –number-nonblank 和 -n 相似，只不过对于空白行不编号<br><br>-s 或 –squeeze-blank 当遇到有连续两行以上的空白行，就代换为一行的空白行<br><br>-v 或 –show-nonprinting<br><br>例：把 textfile1 的档案内容加上行号后输入 textfile2 这个档案里<br><br>cat -n textfile1 &gt; textfile2<br></p>
-<p>把 textfile1 和 textfile2 的档案内容加上行号（空白行不加）之后将内容附加到 textfile3 里。<br><br>cat -b textfile1 textfile2 &gt;&gt; textfile3</p>
-<p>把test.txt文件扔进垃圾箱，赋空值<br><br>test.txt<br>cat /dev/null &gt; /etc/test.txt  </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>

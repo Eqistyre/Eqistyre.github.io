@@ -168,6 +168,132 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Vue_js概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/Vue_js概述/" class="article-date">
+  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/Vue_js概述/">Vue.js概述以及一些吐槽</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是vue">什么是vue</h3><p>自我感觉，读完文档后感觉Vue是一种MVVM模式的图形界面框架拥有着低耦合的优点。自己不是太精通Javascript，就谈谈一些感想吧。Vue中可以对元素进行快速选取操作，以及动态命名。实现无需后台数据传入直接计算的功能。例如我们可以：</p>
+<p>HTML</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id = <span class="string">"examples"</span>&gt;</span><br><span class="line">  <span class="expansion">&#123;&#123;message&#125;&#125;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Javascript</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">var</span> vm = new vue(&#123;</span><br><span class="line">  el: <span class="string">"#examples"</span></span><br><span class="line">  <span class="typedef"><span class="keyword">data</span>: <span class="container">&#123;</span><br><span class="line">    <span class="title">message</span>: "<span class="type">Sakura</span>"</span><br><span class="line">  &#125;</span></span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样之后就会发生动态变换了。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/13/Vue_js概述/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-swift&lt;二&gt;" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/swift<二>/" class="article-date">
+  	<time datetime="2016-01-12T17:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/swift<二>/">Swift学记笔记（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="空合运算符(Nil_Coalescing_Operator)">空合运算符(Nil Coalescing Operator)</h3><p>空合运算符（a ?? b）将对可选类型a进行空判断，如果a包含一个值进行解封，否则就返回一个默认值b,这个运算符有两个条件：</p>
+<p><li>表达式a必须式Optional类型</p>
+<p><li>默认值b的类型必须要和a储存值的类型保持一致</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">a</span> <span class="exclamation_mark">!</span>= <span class="function_or_atom">nil</span> ? <span class="function_or_atom">a</span> <span class="exclamation_mark">!</span> : <span class="function_or_atom">b</span></span><br></pre></td></tr></table></figure>
+<p>上述代码使用了三目运算符。当可选类型a的值不为空时，进行强制解封(a!)访问a中的值，反之当a中的值为空时，返回默认值b。无疑空合运算符(??)提供了一种更为优雅的方式去封装条件判断和解封两种行为，显得简洁以及更具有可读性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="built_in">String</span>? <span class="comment">//默认为nil</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName ?? defaultColorName</span><br></pre></td></tr></table></figure>
+<p>userDefinedColorName变量被定义为一个可选的String类型，默认值为nil。由于userDefinedColorName是一个可选类型，我们可以使用空合运算符去判断其值。在上一个例子中，通过空合运算符为一个名为colorNameToUse的变量赋予一个字符串类型初始值。由于userDefinedColorName值为空，因此表达式userDefinedColorName ?? defaultColorName返回defaultColorName的值，即red。</p>
+<p>另一种情况，分配一个非空值（non-nil）给userDefinedColorName,再次执行空合运算，运算结果为封包在userDefaultColorName中的值，而非默认值。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">user</span>DefaultColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = <span class="keyword">user</span>DefinedColorName ?? <span class="keyword">default</span>ColorName</span><br></pre></td></tr></table></figure>
+<h3 id="区间运算符">区间运算符</h3><p>Swift提供了两个方便表达一个区间的运算符。</p>
+<h3 id="闭区间运算符">闭区间运算符</h3><p>闭区间运算符（a…b）定义一个包含从a到b（包括a和b）的所有值的区间，b必须大于等于a。闭区间运算符在迭代一个区间的所有值时是非常有用的（Ps：这个与python的语法好像啊）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
+<p>半开区间运算符<br>(a..&lt;b)从a到b不包括b的区间。</p>
+<h3 id="集合（Sets）">集合（Sets）</h3><p>Swift语言中的Arrarys,Sets或Dictionaries中储存的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时也说明我们完全可以对取回值的类型非常自信。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/13/swift<二>/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-C++知识点maybe" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -302,69 +428,6 @@
 
 
   
-    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
-<p><li>Static search</p>
-<p>Method one: sequential search</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺序查找1算法的时间复杂度是O(n)。</p>
-<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
-<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
-<p>Method two: Binary Search(二分查找)<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-SICP(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -418,6 +481,69 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/22/SICP(1)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
+  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
+<p><li>Static search</p>
+<p>Method one: sequential search</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顺序查找1算法的时间复杂度是O(n)。</p>
+<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
+<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
+<p>Method two: Binary Search(二分查找)<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -656,118 +782,6 @@
         <p class="article-more-link">
           <a  href="/2015/12/16/DataStructure(1)/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-杂感12.15" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/15/杂感12.15/" class="article-date">
-  	<time datetime="2015-12-14T16:38:35.000Z" itemprop="datePublished">2015-12-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/15/杂感12.15/">吐槽</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="我现在很想吐槽">我现在很想吐槽</h3><p>我现在很想吐槽！我现在很想吐槽！我现在很想吐槽！我现在很想吐槽！</p>
-<p>没有猫也没有她，自己还多了一堆事。</p>
-<p>这事情自己应付了就行。不需要投入太多的精力，自己还是要好好去学习。这事情能获取学校多少帮助就争取获取多少。</p>
-<p>听着周杰伦的的《阳光宅男》，自己觉得自己一个唱首《月光男孩》。自己越来越空虚了。好烦！</p>
-<p>算了还是好好写代码。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-颓废的两天" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/10/颓废的两天/" class="article-date">
-  	<time datetime="2015-12-10T07:38:35.000Z" itemprop="datePublished">2015-12-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/10/颓废的两天/">十二月中旬杂感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="颓废的两天（12-4）">颓废的两天（12.4）</h3><p>这两天真的很颓废，没有去做什么事情，，Github上面的进度也断了。主要原因是我不应该去看小说啊啊啊。小说真的很能让自己颓废掉。</p>
-<p>说下自己未来几天的计划吧</p>
-<p><li>1.去看看数字逻辑周六（也就是明天）要去做数字逻辑的实验了<br></li></p>
-<p><li>2.还要去复习数据结构和C++，虽然我可以考过这两门，但是太多课没有去上了<br></li></p>
-<p><li>3.Osmanthus项目先停一会吧<br></li></p>
-<p><li>4.Lua脚本扩展那本书看完，那本书挺基础的<br></li></p>
-<h3 id="活过来了（12-10）">活过来了（12.10）</h3><p>终于终于颓废的几天过去了，可以重新好好的做事了，那些奇奇怪怪的事情也都干完了。不过自己还是要注意要考四级了，好好努力咯加油少年</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>
