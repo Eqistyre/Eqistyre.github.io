@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://eqistyre.github.io/2016/02/29/Exploring-es6(4)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
-<meta property="og:updated_time" content="2016-02-29T13:36:07.000Z">
+<meta property="og:updated_time" content="2016-03-01T00:22:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring-es6(4)">
 <meta name="twitter:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
@@ -214,6 +214,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sqrt = <span class="built_in">Math</span>.sqrt;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">diag</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> sqrt(square(x) + square(y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <!-- main1.js -->
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; square, diag &#125; <span class="keyword">from</span> <span class="string">'lib'</span>; <span class="built_in">console</span>.log(square(<span class="number">11</span>)); <span class="comment">// 121 console.log(diag(4, 3)); // 5</span></span><br></pre></td></tr></table></figure>
+<p>The syntax for importing modules as objects looks as follows (line A):<br><!-- main2.js --><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import * as <span class="class"><span class="keyword">lib</span> <span class="title">from</span> '<span class="title">lib</span>';</span> /<span class="regexp">/ (A)</span><br><span class="line">console.log(lib.square(11)); /</span><span class="regexp">/ 121 console.log(lib.diag(4, 3)); /</span><span class="regexp">/ 5</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
