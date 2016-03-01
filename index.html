@@ -209,7 +209,13 @@
 <!-- main1.js -->
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; square, diag &#125; <span class="keyword">from</span> <span class="string">'lib'</span>; <span class="built_in">console</span>.log(square(<span class="number">11</span>)); <span class="comment">// 121 console.log(diag(4, 3)); // 5</span></span><br></pre></td></tr></table></figure>
 <p>The syntax for importing modules as objects looks as follows (line A):<br><!-- main2.js --><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import * as <span class="class"><span class="keyword">lib</span> <span class="title">from</span> '<span class="title">lib</span>';</span> /<span class="regexp">/ (A)</span><br><span class="line">console.log(lib.square(11)); /</span><span class="regexp">/ 121 console.log(lib.diag(4, 3)); /</span><span class="regexp">/ 5</span></span><br></pre></td></tr></table></figure></p>
-<p>####</p>
+<h4 id="Single_exports">Single exports</h4><!-- myFunc.js -->
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">module</span>.<span class="title">exports</span> =</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> &#123;</span> ··· &#125;;</span><br></pre></td></tr></table></figure>
+<!-- main1.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFunc = <span class="built_in">require</span>(<span class="string">'myFunc'</span>);</span><br><span class="line">myFunc();</span><br></pre></td></tr></table></figure>
+<p>In ES6,we can do as follow:</p>
+<!-- myFunc.js -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125; <span class="comment">//no semicolon</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
