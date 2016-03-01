@@ -168,6 +168,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Exploring-es6(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/Exploring-es6(2)/" class="article-date">
+  	<time datetime="2016-02-20T10:38:35.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/Exploring-es6(2)/">Exploring-es6(2)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Handling_multiple_return_values">Handling multiple return values</h3><p>exec() returns captured groups via an Array-like object. In ES5, you need an intermediate variable (matchObj in the example below), even if you are only interested in the groups:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> matchObj =</span><br><span class="line">  /^(\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>)-(\<span class="keyword">d</span>\<span class="keyword">d</span>)-(\<span class="keyword">d</span>\<span class="keyword">d</span>)$/</span><br><span class="line">  .exec('2999-12-31');</span><br><span class="line"><span class="keyword">var</span> year = matchObj[1];</span><br><span class="line"><span class="keyword">var</span> month = matchObj[2];</span><br><span class="line"><span class="keyword">var</span> day = matchObj[3];</span><br></pre></td></tr></table></figure>
+<p>In ES6, destructuring makes this code simpler:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let [, year, month, day] =</span><br><span class="line">  /^(\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>\<span class="keyword">d</span>)-(\<span class="keyword">d</span>\<span class="keyword">d</span>)-(\<span class="keyword">d</span>\<span class="keyword">d</span>)$/</span><br><span class="line">  .exec('2999-12-31');</span><br></pre></td></tr></table></figure>
+<p>The empty slot at the beginning of the Array pattern skips the Array element at index zero.<br>4.6.2 Multiple return values via objects.</p>
+<p>结构赋值（destructuring assignment）句法是一个Javascript表达式，通过这个表达式，就可以从array或者object中通过一种句法来提取数据。这个句法与array的构造和object的字面定义对应。</p>
+<p>语法:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[a, b] = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">[a, b, ...rest] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">&#123;a, b&#125; = &#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;</span><br><span class="line">&#123;a, b, ...rest&#125; = &#123;a:<span class="number">1</span>, b:<span class="number">2</span>, c:<span class="number">3</span>, d:<span class="number">4</span>&#125;  <span class="comment">//ES7</span></span><br></pre></td></tr></table></figure>
+<p>然后我们来解构数组：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> foo</span> = [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有解构赋值</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> one</span>   = foo[<span class="number">0</span>];</span><br><span class="line"><span class="variable"><span class="keyword">var</span> two</span>   = foo[<span class="number">1</span>];</span><br><span class="line"><span class="variable"><span class="keyword">var</span> three</span> = foo[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解构赋值</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> [one, two, three]</span> = foo;</span><br></pre></td></tr></table></figure>
+<p>用正则表达式匹配提取值：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> url</span> = <span class="string">"https://developer.mozilla.org/en-US/Web/JavaScript"</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable"><span class="keyword">var</span> parsedURL</span> = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);</span><br><span class="line"><span class="variable"><span class="keyword">var</span> [, protocol, fullhost, fullpath]</span> = parsedURL;</span><br><span class="line"></span><br><span class="line">console.log(protocol); <span class="comment">// 输出"https:"</span></span><br></pre></td></tr></table></figure>
+<p>Multiple return values via objectss</p>
+<p>The method Object.getOwnPropertyDescriptor() return a property descriptors, an object that holds multiple values in its properties.</p>
+<p>In ES5, even if you are only interested in the properties of an object, you still need an intermediate variable (propDesc in the example below):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> propDesc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">var</span> writable = propDesc.writable;</span><br><span class="line"><span class="keyword">var</span> configurable = propDesc.configurable;</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true</span></span><br><span class="line">In ES6, you can use destructuring:</span><br><span class="line"><span class="keyword">let</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;writable, configurable&#125; = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true &#123;writable, configurable&#125; is an abbreviation for:</span></span><br><span class="line">&#123; writable: writable, configurable: configurable &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Handling_multiple_default_values">Handling multiple default values</h3><p>In ES5, you specify default values for parameters like this:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In ES6:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x=0, y=0)</span> </span>&#123;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/20/Exploring-es6(2)/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Exploring-es6(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -673,68 +746,6 @@
 <p>缺点：<br><br>Session变量和cookies是同一类型的。如果某用户将浏览器设置为不兼容任何cookie，那么该用户就无法使用这个Session变量！<br><br>当一个用户访问某页面时，每个Session变量的运行环境便自动生成，这些Session变量可在用户离开该页面后仍保留20分钟！（事实上，这些变量一直可保留至“timeout”。“timeout”的时间长短由Web服务器管理员设定。一些站点上的变量仅维持了3分钟，一些则为10分钟，还有一些则保留至默认值20分钟。）所以，如果在Session中置入了较大的对象（如ADOrecordsets，connections， 等等），那就有麻烦了！随着站点访问量的增大，服务器将会因此而无法正常运行！<br>因为创建Session变量有很大的随意性，可随时调用，不需要开发者做精确地处理，所以，过度使用session变量将会导致代码不可读而且不好维护。虽然“你可以在任何想要使用的时候直接使用session变量，而不必事先声明它，这种方式接近于在VB中变量的使用。使用完毕后，也不必考虑将其释放，因为它将自动释放”。但是，“谁”想到那儿呢？变量的含义是什么？这些都变得不很清晰。<br>分享。</p>
 <p>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上它还有其他选择。</p>
 <p>也就是说，如果我浏览器关了，那么我的session就失效了，一个对应一个浏览器，而cookie会保存，通常两者会混合着使用。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-NodeExpress" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/NodeExpress/" class="article-date">
-  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/NodeExpress/">express概述</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言">前言</h3><p>上火车了，时间真的好快，终于快回家了，列车上也没有什么事情，也就把express看一下吧。</p>
-<p>express 是一种使用广泛的基于node的开发框架，它具有着许多的优点。</p>
-<p><li>路由控制</li></p>
-<p><li>模板解析支持</li></p>
-<p><li>动态视图</li></p>
-<p><li>用户会话</li></p>
-<p><li>CSRF保护</li></p>
-<p><li>静态文件服务</li></p>
-<p><li>错误控制器</li></p>
-<p><li>访问日志</li></p>
-<p><li>缓存</li></p>
-<p><li>插件支持</li></p>
 
       
     </div>

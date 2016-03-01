@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://eqistyre.github.io/2016/02/29/Exploring-es6(4)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
-<meta property="og:updated_time" content="2016-03-01T10:25:00.000Z">
+<meta property="og:updated_time" content="2016-03-01T11:29:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring-es6(4)">
 <meta name="twitter:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
@@ -272,6 +272,13 @@
 <h4 id="Number-isInteger(number)">Number.isInteger(number)</h4><p>I think this is a way!</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(-<span class="number">17</span>)</span></span></span><br><span class="line">true</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="number">33</span>)</span></span></span><br><span class="line">true</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="number">33.1</span>)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="string">'33'</span>)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(NaN)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(Infinity)</span></span></span><br><span class="line">false</span><br></pre></td></tr></table></figure>
 <h4 id="Safe_Integers">Safe Integers</h4><p>And there is also safe integers in JavaScript.</p>
+<ul>
+<li>Number.isSafeInteger(number)</li>
+<li>Number.MIN_SAFE_INTEGER</li>
+<li>Number.MAX_SAFE_INTEGER</li>
+</ul>
+<p>so there is a very interesting results as follow</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">9007199254740992</span></span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line">&gt; <span class="number">9007199254740993</span></span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line">&gt; <span class="number">9007199254740994</span></span><br><span class="line"><span class="number">9007199254740994</span></span><br><span class="line">&gt; <span class="number">9007199254740995</span></span><br><span class="line"><span class="number">9007199254740996</span></span><br><span class="line">&gt; <span class="number">9007199254740996</span></span><br><span class="line"><span class="number">9007199254740996</span></span><br><span class="line">&gt; <span class="number">9007199254740997</span></span><br><span class="line"><span class="number">9007199254740996</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -280,6 +287,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/03/01/Exploring-es6(5)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Exploring-es6(5)
+        
+      </div>
+    </a>
   
   
     <a href="/2016/02/29/Computer Networks A Systems Approach(1)/" id="article-nav-older" class="article-nav-link-wrap">
