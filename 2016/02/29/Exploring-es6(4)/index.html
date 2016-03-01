@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://eqistyre.github.io/2016/02/29/Exploring-es6(4)/index.html">
 <meta property="og:site_name" content="SakuraNeko">
 <meta property="og:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
-<meta property="og:updated_time" content="2016-03-01T01:10:15.000Z">
+<meta property="og:updated_time" content="2016-03-01T10:25:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploring-es6(4)">
 <meta name="twitter:description" content="From CommonJS modules to ES6 modulesES6 has built-in support for modules. Alas, no JavaScript engine supports them natively, yet. But tools such as browserify, webpack or jspm let you use ES6 syntax t">
@@ -98,6 +98,8 @@
 							
 								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
 					        
+								<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
+					        
 						</div>
 					</nav>
 				</section>
@@ -161,6 +163,8 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
 			        
 				</div>
 			</nav>
@@ -235,6 +239,43 @@
 <p><li>A transpiler (for your code)<br></li></p>
 <p><li>A package manager (to install existing libraries)<br></li></p>
 <p><li>A module system (for the complete app)<br></li></p>
+<p>There is some transpiler compiles below:</p>
+<ul>
+<li>TypeScript:</li>
+<li>Traceur:</li>
+<li>Babel</li>
+</ul>
+<p>And there is also some package managers below</p>
+<ul>
+<li>npm:</li>
+<li>Bower:</li>
+<li>jspm:</li>
+</ul>
+<h3 id="New_number_and_Math_features">New number and Math features</h3><p>You can now specify integer in binary and octal notation:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0xFF</span> <span class="comment">// ES5: hexadecimal</span></span><br><span class="line"><span class="number">255</span></span><br><span class="line">&gt; <span class="number">0</span>b11 <span class="comment">// ES6: binary</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">&gt; <span class="number">0</span>o10 <span class="comment">// ES6: octal</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<p>The global object Number gained a few properties.Among others:</p>
+<ul>
+<li>Number.EPSILON for comparing floating point numbers with a tolerance for rounding errors.</li>
+<li>A method and constants for determining whether a JavaScript integer is safe (within the<br>signed 53 bit range in which there is no loss of precision).</li>
+</ul>
+<h4 id="New_inter_literals">New inter literals</h4><p>hexadecimal integers:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0x9</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line">&gt; <span class="number">0xA</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line">&gt; <span class="number">0x10</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line">&gt; <span class="number">0xFF</span></span><br><span class="line"><span class="number">255</span></span><br></pre></td></tr></table></figure></p>
+<p>There are two ways specify integers in binary:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0</span>b11</span><br><span class="line"><span class="number">3</span></span><br><span class="line">&gt; <span class="number">0</span>b100</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p><code>But I think the more important way as below</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; (<span class="number">255</span>).<span class="function"><span class="title">toString</span><span class="params">(<span class="number">16</span>)</span></span></span><br><span class="line"><span class="string">'ff'</span></span><br><span class="line">&gt; (<span class="number">4</span>).<span class="function"><span class="title">toString</span><span class="params">(<span class="number">2</span>)</span></span></span><br><span class="line"><span class="string">'100'</span></span><br><span class="line">&gt; (<span class="number">8</span>).<span class="function"><span class="title">toString</span><span class="params">(<span class="number">8</span>)</span></span></span><br><span class="line"><span class="string">'10'</span></span><br></pre></td></tr></table></figure>
+<p><code>And I think the most important way as below</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xFF'</span>)</span></span></span><br><span class="line"><span class="number">255</span></span><br><span class="line">&gt; <span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xFF'</span>, <span class="number">0</span>)</span></span></span><br><span class="line"><span class="number">255</span></span><br><span class="line">&gt; <span class="function"><span class="title">parseInt</span><span class="params">(<span class="string">'0xFF'</span>, <span class="number">16</span>)</span></span></span><br><span class="line"><span class="number">255</span></span><br></pre></td></tr></table></figure>
+<h4 id="Numbers-isFinite(number)">Numbers.isFinite(number)</h4><p>Is numbers an actual number(neither Infinity nor-Infinity nor NaN)?</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; Number.<span class="function"><span class="title">isFinite</span><span class="params">(Infinity)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isFinite</span><span class="params">(-Infinity)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isFinite</span><span class="params">(NaN)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isFinite</span><span class="params">(<span class="number">123</span>)</span></span></span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+<p>The advantage of this method is that it does not coerce its parameter to number (whereas the global function does):</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; Number.<span class="function"><span class="title">isFinite</span><span class="params">(<span class="string">'123'</span>)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; <span class="function"><span class="title">isFinite</span><span class="params">(<span class="string">'123'</span>)</span></span></span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+<h4 id="Number-isNaN(number)">Number.isNaN(number)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> x = <span class="literal">NaN</span>;</span><br><span class="line">&gt; x === <span class="literal">NaN</span>;</span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>and also we can get as below:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; x !== x</span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="Number-EPSILON">Number.EPSILON</h4><p>Especially with decimal fractions, rounding errors can become a problem in JavaScript. For example, 0.1 and 0.2 can be represented precisely, which you notice if you add them and compare them to 0.3 (which can’t be represented precisely, either).</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0.1</span> + <span class="number">0.1</span> === <span class="number">0.2</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h4 id="Number-isInteger(number)">Number.isInteger(number)</h4><p>I think this is a way!</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(-<span class="number">17</span>)</span></span></span><br><span class="line">true</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="number">33</span>)</span></span></span><br><span class="line">true</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="number">33.1</span>)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(<span class="string">'33'</span>)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(NaN)</span></span></span><br><span class="line">false</span><br><span class="line">&gt; Number.<span class="function"><span class="title">isInteger</span><span class="params">(Infinity)</span></span></span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+<h4 id="Safe_Integers">Safe Integers</h4><p>And there is also safe integers in JavaScript.</p>
 
       
     </div>

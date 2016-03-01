@@ -97,6 +97,8 @@
 							
 								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
 					        
+								<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
+					        
 						</div>
 					</nav>
 				</section>
@@ -160,6 +162,8 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
 			        
 				</div>
 			</nav>
@@ -607,7 +611,7 @@
 <p><li>基本语句：执行次数与整个算法执行时间成正比的语句<br></li></p>
 <h3 id="蛮力法(brute_force_method)">蛮力法(brute force method)</h3><p><li>数据小的情况适合蛮力法<br></li></p>
 <p>eg:顺序查找</p>
-
+<h3 id="快速排序">快速排序</h3>
       
     </div>
     
@@ -732,7 +736,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> propDesc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">var</span> writable = propDesc.writable;</span><br><span class="line"><span class="keyword">var</span> configurable = propDesc.configurable;</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true</span></span><br><span class="line">In ES6, you can use destructuring:</span><br><span class="line"><span class="keyword">let</span> obj = &#123; foo: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;writable, configurable&#125; = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'foo'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(writable, configurable); <span class="comment">// true true &#123;writable, configurable&#125; is an abbreviation for:</span></span><br><span class="line">&#123; writable: writable, configurable: configurable &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Handling_multiple_default_values">Handling multiple default values</h3><p>In ES5, you specify default values for parameters like this:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In ES6</p>
+<p>In ES6:</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(x=0, y=0)</span> </span>&#123;</span><br><span class="line">  ···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>

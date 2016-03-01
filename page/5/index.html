@@ -97,6 +97,8 @@
 							
 								<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
 					        
+								<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
+					        
 						</div>
 					</nav>
 				</section>
@@ -160,6 +162,8 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/Eqistyre" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/SakuraNekoq@gmail.com" title="mail">mail</a>
 			        
 				</div>
 			</nav>
@@ -402,66 +406,6 @@
 
 
   
-    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/使用类/" class="article-date">
-  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。</br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：</br></p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。</br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
-<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/31/使用类/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -522,11 +466,11 @@
 
 
   
-    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-使用类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/31/二十年/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+      <a href="/2015/10/31/使用类/" class="article-date">
+  	<time datetime="2015-10-31T13:38:35.000Z" itemprop="datePublished">2015-10-31</time>
 </a>
     </div>
   
@@ -539,7 +483,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+      <a class="article-title" href="/2015/10/31/使用类/">c++学习知识点纪录（六）</a>
     </h1>
   
 
@@ -548,9 +492,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
-<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
-
+        <h3 id="使用类">使用类</h3><h4 id="运算符重载">运算符重载</h4><p>下面介绍一种使对象操作更美观的技术。运算符重载是一种形式的c++多态。</br><br>c++允许将运算符重载扩展到用户定义的类型，例如，允许使用+将两个对象相加。编译器将根据操作符的数目和类型决定使用哪种加法定义。重载运算符可使代码看起来更自然。例如，将两个数组相加使一种常见的运算。通常，需使用下面这样的for循环来实现：</br></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span><span class="comment">; i &lt; 20; i++) &#123;</span></span><br><span class="line">	evening[i] = sam[i] + janet[i]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在c++中，可以定义一个表示数组的类，并重载+运算符。于是便可以有这样的语句：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evening = sam + janet<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这种简单的加法表示法隐藏了内部机理，并强调了实质，这事OOP的另一个目标。</br><br>要重载运算符，需要使用被称为运算符函数的特殊函数形式。运算符函数的格式如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">operatorop</span><span class="params">(argument-list)</span></span></span><br></pre></td></tr></table></figure>
+<p>例如，operator+( )重载+运算符，operator*( )重载 *运算符。op必须是有效的c++运算符，不能虚构一个新的符号。例如，不能有operator@( )这样的函数，因为c++中没有@运算符。<br>
       
     </div>
     
@@ -559,6 +507,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/31/使用类/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -622,6 +574,58 @@
         <p class="article-more-link">
           <a  href="/2015/10/31/声明与变量/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/二十年/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
+<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
       
       <div class="clearfix"></div>
     </div>
