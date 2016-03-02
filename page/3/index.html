@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/人生/" style="font-size: 13.33px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Vue_js概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/Vue_js概述/" class="article-date">
+  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/Vue_js概述/">Vue.js概述以及一些吐槽</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是vue">什么是vue</h3><p>自我感觉，读完文档后感觉Vue是一种MVVM模式的图形界面框架拥有着低耦合的优点。自己不是太精通Javascript，就谈谈一些感想吧。Vue中可以对元素进行快速选取操作，以及动态命名。实现无需后台数据传入直接计算的功能。例如我们可以：</p>
+<p>HTML</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id = <span class="string">"examples"</span>&gt;</span><br><span class="line">  <span class="expansion">&#123;&#123;message&#125;&#125;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Javascript</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">var</span> vm = new vue(&#123;</span><br><span class="line">  el: <span class="string">"#examples"</span></span><br><span class="line">  <span class="typedef"><span class="keyword">data</span>: <span class="container">&#123;</span><br><span class="line">    <span class="title">message</span>: "<span class="type">Sakura</span>"</span><br><span class="line">  &#125;</span></span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样之后就会发生动态变换了。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/13/Vue_js概述/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-NodeExpress" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -219,69 +282,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Vue_js概述" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/Vue_js概述/" class="article-date">
-  	<time datetime="2016-01-13T07:38:35.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/Vue_js概述/">Vue.js概述以及一些吐槽</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是vue">什么是vue</h3><p>自我感觉，读完文档后感觉Vue是一种MVVM模式的图形界面框架拥有着低耦合的优点。自己不是太精通Javascript，就谈谈一些感想吧。Vue中可以对元素进行快速选取操作，以及动态命名。实现无需后台数据传入直接计算的功能。例如我们可以：</p>
-<p>HTML</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id = <span class="string">"examples"</span>&gt;</span><br><span class="line">  <span class="expansion">&#123;&#123;message&#125;&#125;</span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Javascript</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">var</span> vm = new vue(&#123;</span><br><span class="line">  el: <span class="string">"#examples"</span></span><br><span class="line">  <span class="typedef"><span class="keyword">data</span>: <span class="container">&#123;</span><br><span class="line">    <span class="title">message</span>: "<span class="type">Sakura</span>"</span><br><span class="line">  &#125;</span></span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>这样之后就会发生动态变换了。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/Vue_js概述/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
