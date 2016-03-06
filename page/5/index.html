@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,63 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-HTTP 服务器与客户端" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/11/HTTP 服务器与客户端/" class="article-date">
+  	<time datetime="2015-11-11T10:38:35.000Z" itemprop="datePublished">2015-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/11/HTTP 服务器与客户端/">Node.js HTTP 服务器与客户端</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP服务器与客户端">HTTP服务器与客户端</h3><p>Node.js标准库提供了http模块，其中封装了一个高效的HTTP服务器和一个简易的HTTP客户端。http.Server是一个基于事件的HTTP服务器，它的核心由Node.js下层部分实现，而接口由JavaScript封装，兼顾了高性能与建议性。</p>
+<h4 id="HTTP服务器">HTTP服务器</h4><p>http.Server是http模块中的HTTP服务器对象。用Node.js做的所有基于HTTP服务器协议的系统，如网站，社交应用甚至代理服务器，都是基于http.Server实现的。它提供了一套封装级别很低的API，仅仅是流控制和简单的消息解析，所有的高层功能都是通过它的接口来实现。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-杂感（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -604,73 +661,6 @@
 
 
   
-    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/声明与变量/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。</br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
-<h4 id="元组">元组</h4><p>元组(tuples)把多个值组合为一个复合值。感觉和C++结构体很像，但是要远远比结构体好＝＝。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let http404Error = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</span><br><span class="line">let (statusCode, statusMessage) = http404Error</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusCode)"</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusMessage)"</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="隐式解析可选类型">隐式解析可选类型</h4><p>如上所述，可选类型暗示了常量或变量可以”没有值”。可选可以通过if语句来判断是否有值，如果有值的话可以通过可选绑定来解析值。</p>
-<p>这种类型的可选状态被定义为隐式可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号(String?)改成感叹号(String!)来声明一个隐式解析可选类型。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="built_in">String</span>? =  <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="built_in">String</span> = possibleString! <span class="comment">//通过！来获取值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="built_in">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="built_in">String</span> = assumedString <span class="comment">//不需要通过1来获取值</span></span><br></pre></td></tr></table></figure>
-<h3 id="错误处理">错误处理</h3><p>Nike一通过错误处理(error handling)来应对程序执行中可能遇到的错误条件。<br>相对于可选中运用值的存在与缺失来表达函数的成功与失败，错误处理可以推断失败的原因，并传播至程序的其它部分。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">canThrowAnError</span><span class="params">()</span></span> throws &#123;</span><br><span class="line">  <span class="comment">// 这个函数有可能抛出错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一个函数中可以通过在声明中添加throws关键字来抛出错误消息。当你的函数能抛出错误消息时，你应该在表达时中前置try关键词。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">try</span> <span class="title">canThrowAnError</span>(<span class="params"></span>)</span><br><span class="line">  <span class="comment">//没有错误消息抛出</span></span><br><span class="line">&#125; <span class="keyword">catch</span> </span>&#123;</span><br><span class="line">  <span class="comment">//有一个错误消息抛出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/31/声明与变量/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -727,11 +717,11 @@
 
 
   
-    <article id="post-内存模型和名称空间" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/29/内存模型和名称空间/" class="article-date">
-  	<time datetime="2015-10-29T13:38:35.000Z" itemprop="datePublished">2015-10-29</time>
+      <a href="/2015/10/31/声明与变量/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
 </a>
     </div>
   
@@ -744,7 +734,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/内存模型和名称空间/">c++学习知识点纪录（四）</a>
+      <a class="article-title" href="/2015/10/31/声明与变量/">Swift学记笔记（一）</a>
     </h1>
   
 
@@ -753,19 +743,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="单独编译">单独编译</h4><p>请不要将函数定义或变量声明放到头文件中。这样做对于简单的情况可能是可行的，但通常会引来麻烦。例如，如果在头文件中包含一个函数定义，然后在其他两个文件（属于同一个程序）中包含该头文件，则通用一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则将会出错。下面列出了头文件中包含的内容。</br></p>
-<p><li>函数原型。</p>
-<p><li>使用#define或const定义的符号常量。</p>
-<p><li>结构声明。</p>
-<p><li>类声明。</p>
-<p><li>模版声明。</p>
-<p><li>内联函数。</p>
-<h4 id="储存持续性，作用域和链接性">储存持续性，作用域和链接性</h4><p><li>自动储存持续性：在函数定义中声明的变量（包括函数参数）的持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。</p>
-<p><li>静态函数储存持续性：在函数定义外定义的变量和使用关键字static定义的变量的储存持续性都为静态。它们在程序整个允许过程中都存在</p>
-<p><li>线程储存持续性：多和处理器中有这个东西。</p>
-<p><li>动态储存持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的储存持续性为动态，又是被称为自由储存（free store）或堆（heap）</p>
-<h4 id="作用域和链接">作用域和链接</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> teledeli = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello\n"</span>;             <span class="comment">//websight的生成周期只在这个代码块中</span></span><br><span class="line">		<span class="keyword">int</span> websight = -<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; websight &lt;&lt; <span class="string">' '</span> &lt;&lt; teledeli &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; teledeli &lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在默认情况下，在函数中声明的函数参数和变量的储存持续性为自动，作用域为局部为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配内存；当函数结束时，这些变量都将消失。</br><br>如果在上面的例子中，我们将内部代码块中的变量重新命名为teledeli,而不是websight,使得有两个同名的变量（一个卫浴代码块中，另一个位于代码块中），情况将如何呢？在这种情况下，程序执行内部代码中的语句时，将teledeli解释为局部代码块变量。我们，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见。<br>
+        <h4 id="声明与变量">声明与变量</h4><p>Swift 包含了 C 和 Objective-C 上所有基础数据类型，Int表示整型值；Double和Float表示浮点型值；Bool是布尔型值；String是文本型数据。Swift 还提供了三个基本的集合类型，Array，Set和Dictionary，详见集合类型。</br><br>数组（Arrays）是有序数据的集。集合（Sets）是无序无重复数据的集。字典（Dictionaries）是无序的键值对的集。Swift 语言中的Arrays、Sets和Dictionaries中存储的数据值类型必须明确。这意味着我们不能把不正确的数据类型插入其中。同时这也说明我们完全可以对取回值的类型非常自信。</p>
+<h4 id="元组">元组</h4><p>元组(tuples)把多个值组合为一个复合值。感觉和C++结构体很像，但是要远远比结构体好＝＝。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let http404Error = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</span><br><span class="line">let (statusCode, statusMessage) = http404Error</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusCode)"</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The status code is \(statusMessage)"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="隐式解析可选类型">隐式解析可选类型</h4><p>如上所述，可选类型暗示了常量或变量可以”没有值”。可选可以通过if语句来判断是否有值，如果有值的话可以通过可选绑定来解析值。</p>
+<p>这种类型的可选状态被定义为隐式可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号(String?)改成感叹号(String!)来声明一个隐式解析可选类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="built_in">String</span>? =  <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="built_in">String</span> = possibleString! <span class="comment">//通过！来获取值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="built_in">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="built_in">String</span> = assumedString <span class="comment">//不需要通过1来获取值</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误处理">错误处理</h3><p>Nike一通过错误处理(error handling)来应对程序执行中可能遇到的错误条件。<br>相对于可选中运用值的存在与缺失来表达函数的成功与失败，错误处理可以推断失败的原因，并传播至程序的其它部分。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">canThrowAnError</span><span class="params">()</span></span> throws &#123;</span><br><span class="line">  <span class="comment">// 这个函数有可能抛出错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个函数中可以通过在声明中添加throws关键字来抛出错误消息。当你的函数能抛出错误消息时，你应该在表达时中前置try关键词。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">try</span> <span class="title">canThrowAnError</span>(<span class="params"></span>)</span><br><span class="line">  <span class="comment">//没有错误消息抛出</span></span><br><span class="line">&#125; <span class="keyword">catch</span> </span>&#123;</span><br><span class="line">  <span class="comment">//有一个错误消息抛出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -773,14 +760,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2015/10/29/内存模型和名称空间/#more">more >></a>
+          <a  href="/2015/10/31/声明与变量/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
