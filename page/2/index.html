@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javascript/" style="font-size: 11.67px;">javascript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,70 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-算法设计与分析(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/22/算法设计与分析(1)/" class="article-date">
+  	<time datetime="2016-02-22T14:40:35.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/22/算法设计与分析(1)/">算法设计与分析(1)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="算法设计的一半过程">算法设计的一半过程</h3><p>其中有一步，在精确解和近似解里选择。用绝对值进行</p>
+<h3 id="算法分析">算法分析</h3><p><li>渐进符号<br></li></p>
+<p><li>最好，最坏和平均<br></li></p>
+<p><li>非递归算法的分析<br></li></p>
+<p><li>递归算法的分析<br></li></p>
+<p><li>算法的后验分析<br></li></p>
+<h5 id="对于算法我们主要要分析空间与时间（时空开销）。">对于算法我们主要要分析空间与时间（时空开销）。</h5><p><li>输入量多少<br></li></p>
+<p><li>基本语句：执行次数与整个算法执行时间成正比的语句<br></li></p>
+<h3 id="蛮力法(brute_force_method)">蛮力法(brute force method)</h3><p><li>数据小的情况适合蛮力法<br></li></p>
+<p>eg:顺序查找</p>
+<h3 id="快速排序">快速排序</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Exploring-es6(3)" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -717,67 +781,6 @@
 <h4 id="Zyklus-Green"><li>Zyklus-Green</li></h4><p>1.19~09:00<table>泡了碗面，把给的图重新切了一下。其实滑动条是有的，不需要自己重做，自己把它稍微重写下吧。</table></p>
 <p>1.19~11:30<table>把settingLayer写好了，滑动条属性get。准备设置触碰范围。</table></p>
 <p>1.19~16:15<table>无线滚动做好，着手于其余的细微调节。</table></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发日志/">开发日志</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-开发日志(一)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/18/开发日志(一)/" class="article-date">
-  	<time datetime="2016-01-18T07:38:35.000Z" itemprop="datePublished">2016-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/18/开发日志(一)/">开发日志（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自己还是得写开发日志呀，也可以作为写代码时的消遣＝＝。前几天的开发进度只能模模糊糊的写上去了。</p>
-<h4 id="Zyklus-Green"><li>Zyklus-Green</li></h4><p>1.16<table>项目正式开工，调好了分辨率。</table></p>
-<p>1.17<table>加入了启动界面，音乐控制。中途由于自己傻，少写了一个导演类，导致无法获取实例。</table></p>
-<p>1.18~11:30<table>又出Bug了，游戏场景无法变化图片。</table></p>
-<p>1.18~15:34<table>发现imageview类竟然是ui类的子类，所以选择在计时器中使用，但发现Fps逐渐降低，猜测是由于不断执行setvisible操作所致，修复中。</table></p>
-<p>1.18~16:34<table>整整一个小时，终于修好了这个Bug,只要把声明重新写在public里就行了，然后再分别定义分别判断，正在加入第二张图，构建无限循环。</table></p>
-<p>1.18~16:59<table>图给错了！！这图压根不能无限循环好吧，明天需要重做这图。</table></p>
 
       
     </div>
