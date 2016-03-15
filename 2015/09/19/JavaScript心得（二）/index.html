@@ -17,7 +17,7 @@
 删除splice(0,2)从第一项开始删除两项，即删除头两项。
 插入splice(2,0,”red,”green”)从第二项开始插入字符串”red”，”green”
 替换splice(2,">
-<meta property="og:updated_time" content="2016-03-12T08:54:15.000Z">
+<meta property="og:updated_time" content="2016-03-13T09:36:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript心得（二）">
 <meta name="twitter:description" content="9.19日小结splice()这是一种最强大的数组方法，有很多种方法，splice()的用途主要是向数组的中部插入项。原型splice(a,b,c), a是从某一项开始删除/添加，b是删除的数目，c是添加呃内容
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javascript/" style="font-size: 11.67px;">javascript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javascript/" style="font-size: 11.67px;">javascript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -237,7 +237,6 @@
 <p><li>Number类型<br><br>var numberObject = new Number(10);</li></p>
 <p><li>String类型<br><br>var stringObject = new String(“Hello world”);</li></p>
 <h4 id="Global对象">Global对象</h4><p><li>eval()方法 <br><br>Eval方法是javascript中最强大的一种方法，这种方法相当于一个javascript解析器，只接受一个参数，即要执行的ECMAscript字符串。<br><br>eval(“alert(‘hi’)”);  等价于 alert(‘hi’);<br><br>所以这种方法十分危险，当它执行用户输入操作时或许会存在代码注入的情况。</li></p>
-<hr>
 <h4 id="总结">总结</h4><p>在所有代码执行之前，作用域中就已经存在了两个内置对象： Global 和 Math。在大多数ECMAScript实现中都不能直接访问GLobal对象；不过，Web浏览器实现了承担该角色的Window对象。全局变量和函数都是Global对象的属性。</p>
 
       
