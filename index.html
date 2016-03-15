@@ -168,6 +168,97 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-关于bootstrap的感悟" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/关于bootstrap的感悟/" class="article-date">
+  	<time datetime="2016-03-15T07:38:35.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/关于bootstrap的感悟/">关于bootstrap的感悟</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言">前言</h3><p>我总觉得前言这个东西对我来说快变成每日一记了。</p>
+<ul>
+<li>看到了一个很有意思的属性，不过并不推荐这样做。</li>
+</ul>
+<p>其实这个东西也就是计算啦。</p>
+<blockquote>
+<p>calc()</p>
+</blockquote>
+<p>eg:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="function">calc</span>(<span class="number">100%</span> - <span class="number">3em</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>var a = function(x,y,z);想获得a的参数列表。</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> nico = <span class="function"><span class="keyword">function</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&gt; nico.toString();</span><br><span class="line"><span class="string">'function (x, y) &#123;\nreturn x + y;\n&#125;'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>CORS完全明白了。<br>经过CF的一波点拨后成功的明白了：</li>
+</ul>
+<p><code>&lt;scrit&gt;</code>标签的src属性并不被同源策略所约束，所以可以获取任何服务器上脚本并执行。</p>
+<p>比如说我们可以通过：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"test.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>去访问别的服务器上面的<code>test.js</code></p>
+<p>然后Jsonp的实现模式－－CallBack</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span> = "<span class="attribute">text</span>/<span class="attribute">javascript</span>"&gt;</span><span class="actionscript"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">(data)</span> </span>&#123;</span><br><span class="line">  alert(data.message)</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="栅格系统">栅格系统</h3><p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+<ul>
+<li>”行（row）“必须包含在 <code>.container</code>（固定宽度）或<code>.container-fluid</code>（100%宽度）中，以便为其赋予合适的排列（）和内部。</li>
+<li>通过“行（row）”在水平方向创建一组“列（column）”</li>
+<li>你的内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素。</li>
+<li>类似<code>.row</code>和<code>.col-xs-4</code>这种预定义的类，可以用来快速创建栅格布局。Bootstrap 源码中定义的<code>mixin</code>也可以用来创建语义化的布局。</li>
+<li>通过为“列（column）”设置<code>padding</code>属性，从而创建列与列之间的间隔（gutter）。通过为<code>.row</code>元素设置负值<code>margin</code>从而抵消掉为<code>.container</code>元素设置的<code>padding</code>，也就间接为“行（row）”所包含的“列（column）”抵消掉了<code>padding</code>。</li>
+<li>负值的<code>margin</code>就是为什么是向外突出的原因。在栅格列中的内容排成一行。</li>
+<li>栅格系统中的列是通过指定1到12的值来表示其跨越的范围。例如，三个等宽的列可以使用三个<code>.col-xs-4</code>来创建。</li>
+<li>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列。</li>
+<li>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 <code>.col-md-*</code>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何<code>.col-lg-*</code>不存在， 也影响大屏幕设备。</li>
+</ul>
+<p>下面让我们看看如何简单的去实现栅格系统：</p>
+<p>未完待续！（BootStrap源码分析！）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript心得（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -763,64 +854,6 @@
         <p class="article-more-link">
           <a  href="/2016/02/25/关于数据库什么的实践/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mongoDB（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/23/mongoDB（一）/" class="article-date">
-  	<time datetime="2016-02-23T09:38:35.000Z" itemprop="datePublished">2016-02-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/23/mongoDB（一）/">mongoDB（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Declare MogoClient variable and variables</p>
-<p>Complete the remainder of this procedure in a node interactive shell or other environment:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).mongoClient;</span><br><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure>
-<p>I think this also like other</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>

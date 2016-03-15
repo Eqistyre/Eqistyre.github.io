@@ -168,6 +168,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-开发日志(三)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/25/开发日志(三)/" class="article-date">
+  	<time datetime="2016-01-25T01:38:35.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/25/开发日志(三)/">开发日志（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>回家了，在家休息了好几天＝＝。准备用echarts捏一个数据可视化的东西。游戏的话，设计最近没有交原型给我呢。</p>
+<h4 id="Echarts-ccnu"><li>Echarts-ccnu</li></h4><p>1.23<table><br>大晚上的发现会有跨域请求限制，cors在我这边解决不了，只能放弃原有方案，重新使用Express建立一个服务器后台。</table></p>
+<p>1.24<table><br>下了一堆的Atom插件。</table></p>
+<p>1.25~9:00<table><br>开始进行后台搭建，node什么的好多都忘了。</table></p>
+<p>1.25~11:00<table><br>重新看了一下许多的node方面的内容，路由控制，rest一类的。</table></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发日志/">开发日志</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-开发日志(二)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -678,73 +737,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/25/DataStructure(5)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-DataStructure(4)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/DataStructure(4)/" class="article-date">
-  	<time datetime="2015-12-22T14:40:35.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/DataStructure(4)/">DataStructure(4)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Tree">Tree</h3><h5 id="basic_operation">basic operation</h5><p>Searching</p>
-<p><li>Static search</p>
-<p>Method one: sequential search</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> SequentialSearch (staticTable *Tb1, ElementType K) &#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	Tb1-&gt;Element[<span class="number">0</span>] = K; <span class="comment">//Set up sentry</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tb1-&gt;Length; Tb-&gt;Element[i] != K; i--);</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顺序查找1算法的时间复杂度是O(n)。</p>
-<p>设立哨兵(set uo sentry)是一种防止数组越界的好方法，我们可以看下面的问题：</p>
-<p>如果我们把下面的i &gt; 0去掉会发生什么情况呢？</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> SequentialSearch(StaticTable *Tbl, ElementType K) &#123;</span><br><span class="line">	<span class="built_in">int</span> i<span class="comment">;</span></span><br><span class="line">	<span class="keyword">for</span>(i = Tbl-&gt;Length<span class="comment">; i &gt; 0 &amp;&amp; Tbl-&gt;Element[i]! = k; i--);</span></span><br><span class="line">	<span class="keyword">return</span> i<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们会发现，假如我们要查询元素K的话，如果K是没有的，那么便就会发生越界的情况，因为永远不可能有<code>Tbl-&gt;Element[i] != k</code>情况发生。数组越界会占用其它内存空间。</p>
-<p>Method two: Binary Search(二分查找)<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataStructure/">DataStructure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/22/DataStructure(4)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
