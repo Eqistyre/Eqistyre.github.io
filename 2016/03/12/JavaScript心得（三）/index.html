@@ -23,7 +23,7 @@ Array虽然JavaScript数组与其它语言中的数组都是数据的有序列�
 声明只是定义一个变量
 
 创建需要分配内存空间">
-<meta property="og:updated_time" content="2016-03-13T05:43:35.000Z">
+<meta property="og:updated_time" content="2016-03-17T11:22:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript心得（三）">
 <meta name="twitter:description" content="前言时隔半年再一次的去看红宝书，发现红宝书这个东西真的是百看不厌呐。这一次的红宝书之旅将仔仔细细的去看很多的细节部分。
@@ -258,6 +258,13 @@ Array虽然JavaScript数组与其它语言中的数组都是数据的有序列�
 <p>Generally identical to assert.deepEqual() with the exception that primitive values are compared using the strict equality operator ( === ).</p>
 </blockquote>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">assert</span><span class="class">.deepEqual</span>(&#123;<span class="tag">a</span><span class="pseudo">:1</span>&#125;, &#123;<span class="attribute">a</span>:<span class="string">'1'</span>&#125;);</span><br><span class="line"><span class="tag">undefined</span></span><br><span class="line"></span><br><span class="line"><span class="tag">assert</span><span class="class">.deepStrictEqual</span>(&#123;<span class="tag">a</span><span class="pseudo">:1</span>&#125;, &#123;<span class="attribute">a</span>:<span class="string">'1'</span>&#125;);</span><br><span class="line"><span class="tag">AssertionError</span>: &#123; <span class="tag">a</span>: <span class="tag">1</span> &#125; <span class="tag">deepStrictEqual</span> &#123; <span class="attribute">a</span>: <span class="string">'1'</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="说一个有趣的现象">说一个有趣的现象</h3><p>因为一些对象是无法调用<code>.length</code>（有些除外，如Array什么的是可以调用的）。所以会有我们应该怎么去返回一个对象的长度呢：</p>
+<p>我们有一下两种方法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; var a = &#123;x: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], y: <span class="string">"sakuraNeko"</span>, z: <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">&gt; Object.keys(a);</span><br><span class="line">[ <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span> ]</span><br><span class="line"></span><br><span class="line">&gt; Object.getOwnPropertyNames(a);</span><br><span class="line">[ <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span> ]</span><br></pre></td></tr></table></figure></p>
+<p>那么<code>.keys</code>与<code>getOwnPropertyNames</code>有什么区别呢？</p>
+<ul>
+<li>Object.keys(), 它返回一个数组，这个数组由对象中<em>可枚举的自有属性</em>的名称组成。</li>
+<li>Object.getOwnPropertyNames(), 它和Object.keys()类似，只是它返回对象的<em>所有自有属性的名称</em>。</li>
+</ul>
 
       
     </div>
