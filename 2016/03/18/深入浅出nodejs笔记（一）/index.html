@@ -3,21 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>考试之前看的各种排序 | SakuraNeko</title>
+  <title>深入浅出nodejs笔记（一） | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
-12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
+  <meta name="description" content="JavaScript的优点
+异步I/O
+
+Ajax中有：1234$.post(&apos;/url&apos;, &amp;#123;title: &apos;深入浅出Node.js&apos;&amp;#125;, function(data) &amp;#123;  console.log(&apos;收到响应&apos;);&amp;#125;);console.log(&apos;发送Ajax结束&apos;);
+在调用$.post()后，后续代码是被立即执行的，而“收到响应”的执行时间是不被预期的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="考试之前看的各种排序">
-<meta property="og:url" content="http://eqistyre.github.io/2015/11/29/各种排序/index.html">
+<meta property="og:title" content="深入浅出nodejs笔记（一）">
+<meta property="og:url" content="http://eqistyre.github.io/2016/03/18/深入浅出nodejs笔记（一）/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
-12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
-<meta property="og:updated_time" content="2016-03-01T14:44:49.000Z">
+<meta property="og:description" content="JavaScript的优点
+异步I/O
+
+Ajax中有：1234$.post(&apos;/url&apos;, &amp;#123;title: &apos;深入浅出Node.js&apos;&amp;#125;, function(data) &amp;#123;  console.log(&apos;收到响应&apos;);&amp;#125;);console.log(&apos;发送Ajax结束&apos;);
+在调用$.post()后，后续代码是被立即执行的，而“收到响应”的执行时间是不被预期的">
+<meta property="og:updated_time" content="2016-03-18T07:35:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="考试之前看的各种排序">
-<meta name="twitter:description" content="&amp;lt;一&amp;gt;插入排序有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法
-12345678910111213141516171819voidinsertion_sort(intarray[],intfirst,intlast)&amp;#123;inti,j;int temp;for(i = first+1">
+<meta name="twitter:title" content="深入浅出nodejs笔记（一）">
+<meta name="twitter:description" content="JavaScript的优点
+异步I/O
+
+Ajax中有：1234$.post(&apos;/url&apos;, &amp;#123;title: &apos;深入浅出Node.js&apos;&amp;#125;, function(data) &amp;#123;  console.log(&apos;收到响应&apos;);&amp;#125;);console.log(&apos;发送Ajax结束&apos;);
+在调用$.post()后，后续代码是被立即执行的，而“收到响应”的执行时间是不被预期的">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -170,11 +179,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-各种排序" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-深入浅出nodejs笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/29/各种排序/" class="article-date">
-  	<time datetime="2015-11-28T16:40:35.000Z" itemprop="datePublished">2015-11-29</time>
+      <a href="/2016/03/18/深入浅出nodejs笔记（一）/" class="article-date">
+  	<time datetime="2016-03-18T01:38:35.000Z" itemprop="datePublished">2016-03-18</time>
 </a>
     </div>
   
@@ -187,7 +196,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      考试之前看的各种排序
+      深入浅出nodejs笔记（一）
     </h1>
   
 
@@ -196,7 +205,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
 	</div>
 
         
@@ -207,11 +216,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="&lt;一&gt;插入排序">&lt;一&gt;插入排序</h3><p>有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序，这个时候就要用到一种新的排序方法——插入排序法<br></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">voidinsertion_sort(intarray[],intfirst,intlast)</span><br><span class="line">&#123;</span><br><span class="line">inti,j;</span><br><span class="line"><span class="keyword">int</span> temp;</span><br><span class="line"><span class="keyword">for</span>(i = first+<span class="number">1</span>; i &lt; last ; i++)</span><br><span class="line">&#123;</span><br><span class="line">temp=<span class="built_in">array</span>[i];</span><br><span class="line">j=i-<span class="number">1</span>;</span><br><span class="line"><span class="comment">//与已排序的数逐一比较，大于temp时，该数移后</span></span><br><span class="line"><span class="keyword">while</span> ((j&gt;=<span class="number">0</span>) &amp;&amp; (<span class="built_in">array</span>[j]&gt;temp))</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">array</span>[j+<span class="number">1</span>]=<span class="built_in">array</span>[j];</span><br><span class="line">j--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//存在大于temp的数</span></span><br><span class="line"><span class="keyword">if</span>(j!=i-<span class="number">1</span>)</span><br><span class="line">&#123;<span class="built_in">array</span>[j+<span class="number">1</span>]=temp;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="&lt;二&gt;冒泡排序">&lt;二&gt;冒泡排序</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="&lt;三&gt;选择排序">&lt;三&gt;选择排序</h3><h3 id="&lt;四&gt;快速排序">&lt;四&gt;快速排序</h3>
+        <h3 id="JavaScript的优点">JavaScript的优点</h3><ul>
+<li>异步I/O</li>
+</ul>
+<p>Ajax中有：<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/url'</span>, &#123;title: <span class="string">'深入浅出Node.js'</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'收到响应'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'发送Ajax结束'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>在调用$.post()后，后续代码是被立即执行的，而“收到响应”的执行时间是不被预期的。我们只知道它将在这个异步请求结束后执行，但并不知道具体的时间点。异步调用中对于结果值的捕获是符合“Don’t call me, I will call you”的原则的。</p>
+<p>文件操作中有：<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'/path'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, file</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'读取文件完成'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'发起读取文件'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="事件与回调函数">事件与回调函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//侦听服务器的request事件</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> postData  = <span class="string">''</span>;</span><br><span class="line">  req.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">  <span class="comment">//侦听请求的data事件</span></span><br><span class="line">  req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">trunk</span>) </span>&#123;</span><br><span class="line">    postData += trunk;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//侦听请求的end事件</span></span><br><span class="line">  req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    res.end(postData);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;).listen(<span class="number">8080</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器启动完成'</span>);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -220,18 +232,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/29/今天就说说今天的一些小收获吧/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Cocos-2dx杂感
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/29/今天的我是非常开心的我/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Cocos-2dx中踩的又一个坑，关于lambda函数</div>
+    <a href="/2016/03/15/关于bootstrap的感悟/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于bootstrap的感悟</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

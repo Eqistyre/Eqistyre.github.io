@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.33px;">C++</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 13.33px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.67px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.67px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.67px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 16.67px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 16.67px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.67px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.67px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.67px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/人生/" style="font-size: 16.67px;">人生</a> <a href="/tags/开发日志/" style="font-size: 13.33px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.67px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,67 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-深入浅出nodejs笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/深入浅出nodejs笔记（一）/" class="article-date">
+  	<time datetime="2016-03-18T01:38:35.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/18/深入浅出nodejs笔记（一）/">深入浅出nodejs笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JavaScript的优点">JavaScript的优点</h3><ul>
+<li>异步I/O</li>
+</ul>
+<p>Ajax中有：<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/url'</span>, &#123;title: <span class="string">'深入浅出Node.js'</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'收到响应'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'发送Ajax结束'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>在调用$.post()后，后续代码是被立即执行的，而“收到响应”的执行时间是不被预期的。我们只知道它将在这个异步请求结束后执行，但并不知道具体的时间点。异步调用中对于结果值的捕获是符合“Don’t call me, I will call you”的原则的。</p>
+<p>文件操作中有：<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'/path'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, file</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'读取文件完成'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'发起读取文件'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="事件与回调函数">事件与回调函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//侦听服务器的request事件</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> postData  = <span class="string">''</span>;</span><br><span class="line">  req.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">  <span class="comment">//侦听请求的data事件</span></span><br><span class="line">  req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">trunk</span>) </span>&#123;</span><br><span class="line">    postData += trunk;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//侦听请求的end事件</span></span><br><span class="line">  req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    res.end(postData);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;).listen(<span class="number">8080</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'服务器启动完成'</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-关于bootstrap的感悟" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -793,67 +854,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-关于数据库什么的实践" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/25/关于数据库什么的实践/" class="article-date">
-  	<time datetime="2016-02-25T01:40:35.000Z" itemprop="datePublished">2016-02-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/关于数据库什么的实践/">关于数据库什么的实践</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言">前言</h3><p>这两天坑比的在弄数据库。在自己的centos上弄了很长时间。不过不得不说，centos上面弄环境搭建还是挺烦的。</p>
-<h3 id="前期准备">前期准备</h3><p><li>首先你需要一台服务器。</br></p>
-<p><li>你需要使用ORM2</br></p>
-<p><li>Mysql什么鬼的</br></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/25/关于数据库什么的实践/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
