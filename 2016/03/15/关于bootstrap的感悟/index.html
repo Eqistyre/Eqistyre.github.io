@@ -37,7 +37,7 @@ eg:
 var a = function(x,y,z);想获得a的参数列表。
 
 123456&amp;gt; var nico = function(x, y) &amp;#123;  return x + y;">
-<meta property="og:updated_time" content="2016-03-15T11:27:03.000Z">
+<meta property="og:updated_time" content="2016-03-21T03:40:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于bootstrap的感悟">
 <meta name="twitter:description" content="前言我总觉得前言这个东西对我来说快变成每日一记了。
@@ -266,6 +266,8 @@ var a = function(x,y,z);想获得a的参数列表。
 <p>去访问别的服务器上面的<code>test.js</code></p>
 <p>然后Jsonp的实现模式－－CallBack</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span> = "<span class="attribute">text</span>/<span class="attribute">javascript</span>"&gt;</span><span class="actionscript"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">(data)</span> </span>&#123;</span><br><span class="line">  alert(data.message)</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript实现归并排序。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.merge_sort = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span><span class="params">(left, right)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> <span class="keyword">final</span> = [];</span><br><span class="line">		<span class="keyword">while</span> (left.length &amp;&amp; right.length)</span><br><span class="line">			<span class="keyword">final</span>.push(left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>] ? left.shift() : right.shift());</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">final</span>.concat(left.concat(right));</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">var</span> len = <span class="keyword">this</span>.length;</span><br><span class="line">	<span class="keyword">if</span> (len &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	<span class="keyword">var</span> mid = len / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">return</span> merge(<span class="keyword">this</span>.slice(<span class="number">0</span>, parseInt(mid)).merge_sort(), <span class="keyword">this</span>.slice(parseInt(mid)).merge_sort());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="栅格系统">栅格系统</h3><p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
 <ul>
 <li>”行（row）“必须包含在 <code>.container</code>（固定宽度）或<code>.container-fluid</code>（100%宽度）中，以便为其赋予合适的排列（）和内部。</li>
@@ -279,7 +281,8 @@ var a = function(x,y,z);想获得a的参数列表。
 <li>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何 <code>.col-md-*</code>栅格类适用于与屏幕宽度大于或等于分界点大小的设备 ， 并且针对小屏幕设备覆盖栅格类。 因此，在元素上应用任何<code>.col-lg-*</code>不存在， 也影响大屏幕设备。</li>
 </ul>
 <p>下面让我们看看如何简单的去实现栅格系统：</p>
-<p>未完待续！（BootStrap源码分析！）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>未完待续！（BootStrap源码分析！）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
