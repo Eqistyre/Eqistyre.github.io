@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 12.86px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 10px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,63 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-今天就说说今天的一些小收获吧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/今天就说说今天的一些小收获吧/" class="article-date">
+  	<time datetime="2015-11-29T14:38:35.000Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/29/今天就说说今天的一些小收获吧/">Cocos-2dx杂感</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="今天就说说今天的一些小收获吧">今天就说说今天的一些小收获吧</h3><p>首先关于界面切换的问题。我们创建一个SceneManager类，然后在这个类里面写如下代码。下面我会去解释这些代码的意思的。（算了我还是直接去注释这些代码吧，如果不去注释这些代码的话，写起来会比较麻烦的）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先我们在宏中要将我们需要包含的代码放进去，只有这样在后续的使用中，使用场景类的话才可以成功</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"SceneManager.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"GameRunning.h"</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">"OsmanthusBeginner.h"</span></span></span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::mSceneManager = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">SceneManager* SceneManager::sharedSceneManager()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(mSceneManager == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mSceneManager = <span class="keyword">new</span> SceneManager();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mSceneManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans )</span><br><span class="line">&#123;</span><br><span class="line">    changeScene(enScenType, isTrans, <span class="number">1.0f</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::changeScene( EnumSceneType enScenType, <span class="keyword">bool</span> isTrans, <span class="keyword">float</span> time )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enScenType);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TextureCache::sharedTextureCache()-&gt;removeUnusedTextures();</span><br><span class="line">    Director* pDirector = Director::getInstance();</span><br><span class="line">    Scene* curScene = pDirector-&gt;getRunningScene();</span><br><span class="line">    <span class="keyword">if</span>(curScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pDirector-&gt;runWithScene(pScene);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(isTrans)</span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(TransitionFade::create(time, pScene));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pDirector-&gt;replaceScene(pScene);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::pushScene( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = getSceneByType(enSceneType);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pScene == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Director::getInstance()-&gt;pushScene(pScene);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> SceneManager::popScene()</span><br><span class="line">&#123;</span><br><span class="line">    Director::getInstance()-&gt;popScene();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Scene* SceneManager::getSceneByType( EnumSceneType enSceneType )</span><br><span class="line">&#123;</span><br><span class="line">    Scene* pScene = Scene::create();</span><br><span class="line">    Layer *pLayer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">switch</span> (enSceneType)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> en_OsmanthusBeginner:</span><br><span class="line">            pLayer = OsmanthusBeginner::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> en_GameRunning:</span><br><span class="line">            pLayer = GameRunning::create();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pScene-&gt;addChild(pLayer);</span><br><span class="line">    <span class="keyword">return</span> pScene;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有就是在相应的IOS中把相应的plist中的lanchImage进行替换，活着你可以在plist中重写</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cocos-2dx/">Cocos-2dx</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-各种排序" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -729,72 +786,9 @@
 
 
   
-    <article id="post-数据结构基础（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/02/数据结构基础（一）/" class="article-date">
-  	<time datetime="2015-11-02T04:38:35.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/数据结构基础（一）/">数据结构学习笔记（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用typedef为现有类型创建同义字，定义易于记忆的类型名：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> size;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">measure</span><span class="params">(size * psz)</span></span>;</span><br><span class="line">size <span class="built_in">array</span>[<span class="number">4</span>];</span><br><span class="line">size len=file.getlength();</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;size&gt;vs;</span><br></pre></td></tr></table></figure>
-<p>typedef 还可以掩饰复合类型，如指针和数组：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="value">char</span>　<span class="value">line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">char</span>　<span class="value">text</span><span class="attr_selector">[81]</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只需这样定义，Line类型即代表了具有81个元素的字符数组，使用方法如下：</span></span><br><span class="line">typedef <span class="value">char</span> <span class="value">Line</span><span class="attr_selector">[81]</span>;</span><br><span class="line"><span class="value">Line</span>　<span class="value">text</span>,<span class="value">line</span>;</span><br><span class="line"><span class="function">getline</span>(<span class="value">text</span>);</span><br></pre></td></tr></table></figure>
-<p>同样，可以像下面这样隐藏指针语法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>　<span class="keyword">char</span>*　pstr;</span><br><span class="line"><span class="function"><span class="keyword">int</span>　<span class="title">mystrcmp</span><span class="params">(<span class="keyword">const</span>　pstr　p1,<span class="keyword">const</span>　pstr　p3)</span></span>;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/02/数据结构基础（一）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 </div>
