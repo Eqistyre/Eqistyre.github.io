@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MariaDB/" style="font-size: 10px;">MariaDB</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,72 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-MariaDB笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/10/MariaDB笔记（一）/" class="article-date">
+  	<time datetime="2016-04-10T11:38:35.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/10/MariaDB笔记（一）/">MariaDB笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="grep">grep</h3><p>grep是一个最初用于Unix操作系统的命令行工具。在给出文件列表标准输出后，grep会对匹配一个或多个正则表达式的文本进行搜索，并只输出匹配（或者不匹配）的行或文本。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">grep</span> <span class="tag">apple</span> <span class="tag">fruitlist</span><span class="class">.txt</span></span><br></pre></td></tr></table></figure>
+<p>在这个例子里，grep会返回“fruitlist.txt”中所有包含“apple”的文本行。要注意的是，grep不会返回匹配“Apple”（A字母大写）的文本行，因为grep默认情况下是大小写敏感的。像大多数Unix命令行一样，grep接受参数来改变或增加一些特别的功能。例如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -<span class="tag">i</span> apple fruitlist.txt</span><br></pre></td></tr></table></figure>
+<p>这个命令会返回所有匹配“apple”、“Apple”、“apPLE”或其它混合大小写的拼写。</p>
+<h3 id="ps_aux">ps aux</h3><p>linux上进程有5种状态：</p>
+<p><li>运行（正在运行或在运行队列中等待）</li></p>
+<p><li>中断（休眠中、受阻、在等待某个条件的形成或接受到信号）</li></p>
+<p><li>不可中断（收到信号不唤醒和不可运行，进程必须等待直到有中断发生）</li></p>
+<p><li>僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)</li></p>
+<p><li>停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)</li></p>
+<p>1) ps a 显示现行终端机下的所有程序，包括其他用户的程序。<br>2) ps -A   显示所有程序。<br>3）ps c    列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。<br>4）ps -e  此参数的效果和指定”A”参数相同。<br>5）ps e   列出程序时，显示每个程序所使用的环境变量。<br>6）ps f    用ASCII字符显示树状结构，表达程序间的相互关系。<br>7）ps -H    显示树状结构，表示程序间的相互关系。<br>8）ps -N   显示所有的程序，除了执行ps指令终端机下的程序之外。<br>9）ps s     采用程序信号的格式显示程序状况。<br>10）ps S     列出程序时，包括已中断的子程序资料。<br>11）ps -t &lt;终端机编号&gt; 　指定终端机编号，并列出属于该终端机的程序的状况。<br>12）ps u 　 以用户为主的格式来显示程序状况。<br>13）ps x 　 显示所有程序，不以终端机来区分。<br>14）ps -l     显示PID的详细信息</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MariaDB/">MariaDB</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-网络安全介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -822,63 +888,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetWork/">NetWork</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-CSS SECRETS(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/28/CSS SECRETS(1)/" class="article-date">
-  	<time datetime="2016-02-28T14:40:35.000Z" itemprop="datePublished">2016-02-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/28/CSS SECRETS(1)/">CSS SECRETS(1)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Eat_your_own_dog_food">Eat your own dog food</h3><p>Please code anyway!</p>
-<h3 id="Introduction">Introduction</h3><h4 id="Minimize_code_duplication">Minimize code duplication</h4><p>let’s we look at the following CSS</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">6px</span> <span class="number">16px</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1</span>x solid <span class="hexcolor">#446d88</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#58a</span> <span class="function">linear-gradient</span>(<span class="hexcolor">#77a0bb</span>, <span class="hexcolor">#58a</span>)</span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">4px</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> <span class="number">0</span> <span class="number">1px</span> <span class="number">5px</span> gray</span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">color</span>:<span class="value"> white</span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">text-shadow</span>:<span class="value"> <span class="number">0</span> -<span class="number">1px</span> <span class="number">1px</span> <span class="hexcolor">#335166</span></span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
 	</div>
 
       
