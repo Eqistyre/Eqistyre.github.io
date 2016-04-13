@@ -3,21 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DataStructure(1) | SakuraNeko</title>
+  <title>Tag: nginx | SakuraNeko</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
-<meta property="og:type" content="article">
-<meta property="og:title" content="DataStructure(1)">
-<meta property="og:url" content="http://eqistyre.github.io/2015/12/16/DataStructure(1)/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SakuraNeko">
+<meta property="og:url" content="http://eqistyre.github.io/tags/nginx/index.html">
 <meta property="og:site_name" content="SakuraNeko">
-<meta property="og:description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
-<meta property="og:updated_time" content="2016-03-01T14:40:29.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataStructure(1)">
-<meta name="twitter:description" content="PrefaceI will try to use English record my blog from today.
-DefinationIn computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data">
+<meta name="twitter:title" content="SakuraNeko">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -170,94 +166,53 @@ DefinationIn computer science,a data structure is a particular way of organizing
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-DataStructure(1)" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/12/16/DataStructure(1)/" class="article-date">
-  	<time datetime="2015-12-16T02:38:35.000Z" itemprop="datePublished">2015-12-16</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/04/13/nginx中文文档笔记（1）/" class="archive-article-date">
+  	<time datetime="2016-04-13T07:38:35.000Z" itemprop="datePublished">Apr 13</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      DataStructure(1)
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/13/nginx中文文档笔记（1）/">nginx文档笔记</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataStructure/">DataStructure</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Preface">Preface</h3><p>I will try to use English record my blog from today.</p>
-<h3 id="Defination">Defination</h3><p>In computer science,a data structure is a particular way of organizing data in a computer so that it can be used efficiently.Data structures can implement one or more particular abstract data types(ADT),which are the means of specifying the the contract of operations and their complexity. In comparsion,a data structure is a concrete implementation of the contract provided by an ADT.</p>
-<p>Different kinds of data structures are suited to different kinds of applications, examples:</p>
-<p><li>Databases use B-tree indexes for small percentages of data retrieval.<br></li></p>
-<p><li>compilers and databases use dynamic hash tables as look-up tables.<br></li></p>
-<p>Usaually, efficient data structures are key to designing efficient algorithms.</p>
-<h3 id="Overview">Overview</h3><p>Data structures are generally based on the ability of a computer fetch and store data at any place in its memory, specified by <em>pointer</em>-a bit string, representing a memory address.<br><a id="more"></a></p>
-<h3 id="Examples">Examples</h3><p>There are numerous types of data structures, gennerally built upon simpler primitive data types:(just like a tress)</p>
-<p><li>An array:a number of elements in a specific order, typically all of the same type.I think the array is one of the type we familiar with<br></li></p>
-<p><li>An associative array:a more flexible variation on an array, in which name-value pairs can be added and deleted freely. A hash table is a common implementation of an associative array.<br></li></p>
-<p><li>A record(also called tuple or struct):an aggregate data structure. A  record is a value that contains oher values, typically in fixed number and sequence and typically indexed by names. The elements of records are usually called fields or members(You can find struct in C, in C++ it have an advanced name class, but it also remmained in C++)<br></li></p>
-<p><li>A union: a data structure that specifies which of a number of permitted primitive types may be stored in it’s instances,e.g. float or long integer. Contrast with a record, which could be defined to contain a float and an integer; whereas in a union, ther is only one value at time. Enough space is allocated to contain the widest member datatype(I will give a instance in c)</li></p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">number</span></span></span><br><span class="line">&#123;</span><br><span class="line">int x;</span><br><span class="line">long y;</span><br><span class="line">double z;</span><br><span class="line">&#125;;</span><br><span class="line">number num = (<span class="number">4</span>,<span class="number">15</span>,<span class="number">30.7</span>);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<p><li>A tagged union: a variant union contains an additional field indicating its current type, for enhanced type safety.<br></li></p>
-<p><li>A set: an abstract data structure that can store specific values, in no particular order and with no duplicate values.<br></li></p>
-<p><li>A graph and a tree:linked abstract data structures composed of nodes. Each node contains a value and one or more pointers to other nodes arranged in a hierarchy. Graphs can be used to represent networks, while variants of trees can be used for sorting and searching, having their nodes arranged in some relative order based on their values.<br></li></p>
-<p><li>A class: a data structure that contains data fields, like a record, as well as various methods which operate on the contents of the record. In the context of object-oriented programming, records are known as plain old data structures to distinguish them from classes.<br><br></li></p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/12/17/DataStructure(2)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          DataStructure(2)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/12/15/杂感12.15/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">吐槽</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -283,9 +238,9 @@ DefinationIn computer science,a data structure is a particular way of organizing
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}

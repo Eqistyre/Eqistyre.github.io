@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MariaDB/" style="font-size: 10px;">MariaDB</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MariaDB/" style="font-size: 10px;">MariaDB</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,76 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-nginx中文文档笔记（1）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/13/nginx中文文档笔记（1）/" class="article-date">
+  	<time datetime="2016-04-13T07:38:35.000Z" itemprop="datePublished">2016-04-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/13/nginx中文文档笔记（1）/">nginx文档笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是Nginx">什么是Nginx</h3><p>Nginx是一个网页服务器，它能反向代理HTTP、HTTPS、SMTP、POP3、IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。它具有如下的特点：</p>
+<ul>
+<li><p>Nginx是一款面向性能设计的HTTP服务器，相较于Apache、lighttpd具有占用内存少，稳定性高等优势。nginx不采用每客户机一线程的设计模型，而是充分使用异步逻辑，削减了上下文调度开销，所以并发服务能力更强。整体采用模块化设计，有丰富的模块库和第三方模块库，配置灵活。在Linux操作系统下，nginx使用epoll事件模型，得益于此，nginx在Linux操作系统下效率相当高。同时Nginx在OpenBSD或FreeBSD操作系统上采用类似于epoll的高效事件模型kqueue。</p>
+</li>
+<li><p>整体采用模块化设计是nginx的一个重大特点，甚至http服务器核心功能也是一个模块。（nginx的模块是静态的，添加和删除模块都要对nginx进行重新编译，这一点与Apache的动态模块完全不同。</p>
+</li>
+</ul>
+<h5 id="下面我们对linux_epoll事件模型进行一定分析：">下面我们对linux epoll事件模型进行一定分析：</h5><p>epoll是Linux（内核版本2.6及以上支持）下多路复用IO接口select/poll的增强版本。它能<em>显著提高程序在大量并发连接中只有少量活跃的情况下的系统CPU利用率</em>。</p>
+<p>Linux下select 模型和epoll模型区别：</p>
+<p>假设你在大学读书，住的宿舍楼有很多间房间，你的朋友要来找你。 select版宿管大妈就会带着你的朋友挨个房间去找，直到找到你为止。而 epoll版宿管大妈会先记下每位同学的房间号，你的朋友来时，只需告诉你的朋友你住在哪个房间即可，不用亲自带着你的朋友满大楼找人。如果来了 10000个人，都要找自己住这栋楼的同学时， select版和epoll 版宿管大妈，谁的效率更高，不言自明。同理，在高并发服务器中，轮询 I/O是最耗时间的操作之一， select和epoll 的性能谁的性能更高，同样十分明了。</p>
+<h3 id="功能">功能</h3><h5 id="_HTTP基础功能：—">_HTTP基础功能：—</h5><ul>
+<li>处理静态文件，索引文件以及自动索引；</li>
+<li>反向代理加速（无缓存），简单的负载均衡和容错；</li>
+<li>FastCGI，简单的负载均衡和容错；</li>
+</ul>
+<p>…</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-MariaDB笔记（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -799,99 +869,6 @@
         <p class="article-more-link">
           <a  href="/2016/02/29/Exploring-es6(4)/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Computer Networks A Systems Approach(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/29/Computer Networks A Systems Approach(1)/" class="article-date">
-  	<time datetime="2016-02-29T02:40:35.000Z" itemprop="datePublished">2016-02-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/29/Computer Networks A Systems Approach(1)/">Computer Networks A Systems Approach(1)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是计算机网络">什么是计算机网络</h3><p><code>计算机网络是通信技术和计算机技术紧密结合产物</code></p>
-<p>定义: 计算机网络就是互连的、自治的计算机集合。</p>
-<p>通过交换网络互连主机：</p>
-<p>细节组成角度：</p>
-<ul>
-<li>ISP(Internet Service Provider)全球ISP连接到区域ISP，最后继续向下跑。</li>
-<li>通信链路</li>
-<li>分组交换：转发分组</li>
-</ul>
-<h3 id="网络协议">网络协议</h3><ul>
-<li><p>网络协议就是计算机网络中的数据交换必须遵守的规则或约定。</p>
-</li>
-<li><p>协议规定了通信实体之间所交换的消息的格式、意义、顺序以及针对收到信息或发生的事件所采取的“动作”(actions)</p>
-</li>
-</ul>
-<p>协议三要素:</p>
-<ul>
-<li>语法(Syntax)</li>
-<li>语义(Semantics)</li>
-<li>时序(Timing)</li>
-</ul>
-<h3 id="计算机网络结构">计算机网络结构</h3><h6 id="网络边缘">网络边缘</h6><ul>
-<li>主机</li>
-</ul>
-<p>因为它们位于“网络边缘”，可以运行网络应用程序（如：Web，email）</p>
-<ul>
-<li>网络应用</li>
-</ul>
-<p>客户／服务器(client/server)应用模型：</p>
-<p>客户发送请求，接受服务器响应（wev应用，文件传输FTP应用）</p>
-<p>对等(peer-peer, P2P)应用模型：</p>
-<p>无（或不仅依赖）专用服务器、通信在<code>对等</code>实体之间进行(如：Gnutella, BT, Skype, QQ)</p>
-<h6 id="接入网络，物理介质">接入网络，物理介质</h6><ul>
-<li>有线或无线通信链路</li>
-</ul>
-<h6 id="网络核心(核心网络)">网络核心(核心网络)</h6><ul>
-<li>互联的路由器(或分组转发设备)</li>
-<li>网络之网络</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetWork/">NetWork</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
