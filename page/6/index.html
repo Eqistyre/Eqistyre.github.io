@@ -104,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MariaDB/" style="font-size: 10px;">MariaDB</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
+						<a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 18.57px;">C++</a> <a href="/tags/CSS/" style="font-size: 14.29px;">CSS</a> <a href="/tags/Cocos-2dx/" style="font-size: 12.86px;">Cocos-2dx</a> <a href="/tags/Cocos-Js/" style="font-size: 11.43px;">Cocos-Js</a> <a href="/tags/Cocos2d-x/" style="font-size: 11.43px;">Cocos2d-x</a> <a href="/tags/CodeWars/" style="font-size: 11.43px;">CodeWars</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MariaDB/" style="font-size: 10px;">MariaDB</a> <a href="/tags/NetWork/" style="font-size: 10px;">NetWork</a> <a href="/tags/Node-js/" style="font-size: 17.14px;">Node.js</a> <a href="/tags/Objective-C/" style="font-size: 11.43px;">Objective-C</a> <a href="/tags/SICP/" style="font-size: 10px;">SICP</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 11.43px;">Swift</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/javaScript/" style="font-size: 11.43px;">javaScript</a> <a href="/tags/mongoDB/" style="font-size: 10px;">mongoDB</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/react/" style="font-size: 11.43px;">react</a> <a href="/tags/人生/" style="font-size: 15.71px;">人生</a> <a href="/tags/开发日志/" style="font-size: 12.86px;">开发日志</a> <a href="/tags/数据库/" style="font-size: 11.43px;">数据库</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络基础知识/" style="font-size: 11.43px;">网络基础知识</a>
 					</div>
 				</section>
 				
@@ -167,6 +167,75 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-事件驱动events" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/10/事件驱动events/" class="article-date">
+  	<time datetime="2015-11-10T06:38:35.000Z" itemprop="datePublished">2015-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/10/事件驱动events/">Node.js事件驱动events</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事件驱动events">事件驱动events</h3><p>events是Node.js最重要的模块，没有“之一”，原因是Node.js本身架构就是事件式的，而且它提供了<strong><em>唯一的接口</em></strong>，所以被称为Node.js事件编程的基石。events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有的模块依赖。</p>
+<h5 id="事件发射器">事件发射器</h5><p>events模块只提供了一个对象：evnts.EventEmitter。EventEMitter的核心是事件发射器与实践监听器功能的封装。EventEmitter的每一个事件由一个事件名和若干个参数组成，事件名是一个字符串，通常表达一定的语义。对于每个事件EventEmitter支持若干个事件监听器。当事件发射的时候，注册到这个事件的事件监听器被依次调用，事件参数作为回调函数参数传递。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener1'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'listener2'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.emit(<span class="string">'someEvent'</span>, <span class="string">'byvoid'</span>, <span class="number">1999</span>);</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">listener1</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br><span class="line"><span class="label">listener2</span> <span class="keyword">byvoid </span><span class="number">1999</span></span><br></pre></td></tr></table></figure>
+<p>以上例子中，emitter为事件someEvent注册了两个事件监听器，然后发射了someEvent事件。运行结果中可以看到两个事件监听器回调函数被先后调用。</p>
+<p>这就是EventEmitter最简单的用法。接下来我们介绍一下EventEmitter常用的API。</p>
+<p><li>EventEmitter.on(event, listener)为指定    事件注册一个监听器，接受一个字符串event和一个回调函数listener。</p>
+<p><li>EventEmitter.emit(event, [arg1], [arg2], […])发射event事件，传递若干可选参数到事件监听器的参数表。</p>
+<p><li>EventEmitter.once(event, listener) 为指定事件注册一个<strong><em>单次</em></strong>监听器，即监听器最多只会触发一次，出发后立刻解除该监听器。</p>
+<p><li>EventEmitter.removeListener(event, Listener)移除指定事件的某个监听器，listener必须是该事件已经注册过的监听器。</p>
+<p><li>EventEmitter.removeAllListeners([event])移除所有的事件监听器。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/10/事件驱动events/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-面向对象编程的基础知识（下）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -477,6 +546,62 @@
 
 
   
+    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/二十年/" class="article-date">
+  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
+<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人生/">人生</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-声明与变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -529,62 +654,6 @@
         <p class="article-more-link">
           <a  href="/2015/10/31/声明与变量/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-二十年" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/31/二十年/" class="article-date">
-  	<time datetime="2015-10-30T17:38:35.000Z" itemprop="datePublished">2015-10-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/二十年/">人间二十年，花鸟风月</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="二十年">二十年</h3><p>不知不觉中，一五年又到了岁末的时候，自己也已经在大学里呆了一年半的时间，现在想想时间真是过得飞快。一年里也发生了许许多多的事情，回想起来，也不由自主的唏嘘一番。最近自己的压力也有一些大吧，自己有很多的事情要去做，留给自己的时间已经不多了。自己要把握这最后的时光了，明年的这个时候自己就要去找人生中最重要的一份实习了。</p>
-<h3 id="花鸟风月">花鸟风月</h3><p>人生二十年，不过花鸟风月，自己从小到大并没有做过什么特殊的事情，就这样随波逐流的活了下去，平凡却又无趣。现在也是自己去做些什么的时候了，自己得好好的去做事情。加油吧，自己的IOS还有好多要去看，C++也是一样的。希望下一个二十年能够更加的充实吧</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人生/">人生</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
@@ -714,67 +783,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/28/函数探幽(下)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-函数探幽(上)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/27/函数探幽(上)/" class="article-date">
-  	<time datetime="2015-10-27T08:38:35.000Z" itemprop="datePublished">2015-10-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/27/函数探幽(上)/">c++学习知识点纪录（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="&lt;函数探幽(上)&gt;">&lt;函数探幽(上)&gt;</h4><h3 id="c++内联函数">c++内联函数</br></h3><p>内联函数是c++为了提高程序运行速度所做的一项改进。常规函数与内联函数之间的主要区别不在于编写方式，而在于c++编译起如何将它们组合到程序中。</br><br>c++内联函数提供了另一种选择。内联函数的编译代码与其它程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。</br><br>应当选择地使用内联函数。如果执行代码的时间比处理函数调用机制的时间长，则节省的时间将只占整个过程的很小一部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。另一方面，由于这个过程相当快，因此尽管节省了该过程的大部分时间，但节省的时间的绝对值并不大。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">square</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;<span class="keyword">return</span> x * x;&#125;<span class="comment">//这个地方就是内联函数，inline！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">	<span class="keyword">double</span> a, b;</span><br><span class="line">	<span class="keyword">double</span> c = <span class="number">13.0</span>;</span><br><span class="line"></span><br><span class="line">	a = square(<span class="number">5.0</span>);</span><br><span class="line">	b = square(<span class="number">4.5</span> + <span class="number">7.5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a &lt;&lt; <span class="string">", b = "</span> &lt;&lt; b &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Now c = "</span> &lt;&lt; c &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出表明，内联函数与常规函数一样，也是<strong>按值传递</strong>参数的。</br></p>
-<h5 id="内联与宏">内联与宏</h5><p>inline工具是c++新增的特性。c语言使用预处理器语句#defin来提供宏——内联代码的原始实现。我们要指出，如果使用c语言的宏执行了类似函数的功能，应考虑将它们转化为c++内联函数。</br><br>c++新增了一种复合类型——引用变量。引用变量是已定义的变量的别名（另一个名称）。引用变量的主要用途是用作函数的形参。<strong>通过将引用变量用作参数，函数将使用原始数据，而不是其副本。</strong></br><br>创建引用变量,c和c++使用&amp;符号来指示变量的地址。c++给&amp;符号赋予了另一个含义，将其用开声明引用。例如，要将rodents作为rats变量的别名，可以这样做：<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/27/函数探幽(上)/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
