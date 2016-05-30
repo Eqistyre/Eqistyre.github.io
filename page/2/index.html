@@ -735,7 +735,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言">前言</h3><p>我们院还是会开java课的呀。郁闷。。明明Java要被C++简单多了。。</p>
+        <h3 id="前言">前言</h3><p>我们院还是会开java课的呀。郁闷。。明明Java要比C++简单多了。。</p>
 <h3 id="一些看到比较有感觉的特点">一些看到比较有感觉的特点</h3><p>Java枚举:</p>
 <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FreshJuice</span> &#123;</span></span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">FreshJuiceSize</span>&#123; <span class="title">SMALL</span>, <span class="title">MEDUIM</span>, <span class="title">LARGE</span> &#125;</span></span><br><span class="line">   <span class="constant">FreshJuiceSize</span> size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">FreshJuiceTest</span> &#123;</span></span><br><span class="line">   public static void main(<span class="constant">String</span> args[])&#123;</span><br><span class="line">      <span class="constant">FreshJuice</span> juice = new <span class="constant">FreshJuice</span>();</span><br><span class="line">      juice.size = <span class="constant">FreshJuice</span>. <span class="constant">FreshJuiceSize</span>.<span class="constant">MEDUIM</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接口:</p>
@@ -754,6 +754,20 @@
 <p><li>接口不能包含成员变量，除了static和final变量。<br></li></p>
 <p><li>接口不是被类继承了，而是要被类实现。<br></li></p>
 <p><li>接口支持多重继承。<br></li></p>
+<h3 id="小问题们">小问题们</h3><ul>
+<li><p>用最有效率的方法算出 2 乘以 8 等於几?<br>2 &lt;&lt; 3，因为将一个数左移 n 位，就相当于乘以了 2 的 n 次方，那么，一个数乘以 8 只要将其左移 3 位即可，而位运算 cpu 直接支持的，效率最高，所以，2 乘以 8 等於几的最效率的方法是 2 &lt;&lt; 3 。</p>
+</li>
+<li><p>下面程序的运行结果是（）</p>
+<pre><code><span class="keyword">String </span><span class="keyword">str1 </span>= <span class="string">"hello"</span><span class="comment">;</span>
+<span class="keyword">String </span><span class="keyword">str2 </span>= <span class="string">"he"</span> + new <span class="keyword">String("llo");
+</span><span class="label">System.err.println</span>(<span class="keyword">str1 </span>== <span class="keyword">str2);</span>
+</code></pre><p>答案：false</p>
+</li>
+</ul>
+<p>解析：因为 str2 中的 llo 是新申请的内存块，而 == 判断的是对象的地址而非值，所以不一样。如果是String str2 = str1，那么就是 true 了。</p>
+<ul>
+<li>下面代码的运行结果为?</li>
+</ul>
 <h3 id="数据库">数据库</h3><p><li>数据（Data）<br></li></p>
 <p><li>数据库（Database）<br></li></p>
 <p><li>数据库管理系统（DBMS）<br></li></p>
